@@ -16,7 +16,8 @@
 		<!-- in.freshstart.common.model mappings -->
 
 		<mapping resource="com/rise/common/model/PersonName.hbm.xml" />
-		<!-- <mapping resource="com.rise.common.model.PersonName.hbm.xml"/> -->
-
+		<mapping resource="com/rise/common/model/ContactInformation.hbm.xml" />
+		<mapping resource="com/rise/model/TrainingProvider.hbm.xml" />
+		<mapping resource="com/rise/model/TrainingProviderEmpanelment.hbm.xml" />
 	</session-factory>
 </hibernate-configuration>

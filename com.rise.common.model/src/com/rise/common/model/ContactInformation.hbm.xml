@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.rise.common.model.ContactInformation" table="CONTACT_INFORMATION">
+		<id name="id" column="CONTACT_INFORMATION_ID">
+			<generator class="assigned"></generator>
+		</id>
+
+		<property name="dateCreated" column="DATE_CREATED" />
+		<property name="dateModified" column="DATE_MODIFIED" />
+		<property name="createdBy" column="CREATED_BY" />
+		<property name="modifiedBy" column="MODIFIED_BY" />
+		<property name="recordStatus" column="RECORD_STATUS" />
+
+		<property name="streetAddress" column="STREET_ADDRESS" />
+		<property name="city" column="CITY" />
+		<property name="state" column="STATE" />
+		<property name="postalCode" column="POSTAL_CODE" />
+		<property name="country" column="COUNTRY" />
+		<property name="email" column="EMAIL" />
+		<property name="alternativeEmail" column="ALTERNATIVE_EMAIL" />
+		<property name="phone" column="PHONE" />
+		<property name="alternativePhone" column="ALTERNATIVE_PHONE" />
+		<property name="website" column="WEBSITE" />
+	</class>
+</hibernate-mapping>
