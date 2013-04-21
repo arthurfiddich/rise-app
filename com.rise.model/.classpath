@@ -4,5 +4,16 @@
 	<classpathentry kind="src" path="test"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
 	<classpathentry kind="src" path="/com.rise.common.model"/>
+	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/antlr/antlr-4.0-complete.jar"/>
+	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/apache/commons/collections/commons-collections-3.2.1.jar"/>
+	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/hibernate/provided/hibernate-jpa-2.0-api-1.0.1.Final.jar" sourcepath="/com.rise.extlib/src-jars/hibernate/hibernate-jpa-2.0-api-1.0.1.Final-sources.jar"/>
+	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/hibernate/provided/jta-1.1.jar"/>
+	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/hibernate/required/hibernate-commons-annotations-4.0.1.Final.jar"/>
+	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/hibernate/required/hibernate-core-4.1.9.Final.jar" sourcepath="/com.rise.extlib/src-jars/hibernate/hibernate-core-4.1.9.Final-sources.jar"/>
+	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/hibernate/required/javassist-3.17.1-GA.jar"/>
+	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/hibernate/required/jboss-logging-3.1.0.GA.jar"/>
+	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/hibernate/required/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/mysql/mysql-connector-java-5.0.8-bin.jar"/>
+	<classpathentry kind="lib" path="/com.rise.common.model/etc"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
