@@ -1,6 +1,6 @@
 package com.rise.common.model;
 
-public class Address extends BaseModel {
+public class ContactInformation extends BaseModel {
 
 	private String streetAddress;
 	private String city;
@@ -8,7 +8,7 @@ public class Address extends BaseModel {
 	private String postalCode;
 	private String country;
 
-	public Address() {
+	public ContactInformation() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
