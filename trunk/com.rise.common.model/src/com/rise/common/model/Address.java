@@ -7,8 +7,6 @@ public class Address extends BaseModel {
 	private String state;
 	private String postalCode;
 	private String country;
-	private Descriptor descriptor;
-	private ContactInformation contactInformation;
 
 	public Address() {
 		super();
@@ -53,21 +51,5 @@ public class Address extends BaseModel {
 
 	public void setCountry(String argCountry) {
 		this.country = argCountry;
-	}
-
-	public Descriptor getDescriptor() {
-		return this.descriptor;
-	}
-
-	public void setDescriptor(Descriptor argDescriptor) {
-		this.descriptor = argDescriptor;
-	}
-
-	public ContactInformation getContactInformation() {
-		return this.contactInformation;
-	}
-
-	public void setContactInformation(ContactInformation argContactInformation) {
-		this.contactInformation = argContactInformation;
 	}
 }
