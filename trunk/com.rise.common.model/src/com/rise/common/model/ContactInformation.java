@@ -7,6 +7,11 @@ public class ContactInformation extends BaseModel {
 	private String state;
 	private String postalCode;
 	private String country;
+	private String email;
+	private String alternativeEmail;
+	private String phone;
+	private String alternativePhone;
+	private String website;
 
 	public ContactInformation() {
 		super();
@@ -52,4 +57,45 @@ public class ContactInformation extends BaseModel {
 	public void setCountry(String argCountry) {
 		this.country = argCountry;
 	}
+
+	public String getEmail() {
+		return this.email;
+	}
+
+	public void setEmail(String argEmail) {
+		this.email = argEmail;
+	}
+
+	public String getAlternativeEmail() {
+		return this.alternativeEmail;
+	}
+
+	public void setAlternativeEmail(String argAlternativeEmail) {
+		this.alternativeEmail = argAlternativeEmail;
+	}
+
+	public String getPhone() {
+		return this.phone;
+	}
+
+	public void setPhone(String argPhone) {
+		this.phone = argPhone;
+	}
+
+	public String getAlternativePhone() {
+		return this.alternativePhone;
+	}
+
+	public void setAlternativePhone(String argAlternativePhone) {
+		this.alternativePhone = argAlternativePhone;
+	}
+
+	public String getWebsite() {
+		return this.website;
+	}
+
+	public void setWebsite(String argWebsite) {
+		this.website = argWebsite;
+	}
+
 }
