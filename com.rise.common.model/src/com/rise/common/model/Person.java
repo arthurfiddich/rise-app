@@ -9,7 +9,6 @@ public class Person extends BaseModel {
 	// This should be computed at runtime.
 	private int age;
 	private String aadhaarNumber;
-	private ContactInformation contactInformation;
 	private Passport passport;
 	
 }
