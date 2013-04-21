@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.rise.model.TrainingProvider" table="TRAINING_PROVIDER">
+		<id name="id" column="TRAINING_PROVIDER_ID">
+			<generator class="assigned" />
+		</id>
+
+		<property name="dateCreated" column="DATE_CREATED" />
+		<property name="dateModified" column="DATE_MODIFIED" />
+		<property name="createdBy" column="CREATED_BY" />
+		<property name="modifiedBy" column="MODIFIED_BY" />
+		<property name="recordStatus" column="RECORD_STATUS" />
+
+		<property name="name" column="NAME" />
+		<property name="contactPersonName" column="CONTACT_PERSON_NAME" />
+
+		<many-to-one name="contactInformation" column="CONTACT_INFORMATION_ID"
+			unique="true" class="com.rise.common.model.ContactInformation"
+			not-null="true" />
+
+		<set name="trainingProviderEmpanelments" cascade="all" table="TRAINING_PROVIDER_TRAINING_PROVIDER_EMPANELMENT">
+			<key column="TRAINING_PROVIDER_ID" />
+			<many-to-many class="com.rise.model.TrainingProviderEmpanelment"
+				column="TRAINING_PROVIDER_EMPANELMENT_ID" />
+		</set>
+	</class>
+</hibernate-mapping>
