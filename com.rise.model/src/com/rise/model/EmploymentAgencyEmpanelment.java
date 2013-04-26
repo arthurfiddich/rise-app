@@ -5,7 +5,7 @@ import java.util.Set;
 
 import com.rise.common.model.BaseModel;
 
-public class TrainingProviderEmpanelment extends BaseModel {
+public class EmploymentAgencyEmpanelment extends BaseModel {
 
 	private Date dateRequested;
 	private Date dateApproved;
@@ -13,9 +13,9 @@ public class TrainingProviderEmpanelment extends BaseModel {
 	private Date toDate;
 
 	private Set<Program> programs;
-	private Set<TrainingProvider> trainingProviders;
+	private Set<EmploymentAgency> employmentAgencies;
 
-	public TrainingProviderEmpanelment() {
+	public EmploymentAgencyEmpanelment() {
 		super();
 	}
 
@@ -59,12 +59,13 @@ public class TrainingProviderEmpanelment extends BaseModel {
 		this.programs = argPrograms;
 	}
 
-	public Set<TrainingProvider> getTrainingProviders() {
-		return this.trainingProviders;
+	public Set<EmploymentAgency> getEmploymentAgencies() {
+		return this.employmentAgencies;
 	}
 
-	public void setTrainingProviders(Set<TrainingProvider> argTrainingProviders) {
-		this.trainingProviders = argTrainingProviders;
+	public void setEmploymentAgencies(
+			Set<EmploymentAgency> argEmploymentAgencies) {
+		this.employmentAgencies = argEmploymentAgencies;
 	}
 
 }

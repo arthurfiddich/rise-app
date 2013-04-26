@@ -4,8 +4,8 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="com.rise.model.TrainingProvider" table="TRAINING_PROVIDER">
-		<id name="id" column="TRAINING_PROVIDER_ID">
+	<class name="com.rise.model.State" table="STATE">
+		<id name="id" column="STATE_ID">
 			<generator class="assigned" />
 		</id>
 
@@ -16,22 +16,16 @@
 		<property name="recordStatus" column="RECORD_STATUS" />
 
 		<property name="name" column="NAME" />
-		<property name="contactPersonName" column="CONTACT_PERSON_NAME" />
+		<property name="code" column="CODE" />
+		<property name="capitalCity" column="CAPITAL_CITY" />
 
 		<many-to-one name="contactInformation" column="CONTACT_INFORMATION_ID"
 			unique="true" class="com.rise.common.model.ContactInformation"
 			not-null="true" />
 
-		<set name="trainingProviderEmpanelments" cascade="all"
-			table="TRAINING_PROVIDER_TRAINING_PROVIDER_EMPANELMENT">
-			<key column="TRAINING_PROVIDER_ID" />
-			<many-to-many class="com.rise.model.TrainingProviderEmpanelment"
-				column="TRAINING_PROVIDER_EMPANELMENT_ID" />
-		</set>
-
-		<set name="jobPostings" cascade="all" table="JOB_POSTING">
-			<key column="TRAINING_PROVIDER_ID" />
-			<many-to-many class="com.rise.model.JobPosting" column="JOB_POSTING_ID" />
+		<set name="ministries" cascade="all" table="STATE_MINISTRY">
+			<key column="STATE_ID" />
+			<many-to-many class="com.rise.model.Ministry" column="MINISTRY_ID" />
 		</set>
 	</class>
 </hibernate-mapping>

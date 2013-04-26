@@ -4,9 +4,9 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="com.rise.model.TrainingProviderEmpanelment" table="TRAINING_PROVIDER_EMPANELMENT">
-		<id name="id" column="TRAINING_PROVIDER_EMPANELMENT_ID">
-			<generator class="assigned"></generator>
+	<class name="com.rise.model.EmploymentAgencyEmpanelment" table="EMPLOYMENT_AGENCY_EMPANELMENT">
+		<id name="id" column="EMPLOYMENT_AGENCY_EMPANELMENT_ID">
+			<generator class="assigned" />
 		</id>
 
 		<property name="dateCreated" column="DATE_CREATED" />
@@ -20,16 +20,15 @@
 		<property name="fromDate" column="FROM_DATE" />
 		<property name="toDate" column="TO_DATE" />
 
-		<set name="trainingProviders" cascade="all"
-			table="TRAINING_PROVIDER_TRAINING_PROVIDER_EMPANELMENT">
-			<key column="TRAINING_PROVIDER_EMPANELMENT_ID" />
-			<many-to-many class="com.rise.model.TrainingProvider"
-				column="TRAINING_PROVIDER_ID" />
+		<set name="programs" table="PROGRAM" cascade="all">
+			<key column="EMPLOYMENT_AGENCY_EMPANELMENT_ID" />
+			<one-to-many class="com.rise.model.Program" />
 		</set>
 
-		<set name="programs" cascade="all" table="PROGRAM">
-			<key column="TRAINING_PROVIDER_EMPANELMENT_ID" />
-			<one-to-many class="com.rise.model.Program" />
+		<set name="employmentAgencies" table="EMPLOYMENT_AGENCY" cascade="all">
+			<key column="EMPLOYMENT_AGENCY_EMPANELMENT_ID" />
+			<many-to-many class="com.rise.model.EmploymentAgency"
+				column="EMPLOYMENT_AGENCY_ID" />
 		</set>
 	</class>
 </hibernate-mapping>

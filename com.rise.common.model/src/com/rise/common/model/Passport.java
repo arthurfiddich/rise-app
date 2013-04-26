@@ -11,6 +11,8 @@ public class Passport extends BaseModel {
 	private Date expiryDate;
 	private boolean emigrationCheckRequired;
 
+	private Person person;
+
 	public Passport() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -62,6 +64,14 @@ public class Passport extends BaseModel {
 
 	public void setEmigrationCheckRequired(boolean argEmigrationCheckRequired) {
 		this.emigrationCheckRequired = argEmigrationCheckRequired;
+	}
+
+	public Person getPerson() {
+		return this.person;
+	}
+
+	public void setPerson(Person argPerson) {
+		this.person = argPerson;
 	}
 
 }

@@ -10,7 +10,9 @@ public class DriversLicense extends BaseModel {
 	private String issuedPlace;
 	private Date issuedDate;
 	private Date expiryDate;
+
 	private DriversLicenseVehicleType driversLicenseVehicleType;
+	private Person person;
 
 	public DriversLicense() {
 		super();
@@ -71,6 +73,14 @@ public class DriversLicense extends BaseModel {
 	public void setDriversLicenseVehicleType(
 			DriversLicenseVehicleType argDriversLicenseVehicleType) {
 		this.driversLicenseVehicleType = argDriversLicenseVehicleType;
+	}
+
+	public Person getPerson() {
+		return this.person;
+	}
+
+	public void setPerson(Person argPerson) {
+		this.person = argPerson;
 	}
 
 }
