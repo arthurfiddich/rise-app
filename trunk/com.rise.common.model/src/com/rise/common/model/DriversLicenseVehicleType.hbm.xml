@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.rise.model.DriversLicenseVehicleType" table="DRIVERS_LICENSE_VEHICLE_TYPE">
+		<id name="id" column="DRIVERS_LICENSE_VEHICLE_TYPE_ID">
+			<generator class="assigned" />
+		</id>
+
+		<property name="dateCreated" column="DATE_CREATED" />
+		<property name="dateModified" column="DATE_MODIFIED" />
+		<property name="createdBy" column="CREATED_BY" />
+		<property name="modifiedBy" column="MODIFIED_BY" />
+		<property name="recordStatus" column="RECORD_STATUS" />
+
+		<property name="name" column="NAME" />
+		<property name="code" column="CODE" />
+		<property name="description" column="DESCRIPTION" />
+
+		<set name="driversLicenses" table="DRIVERS_LICENSE">
+			<key column="DRIVERS_LICENSE_VEHICLE_TYPE_ID" />
+			<one-to-many class="com.rise.model.DriversLicense" />
+		</set>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.rise.common.model.Passport" table="PASSPORT">
+		<id name="id" column="PASSPORT_ID">
+			<generator class="assigned"></generator>
+		</id>
+
+		<property name="dateCreated" column="DATE_CREATED" />
+		<property name="dateModified" column="DATE_MODIFIED" />
+		<property name="createdBy" column="CREATED_BY" />
+		<property name="modifiedBy" column="MODIFIED_BY" />
+		<property name="recordStatus" column="RECORD_STATUS" />
+
+		<property name="passportNumber" column="PASSPORT_NUMBER" />
+		<property name="issuedBy" column="ISSUED_BY" />
+		<property name="issuedPlace" column="ISSUED_PLACE" />
+		<property name="issuedDate" column="ISSUED_DATE" />
+		<property name="expiryDate" column="EXPIRY_DATE" />
+		<property name="emigrationCheckRequired" column="EMIGRATION_CHECK_REQUIRED" />
+
+		<many-to-one name="person" column="PERSON_ID" not-null="true"
+			unique="true" class="com.rise.common.model.Person" />
+	</class>
+</hibernate-mapping>

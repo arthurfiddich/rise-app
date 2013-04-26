@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.rise.model.Publication" table="PUBLICATION">
+		<id name="id" column="PUBLICATION_ID">
+			<generator class="assigned" />
+		</id>
+
+		<property name="dateCreated" column="DATE_CREATED" />
+		<property name="dateModified" column="DATE_MODIFIED" />
+		<property name="createdBy" column="CREATED_BY" />
+		<property name="modifiedBy" column="MODIFIED_BY" />
+		<property name="recordStatus" column="RECORD_STATUS" />
+
+		<property name="publishedBy" column="PUBLISHED_BY" />
+		<property name="publishedDate" column="PUBLISHED_DATE" />
+		<property name="description" column="DESCRIPTION" />
+
+		<many-to-one name="person" column="PERSON_ID"
+			class="com.rise.common.model.Person" cascade="all" not-null="true" />
+	</class>
+</hibernate-mapping>

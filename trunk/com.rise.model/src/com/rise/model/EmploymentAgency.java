@@ -5,17 +5,16 @@ import java.util.Set;
 import com.rise.common.model.BaseModel;
 import com.rise.common.model.ContactInformation;
 
-public class Program extends BaseModel {
+public class EmploymentAgency extends BaseModel {
 
 	private String name;
-	private String inchargeOfficer;
+	private String contactPersonName;
 
 	private ContactInformation contactInformation;
-	private Set<TrainingProviderEmpanelment> trainingProviderEmpanelments;
+	private Set<JobPosting> jobPostings;
 	private Set<EmploymentAgencyEmpanelment> employmentAgencyEmpanelments;
-	private Set<Department> departments;
 
-	public Program() {
+	public EmploymentAgency() {
 		super();
 	}
 
@@ -27,12 +26,12 @@ public class Program extends BaseModel {
 		this.name = argName;
 	}
 
-	public String getInchargeOfficer() {
-		return this.inchargeOfficer;
+	public String getContactPersonName() {
+		return this.contactPersonName;
 	}
 
-	public void setInchargeOfficer(String argInchargeOfficer) {
-		this.inchargeOfficer = argInchargeOfficer;
+	public void setContactPersonName(String argContactPersonName) {
+		this.contactPersonName = argContactPersonName;
 	}
 
 	public ContactInformation getContactInformation() {
@@ -43,13 +42,12 @@ public class Program extends BaseModel {
 		this.contactInformation = argContactInformation;
 	}
 
-	public Set<TrainingProviderEmpanelment> getTrainingProviderEmpanelments() {
-		return this.trainingProviderEmpanelments;
+	public Set<JobPosting> getJobPostings() {
+		return this.jobPostings;
 	}
 
-	public void setTrainingProviderEmpanelments(
-			Set<TrainingProviderEmpanelment> argTrainingProviderEmpanelments) {
-		this.trainingProviderEmpanelments = argTrainingProviderEmpanelments;
+	public void setJobPostings(Set<JobPosting> argJobPostings) {
+		this.jobPostings = argJobPostings;
 	}
 
 	public Set<EmploymentAgencyEmpanelment> getEmploymentAgencyEmpanelments() {
@@ -59,14 +57,6 @@ public class Program extends BaseModel {
 	public void setEmploymentAgencyEmpanelments(
 			Set<EmploymentAgencyEmpanelment> argEmploymentAgencyEmpanelments) {
 		this.employmentAgencyEmpanelments = argEmploymentAgencyEmpanelments;
-	}
-
-	public Set<Department> getDepartments() {
-		return this.departments;
-	}
-
-	public void setDepartments(Set<Department> argDepartments) {
-		this.departments = argDepartments;
 	}
 
 }

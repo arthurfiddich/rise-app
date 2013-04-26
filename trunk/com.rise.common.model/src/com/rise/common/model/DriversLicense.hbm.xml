@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.rise.model.DriversLicense" table="DRIVERS_LICENSE">
+		<id name="id" column="DRIVERS_LICENSE_ID">
+			<generator class="assigned" />
+		</id>
+
+		<property name="dateCreated" column="DATE_CREATED" />
+		<property name="dateModified" column="DATE_MODIFIED" />
+		<property name="createdBy" column="CREATED_BY" />
+		<property name="modifiedBy" column="MODIFIED_BY" />
+		<property name="recordStatus" column="RECORD_STATUS" />
+
+		<property name="driversLicenseNumber" column="DRIVERS_LICENSE_NUMBER" />
+		<property name="issuedBy" column="ISSUED_BY" />
+		<property name="issuedState" column="ISSUED_STATE" />
+		<property name="issuedPlace" column="ISSUED_PLACE" />
+		<property name="issuedDate" column="ISSUED_DATE" />
+		<property name="expiryDate" column="EXPIRY_DATE" />
+
+		<many-to-one name="driversLicenseVehicleType" column="DRIVERS_LICENSE_VEHICLE_TYPE_ID"
+			unique="true" not-null="true"
+			class="com.rise.common.model.DriversLicenseVehicleType" />
+
+		<many-to-one name="person" column="PERSON_ID" not-null="true"
+			unique="true" class="com.rise.common.model.Person" />
+
+	</class>
+</hibernate-mapping>

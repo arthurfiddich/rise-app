@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.rise.model.EducationQualification" table="EDUCATION_QUALIFICATION">
+		<id name="id" column="EDUCATION_QUALIFICATION_ID">
+			<generator class="assigned" />
+		</id>
+
+		<property name="dateCreated" column="DATE_CREATED" />
+		<property name="dateModified" column="DATE_MODIFIED" />
+		<property name="createdBy" column="CREATED_BY" />
+		<property name="modifiedBy" column="MODIFIED_BY" />
+		<property name="recordStatus" column="RECORD_STATUS" />
+
+		<property name="name" column="NAME" />
+		<property name="university" column="UNIVERSITY" />
+		<property name="year" column="YEAR" />
+		<property name="month" column="MONTH" />
+		<property name="percentage" column="PERCENTAGE" />
+		<property name="gpa" column="GPA" />
+
+		<set name="persons" table="PERSON_EDUCATION_QUALIFICATION">
+			<key column="EDUCATION_QUALIFICATION_ID" />
+			<many-to-many class="com.rise.common.model.Person"
+				column="PERSON_ID" />
+		</set>
+	</class>
+</hibernate-mapping>

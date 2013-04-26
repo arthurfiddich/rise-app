@@ -12,8 +12,7 @@ public class TrainingProvider extends BaseModel {
 
 	private ContactInformation contactInformation;
 	private Set<TrainingProviderEmpanelment> trainingProviderEmpanelments;
-
-	// private Set<JobPosting> jobPostings;
+	private Set<JobPosting> jobPostings;
 
 	public TrainingProvider() {
 		super();
@@ -52,12 +51,12 @@ public class TrainingProvider extends BaseModel {
 		this.trainingProviderEmpanelments = argTrainingProviderEmpanelments;
 	}
 
-	// public Set<JobPosting> getJobPostings() {
-	// return this.jobPostings;
-	// }
-	//
-	// public void setJobPostings(Set<JobPosting> argJobPostings) {
-	// this.jobPostings = argJobPostings;
-	// }
+	public Set<JobPosting> getJobPostings() {
+		return this.jobPostings;
+	}
+
+	public void setJobPostings(Set<JobPosting> argJobPostings) {
+		this.jobPostings = argJobPostings;
+	}
 
 }
