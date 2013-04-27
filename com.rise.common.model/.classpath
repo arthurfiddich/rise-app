@@ -14,5 +14,6 @@
 	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/hibernate/provided/hibernate-jpa-2.0-api-1.0.1.Final.jar" sourcepath="/com.rise.extlib/src-jars/hibernate/hibernate-jpa-2.0-api-1.0.1.Final-sources.jar"/>
 	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/mysql/mysql-connector-java-5.0.8-bin.jar"/>
 	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/apache/tiles/lib/optional/javassist-3.7.ga.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

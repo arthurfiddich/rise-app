@@ -2,7 +2,7 @@ package com.rise.common.model;
 
 import java.util.Date;
 
-public class BaseModel {
+public class BaseModel implements Model {
 
 	private Integer id;
 	private Integer createdBy;
@@ -15,42 +15,52 @@ public class BaseModel {
 		super();
 	}
 
+	@Override
 	public Integer getId() {
 		return this.id;
 	}
 
+	@Override
 	public void setId(Integer argId) {
 		this.id = argId;
 	}
 
+	@Override
 	public Integer getCreatedBy() {
 		return this.createdBy;
 	}
 
+	@Override
 	public void setCreatedBy(Integer argCreatedBy) {
 		this.createdBy = argCreatedBy;
 	}
 
+	@Override
 	public Integer getModifiedBy() {
 		return this.modifiedBy;
 	}
 
+	@Override
 	public void setModifiedBy(Integer argModifiedBy) {
 		this.modifiedBy = argModifiedBy;
 	}
 
+	@Override
 	public Date getDateCreated() {
 		return this.dateCreated;
 	}
 
+	@Override
 	public void setDateCreated(Date argDateCreated) {
 		this.dateCreated = argDateCreated;
 	}
 
+	@Override
 	public Date getDateModified() {
 		return this.dateModified;
 	}
 
+	@Override
 	public void setDateModified(Date argDateModified) {
 		this.dateModified = argDateModified;
 	}
