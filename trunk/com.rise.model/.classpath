@@ -15,5 +15,6 @@
 	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/hibernate/required/dom4j-1.6.1.jar"/>
 	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/mysql/mysql-connector-java-5.0.8-bin.jar"/>
 	<classpathentry kind="lib" path="/com.rise.common.model/etc"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
