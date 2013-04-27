@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="com.rise.webapp">
+        <wb-resource deploy-path="/" source-path="/WebContent"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <dependent-module archiveName="com.rise.dao.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/com.rise.dao/com.rise.dao">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="com.rise.model.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/com.rise.model/com.rise.model">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="com.rise.common.util.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/com.rise.common.util/com.rise.common.util">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="com.rise.common.model.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/com.rise.common.model/com.rise.common.model">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="java-output-path" value="/com.rise.webapp/build/classes"/>
+        <property name="context-root" value="rise"/>
+    </wb-module>
+</project-modules>
