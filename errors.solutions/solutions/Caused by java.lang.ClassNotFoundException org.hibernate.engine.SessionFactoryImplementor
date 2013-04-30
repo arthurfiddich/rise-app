@@ -1,0 +1,27 @@
+Try using the org.springframework.orm.hibernate4.HibernateTransactionManager
+
+    <bean id="transactionManager"
+        class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    
+Before:
+-------
+<tx:annotation-driven />
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+</bean>
+
+After:
+------
+<tx:annotation-driven />
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+</bean>
+
+StackOverflow Link:
+-------------------
+http://stackoverflow.com/questions/9908452/java-lang-classnotfoundexception-org-hibernate-engine-sessionfactoryimplementor

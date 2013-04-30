@@ -1,0 +1,35 @@
+Did you try to set a request attribute in the GET handler with name user and value some object that includes field userName? Like this:
+
+@Controller
+public class UserController {
+
+    @RequestMapping(value = "/createuser.do", method = RequestMethod.GET)
+    public void create(ModelMap mm) {
+        mm.addAttribute("user", new UserFormObject());
+    }
+
+    @RequestMapping(value = "/createuser.do", method = RequestMethod.POST)
+    public void create(@ModelAttribute("user") User user, BindingResult result) {
+        System.out.print("user name: "+user.getUserName());
+    }
+}
+In your JSP you need to specify method=post for your form:form element, the default method is GET, which doesn't match your handler.
+
+In PersonNameController.java --> 
+
+@RequestMapping("/list")
+	public String listPersonNames(Model argModel) {
+		List<com.rise.common.model.Model> models = personNameDao.findAll();
+//		argModel.addAttribute("personName", new PersonName());
+		argModel.addAttribute("personNames", models);
+		return "personName";
+	}
+	
+You need to enable the commented line in the method listPersonNames(Model argModel).
+@RequestMapping("/list")
+	public String listPersonNames(Model argModel) {
+		List<com.rise.common.model.Model> models = personNameDao.findAll();
+		argModel.addAttribute("personName", new PersonName());
+		argModel.addAttribute("personNames", models);
+		return "personName";
+	}
