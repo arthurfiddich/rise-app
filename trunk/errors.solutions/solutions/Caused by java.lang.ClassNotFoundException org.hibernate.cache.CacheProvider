@@ -1,0 +1,20 @@
+Change your AnnotationSessionFactoryBean to org.springframework.orm.hibernate4.LocalSessionFactoryBean (Hibernate 4) and you'll be good to go. 
+The AnnotationSessionFactoryBean was replaced with the LocalSessionFactoryBean as it does class path scanning now.
+
+Just change the SessionFactory creation bean class
+
+Before:
+-------
+<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+</bean>
+
+After:
+-------
+<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+</bean>
+
+StackOverFlow Link:
+---------------------
+http://stackoverflow.com/questions/7528862/exception-noclassdeffounderror-for-cacheprovider

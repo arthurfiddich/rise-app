@@ -1,0 +1,17 @@
+I think I see the problem now:
+
+... must be of type [org.aopalliance.aop.Advice], but was actually of type [org.springframework.transaction.interceptor.TransactionInterceptor]
+
+Given that TransactionInterceptor is an implementation of org.aopalliance.aop.Advice, this suggests to me that you have a classloading issue. Specifically, 
+you either have two copies of Spring being loaded by two different classloaders, or two copies of aop-alliance being loaded by two different classloaders. 
+In this situation, you can get instanceof errors or ClassCastExceptions that can be a bit hard to diagnose.
+
+I suggests looking through your manifests and classpaths, including the app-server's own classpaths, 
+and make sure your application can only find Spring and aop-alliance in one place. Remember that the Spring JARs already include a copy of the aop-alliance stuff, 
+so you don't need another copy.
+
+I removed one aop alliances jar from my class path. That way I resolved this issue...
+
+StackOverFlow Link:
+-------------------
+http://stackoverflow.com/questions/1636063/transactional-services-beannotofrequiredtypeexception-should-be-advice-but  
