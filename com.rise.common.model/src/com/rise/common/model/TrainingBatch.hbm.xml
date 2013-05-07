@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.rise.common.model.TrainingBatch" table="TRAINING_BATCH">
+		<id name="id" column="TRAINING_BATCH_ID">
+			<generator class="assigned"></generator>
+		</id>
+
+		<property name="dateCreated" column="DATE_CREATED" />
+		<property name="dateModified" column="DATE_MODIFIED" />
+		<property name="createdBy" column="CREATED_BY" />
+		<property name="modifiedBy" column="MODIFIED_BY" />
+		<property name="recordStatus" column="RECORD_STATUS" />
+
+		<property name="maxCapacity" column="MAX_CAPACITY" />
+		<property name="startDate" column="START_DATE" />
+		<property name="endDate" column="END_DATE" />
+
+		<many-to-one name="address" class="com.rise.common.model.Address"
+			column="ADDRESS_ID" cascade="all" not-null="true" unique="true" />
+
+		<many-to-one name="program" class="com.rise.common.model.Program"
+			column="PROGRAM_ID" cascade="all" not-null="true" />
+
+		<set name="candidateTrainingBatches" table="CANDIDATE_TRAINING_BATCH"
+			inverse="true">
+			<key column="TRAINING_BATCH_ID" />
+			<one-to-many class="com.rise.common.model.CandidateTrainingBatch" />
+		</set>
+	</class>
+</hibernate-mapping>

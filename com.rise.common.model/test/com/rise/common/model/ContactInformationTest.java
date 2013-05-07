@@ -37,15 +37,15 @@ public class ContactInformationTest {
 		for (int i = 0; i < 2; i++) {
 			ContactInformation ci = new ContactInformation();
 			ci.setId(i + 1);
-			ci.setStreetAddress("Kukatpally" + i);
-			ci.setCity("Hyderabad" + i);
-			ci.setState("AP" + i);
-			ci.setPostalCode("500082");
-			ci.setCountry("INDIA");
-			ci.setEmail("athondapu@ciphercloud.com");
-			ci.setAlternativeEmail("athondapu@ciphercloud.com");
-			ci.setPhone("8886077897");
-			ci.setAlternativePhone("8886077897");
+//			ci.setStreetAddress("Kukatpally" + i);
+//			ci.setCity("Hyderabad" + i);
+//			ci.setState("AP" + i);
+//			ci.setPostalCode("500082");
+//			ci.setCountry("INDIA");
+//			ci.setEmail("athondapu@ciphercloud.com");
+//			ci.setAlternativeEmail("athondapu@ciphercloud.com");
+//			ci.setPhone("8886077897");
+//			ci.setAlternativePhone("8886077897");
 			ci.setWebsite("www.google.com");
 			ci.setCreatedBy(1);
 			ci.setDateCreated(new Date());

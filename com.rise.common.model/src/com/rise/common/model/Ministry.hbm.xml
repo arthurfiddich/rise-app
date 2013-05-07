@@ -4,8 +4,8 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="com.rise.model.State" table="STATE">
-		<id name="id" column="STATE_ID">
+	<class name="com.rise.model.Ministry" table="MINISTRY">
+		<id name="id" column="MINISTRY_ID">
 			<generator class="assigned" />
 		</id>
 
@@ -16,16 +16,18 @@
 		<property name="recordStatus" column="RECORD_STATUS" />
 
 		<property name="name" column="NAME" />
-		<property name="code" column="CODE" />
-		<property name="capitalCity" column="CAPITAL_CITY" />
+		<property name="ministerName" column="MINISTER_NAME" />
 
 		<many-to-one name="contactInformation" column="CONTACT_INFORMATION_ID"
 			unique="true" class="com.rise.common.model.ContactInformation"
 			not-null="true" />
 
-		<set name="ministries" cascade="all" table="MINISTRY" inverse="true">
-			<key column="STATE_ID" />
-			<many-to-many class="com.rise.model.Ministry" column="MINISTRY_ID" />
+		<many-to-one name="state" column="STATE_ID"
+			class="com.rise.common.model.State" not-null="true" cascade="all" />
+
+		<set name="departments" cascade="all" table="DEPARTMENT" inverse="true">
+			<key column="MINISTRY_ID" />
+			<one-to-many class="com.rise.model.Department" />
 		</set>
 	</class>
 </hibernate-mapping>

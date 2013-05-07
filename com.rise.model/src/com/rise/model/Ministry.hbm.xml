@@ -17,17 +17,15 @@
 
 		<property name="name" column="NAME" />
 		<property name="ministerName" column="MINISTER_NAME" />
-		
+
 		<many-to-one name="contactInformation" column="CONTACT_INFORMATION_ID"
 			unique="true" class="com.rise.common.model.ContactInformation"
 			not-null="true" />
 
-		<set name="states" cascade="all" table="STATE_MINISTRY">
-			<key column="MINISTRY_ID" />
-			<many-to-many class="com.rise.model.State" column="STATE_ID" />
-		</set>
+		<many-to-one name="state" column="STATE_ID" unique="true"
+			class="com.rise.common.model.State" not-null="true" cascade="all" />
 
-		<set name="departments" cascade="all" table="MINISTRY_DEPARTMENT">
+		<set name="departments" cascade="all" table="DEPARTMENT" inverse="true">
 			<key column="MINISTRY_ID" />
 			<many-to-many class="com.rise.model.Department" column="DEPARTMENT_ID" />
 		</set>

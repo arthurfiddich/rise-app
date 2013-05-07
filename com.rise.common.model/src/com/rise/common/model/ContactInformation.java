@@ -2,92 +2,107 @@ package com.rise.common.model;
 
 public class ContactInformation extends BaseModel {
 
-	private String streetAddress;
-	private String city;
-	private String state;
-	private String postalCode;
-	private String country;
-	private String email;
-	private String alternativeEmail;
-	private String phone;
-	private String alternativePhone;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	private String email1;
+	private String email2;
+	private String email3;
+	private String phone1;
+	private String phone2;
+	private String phone3;
+	private String mobile1;
+	private String mobile2;
+	private String mobile3;
 	private String website;
+
+	private TrainingProvider trainingProvider;
+	private EmploymentAgency employmentAgency;
+	private Organization organization;
+	private Address primaryAddress;
+	private Department department;
+	private Ministry ministry;
+	private Program program;
+	private Person person;
+	private State state;
 
 	public ContactInformation() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public String getStreetAddress() {
-		return this.streetAddress;
+	public String getEmail1() {
+		return this.email1;
 	}
 
-	public void setStreetAddress(String argStreetAddress) {
-		this.streetAddress = argStreetAddress;
+	public void setEmail1(String argEmail1) {
+		this.email1 = argEmail1;
 	}
 
-	public String getCity() {
-		return this.city;
+	public String getEmail2() {
+		return this.email2;
 	}
 
-	public void setCity(String argCity) {
-		this.city = argCity;
+	public void setEmail2(String argEmail2) {
+		this.email2 = argEmail2;
 	}
 
-	public String getState() {
-		return this.state;
+	public String getEmail3() {
+		return this.email3;
 	}
 
-	public void setState(String argState) {
-		this.state = argState;
+	public void setEmail3(String argEmail3) {
+		this.email3 = argEmail3;
 	}
 
-	public String getPostalCode() {
-		return this.postalCode;
+	public String getPhone1() {
+		return this.phone1;
 	}
 
-	public void setPostalCode(String argPostalCode) {
-		this.postalCode = argPostalCode;
+	public void setPhone1(String argPhone1) {
+		this.phone1 = argPhone1;
 	}
 
-	public String getCountry() {
-		return this.country;
+	public String getPhone2() {
+		return this.phone2;
 	}
 
-	public void setCountry(String argCountry) {
-		this.country = argCountry;
+	public void setPhone2(String argPhone2) {
+		this.phone2 = argPhone2;
 	}
 
-	public String getEmail() {
-		return this.email;
+	public String getPhone3() {
+		return this.phone3;
 	}
 
-	public void setEmail(String argEmail) {
-		this.email = argEmail;
+	public void setPhone3(String argPhone3) {
+		this.phone3 = argPhone3;
 	}
 
-	public String getAlternativeEmail() {
-		return this.alternativeEmail;
+	public String getMobile1() {
+		return this.mobile1;
 	}
 
-	public void setAlternativeEmail(String argAlternativeEmail) {
-		this.alternativeEmail = argAlternativeEmail;
+	public void setMobile1(String argMobile1) {
+		this.mobile1 = argMobile1;
 	}
 
-	public String getPhone() {
-		return this.phone;
+	public String getMobile2() {
+		return this.mobile2;
 	}
 
-	public void setPhone(String argPhone) {
-		this.phone = argPhone;
+	public void setMobile2(String argMobile2) {
+		this.mobile2 = argMobile2;
 	}
 
-	public String getAlternativePhone() {
-		return this.alternativePhone;
+	public String getMobile3() {
+		return this.mobile3;
 	}
 
-	public void setAlternativePhone(String argAlternativePhone) {
-		this.alternativePhone = argAlternativePhone;
+	public void setMobile3(String argMobile3) {
+		this.mobile3 = argMobile3;
 	}
 
 	public String getWebsite() {
@@ -96,6 +111,78 @@ public class ContactInformation extends BaseModel {
 
 	public void setWebsite(String argWebsite) {
 		this.website = argWebsite;
+	}
+
+	public TrainingProvider getTrainingProvider() {
+		return this.trainingProvider;
+	}
+
+	public void setTrainingProvider(TrainingProvider argTrainingProvider) {
+		this.trainingProvider = argTrainingProvider;
+	}
+
+	public EmploymentAgency getEmploymentAgency() {
+		return this.employmentAgency;
+	}
+
+	public void setEmploymentAgency(EmploymentAgency argEmploymentAgency) {
+		this.employmentAgency = argEmploymentAgency;
+	}
+
+	public Organization getOrganization() {
+		return this.organization;
+	}
+
+	public void setOrganization(Organization argOrganization) {
+		this.organization = argOrganization;
+	}
+
+	public Address getPrimaryAddress() {
+		return this.primaryAddress;
+	}
+
+	public void setPrimaryAddress(Address argPrimaryAddress) {
+		this.primaryAddress = argPrimaryAddress;
+	}
+
+	public Department getDepartment() {
+		return this.department;
+	}
+
+	public void setDepartment(Department argDepartment) {
+		this.department = argDepartment;
+	}
+
+	public Ministry getMinistry() {
+		return this.ministry;
+	}
+
+	public void setMinistry(Ministry argMinistry) {
+		this.ministry = argMinistry;
+	}
+
+	public Program getProgram() {
+		return this.program;
+	}
+
+	public void setProgram(Program argProgram) {
+		this.program = argProgram;
+	}
+
+	public Person getPerson() {
+		return this.person;
+	}
+
+	public void setPerson(Person argPerson) {
+		this.person = argPerson;
+	}
+
+	public State getState() {
+		return this.state;
+	}
+
+	public void setState(State argState) {
+		this.state = argState;
 	}
 
 }

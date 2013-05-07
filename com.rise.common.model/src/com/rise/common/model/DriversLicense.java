@@ -4,6 +4,11 @@ import java.util.Date;
 
 public class DriversLicense extends BaseModel {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private String driversLicenseNumber;
 	private String issuedBy;
 	private String issuedState;

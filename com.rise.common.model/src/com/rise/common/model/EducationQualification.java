@@ -1,8 +1,11 @@
 package com.rise.common.model;
 
-import java.util.Set;
-
 public class EducationQualification extends BaseModel {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	private String name;
 	private String university;
@@ -11,7 +14,7 @@ public class EducationQualification extends BaseModel {
 	private int percentage;
 	private float gpa;
 
-	private Set<Person> persons;
+	private Person person;
 
 	public EducationQualification() {
 		super();
@@ -65,12 +68,12 @@ public class EducationQualification extends BaseModel {
 		this.gpa = argGpa;
 	}
 
-	public Set<Person> getPersons() {
-		return this.persons;
+	public Person getPerson() {
+		return this.person;
 	}
 
-	public void setPersons(Set<Person> argPersons) {
-		this.persons = argPersons;
+	public void setPerson(Person argPerson) {
+		this.person = argPerson;
 	}
 
 }

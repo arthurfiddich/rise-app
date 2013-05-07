@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.rise.model.EmploymentAgency" table="EMPLOYMENT_AGENCY">
+		<id name="id" column="EMPLOYMENT_AGENCY_ID">
+			<generator class="assigned" />
+		</id>
+
+		<property name="dateCreated" column="DATE_CREATED" />
+		<property name="dateModified" column="DATE_MODIFIED" />
+		<property name="createdBy" column="CREATED_BY" />
+		<property name="modifiedBy" column="MODIFIED_BY" />
+		<property name="recordStatus" column="RECORD_STATUS" />
+
+		<property name="name" column="NAME" />
+		<property name="contactPersonName" column="CONTACT_PERSON_NAME" />
+
+		<many-to-one name="contactInformation"
+			class="com.rise.common.model.ContactInformation" column="CONTACT_INFORMATION_ID"
+			not-null="true" cascade="all" unique="true" />
+
+		<set name="jobPostings" table="JOB_POSTING" cascade="all" inverse="true">
+			<key column="EMPLOYMENT_AGENCY_ID" />
+			<one-to-many class="com.rise.common.model.JobPosting" />
+		</set>
+
+		<set name="employmentAgencyEmpanelments" table="EMPLOYMENT_AGENCY_EMPANELMENT"
+			cascade="all" inverse="true">
+			<key column="EMPLOYMENT_AGENCY_ID" />
+			<one-to-many class="com.rise.common.model.EmploymentAgencyEmpanelment" />
+		</set>
+	</class>
+</hibernate-mapping>

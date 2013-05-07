@@ -4,6 +4,11 @@ import java.util.Date;
 
 public class BaseModel implements Model {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private Integer id;
 	private Integer createdBy;
 	private Integer modifiedBy;
