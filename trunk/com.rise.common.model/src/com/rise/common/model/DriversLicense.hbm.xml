@@ -27,7 +27,6 @@
 			class="com.rise.common.model.DriversLicenseVehicleType" />
 
 		<many-to-one name="person" column="PERSON_ID" not-null="true"
-			unique="true" class="com.rise.common.model.Person" />
-
+			unique="true" class="com.rise.common.model.Person" cascade="all" />
 	</class>
 </hibernate-mapping>

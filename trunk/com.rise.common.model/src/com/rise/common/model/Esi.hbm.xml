@@ -4,9 +4,9 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="com.rise.model.Publication" table="PUBLICATION">
-		<id name="id" column="PUBLICATION_ID">
-			<generator class="assigned" />
+	<class name="com.rise.common.model.Esi" table="ESI">
+		<id name="id" column="ESI_ID">
+			<generator class="assigned"></generator>
 		</id>
 
 		<property name="dateCreated" column="DATE_CREATED" />
@@ -15,11 +15,11 @@
 		<property name="modifiedBy" column="MODIFIED_BY" />
 		<property name="recordStatus" column="RECORD_STATUS" />
 
-		<property name="publishedBy" column="PUBLISHED_BY" />
-		<property name="publishedDate" column="PUBLISHED_DATE" />
-		<property name="description" column="DESCRIPTION" />
+		<property name="esiNumber" column="ESI_NUMBER" />
+		<property name="joinDate" column="JOIN_DATE" />
+		<property name="expiryDate" column="EXPIRY_DATE" />
 
-		<many-to-one name="person" column="PERSON_ID"
-			class="com.rise.common.model.Person" cascade="all" not-null="true" />
+		<many-to-one name="candidate" class="com.rise.common.model.Candidate"
+			unique="true" not-null="true" column="CANDIDATE_ID" />
 	</class>
 </hibernate-mapping>

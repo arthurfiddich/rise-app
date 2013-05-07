@@ -22,5 +22,11 @@
 		<many-to-one name="contactInformation" column="CONTACT_INFORMATION_ID"
 			unique="true" class="com.rise.common.model.ContactInformation"
 			not-null="true" />
+
+		<set name="employmentExperiences" table="EMPLOYMENT_EXPERIENCE"
+			inverse="true">
+			<key column="ORGANIZATION_ID" />
+			<one-to-many class="com.rise.common.model.EmploymentExperience" />
+		</set>
 	</class>
 </hibernate-mapping>

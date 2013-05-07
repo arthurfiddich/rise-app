@@ -4,9 +4,9 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="com.rise.common.model.Award" table="AWARD">
-		<id name="id" column="AWARD_ID">
-			<generator class="assigned"></generator>
+	<class name="com.rise.common.model.EmploymentExperience" table="EMPLOYMENT_EXPERIENCE">
+		<id name="id" column="EMPLOYMENT_EXPERIENCE_ID">
+			<generator class="assigned" />
 		</id>
 
 		<property name="dateCreated" column="DATE_CREATED" />
@@ -15,13 +15,15 @@
 		<property name="modifiedBy" column="MODIFIED_BY" />
 		<property name="recordStatus" column="RECORD_STATUS" />
 
-		<property name="name" column="NAME" />
-		<property name="issuedBy" column="ISSUED_BY" />
-		<property name="dateIssued" column="DATE_ISSUED" />
-		<property name="description" column="DESCRIPTION" />
+		<property name="jobTitle" column="JOB_TITLE" />
+		<property name="fromDate" column="FROM_DATE" />
+		<property name="toDate" column="TO_DATE" />
+		<property name="Description" column="DESCRIPTION" />
 
 		<many-to-one name="person" class="com.rise.common.model.Person"
-			column="PERSON_ID" cascade="all" not-null="true" />
+			not-null="true" cascade="all" column="PERSON_ID" />
 
+		<many-to-one name="organization" class="com.rise.common.model.Organization"
+			not-null="true" cascade="all" column="ORGANIZATION_ID" />
 	</class>
 </hibernate-mapping>

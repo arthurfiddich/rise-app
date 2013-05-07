@@ -28,18 +28,13 @@
 		<property name="jobPosterMobileNumber" column="JOB_POSTER_MOBILE_NUMBER" />
 		<property name="verified" column="VERIFIED" />
 
+		<set name="candidateJobPostings" table="CANDIDATE_JOB_POSTING"
+			inverse="true">
+			<key column="CANDIDATE_ID" />
+			<one-to-many class="com.rise.common.model.CandidateJobPosting" />
+		</set>
+
 		<many-to-one name="employmentAgency" class="com.rise.model.EmploymentAgency"
 			column="EMPLOYMENT_AGENCY_ID" not-null="true" cascade="all" />
-
-		<set name="candidates" table="CANDIDATE" cascade="all">
-			<key column="JOB-POSTING_ID" />
-			<many-to-many class="com.rise.model.Candidate" column="CANDIDATE_ID" />
-		</set>
-
-		<set name="trainingProviders" table="TRAINING_PROVIDER" cascade="all">
-			<key column="JOB_POSTING_ID" />
-			<many-to-many class="com.rise.model.TrainingProvider"
-				column="TRAINING_PROVIDER_ID" />
-		</set>
 	</class>
 </hibernate-mapping>
