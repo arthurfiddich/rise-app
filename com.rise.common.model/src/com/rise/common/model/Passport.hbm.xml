@@ -23,6 +23,6 @@
 		<property name="emigrationCheckRequired" column="EMIGRATION_CHECK_REQUIRED" />
 
 		<many-to-one name="person" column="PERSON_ID" not-null="true"
-			unique="true" class="com.rise.common.model.Person" />
+			unique="true" class="com.rise.common.model.Person" cascade="all"/>
 	</class>
 </hibernate-mapping>

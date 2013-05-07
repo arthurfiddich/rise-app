@@ -22,6 +22,7 @@ public class Person extends BaseModel {
 	private Set<EmploymentExperience> employmentExperiences;
 	private ContactInformation contactInformation;
 	private DriversLicense driversLicense;
+	private Candidate candidate;
 	private Passport passport;
 	private Set<Award> awards;
 
@@ -117,6 +118,14 @@ public class Person extends BaseModel {
 
 	public void setDriversLicense(DriversLicense argDriversLicense) {
 		this.driversLicense = argDriversLicense;
+	}
+
+	public Candidate getCandidate() {
+		return this.candidate;
+	}
+
+	public void setCandidate(Candidate argCandidate) {
+		this.candidate = argCandidate;
 	}
 
 	public Passport getPassport() {

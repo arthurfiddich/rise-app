@@ -22,10 +22,7 @@
 		<property name="percentage" column="PERCENTAGE" />
 		<property name="gpa" column="GPA" />
 
-		<set name="persons" table="PERSON_EDUCATION_QUALIFICATION">
-			<key column="EDUCATION_QUALIFICATION_ID" />
-			<many-to-many class="com.rise.common.model.Person"
-				column="PERSON_ID" />
-		</set>
+		<many-to-one name="person" column="PERSON_ID" not-null="true"
+			class="com.rise.common.model.Person" cascade="all" />
 	</class>
 </hibernate-mapping>
