@@ -4,6 +4,11 @@ import java.util.Date;
 
 public class Passport extends BaseModel {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private String passportNumber;
 	private String issuedBy;
 	private String issuedPlace;

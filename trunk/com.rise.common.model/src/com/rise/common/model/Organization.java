@@ -1,12 +1,20 @@
 package com.rise.common.model;
 
+import java.util.Set;
+
 public class Organization extends BaseModel {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	private String name;
 	private String dateIncorporated;
 	private String type;
 
 	private ContactInformation contactInformation;
+	private Set<EmploymentExperience> employmentExperiences;
 
 	public Organization() {
 		super();
@@ -42,6 +50,15 @@ public class Organization extends BaseModel {
 
 	public void setContactInformation(ContactInformation argContactInformation) {
 		this.contactInformation = argContactInformation;
+	}
+
+	public Set<EmploymentExperience> getEmploymentExperiences() {
+		return this.employmentExperiences;
+	}
+
+	public void setEmploymentExperiences(
+			Set<EmploymentExperience> argEmploymentExperiences) {
+		this.employmentExperiences = argEmploymentExperiences;
 	}
 
 }

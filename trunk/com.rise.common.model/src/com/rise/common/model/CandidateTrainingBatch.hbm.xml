@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.rise.common.model.CandidateTrainingBatch" table="CANDIDATE_TRAINING_BATCH">
+		<id name="id" column="CANDIDATE_TRAINING_BATCH_ID">
+			<generator class="assigned"></generator>
+		</id>
+
+		<property name="dateCreated" column="DATE_CREATED" />
+		<property name="dateModified" column="DATE_MODIFIED" />
+		<property name="createdBy" column="CREATED_BY" />
+		<property name="modifiedBy" column="MODIFIED_BY" />
+		<property name="recordStatus" column="RECORD_STATUS" />
+
+		<many-to-one name="trainingBatch" class="com.rise.common.model.TrainingBatch"
+			column="TRAINING_BATCH_ID" cascade="all" not-null="true" />
+
+		<many-to-one name="candidate" class="com.rise.common.model.Candidate"
+			column="CANDIDATE_ID" cascade="all" not-null="true" />
+	</class>
+</hibernate-mapping>

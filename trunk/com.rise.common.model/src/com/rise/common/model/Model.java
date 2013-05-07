@@ -1,8 +1,9 @@
 package com.rise.common.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public interface Model {
+public interface Model extends Serializable{
 	public abstract Integer getId();
 
 	public abstract void setId(Integer argId);

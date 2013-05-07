@@ -1,15 +1,20 @@
 package com.rise.common.model;
 
 import java.util.Date;
-import java.util.Set;
 
 public class Award extends BaseModel {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	private String name;
 	private String issuedBy;
 	private Date dateIssued;
+	private String description;
 
-	private Set<Person> persons;
+	private Person person;
 
 	public Award() {
 		super();
@@ -39,12 +44,20 @@ public class Award extends BaseModel {
 		this.dateIssued = argDateIssued;
 	}
 
-	public Set<Person> getPersons() {
-		return this.persons;
+	public String getDescription() {
+		return this.description;
 	}
 
-	public void setPersons(Set<Person> argPersons) {
-		this.persons = argPersons;
+	public void setDescription(String argDescription) {
+		this.description = argDescription;
+	}
+
+	public Person getPerson() {
+		return this.person;
+	}
+
+	public void setPerson(Person argPerson) {
+		this.person = argPerson;
 	}
 
 }

@@ -25,7 +25,7 @@
 
 		<set name="ministries" cascade="all" table="MINISTRY" inverse="true">
 			<key column="STATE_ID" />
-			<many-to-many class="com.rise.model.Ministry" column="MINISTRY_ID" />
+			<one-to-many class="com.rise.model.Ministry" />
 		</set>
 	</class>
 </hibernate-mapping>

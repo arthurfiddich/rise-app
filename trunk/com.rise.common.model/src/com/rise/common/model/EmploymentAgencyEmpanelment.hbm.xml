@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.rise.model.EmploymentAgencyEmpanelment" table="EMPLOYMENT_AGENCY_EMPANELMENT">
+		<id name="id" column="EMPLOYMENT_AGENCY_EMPANELMENT_ID">
+			<generator class="assigned" />
+		</id>
+
+		<property name="dateCreated" column="DATE_CREATED" />
+		<property name="dateModified" column="DATE_MODIFIED" />
+		<property name="createdBy" column="CREATED_BY" />
+		<property name="modifiedBy" column="MODIFIED_BY" />
+		<property name="recordStatus" column="RECORD_STATUS" />
+
+		<property name="dateRequested" column="DATE_REQUESTED" />
+		<property name="dateApproved" column="DATE_APPROVED" />
+		<property name="fromDate" column="FROM_DATE" />
+		<property name="toDate" column="TO_DATE" />
+
+		<many-to-one name="employmentAgency" class="com.rise.common.model.EmploymentAgency"
+			column="EMPLOYMENT_AGENCY_ID" cascade="all" not-null="true" />
+
+		<many-to-one name="program" class="com.rise.common.model.Program"
+			column="PROGRAM_ID" cascade="all" not-null="true" />
+	</class>
+</hibernate-mapping>

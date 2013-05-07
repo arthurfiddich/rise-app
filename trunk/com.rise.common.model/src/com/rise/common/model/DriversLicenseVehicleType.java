@@ -4,6 +4,11 @@ import java.util.Set;
 
 public class DriversLicenseVehicleType extends BaseModel {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private String name;
 	private String code;
 	private String description;
@@ -12,7 +17,6 @@ public class DriversLicenseVehicleType extends BaseModel {
 
 	public DriversLicenseVehicleType() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public String getName() {

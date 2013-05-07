@@ -15,15 +15,42 @@
 		<property name="modifiedBy" column="MODIFIED_BY" />
 		<property name="recordStatus" column="RECORD_STATUS" />
 
-		<property name="streetAddress" column="STREET_ADDRESS" />
-		<property name="city" column="CITY" />
-		<property name="state" column="STATE" />
-		<property name="postalCode" column="POSTAL_CODE" />
-		<property name="country" column="COUNTRY" />
-		<property name="email" column="EMAIL" />
-		<property name="alternativeEmail" column="ALTERNATIVE_EMAIL" />
-		<property name="phone" column="PHONE" />
-		<property name="alternativePhone" column="ALTERNATIVE_PHONE" />
+		<property name="email1" column="EMAIL1" />
+		<property name="email2" column="EMAIL2" />
+		<property name="email3" column="EMAIL3" />
+		<property name="phone1" column="PHONE1" />
+		<property name="phone2" column="PHONE2" />
+		<property name="phone3" column="PHONE3" />
+		<property name="mobile1" column="MOBILE1" />
+		<property name="mobile2" column="MOBILE2" />
+		<property name="mobile3" column="MOBILE3" />
 		<property name="website" column="WEBSITE" />
+
+		<many-to-one name="trainingProvider" class="com.rise.common.model.TrainingProvider"
+			column="TRAINING_PROVIDER_ID" cascade="all" not-null="true" unique="true" />
+
+		<many-to-one name="employmentAgency" class="com.rise.common.model.EmploymentAgency"
+			column="EMPLOYMENT_AGENCY_ID" cascade="all" not-null="true" unique="true" />
+
+		<many-to-one name="organization" class="com.rise.common.model.Organization"
+			column="ORGANIZATION_ID" cascade="all" not-null="true" unique="true" />
+
+		<many-to-one name="primaryAddress" class="com.rise.common.model.Address"
+			column="ADDRESS_ID" cascade="all" not-null="true" unique="true" />
+
+		<many-to-one name="department" class="com.rise.common.model.Department"
+			column="DEPARTMENT_ID" cascade="all" not-null="true" unique="true" />
+
+		<many-to-one name="ministry" class="com.rise.common.model.Ministry"
+			column="MINISTRY_ID" cascade="all" not-null="true" unique="true" />
+
+		<many-to-one name="program" class="com.rise.common.model.Program"
+			column="PROGRAM_ID" cascade="all" not-null="true" unique="true" />
+
+		<many-to-one name="person" class="com.rise.common.model.Person"
+			column="PERSON_ID" cascade="all" not-null="true" unique="true" />
+
+		<many-to-one name="state" class="com.rise.common.model.State"
+			column="STATE_ID" cascade="all" not-null="true" unique="true" />
 	</class>
 </hibernate-mapping>

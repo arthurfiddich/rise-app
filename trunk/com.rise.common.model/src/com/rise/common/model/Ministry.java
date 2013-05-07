@@ -1,4 +1,4 @@
-package com.rise.model;
+package com.rise.common.model;
 
 import java.util.Set;
 
