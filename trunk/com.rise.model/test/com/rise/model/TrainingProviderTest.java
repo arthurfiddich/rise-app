@@ -57,7 +57,7 @@ public class TrainingProviderTest {
 			ci.setDateCreated(new Date());
 			ci.setModifiedBy(1);
 			ci.setDateModified(new Date());
-			ci.setRecordStatus("A");
+//			ci.setRecordStatus("A");
 			ciSet.add(ci);
 			session.save(ci);
 		}
@@ -72,7 +72,7 @@ public class TrainingProviderTest {
 			tpe.setDateCreated(new Date());
 			tpe.setModifiedBy(1);
 			tpe.setDateModified(new Date());
-			tpe.setRecordStatus("A");
+//			tpe.setRecordStatus("A");
 			tpeSet.add(tpe);
 		}
 		for (int i = 0; i < 2; i++) {
@@ -84,7 +84,7 @@ public class TrainingProviderTest {
 			taProvider.setDateCreated(new Date());
 			taProvider.setModifiedBy(1);
 			taProvider.setDateModified(new Date());
-			taProvider.setRecordStatus("A");
+//			taProvider.setRecordStatus("A");
 			taProvider.setContactInformation(ciSet.iterator().next());
 			taProvider.setTrainingProviderEmpanelments(tpeSet);
 			tpSet.add(taProvider);

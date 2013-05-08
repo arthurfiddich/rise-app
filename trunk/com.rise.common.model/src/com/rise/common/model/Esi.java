@@ -11,6 +11,7 @@ public class Esi extends BaseModel {
 
 	private String esiNumber;
 	private Date joinDate;
+	private Date expiryDate;
 
 	private Candidate candidate;
 
@@ -32,6 +33,14 @@ public class Esi extends BaseModel {
 
 	public void setJoinDate(Date argJoinDate) {
 		this.joinDate = argJoinDate;
+	}
+
+	public Date getExpiryDate() {
+		return this.expiryDate;
+	}
+
+	public void setExpiryDate(Date argExpiryDate) {
+		this.expiryDate = argExpiryDate;
 	}
 
 	public Candidate getCandidate() {

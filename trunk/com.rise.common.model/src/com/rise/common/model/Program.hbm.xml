@@ -4,7 +4,7 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="com.rise.model.Program" table="PROGRAM">
+	<class name="com.rise.common.model.Program" table="PROGRAM">
 		<id name="id" column="PROGRAM_ID">
 			<generator class="assigned" />
 		</id>
@@ -13,7 +13,7 @@
 		<property name="dateModified" column="DATE_MODIFIED" />
 		<property name="createdBy" column="CREATED_BY" />
 		<property name="modifiedBy" column="MODIFIED_BY" />
-		<property name="recordStatus" column="RECORD_STATUS" />
+		<!-- <property name="recordStatus" column="RECORD_STATUS" /> -->
 
 		<property name="name" column="NAME" />
 		<property name="inchargeOfficer" column="INCHARGE_OFFICER" />
@@ -25,19 +25,19 @@
 		<set name="trainingProviderEmpanelments" cascade="all"
 			table="TRAINING_PROVIDER_EMPANELMENT" inverse="true">
 			<key column="PROGRAM_ID" />
-			<one-to-many class="com.rise.model.TrainingProviderEmpanelment" />
+			<one-to-many class="com.rise.common.model.TrainingProviderEmpanelment" />
 		</set>
 
 		<set name="employmentAgencyEmpanelments" cascade="all"
 			table="EMPLOYMENT_AGENCY_EMPANELMENT" inverse="true">
 			<key column="PROGRAM_ID" />
-			<one-to-many class="com.rise.model.EmploymentAgencyEmpanelment" />
+			<one-to-many class="com.rise.common.model.EmploymentAgencyEmpanelment" />
 		</set>
 
 		<set name="trainingBatches" cascade="all" table="TRAINING_BATCH"
 			inverse="true">
 			<key column="PROGRAM_ID" />
-			<many-to-many class="com.rise.model.TrainingBatch"
+			<many-to-many class="com.rise.common.model.TrainingBatch"
 				column="TRAINING_BATCH_ID" />
 		</set>
 

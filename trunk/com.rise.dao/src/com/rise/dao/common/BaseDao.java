@@ -2,11 +2,11 @@ package com.rise.dao.common;
 
 import java.util.List;
 
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.stereotype.Repository;
 
 import com.rise.common.model.Model;
 
-@Transactional
+@Repository
 public interface BaseDao {
 
 	public Class getPersistentClass();

@@ -7,6 +7,7 @@
 		<project>com.rise.model</project>
 		<project>com.rise.common.util</project>
 		<project>com.rise.common.model</project>
+		<project>com.rise.service</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

@@ -8,13 +8,11 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.rise.common.model.Model;
 import com.rise.common.util.constants.HibernateConstants;
 import com.rise.dao.common.BaseDao;
 
-@Transactional
 @Repository
 public abstract class BaseDaoImpl implements BaseDao {
 

@@ -51,7 +51,7 @@ public class ContactInformationTest {
 			ci.setDateCreated(new Date());
 			ci.setModifiedBy(1);
 			ci.setDateModified(new Date());
-			ci.setRecordStatus("A");
+//			ci.setRecordStatus("A");
 			ciSet.add(ci);
 		}
 		Iterator<ContactInformation> iterator = ciSet.iterator();

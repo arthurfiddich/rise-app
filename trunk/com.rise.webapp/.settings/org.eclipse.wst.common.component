@@ -15,6 +15,9 @@
         <dependent-module archiveName="com.rise.common.model.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/com.rise.common.model/com.rise.common.model">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="com.rise.service.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/com.rise.service/com.rise.service">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="java-output-path" value="/com.rise.webapp/build/classes"/>
         <property name="context-root" value="rise"/>
     </wb-module>

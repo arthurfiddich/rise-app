@@ -4,7 +4,7 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="com.rise.model.DriversLicenseVehicleType" table="DRIVERS_LICENSE_VEHICLE_TYPE">
+	<class name="com.rise.common.model.DriversLicenseVehicleType" table="DRIVERS_LICENSE_VEHICLE_TYPE">
 		<id name="id" column="DRIVERS_LICENSE_VEHICLE_TYPE_ID">
 			<generator class="assigned" />
 		</id>
@@ -13,7 +13,7 @@
 		<property name="dateModified" column="DATE_MODIFIED" />
 		<property name="createdBy" column="CREATED_BY" />
 		<property name="modifiedBy" column="MODIFIED_BY" />
-		<property name="recordStatus" column="RECORD_STATUS" />
+		<!-- <property name="recordStatus" column="RECORD_STATUS" /> -->
 
 		<property name="name" column="NAME" />
 		<property name="code" column="CODE" />
@@ -21,7 +21,7 @@
 
 		<set name="driversLicenses" table="DRIVERS_LICENSE" cascade="all">
 			<key column="DRIVERS_LICENSE_VEHICLE_TYPE_ID" />
-			<one-to-many class="com.rise.model.DriversLicense" />
+			<one-to-many class="com.rise.common.model.DriversLicense" />
 		</set>
 	</class>
 </hibernate-mapping>
