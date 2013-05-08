@@ -13,7 +13,7 @@
 		<property name="dateModified" column="DATE_MODIFIED" />
 		<property name="createdBy" column="CREATED_BY" />
 		<property name="modifiedBy" column="MODIFIED_BY" />
-		<property name="recordStatus" column="RECORD_STATUS" />
+		<!-- <property name="recordStatus" column="RECORD_STATUS" /> -->
 
 		<property name="streetAddress" column="STREET_ADDRESS" />
 		<property name="city" column="CITY" />
@@ -21,14 +21,16 @@
 		<property name="postalCode" column="POSTAL_CODE" />
 		<property name="country" column="COUNTRY" />
 
-		<many-to-one name="candidate" class="com.rise.common.model.Candidate"
-			column="CANDIDATE_ID" cascade="all" not-null="true" unique="true" />
+		<one-to-one name="candidate" class="com.rise.common.model.Candidate"
+			cascade="all" />
 
-		<many-to-one name="trainingBatch" class="com.rise.common.model.TrainingBatch"
-			column="TRAINING_BATCH_ID" cascade="all" not-null="true" unique="true" />
+		<!-- <many-to-one name="candidate" class="com.rise.common.model.Candidate" 
+			column="CANDIDATE_ID" cascade="all" not-null="true" unique="true" /> -->
 
-		<many-to-one name="contactInformation"
-			class="com.rise.common.model.ContactInformation" column="CONTACT_INFORMATION_ID"
-			cascade="all" not-null="true" unique="true" />
+		<!-- <many-to-one name="trainingBatch" class="com.rise.common.model.TrainingBatch" 
+			column="TRAINING_BATCH_ID" cascade="all" not-null="true" unique="true" /> 
+			<many-to-one name="contactInformation" class="com.rise.common.model.ContactInformation" 
+			column="CONTACT_INFORMATION_ID" cascade="all" not-null="true" unique="true" 
+			/> -->
 	</class>
 </hibernate-mapping>

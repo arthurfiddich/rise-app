@@ -14,7 +14,7 @@ public class BaseModel implements Model {
 	private Integer modifiedBy;
 	private Date dateCreated;
 	private Date dateModified;
-	private String recordStatus;
+//	private String recordStatus;
 
 	public BaseModel() {
 		super();
@@ -70,12 +70,12 @@ public class BaseModel implements Model {
 		this.dateModified = argDateModified;
 	}
 
-	public String getRecordStatus() {
-		return this.recordStatus;
-	}
-
-	public void setRecordStatus(String argRecordStatus) {
-		this.recordStatus = argRecordStatus;
-	}
+//	public String getRecordStatus() {
+//		return this.recordStatus;
+//	}
+//
+//	public void setRecordStatus(String argRecordStatus) {
+//		this.recordStatus = argRecordStatus;
+//	}
 
 }

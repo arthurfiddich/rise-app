@@ -4,7 +4,7 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="com.rise.model.TrainingProvider" table="TRAINING_PROVIDER">
+	<class name="com.rise.common.model.TrainingProvider" table="TRAINING_PROVIDER">
 		<id name="id" column="TRAINING_PROVIDER_ID">
 			<generator class="assigned" />
 		</id>
@@ -13,7 +13,7 @@
 		<property name="dateModified" column="DATE_MODIFIED" />
 		<property name="createdBy" column="CREATED_BY" />
 		<property name="modifiedBy" column="MODIFIED_BY" />
-		<property name="recordStatus" column="RECORD_STATUS" />
+		<!-- <property name="recordStatus" column="RECORD_STATUS" /> -->
 
 		<property name="name" column="NAME" />
 		<property name="contactPersonName" column="CONTACT_PERSON_NAME" />
@@ -25,7 +25,7 @@
 		<set name="trainingProviderEmpanelments" cascade="all"
 			table="TRAINING_PROVIDER_EMPANELMENT" inverse="true">
 			<key column="TRAINING_PROVIDER_ID" />
-			<one-to-many class="com.rise.model.TrainingProviderEmpanelment" />
+			<one-to-many class="com.rise.common.model.TrainingProviderEmpanelment" />
 		</set>
 	</class>
 </hibernate-mapping>

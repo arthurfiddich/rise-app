@@ -12,7 +12,7 @@
 		<property name="dateModified" column="DATE_MODIFIED" />
 		<property name="createdBy" column="CREATED_BY" />
 		<property name="modifiedBy" column="MODIFIED_BY" />
-		<property name="recordStatus" column="RECORD_STATUS" />
+		<!-- <property name="recordStatus" column="RECORD_STATUS" /> -->
 
 		<property name="title" column="TITLE" />
 		<property name="firstName" column="FIRST_NAME" />

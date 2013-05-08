@@ -15,9 +15,30 @@
 
 		<!-- in.freshstart.common.model mappings -->
 
-		<mapping resource="com/rise/common/model/PersonName.hbm.xml" />
-		<!-- <mapping resource="com/rise/common/model/ContactInformation.hbm.xml" />
-		<mapping resource="com/rise/model/TrainingProvider.hbm.xml" />
-		<mapping resource="com/rise/model/TrainingProviderEmpanelment.hbm.xml" /> -->
+		<mapping resource="com/rise/common/model/Address.hbm.xml" />
+		<mapping resource="com/rise/common/model/Award.hbm.xml" />
+		<mapping resource="com/rise/common/model/Candidate.hbm.xml" />
+		<mapping resource="com/rise/common/model/CandidateJobPosting.hbm.xml" />
+		<mapping resource="com/rise/common/model/CandidateTrainingBatch.hbm.xml" />
+		<mapping resource="com/rise/common/model/ContactInformation.hbm.xml" />
+		<mapping resource="com/rise/common/model/Department.hbm.xml" />
+		<mapping resource="com/rise/common/model/DriversLicense.hbm.xml" />
+		<mapping resource="com/rise/common/model/DriversLicenseVehicleType.hbm.xml" />
+		<mapping resource="com/rise/common/model/EducationQualification.hbm.xml" />
+		<mapping resource="com/rise/common/model/EmploymentAgency.hbm.xml" />
+		<mapping resource="com/rise/common/model/EmploymentAgencyEmpanelment.hbm.xml" />
+		<mapping resource="com/rise/common/model/EmploymentExperience.hbm.xml" />
+		<mapping resource="com/rise/common/model/Esi.hbm.xml" />
+		<mapping resource="com/rise/common/model/JobPosting.hbm.xml" />
+		<mapping resource="com/rise/common/model/Ministry.hbm.xml" />
+		<mapping resource="com/rise/common/model/Organization.hbm.xml" />
+		<mapping resource="com/rise/common/model/Passport.hbm.xml" />
+		<mapping resource="com/rise/common/model/Person.hbm.xml" />
+		<mapping resource="com/rise/common/model/Program.hbm.xml" />
+		<mapping resource="com/rise/common/model/ProvidentFund.hbm.xml" />
+		<mapping resource="com/rise/common/model/State.hbm.xml" />
+		<mapping resource="com/rise/common/model/TrainingBatch.hbm.xml" />
+		<mapping resource="com/rise/common/model/TrainingProvider.hbm.xml" />
+		<mapping resource="com/rise/common/model/TrainingProviderEmpanelment.hbm.xml" />
 	</session-factory>
 </hibernate-configuration>

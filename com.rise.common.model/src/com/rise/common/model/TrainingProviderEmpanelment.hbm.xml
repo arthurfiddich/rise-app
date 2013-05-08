@@ -4,7 +4,7 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="com.rise.model.TrainingProviderEmpanelment" table="TRAINING_PROVIDER_EMPANELMENT">
+	<class name="com.rise.common.model.TrainingProviderEmpanelment" table="TRAINING_PROVIDER_EMPANELMENT">
 		<id name="id" column="TRAINING_PROVIDER_EMPANELMENT_ID">
 			<generator class="assigned"></generator>
 		</id>
@@ -13,17 +13,17 @@
 		<property name="dateModified" column="DATE_MODIFIED" />
 		<property name="createdBy" column="CREATED_BY" />
 		<property name="modifiedBy" column="MODIFIED_BY" />
-		<property name="recordStatus" column="RECORD_STATUS" />
+		<!-- <property name="recordStatus" column="RECORD_STATUS" /> -->
 
 		<property name="dateRequested" column="DATE_REQUESTED" />
 		<property name="dateApproved" column="DATE_APPROVED" />
 		<property name="fromDate" column="FROM_DATE" />
 		<property name="toDate" column="TO_DATE" />
 
-		<many-to-one name="trainingProvider" class="com.rise.model.TrainingProvider"
+		<many-to-one name="trainingProvider" class="com.rise.common.model.TrainingProvider"
 			column="TRAINING_PROVIDER_ID" cascade="all" not-null="true" />
 
-		<many-to-one name="program" class="com.rise.model.Program"
+		<many-to-one name="program" class="com.rise.common.model.Program"
 			column="PROGRAM_ID" cascade="all" not-null="true" />
 	</class>
 </hibernate-mapping>

@@ -4,7 +4,7 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="com.rise.model.EducationQualification" table="EDUCATION_QUALIFICATION">
+	<class name="com.rise.common.model.EducationQualification" table="EDUCATION_QUALIFICATION">
 		<id name="id" column="EDUCATION_QUALIFICATION_ID">
 			<generator class="assigned" />
 		</id>
@@ -13,7 +13,7 @@
 		<property name="dateModified" column="DATE_MODIFIED" />
 		<property name="createdBy" column="CREATED_BY" />
 		<property name="modifiedBy" column="MODIFIED_BY" />
-		<property name="recordStatus" column="RECORD_STATUS" />
+		<!-- <property name="recordStatus" column="RECORD_STATUS" /> -->
 
 		<property name="name" column="NAME" />
 		<property name="university" column="UNIVERSITY" />

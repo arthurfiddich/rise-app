@@ -42,7 +42,7 @@ public class PersonNameTest {
 		personName.setCreatedBy(new Integer(1));
 		personName.setModifiedBy(new Integer(1));
 		personName.setDateModified(new Date());
-		personName.setRecordStatus("A");
+//		personName.setRecordStatus("A");
 		session.save(personName);
 		transaction.commit();
 		System.out.println("Done...");

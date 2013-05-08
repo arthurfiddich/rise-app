@@ -4,7 +4,7 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="com.rise.model.Ministry" table="MINISTRY">
+	<class name="com.rise.common.model.Ministry" table="MINISTRY">
 		<id name="id" column="MINISTRY_ID">
 			<generator class="assigned" />
 		</id>
@@ -13,7 +13,7 @@
 		<property name="dateModified" column="DATE_MODIFIED" />
 		<property name="createdBy" column="CREATED_BY" />
 		<property name="modifiedBy" column="MODIFIED_BY" />
-		<property name="recordStatus" column="RECORD_STATUS" />
+		<!-- <property name="recordStatus" column="RECORD_STATUS" /> -->
 
 		<property name="name" column="NAME" />
 		<property name="ministerName" column="MINISTER_NAME" />
@@ -27,7 +27,7 @@
 
 		<set name="departments" cascade="all" table="DEPARTMENT" inverse="true">
 			<key column="MINISTRY_ID" />
-			<one-to-many class="com.rise.model.Department" />
+			<one-to-many class="com.rise.common.model.Department" />
 		</set>
 	</class>
 </hibernate-mapping>

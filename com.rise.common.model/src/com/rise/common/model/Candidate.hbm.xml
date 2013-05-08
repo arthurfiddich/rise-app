@@ -4,7 +4,7 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="com.rise.model.Candidate" table="CANDIDATE">
+	<class name="com.rise.common.model.Candidate" table="CANDIDATE">
 		<id name="id" column="CANDIDATE_ID">
 			<generator class="assigned" />
 		</id>
@@ -13,21 +13,27 @@
 		<property name="dateModified" column="DATE_MODIFIED" />
 		<property name="createdBy" column="CREATED_BY" />
 		<property name="modifiedBy" column="MODIFIED_BY" />
-		<property name="recordStatus" column="RECORD_STATUS" />
+		<!-- <property name="recordStatus" column="RECORD_STATUS" /> -->
 
 		<property name="contactPersonName" column="CONTACT_PERSON_NAME" />
 
-		<many-to-one name="person" column="PERSON_ID" class="com.rise.model.Person"
-			unique="true" cascade="all" />
+		<many-to-one name="person" column="PERSON_ID"
+			class="com.rise.common.model.Person" unique="true" cascade="all" />
 
-		<many-to-one name="esi" column="ESI_ID" class="com.rise.model.Esi"
-			unique="true" cascade="all" />
+		<one-to-one name="esi" class="com.rise.common.model.Esi"
+			cascade="all" />
+		<one-to-one name="providentFund" class="com.rise.common.model.ProvidentFund"
+			cascade="all" />
+		<one-to-one name="address" class="com.rise.common.model.Address"
+			cascade="all" />
+		<!-- <many-to-one name="esi" column="ESI_ID" class="com.rise.common.model.Esi" 
+			unique="true" cascade="all" /> -->
 
-		<many-to-one name="providentFund" column="PROVIDENT_FUND_ID"
-			class="com.rise.model.ProvidentFund" unique="true" cascade="all" />
+		<!-- <many-to-one name="providentFund" column="PROVIDENT_FUND_ID"
+			class="com.rise.common.model.ProvidentFund" unique="true" cascade="all" /> -->
 
-		<many-to-one name="address" column="ADDRESS_ID"
-			class="com.rise.model.Address" unique="true" cascade="all" />
+		<!-- <many-to-one name="address" column="ADDRESS_ID"
+			class="com.rise.common.model.Address" unique="true" cascade="all" /> -->
 
 		<set name="candidateJobPostings" table="CANDIDATE_JOB_POSTING"
 			inverse="true">
@@ -37,7 +43,7 @@
 
 		<set name="candidateTrainingBatches" table="CANDIDATE_TRAINING_BATCH">
 			<key column="CANDIDATE_ID" />
-			<one-to-many class="com.rise.model.CandidateTrainingBatch" />
+			<one-to-many class="com.rise.common.model.CandidateTrainingBatch" />
 		</set>
 	</class>
 </hibernate-mapping>

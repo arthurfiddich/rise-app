@@ -14,7 +14,9 @@
         http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
 	<context:annotation-config />
-	<context:component-scan base-package="com.rise" />
+	<context:component-scan base-package="com.rise.dao.common" />
+	<context:component-scan base-package="com.rise.service" />
+	<context:component-scan base-package="com.rise.webapp.controller" />
 
 	<bean id="jspViewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
