@@ -1,11 +1,13 @@
 package com.rise.service.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.rise.common.model.Address;
 import com.rise.common.model.Model;
 import com.rise.dao.common.BaseDao;
 import com.rise.service.BaseService;
@@ -17,8 +19,16 @@ public class BaseServiceImpl implements BaseService {
 	private BaseDao baseDao;
 
 	@Transactional
-	public void save(Model argModel) {
-		this.baseDao.save(argModel);
+	public Model save(Model argModel) {
+		if (argModel != null) {
+			Address address = (Address) argModel;
+			address.setDateCreated(new Date());
+			address.setModifiedBy(1);
+			address.setCreatedBy(1);
+			address.setDateModified(new Date());
+			this.baseDao.save(argModel);
+		}
+		return argModel;
 	}
 
 	@Transactional
@@ -39,6 +49,19 @@ public class BaseServiceImpl implements BaseService {
 	@Transactional
 	public void deleteById(Integer argId) {
 		this.baseDao.deleteById(argId);
+	}
+
+	@Transactional
+	public Model update(Model argModel) {
+		if (argModel != null) {
+			Address address = (Address) argModel;
+			address.setDateCreated(new Date());
+			address.setModifiedBy(1);
+			address.setCreatedBy(1);
+			address.setDateModified(new Date());
+			return this.baseDao.update(address);
+		}
+		return argModel;
 	}
 
 }

@@ -17,16 +17,18 @@ import com.rise.dao.common.BaseDao;
 public abstract class BaseDaoImpl implements BaseDao {
 
 	@Autowired
-	public SessionFactory sessionFactory;
+	private SessionFactory sessionFactory;
 
 	@Override
-	public void save(Model argModel) {
+	public Model save(Model argModel) {
 		if (argModel != null) {
 			this.getCurrentSession().save(argModel);
+			return findById(argModel.getId());
 		}
+		return argModel;
 	}
 
-	private Session getCurrentSession() {
+	public Session getCurrentSession() {
 		return this.sessionFactory.getCurrentSession();
 	}
 

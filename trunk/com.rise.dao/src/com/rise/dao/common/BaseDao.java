@@ -11,7 +11,7 @@ public interface BaseDao {
 
 	public Class getPersistentClass();
 
-	public void save(Model argModel);
+	public Model save(Model argModel);
 
 	public void delete(Model argModel);
 
@@ -20,4 +20,6 @@ public interface BaseDao {
 	public Model findById(Integer argId);
 
 	public void deleteById(Integer argId);
+	
+	public Model update(Model argModel);
 }
