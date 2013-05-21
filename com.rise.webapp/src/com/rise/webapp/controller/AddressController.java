@@ -1,56 +1,79 @@
 package com.rise.webapp.controller;
 
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.rise.common.model.Address;
 import com.rise.service.AddressService;
 
 @Controller
+@RequestMapping("/address")
 public class AddressController {
 
 	@Autowired
 	public AddressService addressService;
 
-	@RequestMapping("/list")
+	@RequestMapping(value = "/create", method = RequestMethod.GET)
+	public String get(Model argModel) {
+		argModel.addAttribute("address", new Address());
+		return "/view/new";
+	}
+
+	@RequestMapping(value = "/list")
 	public String listPersonNames(Model argModel) {
 		List<com.rise.common.model.Model> addresses = addressService.findAll();
 		argModel.addAttribute("address", new Address());
 		argModel.addAttribute("addresses", addresses);
-		return "address";
+		return "/view/addressList";
 	}
 
-	@RequestMapping("/create")
-	public String create(@ModelAttribute("address") Address argAddress,
-			BindingResult argBindingResult) {
-		argAddress.setDateCreated(new Date());
-		argAddress.setDateModified(new Date());
-		argAddress.setCreatedBy(1);
-		argAddress.setModifiedBy(1);
-		// argAddress.setRecordStatus("A");
-		this.addressService.save(argAddress);
-		return "redirect:/list";
+	@RequestMapping(value = "/edit", method = RequestMethod.GET)
+	public String editAddress(Model argModel, Address argAddress) {
+		Address address = (Address) this.addressService.findById(argAddress
+				.getId());
+		argModel.addAttribute("editAddress", address);
+		argModel.addAttribute("editMode", true);
+		return "/view/editAddress";
 	}
 
-	@RequestMapping("/delete/{addressId}")
-	public String deleteAddress(@PathVariable("addressId") Integer argAddressId) {
-		this.addressService.deleteById(argAddressId);
-		return "redirect:/list";
+	@RequestMapping(value = "/delete/{addressId}", method = RequestMethod.GET)
+	public String deleteAddress(@PathVariable("addressId") int argAddressId) {
+		if (argAddressId != -1) {
+			this.addressService.deleteById(argAddressId);
+			return "redirect:/address/list";
+		}
+		return "error";
 	}
 
-	@RequestMapping("/findById/{addressId}")
-	public String findById(@PathVariable("addressId") Integer argAddressId,
-			Model argModel) {
-		Address address = (Address) this.addressService.findById(argAddressId);
-		argModel.addAttribute("addressView", address);
-		return "view";
+	@RequestMapping(value = "/save", method = RequestMethod.POST)
+	public String save(Model argModel, @Validated Address argAddress) {
+		Address address = (Address) this.addressService.save(argAddress);
+		argModel.addAttribute("address", address);
+		return "/view/addressView";
+	}
+
+	@RequestMapping(value = "/update", method = RequestMethod.POST)
+	public String update(Model argModel, @Validated Address argAddress) {
+		Address address = (Address) this.addressService.update(argAddress);
+		argModel.addAttribute("address", address);
+		return "/view/addressView";
+	}
+
+	@RequestMapping(value = "/{argAddressId}", method = RequestMethod.GET)
+	public String getPerson(@PathVariable String argAddressId, Model argModel) {
+		if (argAddressId != null && !argAddressId.isEmpty() && argModel != null) {
+			Address address = (Address) this.addressService.findById(Integer
+					.parseInt(argAddressId));
+			argModel.addAttribute("address", address);
+			return "/view/addressView";
+		}
+		return "error";
 	}
 }
