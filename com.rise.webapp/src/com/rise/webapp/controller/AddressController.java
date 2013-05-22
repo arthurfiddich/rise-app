@@ -23,20 +23,18 @@ public class AddressController {
 
 	@RequestMapping(value = HibernateConstants.CREATE, method = RequestMethod.GET)
 	public String get(Model argModel) {
-		argModel.addAttribute(HibernateConstants.ADDRESS, new Address());
-		return HibernateConstants.VIEW_SLASH
-				+ this.baseService.getPersistentClass().getSimpleName()
-						.toLowerCase() + HibernateConstants.NEW;
+		argModel.addAttribute(getSimpleName(), new Address());
+		return HibernateConstants.VIEW_SLASH + getSimpleName()
+				+ HibernateConstants.NEW;
 	}
 
 	@RequestMapping(value = HibernateConstants.LIST)
 	public String listPersonNames(Model argModel) {
 		List<com.rise.common.model.Model> addresses = baseService.findAll();
-		argModel.addAttribute(HibernateConstants.ADDRESS, new Address());
-		argModel.addAttribute(HibernateConstants.ADDRESSES, addresses);
-		return HibernateConstants.VIEW_SLASH
-				+ this.baseService.getPersistentClass().getSimpleName()
-						.toLowerCase() + HibernateConstants.LIST;
+		argModel.addAttribute(getSimpleName(), new Address());
+		argModel.addAttribute(getFullyQualifiedName(), addresses);
+		return HibernateConstants.VIEW_SLASH + getSimpleName()
+				+ HibernateConstants.LIST;
 	}
 
 	@RequestMapping(value = HibernateConstants.EDIT, method = RequestMethod.GET)
@@ -45,9 +43,8 @@ public class AddressController {
 				.getId());
 		argModel.addAttribute(HibernateConstants.EDIT_ADDRESS, address);
 		argModel.addAttribute(HibernateConstants.EDIT_MODE, true);
-		return HibernateConstants.VIEW_SLASH
-				+ this.baseService.getPersistentClass().getSimpleName()
-						.toLowerCase() + HibernateConstants.EDIT;
+		return HibernateConstants.VIEW_SLASH + getSimpleName()
+				+ HibernateConstants.EDIT;
 	}
 
 	@RequestMapping(value = HibernateConstants.DELETE
@@ -55,10 +52,8 @@ public class AddressController {
 	public String deleteAddress(@PathVariable("argId") int argId) {
 		if (argId != -1) {
 			this.baseService.deleteById(argId);
-			return HibernateConstants.RE_DIRECT
-					+ HibernateConstants.SLASH
-					+ this.baseService.getPersistentClass().getSimpleName()
-							.toLowerCase() + HibernateConstants.LIST;
+			return HibernateConstants.RE_DIRECT + HibernateConstants.SLASH
+					+ getSimpleName() + HibernateConstants.LIST;
 		}
 		return HibernateConstants.ERROR;
 	}
@@ -66,19 +61,17 @@ public class AddressController {
 	@RequestMapping(value = HibernateConstants.SAVE, method = RequestMethod.POST)
 	public String save(Model argModel, @Validated Address argAddress) {
 		Address address = (Address) this.baseService.save(argAddress);
-		argModel.addAttribute(HibernateConstants.ADDRESS, address);
-		return HibernateConstants.VIEW_SLASH
-				+ this.baseService.getPersistentClass().getSimpleName()
-						.toLowerCase() + HibernateConstants.VIEW;
+		argModel.addAttribute(getSimpleName(), address);
+		return HibernateConstants.VIEW_SLASH + getSimpleName()
+				+ HibernateConstants.VIEW;
 	}
 
 	@RequestMapping(value = HibernateConstants.UPDATE, method = RequestMethod.POST)
 	public String update(Model argModel, @Validated Address argAddress) {
 		Address address = (Address) this.baseService.update(argAddress);
-		argModel.addAttribute(HibernateConstants.ADDRESS, address);
-		return HibernateConstants.VIEW_SLASH
-				+ this.baseService.getPersistentClass().getSimpleName()
-						.toLowerCase() + HibernateConstants.VIEW;
+		argModel.addAttribute(getSimpleName(), address);
+		return HibernateConstants.VIEW_SLASH + getSimpleName()
+				+ HibernateConstants.VIEW;
 	}
 
 	@RequestMapping(value = HibernateConstants.PATH_VARIABLE_ID, method = RequestMethod.GET)
@@ -86,11 +79,18 @@ public class AddressController {
 		if (argId != null && !argId.isEmpty() && argModel != null) {
 			Address address = (Address) this.baseService.findById(Integer
 					.parseInt(argId));
-			argModel.addAttribute(HibernateConstants.ADDRESS, address);
-			return HibernateConstants.VIEW_SLASH
-					+ this.baseService.getPersistentClass().getSimpleName()
-							.toLowerCase() + HibernateConstants.VIEW;
+			argModel.addAttribute(getSimpleName(), address);
+			return HibernateConstants.VIEW_SLASH + getSimpleName()
+					+ HibernateConstants.VIEW;
 		}
 		return HibernateConstants.ERROR;
+	}
+
+	private String getSimpleName() {
+		return this.baseService.getSimpleName().toLowerCase();
+	}
+
+	private String getFullyQualifiedName() {
+		return this.baseService.getFullyQualifiedName().toLowerCase();
 	}
 }
