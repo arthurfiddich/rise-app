@@ -22,4 +22,8 @@ public interface BaseService {
 	public void deleteById(Integer argId);
 	
 	public Model update(Model argModel);
+	
+	public String getSimpleName();
+	
+	public String getFullyQualifiedName();
 }

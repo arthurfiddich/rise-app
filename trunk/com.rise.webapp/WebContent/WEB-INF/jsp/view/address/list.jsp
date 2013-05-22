@@ -21,20 +21,23 @@
 					<td bgcolor="skyblue" width="15%" align="center"><b>Address
 							ID</b>
 					</td>
-					<td bgcolor="skyblue" width="15%" align="center"><b>Street Address</b>
+					<td bgcolor="skyblue" width="15%" align="center"><b>Street
+							Address</b>
 					</td>
 					<td bgcolor="skyblue" width="15%" align="center"><b>City</b>
 					</td>
 					<td bgcolor="skyblue" width="15%" align="center"><b>State</b>
 					</td>
-					<td bgcolor="skyblue" width="15%" align="center"><b>Postal Code</b>
+					<td bgcolor="skyblue" width="15%" align="center"><b>Postal
+							Code</b>
 					</td>
 					<td bgcolor="skyblue" width="15%" align="center"><b>Country</b>
 					</td>
 				</tr>
 				<%
+					String fullyQualifiedClassName = Address.class.getName().toLowerCase();
 					List<Address> addresses = (List<Address>) request
-							.getAttribute("addresses");
+							.getAttribute(fullyQualifiedClassName);
 					if (addresses != null && addresses.size() > 0) {
 						for (Address address : addresses) {
 				%>

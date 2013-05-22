@@ -13,4 +13,14 @@ public class AddressServiceImpl extends BaseServiceImpl implements
 	public Class getPersistentClass() {
 		return Address.class;
 	}
+
+	@Override
+	public String getSimpleName() {
+		return this.getPersistentClass().getSimpleName();
+	}
+
+	@Override
+	public String getFullyQualifiedName() {
+		return this.getPersistentClass().getName();
+	}
 }
