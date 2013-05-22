@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.rise.common.model.Address;
+import com.rise.common.util.constants.HibernateConstants;
 import com.rise.service.BaseService;
 
 @Controller
@@ -20,72 +21,76 @@ public class AddressController {
 	@Autowired
 	public BaseService baseService;
 
-	@RequestMapping(value = "/create", method = RequestMethod.GET)
+	@RequestMapping(value = HibernateConstants.CREATE, method = RequestMethod.GET)
 	public String get(Model argModel) {
-		argModel.addAttribute("address", new Address());
-		return "/view/"
-				+ this.baseService.getPersistentClass().getSimpleName().toLowerCase()
-				+ "/new";
+		argModel.addAttribute(HibernateConstants.ADDRESS, new Address());
+		return HibernateConstants.VIEW_SLASH
+				+ this.baseService.getPersistentClass().getSimpleName()
+						.toLowerCase() + HibernateConstants.NEW;
 	}
 
-	@RequestMapping(value = "/list")
+	@RequestMapping(value = HibernateConstants.LIST)
 	public String listPersonNames(Model argModel) {
 		List<com.rise.common.model.Model> addresses = baseService.findAll();
-		argModel.addAttribute("address", new Address());
-		argModel.addAttribute("addresses", addresses);
-		return "/view/"
-				+ this.baseService.getPersistentClass().getSimpleName().toLowerCase()
-				+ "/addressList";
+		argModel.addAttribute(HibernateConstants.ADDRESS, new Address());
+		argModel.addAttribute(HibernateConstants.ADDRESSES, addresses);
+		return HibernateConstants.VIEW_SLASH
+				+ this.baseService.getPersistentClass().getSimpleName()
+						.toLowerCase() + HibernateConstants.LIST;
 	}
 
-	@RequestMapping(value = "/edit", method = RequestMethod.GET)
+	@RequestMapping(value = HibernateConstants.EDIT, method = RequestMethod.GET)
 	public String editAddress(Model argModel, Address argAddress) {
 		Address address = (Address) this.baseService.findById(argAddress
 				.getId());
-		argModel.addAttribute("editAddress", address);
-		argModel.addAttribute("editMode", true);
-		return "/view/"
-				+ this.baseService.getPersistentClass().getSimpleName().toLowerCase()
-				+ "/editAddress";
+		argModel.addAttribute(HibernateConstants.EDIT_ADDRESS, address);
+		argModel.addAttribute(HibernateConstants.EDIT_MODE, true);
+		return HibernateConstants.VIEW_SLASH
+				+ this.baseService.getPersistentClass().getSimpleName()
+						.toLowerCase() + HibernateConstants.EDIT;
 	}
 
-	@RequestMapping(value = "/delete/{addressId}", method = RequestMethod.GET)
-	public String deleteAddress(@PathVariable("addressId") int argAddressId) {
-		if (argAddressId != -1) {
-			this.baseService.deleteById(argAddressId);
-			return "redirect:/address/list";
+	@RequestMapping(value = HibernateConstants.DELETE
+			+ HibernateConstants.PATH_VARIABLE_ID, method = RequestMethod.GET)
+	public String deleteAddress(@PathVariable("argId") int argId) {
+		if (argId != -1) {
+			this.baseService.deleteById(argId);
+			return HibernateConstants.RE_DIRECT
+					+ HibernateConstants.SLASH
+					+ this.baseService.getPersistentClass().getSimpleName()
+							.toLowerCase() + HibernateConstants.LIST;
 		}
-		return "error";
+		return HibernateConstants.ERROR;
 	}
 
-	@RequestMapping(value = "/save", method = RequestMethod.POST)
+	@RequestMapping(value = HibernateConstants.SAVE, method = RequestMethod.POST)
 	public String save(Model argModel, @Validated Address argAddress) {
 		Address address = (Address) this.baseService.save(argAddress);
-		argModel.addAttribute("address", address);
-		return "/view/"
-				+ this.baseService.getPersistentClass().getSimpleName().toLowerCase()
-				+ "/addressView";
+		argModel.addAttribute(HibernateConstants.ADDRESS, address);
+		return HibernateConstants.VIEW_SLASH
+				+ this.baseService.getPersistentClass().getSimpleName()
+						.toLowerCase() + HibernateConstants.VIEW;
 	}
 
-	@RequestMapping(value = "/update", method = RequestMethod.POST)
+	@RequestMapping(value = HibernateConstants.UPDATE, method = RequestMethod.POST)
 	public String update(Model argModel, @Validated Address argAddress) {
 		Address address = (Address) this.baseService.update(argAddress);
-		argModel.addAttribute("address", address);
-		return "/view/"
-				+ this.baseService.getPersistentClass().getSimpleName().toLowerCase()
-				+ "/addressView";
+		argModel.addAttribute(HibernateConstants.ADDRESS, address);
+		return HibernateConstants.VIEW_SLASH
+				+ this.baseService.getPersistentClass().getSimpleName()
+						.toLowerCase() + HibernateConstants.VIEW;
 	}
 
-	@RequestMapping(value = "/{argAddressId}", method = RequestMethod.GET)
-	public String getPerson(@PathVariable String argAddressId, Model argModel) {
-		if (argAddressId != null && !argAddressId.isEmpty() && argModel != null) {
+	@RequestMapping(value = HibernateConstants.PATH_VARIABLE_ID, method = RequestMethod.GET)
+	public String getPerson(@PathVariable String argId, Model argModel) {
+		if (argId != null && !argId.isEmpty() && argModel != null) {
 			Address address = (Address) this.baseService.findById(Integer
-					.parseInt(argAddressId));
-			argModel.addAttribute("address", address);
-			return "/view/"
+					.parseInt(argId));
+			argModel.addAttribute(HibernateConstants.ADDRESS, address);
+			return HibernateConstants.VIEW_SLASH
 					+ this.baseService.getPersistentClass().getSimpleName()
-							.toLowerCase() + "/addressView";
+							.toLowerCase() + HibernateConstants.VIEW;
 		}
-		return "error";
+		return HibernateConstants.ERROR;
 	}
 }
