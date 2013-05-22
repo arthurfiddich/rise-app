@@ -11,42 +11,48 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.rise.common.model.Address;
-import com.rise.service.AddressService;
+import com.rise.service.BaseService;
 
 @Controller
 @RequestMapping("/address")
 public class AddressController {
 
 	@Autowired
-	public AddressService addressService;
+	public BaseService baseService;
 
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
 	public String get(Model argModel) {
 		argModel.addAttribute("address", new Address());
-		return "/view/new";
+		return "/view/"
+				+ this.baseService.getPersistentClass().getSimpleName().toLowerCase()
+				+ "/new";
 	}
 
 	@RequestMapping(value = "/list")
 	public String listPersonNames(Model argModel) {
-		List<com.rise.common.model.Model> addresses = addressService.findAll();
+		List<com.rise.common.model.Model> addresses = baseService.findAll();
 		argModel.addAttribute("address", new Address());
 		argModel.addAttribute("addresses", addresses);
-		return "/view/addressList";
+		return "/view/"
+				+ this.baseService.getPersistentClass().getSimpleName().toLowerCase()
+				+ "/addressList";
 	}
 
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
 	public String editAddress(Model argModel, Address argAddress) {
-		Address address = (Address) this.addressService.findById(argAddress
+		Address address = (Address) this.baseService.findById(argAddress
 				.getId());
 		argModel.addAttribute("editAddress", address);
 		argModel.addAttribute("editMode", true);
-		return "/view/editAddress";
+		return "/view/"
+				+ this.baseService.getPersistentClass().getSimpleName().toLowerCase()
+				+ "/editAddress";
 	}
 
 	@RequestMapping(value = "/delete/{addressId}", method = RequestMethod.GET)
 	public String deleteAddress(@PathVariable("addressId") int argAddressId) {
 		if (argAddressId != -1) {
-			this.addressService.deleteById(argAddressId);
+			this.baseService.deleteById(argAddressId);
 			return "redirect:/address/list";
 		}
 		return "error";
@@ -54,25 +60,31 @@ public class AddressController {
 
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String save(Model argModel, @Validated Address argAddress) {
-		Address address = (Address) this.addressService.save(argAddress);
+		Address address = (Address) this.baseService.save(argAddress);
 		argModel.addAttribute("address", address);
-		return "/view/addressView";
+		return "/view/"
+				+ this.baseService.getPersistentClass().getSimpleName().toLowerCase()
+				+ "/addressView";
 	}
 
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public String update(Model argModel, @Validated Address argAddress) {
-		Address address = (Address) this.addressService.update(argAddress);
+		Address address = (Address) this.baseService.update(argAddress);
 		argModel.addAttribute("address", address);
-		return "/view/addressView";
+		return "/view/"
+				+ this.baseService.getPersistentClass().getSimpleName().toLowerCase()
+				+ "/addressView";
 	}
 
 	@RequestMapping(value = "/{argAddressId}", method = RequestMethod.GET)
 	public String getPerson(@PathVariable String argAddressId, Model argModel) {
 		if (argAddressId != null && !argAddressId.isEmpty() && argModel != null) {
-			Address address = (Address) this.addressService.findById(Integer
+			Address address = (Address) this.baseService.findById(Integer
 					.parseInt(argAddressId));
 			argModel.addAttribute("address", address);
-			return "/view/addressView";
+			return "/view/"
+					+ this.baseService.getPersistentClass().getSimpleName()
+							.toLowerCase() + "/addressView";
 		}
 		return "error";
 	}

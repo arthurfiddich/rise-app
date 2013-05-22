@@ -13,7 +13,7 @@ import com.rise.dao.common.BaseDao;
 import com.rise.service.BaseService;
 
 @Service
-public class BaseServiceImpl implements BaseService {
+public abstract class BaseServiceImpl implements BaseService {
 
 	@Autowired
 	private BaseDao baseDao;
