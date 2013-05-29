@@ -1,0 +1,5 @@
+I made the mistake to place the <query> element inside the <class> one. Hibernate in combination with Spring didn't find it there.
+To fix it just place the <query> element outside the <class> one but inside the <hibernate-mapping> element.
+
+Please follow this link for more clarification:
+http://forum.springsource.org/showthread.php?24554-Named-Query-not-known
