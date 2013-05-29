@@ -71,4 +71,14 @@ public abstract class BaseDaoImpl implements BaseDao {
 			}
 		}
 	}
+	
+	@Override
+	public Model update(Model argModel) {
+		if (argModel != null) {
+			this.getCurrentSession().saveOrUpdate(
+					this.getPersistentClass().getName(), argModel);
+			return findById(argModel.getId());
+		}
+		return argModel;
+	}
 }
