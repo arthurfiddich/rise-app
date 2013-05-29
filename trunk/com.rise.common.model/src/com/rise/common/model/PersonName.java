@@ -1,6 +1,24 @@
 package com.rise.common.model;
 
-public class PersonName extends BaseModel {
+/**
+ * We are not extending with BaseModel because its a unique class and I am using
+ * this POJO class to make it "component" into another class. In Hibernate terms
+ * the PersonName entity is called the component and it cannot have its own
+ * primary key, it uses the primary key of the enclosing entity.
+ * 
+ * See this link:
+ * http://www.dzone.com/tutorials/java/hibernate/hibernate-example
+ * /hibernate-mapping-component-1.html
+ * 
+ * @author Administrator
+ * 
+ */
+public class PersonName/* extends BaseModel */{
+
+	// /**
+	// *
+	// */
+	// private static final long serialVersionUID = 1L;
 
 	private String title;
 	private String firstName;

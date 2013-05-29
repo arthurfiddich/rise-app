@@ -10,40 +10,38 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.rise.common.model.Address;
+import com.rise.common.model.Person;
 import com.rise.common.util.constants.HibernateConstants;
-import com.rise.service.AddressService;
 import com.rise.service.BaseService;
 import com.rise.service.PersonService;
 
 @Controller
-@RequestMapping("/address")
-public class AddressController extends BaseController {
+@RequestMapping("/person")
+public class PersonController extends BaseController {
 	
 	@Autowired
-	private AddressService addressService;
+	private PersonService personService;
 
 	@RequestMapping(value = HibernateConstants.CREATE, method = RequestMethod.GET)
 	public String get(Model argModel) {
-		argModel.addAttribute(getSimpleName(), new Address());
+		argModel.addAttribute(getSimpleName(), new Person());
 		return HibernateConstants.VIEW_SLASH + getSimpleName()
 				+ HibernateConstants.NEW;
 	}
 
 	@RequestMapping(value = HibernateConstants.LIST)
 	public String listPersonNames(Model argModel) {
-		List<com.rise.common.model.Model> addresses = getBaseService().findAll();
-		argModel.addAttribute(getSimpleName(), new Address());
-		argModel.addAttribute(getFullyQualifiedName(), addresses);
+		List<com.rise.common.model.Model> persons = this.getBaseService().findAll();
+		argModel.addAttribute(getSimpleName(), new Person());
+		argModel.addAttribute(getFullyQualifiedName(), persons);
 		return HibernateConstants.VIEW_SLASH + getSimpleName()
 				+ HibernateConstants.LIST;
 	}
 
 	@RequestMapping(value = HibernateConstants.EDIT, method = RequestMethod.GET)
-	public String editAddress(Model argModel, Address argAddress) {
-		Address address = (Address) this.getBaseService().findById(argAddress
-				.getId());
-		argModel.addAttribute(HibernateConstants.EDIT_ADDRESS, address);
+	public String editPerson(Model argModel, Person argPerson) {
+		Person person = (Person) this.getBaseService().findById(argPerson.getId());
+		argModel.addAttribute(HibernateConstants.EDIT_PERSON, person);
 		argModel.addAttribute(HibernateConstants.EDIT_MODE, true);
 		return HibernateConstants.VIEW_SLASH + getSimpleName()
 				+ HibernateConstants.EDIT;
@@ -51,7 +49,7 @@ public class AddressController extends BaseController {
 
 	@RequestMapping(value = HibernateConstants.DELETE
 			+ HibernateConstants.PATH_VARIABLE_ID, method = RequestMethod.GET)
-	public String deleteAddress(@PathVariable("argId") int argId) {
+	public String deletePerson(@PathVariable("argId") int argId) {
 		if (argId != -1) {
 			this.getBaseService().deleteById(argId);
 			return HibernateConstants.RE_DIRECT + HibernateConstants.SLASH
@@ -61,17 +59,17 @@ public class AddressController extends BaseController {
 	}
 
 	@RequestMapping(value = HibernateConstants.SAVE, method = RequestMethod.POST)
-	public String save(Model argModel, @Validated Address argAddress) {
-		Address address = (Address) this.getBaseService().save(argAddress);
-		argModel.addAttribute(getSimpleName(), address);
+	public String save(Model argModel, @Validated Person argPerson) {
+		Person person = (Person) this.getBaseService().save(argPerson);
+		argModel.addAttribute(getSimpleName(), person);
 		return HibernateConstants.VIEW_SLASH + getSimpleName()
 				+ HibernateConstants.VIEW;
 	}
 
 	@RequestMapping(value = HibernateConstants.UPDATE, method = RequestMethod.POST)
-	public String update(Model argModel, @Validated Address argAddress) {
-		Address address = (Address) this.getBaseService().update(argAddress);
-		argModel.addAttribute(getSimpleName(), address);
+	public String update(Model argModel, @Validated Person argPerson) {
+		Person person = (Person) this.getBaseService().update(argPerson);
+		argModel.addAttribute(getSimpleName(), person);
 		return HibernateConstants.VIEW_SLASH + getSimpleName()
 				+ HibernateConstants.VIEW;
 	}
@@ -79,9 +77,9 @@ public class AddressController extends BaseController {
 	@RequestMapping(value = HibernateConstants.PATH_VARIABLE_ID, method = RequestMethod.GET)
 	public String getPerson(@PathVariable String argId, Model argModel) {
 		if (argId != null && !argId.isEmpty() && argModel != null) {
-			Address address = (Address) this.getBaseService().findById(Integer
+			Person person = (Person) this.getBaseService().findById(Integer
 					.parseInt(argId));
-			argModel.addAttribute(getSimpleName(), address);
+			argModel.addAttribute(getSimpleName(), person);
 			return HibernateConstants.VIEW_SLASH + getSimpleName()
 					+ HibernateConstants.VIEW;
 		}
@@ -90,7 +88,7 @@ public class AddressController extends BaseController {
 
 	@Override
 	public BaseService getBaseService() {
-		return this.addressService;
+		return this.personService;
 	}
 
 }

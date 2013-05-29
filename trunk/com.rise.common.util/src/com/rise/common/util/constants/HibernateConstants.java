@@ -36,7 +36,7 @@ public class HibernateConstants {
 	
 	public static final String SLASH = "/";
 	
-	// Entity Name Constants
+	// Address Entity Constants
 	public static final String ADDRESS = "address";
 	
 	public static final String ADDRESSES = "addresses";
@@ -44,6 +44,10 @@ public class HibernateConstants {
 	public static final String EDIT_ADDRESS = "editAddress";
 	
 	public static final String PATH_VARIABLE_ADDRESS_ID = "/{argAddressId}";
+
+	
+	// Person Entity Constants
+	public static final String EDIT_PERSON = "editPerson";
 
 
 

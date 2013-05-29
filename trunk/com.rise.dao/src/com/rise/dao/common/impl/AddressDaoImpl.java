@@ -14,13 +14,4 @@ public class AddressDaoImpl extends BaseDaoImpl implements AddressDao {
 		return Address.class;
 	}
 
-	@Override
-	public Model update(Model argModel) {
-		if (argModel != null) {
-			this.getCurrentSession().saveOrUpdate(
-					this.getPersistentClass().getName(), argModel);
-			return findById(argModel.getId());
-		}
-		return argModel;
-	}
 }

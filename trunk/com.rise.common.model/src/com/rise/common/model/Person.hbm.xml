@@ -15,11 +15,13 @@
 		<property name="modifiedBy" column="MODIFIED_BY" />
 		<!-- <property name="recordStatus" column="RECORD_STATUS" /> -->
 
-		<property name="title" column="TITLE" />
-		<property name="firstName" column="FIRST_NAME" />
-		<property name="middleName" column="MIDDLE_NAME" />
-		<property name="lastName" column="LAST_NAME" />
-		<property name="suffix" column="SUFFIX" />
+		<component name="personName" class="com.rise.common.model.PersonName">
+			<property name="title" column="TITLE" />
+			<property name="firstName" column="FIRST_NAME" />
+			<property name="middleName" column="MIDDLE_NAME" />
+			<property name="lastName" column="LAST_NAME" />
+			<property name="suffix" column="SUFFIX" />
+		</component>
 		<property name="dateOfBirth" column="DATE_OF_BIRTH" />
 		<property name="aadhaarNumber" column="AADHAAR_NUMBER" />
 
@@ -42,13 +44,21 @@
 			<one-to-many class="com.rise.common.model.Award" />
 		</set>
 
-		<many-to-one name="passport" class="com.rise.common.model.Passport"
-			unique="true" not-null="true" column="PASSPORT_ID" />
+		<!-- <many-to-one name="passport" class="com.rise.common.model.Passport" 
+			unique="true" not-null="true" column="PASSPORT_ID" /> -->
 
-		<many-to-one name="driversLicense" class="com.rise.common.model.DriversLicense"
-			unique="true" not-null="true" column="DRIVERS_LICENSE_ID" />
+		<!-- <many-to-one name="driversLicense" class="com.rise.common.model.DriversLicense" 
+			unique="true" not-null="true" column="DRIVERS_LICENSE_ID" /> -->
 
-		<many-to-one name="candidate" class="com.rise.common.model.Candidate"
-			unique="true" not-null="true" column="CANDIDATE_ID" />
+		<!-- <many-to-one name="candidate" class="com.rise.common.model.Candidate" 
+			unique="true" not-null="true" column="CANDIDATE_ID" /> -->
 	</class>
+
+	<query name="getContactInformation"><![CDATA[
+			select ci
+			from com.rise.common.model.Person p
+			inner join p.contactInformation ci
+			where ci.id = :paramContactInformationId
+		]]>
+	</query>
 </hibernate-mapping>
