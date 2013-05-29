@@ -1,0 +1,9 @@
+The solution is to specify "zeroDateTimeBehavior=convertToNull" as parameter to your MySQL connection 
+(either in datasource URL or as an additional property), e.g.:
+
+jdbc:mysql://localhost/myDatabase?zeroDateTimeBehavior=convertToNull
+
+Please see the below link for more information:
+http://stackoverflow.com/questions/1363527/cannot-convert-0000-00-00-000000-to-timestamp
+
+http://abhisarswami.blogspot.in/2010/12/hibernate-spring-mysql-cannot-convert.html
