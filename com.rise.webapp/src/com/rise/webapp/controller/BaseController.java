@@ -1,6 +1,5 @@
 package com.rise.webapp.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import com.rise.service.BaseService;
@@ -8,8 +7,8 @@ import com.rise.service.BaseService;
 @Controller
 public abstract class BaseController {
 
-//	@Autowired
-//	protected BaseService baseService;
+	// @Autowired
+	// protected BaseService baseService;
 
 	protected String getSimpleName() {
 		return this.getBaseService().getSimpleName().toLowerCase();
@@ -18,6 +17,6 @@ public abstract class BaseController {
 	protected String getFullyQualifiedName() {
 		return this.getBaseService().getFullyQualifiedName().toLowerCase();
 	}
-	
+
 	public abstract BaseService getBaseService();
 }

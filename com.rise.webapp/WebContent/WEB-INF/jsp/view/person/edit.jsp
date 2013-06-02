@@ -10,16 +10,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Edit Person: ${editAddress.getId()}</title>
+<title>Edit Person: ${editPerson.getId()}</title>
 </head>
 <body bgcolor="skyblue">
 	<h1 align="left">
-		<b>${editAddress.getId()}</b>
+		<b>${editPerson.getId()}</b>
 	</h1>
 
 	<div id="newForm">
-		<form:form modelAttribute="address" action="update" method="post">
-			<form:input path="id" value="${editAddress.getId()}" type="hidden" />
+		<form:form modelAttribute="person" action="update" method="post">
+			<form:input path="id" value="${editPerson.getId()}" type="hidden" />
 			<%-- <form:input type="hidden" name="id" value="${editPerson.getId()}"></input> --%>
 			<div>
 				<fieldset>
@@ -30,41 +30,88 @@
 							<tr></tr>
 							<tr>
 								<td bgcolor="white" width="10%" align="left"><b>Address
-										Information</b></td>
+										Information</b>
+								</td>
 							</tr>
 						</table>
 					</div>
 					<table>
 						<tr></tr>
 						<tr></tr>
+						<%-- <tr>
+							<td><form:label path="id" for="id">
+									<spring:message code="label.id" />
+								</form:label>
+							</td>
+							<td><form:input path="id"
+									value="${editPerson.getId()}" /></td>
+						</tr> --%>
 						<tr>
-							<td><form:label path="streetAddress" for="streetAddress">Street Address:</form:label></td>
-							<td><form:input path="streetAddress"
-									value="${editAddress.getStreetAddress() }" /></td>
+							<td><form:label path="personName.title"
+									for="personName.title">
+									<spring:message code="label.title" />
+								</form:label></td>
+							<td width="60%"><form:input path="personName.title"
+									value="${editPerson.getPersonName().getTitle() }" />
+							</td>
 						</tr>
 						<tr>
-							<td><form:label path="city" for="city">City:</form:label></td>
-							<td width="60%"><form:input path="city"
-									value="${editAddress.getCity() }" /></td>
-							<!-- </tr>
-						<tr> -->
-							<td><form:label path="state" for="state">State</form:label></td>
-							<td><form:input path="state"
-									value="${editAddress.getState() }" /></td>
+							<td><form:label path="personName.firstName"
+									for="personName.firstName">
+									<spring:message code="label.firstName" />
+								</form:label>
+							</td>
+							<td><form:input path="personName.firstName"
+									value="${editPerson.getPersonName().getFirstName() }" />
+							</td>
 						</tr>
 						<tr>
-							<td><form:label path="postalCode" for="postalCode">Postal Code:</form:label></td>
-							<td width="60%"><form:input path="postalCode"
-									value="${editAddress.getPostalCode() }" /></td>
-							<!-- </tr>
-						<tr> -->
-							<td><form:label path="country" for="country">Country:</form:label></td>
-							<td><form:input path="country"
-									value="${editAddress.getCountry()}" /></td>
+							<td><form:label path="personName.middleName"
+									for="personName.middleName">
+									<spring:message code="label.middleName" />
+								</form:label></td>
+							<td width="60%"><form:input path="personName.middleName"
+									value="${editPerson.getPersonName().getMiddleName() }" /></td>
+						</tr>
+						<tr>
+							<td><form:label path="personName.lastName"
+									for="personName.lastName">
+									<spring:message code="label.lastName" />
+								</form:label></td>
+							<td><form:input path="personName.lastName"
+									value="${editPerson.getPersonName().getLastName() }" />
+							</td>
+						</tr>
+						<tr>
+							<td><form:label path="personName.suffix"
+									for="personName.suffix">
+									<spring:message code="label.suffix" />
+								</form:label></td>
+							<td width="60%"><form:input path="personName.suffix"
+									value="${editPerson.getPersonName().getSuffix() }" />
+							</td>
+						</tr>
+						<tr>
+							<td><form:label path="dateOfBirth" for="dateOfBirth">
+									<spring:message code="label.dateOfBirth" />
+								</form:label></td>
+							<td width="60%"><form:input path="dateOfBirth"
+									value="${editPerson.getDateOfBirth() }" />
+							</td>
+						</tr>
+						<tr>
+							<td><form:label path="aadhaarNumber" for="aadhaarNumber">
+									<spring:message code="label.aadhaarNumber" />
+								</form:label></td>
+							<td width="60%"><form:input path="aadhaarNumber"
+									value="${editPerson.getAadhaarNumber() }" />
+							</td>
 						</tr>
 						<tr align="center">
-							<td align="center"><input type="submit" value="Cancel" /> <input
-								type="submit" value="Save" autofocus /></td>
+							<td align="center"><input type="button" value="Cancel"
+								onClick="history.go(-1);return true;" /> <input type="submit"
+								value="Save" autofocus />
+							</td>
 						</tr>
 					</table>
 				</fieldset>

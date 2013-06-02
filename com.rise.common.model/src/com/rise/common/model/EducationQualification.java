@@ -9,8 +9,8 @@ public class EducationQualification extends BaseModel {
 
 	private String name;
 	private String university;
-	private int year;
-	private int month;
+	private int yearCompleted;
+	private int monthCompleted;
 	private int percentage;
 	private float gpa;
 
@@ -36,20 +36,20 @@ public class EducationQualification extends BaseModel {
 		this.university = argUniversity;
 	}
 
-	public int getYear() {
-		return this.year;
+	public int getYearCompleted() {
+		return this.yearCompleted;
 	}
 
-	public void setYear(int argYear) {
-		this.year = argYear;
+	public void setYearCompleted(int argYearCompleted) {
+		this.yearCompleted = argYearCompleted;
 	}
 
-	public int getMonth() {
-		return this.month;
+	public int getMonthCompleted() {
+		return this.monthCompleted;
 	}
 
-	public void setMonth(int argMonth) {
-		this.month = argMonth;
+	public void setMonthCompleted(int argMonthCompleted) {
+		this.monthCompleted = argMonthCompleted;
 	}
 
 	public int getPercentage() {

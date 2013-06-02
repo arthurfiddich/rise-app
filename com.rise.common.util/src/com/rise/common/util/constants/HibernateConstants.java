@@ -49,8 +49,9 @@ public class HibernateConstants {
 	// Person Entity Constants
 	public static final String EDIT_PERSON = "editPerson";
 
-
-
-
+	// EducationQualification Entity Constants
+	public static final String EDIT_EDUCATION_QUALIFICATION = "editEducationQualification";
+	
+	public static final String EDUCATION_QUALIFICATION_CLASS_NAME = "EducationQualification";
 
 }
