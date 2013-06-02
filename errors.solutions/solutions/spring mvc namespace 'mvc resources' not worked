@@ -1,0 +1,9 @@
+1. Please make sure the paths are correct or not.
+2. Make sure you included annotation driven tag or not in your spring context xml file.
+
+You need to include these two tags to load resources into your application.
+
+<mvc:annotation-driven />
+<mvc:resources mapping="/resources/**" location="/resources/" /> 
+
+These resources are there in under webcontent folder in a structured web application.
