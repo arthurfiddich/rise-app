@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ page import="java.util.List"%>
-<%@ page import="com.rise.common.model.Address;"%>
+<%@ page import="com.rise.common.model.Person;"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -18,38 +18,42 @@
 			<table bgcolor="skyblue" cellpadding="0.5" cellspacing="0.5"
 				border="1" bordercolor="lightblue">
 				<tr height="10">
-					<td bgcolor="skyblue" width="15%" align="center"><b>Address
+					<td bgcolor="skyblue" width="15%" align="center"><b>Person
 							ID</b>
 					</td>
-					<td bgcolor="skyblue" width="15%" align="center"><b>Street
-							Address</b>
+					<td bgcolor="skyblue" width="15%" align="center"><b>Title</b>
 					</td>
-					<td bgcolor="skyblue" width="15%" align="center"><b>City</b>
+					<td bgcolor="skyblue" width="15%" align="center"><b>First Name</b>
 					</td>
-					<td bgcolor="skyblue" width="15%" align="center"><b>State</b>
+					<td bgcolor="skyblue" width="15%" align="center"><b>Middle Name</b>
 					</td>
-					<td bgcolor="skyblue" width="15%" align="center"><b>Postal
-							Code</b>
+					<td bgcolor="skyblue" width="15%" align="center"><b>Last Name</b>
 					</td>
-					<td bgcolor="skyblue" width="15%" align="center"><b>Country</b>
+					<td bgcolor="skyblue" width="15%" align="center"><b>Suffix</b>
+					</td>
+					<td bgcolor="skyblue" width="15%" align="center"><b>Date Of Birth</b>
+					</td>
+					<td bgcolor="skyblue" width="15%" align="center"><b>Aadhaar Number</b>
 					</td>
 				</tr>
 				<%
-					String fullyQualifiedClassName = Address.class.getName().toLowerCase();
-					List<Address> addresses = (List<Address>) request
+					String fullyQualifiedClassName = Person.class.getName().toLowerCase();
+					List<Person> persons = (List<Person>) request
 							.getAttribute(fullyQualifiedClassName);
-					if (addresses != null && addresses.size() > 0) {
-						for (Address address : addresses) {
+					if (persons != null && persons.size() > 0) {
+						for (Person person : persons) {
 				%>
 				<tr>
 					<th><a
-						href="<%=request.getContextPath()%>/address/<%=address.getId()%>"><%=address.getId()%></a>
+						href="<%=request.getContextPath()%>/person/<%=person.getId()%>"><%=person.getId()%></a>
 					</th>
-					<th><%=address.getStreetAddress()%></th>
-					<th><%=address.getCity()%></th>
-					<th><%=address.getState()%></th>
-					<th><%=address.getPostalCode()%></th>
-					<th><%=address.getCountry()%></th>
+					<th><%=person.getPersonName().getTitle()%></th>
+					<th><%=person.getPersonName().getFirstName()%></th>
+					<th><%=person.getPersonName().getMiddleName()%></th>
+					<th><%=person.getPersonName().getLastName()%></th>
+					<th><%=person.getPersonName().getSuffix()%></th>
+					<th><%=person.getDateOfBirth()%></th>
+					<th><%=person.getAadhaarNumber()%></th>
 				</tr>
 				<%
 					}

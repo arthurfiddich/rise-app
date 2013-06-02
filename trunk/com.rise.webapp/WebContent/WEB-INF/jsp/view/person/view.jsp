@@ -10,51 +10,51 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Address: ${address.getId()} View Page</title>
+<title>Address: ${person.getId()} View Page</title>
 </head>
 <body bgcolor="skyblue">
 	<h1 align="left">
-		<b>${address.getId() }</b>
+		<b>${person.getId() }</b>
 	</h1>
 	<div id="viewAddress">
-		<form:form modelAttribute="address" action="edit" method="get">
-			<input type="hidden" name="id" value="${address.getId()}"></input>
+		<form:form modelAttribute="person" action="edit" method="get">
+			<input type="hidden" name="id" value="${person.getId()}"></input>
 			<div>
 				<fieldset>
-					<legend>Address Information</legend>
-					<div id="addressHeader">
+					<legend>Person Information</legend>
+					<div id="personHeader">
 						<table>
 							<tr></tr>
 							<tr></tr>
 							<tr>
-								<td bgcolor="white" width="10%" align="left"><b>Address
+								<td bgcolor="white" width="10%" align="left"><b>Person
 										Information</b></td>
 							</tr>
 						</table>
 						<table>
 							<tr>
-								<td><form:label path="streetAddress" for="streetAddress">Street Address:</form:label></td>
-								<td><c:out value="${address.getStreetAddress()}"></c:out></td>
+								<td><form:label path="personName.title" for="personName.title">Title:</form:label></td>
+								<td><c:out value="${person.getPersonName().getTitle()}"></c:out></td>
 							</tr>
 							<tr>
-								<td><form:label path="city" for="city">City:</form:label></td>
-								<td width="60%"><c:out value="${address.getCity()}"></c:out></td>
+								<td><form:label path="personName.firstName" for="personName.firstName">First Name:</form:label></td>
+								<td width="60%"><c:out value="${person.getPersonName().getFirstName()}"></c:out></td>
 								<!-- </tr>
 						<tr> -->
-								<td><form:label path="state" for="state">State</form:label></td>
-								<td><c:out value="${address.getState()}"></c:out></td>
+								<td><form:label path="personName.middleName" for="personName.middleName">Middle Name:</form:label></td>
+								<td><c:out value="${person.getPersonName().getMiddleName()}"></c:out></td>
 							</tr>
 							<tr>
-								<td><form:label path="postalCode" for="postalCode">Postal Code:</form:label></td>
-								<td width="60%"><c:out value="${address.getPostalCode()}"></c:out></td>
+								<td><form:label path="personName.lastName" for="personName.lastName">Last Name:</form:label></td>
+								<td width="60%"><c:out value="${person.getPersonName().getLastName()}"></c:out></td>
 								<!-- </tr>
 						<tr> -->
-								<td><form:label path="country" for="country">Country:</form:label></td>
-								<td><c:out value="${address.getCountry()}"></c:out></td>
+								<td><form:label path="personName.suffix" for="personName.suffix">Suffix:</form:label></td>
+								<td><c:out value="${person.getPersonName().getSuffix()}"></c:out></td>
 							</tr>
 							<tr align="center">
 								<td align="center"><input type="submit" value="Delete"
-									formaction="<%=request.getContextPath()%>/address/delete/${address.getId()}" /> <input
+									formaction="<%=request.getContextPath()%>/person/delete/${person.getId()}" /> <input
 									type="submit" value="Edit" /></td>
 							</tr>
 						</table>
