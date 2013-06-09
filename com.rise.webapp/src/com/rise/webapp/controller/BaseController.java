@@ -1,5 +1,7 @@
 package com.rise.webapp.controller;
 
+import java.beans.Introspector;
+
 import org.springframework.stereotype.Controller;
 
 import com.rise.service.BaseService;
@@ -11,7 +13,8 @@ public abstract class BaseController {
 	// protected BaseService baseService;
 
 	protected String getSimpleName() {
-		return this.getBaseService().getSimpleName().toLowerCase();
+		return Introspector.decapitalize(this.getBaseService().getSimpleName());
+		// return this.getBaseService().getSimpleName().toLowerCase();
 	}
 
 	protected String getFullyQualifiedName() {

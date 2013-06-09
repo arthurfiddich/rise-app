@@ -66,5 +66,10 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="/com.rise.service"/>
+	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/apache/commons/lang/commons-lang3-3.1.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
