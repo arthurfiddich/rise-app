@@ -14,9 +14,13 @@ public abstract class BaseController {
 
 	protected String getSimpleName() {
 		return Introspector.decapitalize(this.getBaseService().getSimpleName());
-		// return this.getBaseService().getSimpleName().toLowerCase();
+//		 return this.getBaseService().getSimpleName().toLowerCase();
 	}
 
+	protected String getClassNameInLowerCase() {
+		 return this.getBaseService().getSimpleName().toLowerCase();
+	}
+	
 	protected String getFullyQualifiedName() {
 		return this.getBaseService().getFullyQualifiedName().toLowerCase();
 	}

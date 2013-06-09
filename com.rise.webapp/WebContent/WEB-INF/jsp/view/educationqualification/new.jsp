@@ -17,7 +17,7 @@
 	</h1>
 
 	<div id="newForm">
-		<form:form modelAttribute="educationqualification" action="save"
+		<form:form modelAttribute="educationQualification" action="save"
 			method="post">
 			<div>
 				<fieldset>

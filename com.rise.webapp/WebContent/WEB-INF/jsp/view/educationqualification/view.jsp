@@ -36,55 +36,48 @@
 						</table>
 						<table>
 							<tr>
-								<td><form:label path="educationQualification.name"
-										for="educationQualification.name">Name:</form:label>
+								<td><form:label path="name" for="name">Name:</form:label>
 								</td>
-								<td><c:out value="${educationqualification.getName()}"></c:out>
+								<td><c:out value="${educationQualification.getName()}"></c:out>
 								</td>
 							</tr>
 							<tr>
-								<td><form:label path="educationQualification.university"
-										for="educationQualification.university">University:</form:label>
+								<td><form:label path="university" for="university">University:</form:label>
 								</td>
 								<td width="60%"><c:out
-										value="${educationqualification.getUniversity()}"></c:out>
+										value="${educationQualification.getUniversity()}"></c:out>
 								</td>
 								<!-- </tr>
 						<tr> -->
-								<td><form:label path="educationQualification.yearCompleted"
-										for="educationQualification.yearCompleted">Year Completed:</form:label>
+								<td><form:label path="yearCompleted" for="yearCompleted">Year Completed:</form:label>
 								</td>
 								<td><c:out
-										value="${educationqualification.getYearCompleted()}"></c:out>
+										value="${educationQualification.getYearCompleted()}"></c:out>
 								</td>
 							</tr>
 							<tr>
-								<td><form:label
-										path="educationQualification.monthCompleted"
-										for="educationQualification.monthCompleted">Last Name:</form:label>
+								<td><form:label path="monthCompleted" for="monthCompleted">Month Completed:</form:label>
 								</td>
 								<td width="60%"><c:out
-										value="${educationqualification.getMonthCompleted()}"></c:out>
+										value="${educationQualification.getMonthCompleted()}"></c:out>
 								</td>
 								<!-- </tr>
 						<tr> -->
-								<td><form:label path="educationQualification.percentage"
-										for="educationQualification.percentage">Suffix:</form:label>
+								<td><form:label path="percentage" for="percentage">Percentage:</form:label>
 								</td>
 								<td><c:out
-										value="${educationqualification.getPercentage()}"></c:out>
+										value="${educationQualification.getPercentage()}"></c:out>
 								</td>
 							</tr>
 							<tr>
-								<td><form:label path="educationQualification.gpa"
-										for="educationQualification.gpa">Last Name:</form:label>
+								<td><form:label path="gpa" for="gpa">GPA:</form:label>
 								</td>
 								<td width="60%"><c:out
-										value="${educationqualification.getGpa()}"></c:out>
+										value="${educationQualification.getGpa()}"></c:out>
 								</td>
 							<tr align="center">
 								<td align="center"><input type="submit" value="Delete"
-									formaction="<%=request.getContextPath()%>/eq/delete/${educationqualification.getId()}" />
+									formaction="<%=request.getContextPath()%>/eq/delete/${educationQualification.getId()}" />
 									<input type="submit" value="Edit" />
 								</td>
 							</tr>
