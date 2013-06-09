@@ -91,7 +91,7 @@
 						</tr>
 						<tr align="center">
 							<td align="center"><input type="reset" value="Reset" /> <input
-								type="submit" value="<spring:message code="label.addPerson"/>"
+								type="submit" value="<spring:message code="label.educationqualification"/>"
 								autofocus /></td>
 						</tr>
 					</table>
