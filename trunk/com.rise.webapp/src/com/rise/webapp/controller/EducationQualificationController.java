@@ -30,7 +30,7 @@ public class EducationQualificationController extends BaseController {
 	@RequestMapping(value = HibernateConstants.CREATE, method = RequestMethod.GET)
 	public String get(Model argModel) {
 		argModel.addAttribute(getSimpleName(), new EducationQualification());
-		return HibernateConstants.VIEW_SLASH + getSimpleName()
+		return HibernateConstants.VIEW_SLASH + getClassNameInLowerCase()
 				+ HibernateConstants.NEW;
 	}
 
@@ -40,7 +40,7 @@ public class EducationQualificationController extends BaseController {
 				.getBaseService().findAll();
 		argModel.addAttribute(getSimpleName(), new EducationQualification());
 		argModel.addAttribute(getFullyQualifiedName(), educationQualifications);
-		return HibernateConstants.VIEW_SLASH + getSimpleName()
+		return HibernateConstants.VIEW_SLASH + getClassNameInLowerCase()
 				+ HibernateConstants.LIST;
 	}
 
@@ -52,7 +52,7 @@ public class EducationQualificationController extends BaseController {
 		argModel.addAttribute(HibernateConstants.EDIT_EDUCATION_QUALIFICATION,
 				educationQualification);
 		argModel.addAttribute(HibernateConstants.EDIT_MODE, true);
-		return HibernateConstants.VIEW_SLASH + getSimpleName()
+		return HibernateConstants.VIEW_SLASH + getClassNameInLowerCase()
 				+ HibernateConstants.EDIT;
 	}
 
@@ -62,7 +62,7 @@ public class EducationQualificationController extends BaseController {
 		if (argId != -1) {
 			this.getBaseService().deleteById(argId);
 			return HibernateConstants.RE_DIRECT + HibernateConstants.SLASH
-					+ getSimpleName() + HibernateConstants.LIST;
+					+ getClassNameInLowerCase() + HibernateConstants.LIST;
 		}
 		return HibernateConstants.ERROR;
 	}
@@ -73,7 +73,7 @@ public class EducationQualificationController extends BaseController {
 		EducationQualification educationQualification = (EducationQualification) this
 				.getBaseService().save(argEducationQualification);
 		argModel.addAttribute(getSimpleName(), educationQualification);
-		return HibernateConstants.VIEW_SLASH + getSimpleName()
+		return HibernateConstants.VIEW_SLASH + getClassNameInLowerCase()
 				+ HibernateConstants.VIEW;
 	}
 
@@ -83,7 +83,7 @@ public class EducationQualificationController extends BaseController {
 		EducationQualification educationQualification = (EducationQualification) this
 				.getBaseService().update(argEducationQualification);
 		argModel.addAttribute(getSimpleName(), educationQualification);
-		return HibernateConstants.VIEW_SLASH + getSimpleName()
+		return HibernateConstants.VIEW_SLASH + getClassNameInLowerCase()
 				+ HibernateConstants.VIEW;
 	}
 
@@ -94,7 +94,7 @@ public class EducationQualificationController extends BaseController {
 			EducationQualification educationQualification = (EducationQualification) this
 					.getBaseService().findById(Integer.parseInt(argId));
 			argModel.addAttribute(getSimpleName(), educationQualification);
-			return HibernateConstants.VIEW_SLASH + getSimpleName()
+			return HibernateConstants.VIEW_SLASH + getClassNameInLowerCase()
 					+ HibernateConstants.VIEW;
 		}
 		return HibernateConstants.ERROR;

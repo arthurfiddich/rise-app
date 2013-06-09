@@ -52,6 +52,14 @@
 								<td><form:label path="personName.suffix" for="personName.suffix">Suffix:</form:label></td>
 								<td><c:out value="${person.getPersonName().getSuffix()}"></c:out></td>
 							</tr>
+							<tr>
+								<td><form:label path="dateOfBirth" for="dateOfBirth">Date Of Birth:</form:label></td>
+								<td width="60%"><c:out value="${person.getDateOfBirth()}"></c:out></td>
+								<!-- </tr>
+						<tr> -->
+								<td><form:label path="aadhaarNumber" for="aadhaarNumber">AadhaarNumber:</form:label></td>
+								<td><c:out value="${person.getAadhaarNumber()}"></c:out></td>
+							</tr>
 							<tr align="center">
 								<td align="center"><input type="submit" value="Delete"
 									formaction="<%=request.getContextPath()%>/person/delete/${person.getId()}" /> <input
