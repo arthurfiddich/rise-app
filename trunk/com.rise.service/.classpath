@@ -7,5 +7,6 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/hibernate"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/spring"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/com.rise.common.util"/>
 	<classpathentry kind="output" path="classes"/>
 </classpath>

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import com.rise.common.model.ContactInformation;
 import com.rise.common.model.Person;
+import com.rise.common.util.checker.Checker;
 import com.rise.dao.common.PersonDao;
 
 @Repository
@@ -22,7 +23,7 @@ public class PersonDaoImpl extends BaseDaoImpl implements PersonDao {
 
 	@Override
 	public ContactInformation getContactInformationById(int argId) {
-		if (argId != -1) {
+		if (Checker.checkIntValue(argId)) {
 			Query query = this.getCurrentSession().getNamedQuery(
 					GET_CONTACT_INFORMATION);
 			query.setInteger(PARAM_CONTACT_INFORMATION_ID, argId);
