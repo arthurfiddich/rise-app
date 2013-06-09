@@ -25,4 +25,11 @@
 		<many-to-one name="person" column="PERSON_ID" not-null="true"
 			class="com.rise.common.model.Person" cascade="all" />
 	</class>
+	<query name="getPerson"><![CDATA[
+			select p
+			from com.rise.common.model.EducationQualification eq
+			inner join eq.person p
+			where p.id = :paramPersonId
+		]]>
+	</query>
 </hibernate-mapping>
