@@ -1,6 +1,7 @@
 package com.rise.service.impl;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -62,6 +63,11 @@ public class EducationQualificationServiceImpl extends BaseServiceImpl
 	@Override
 	public EducationQualificationDao getBaseDao() {
 		return this.educationQualificationDao;
+	}
+
+	@Override
+	public List<String> getStates() {
+		return this.getBaseDao().getStates();
 	}
 
 }
