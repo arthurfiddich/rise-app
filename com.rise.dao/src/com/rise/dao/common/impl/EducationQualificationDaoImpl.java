@@ -49,4 +49,12 @@ public class EducationQualificationDaoImpl extends BaseDaoImpl implements
 		}
 		return false;
 	}
+
+	@Override
+	public List<String> getStates() {
+		Query query = this.getCurrentSession().getNamedQuery(
+				"select Name from state");
+		List<String> list = query.list();
+		return list;
+	}
 }
