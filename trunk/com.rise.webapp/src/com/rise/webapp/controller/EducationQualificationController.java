@@ -16,7 +16,7 @@ import com.rise.service.BaseService;
 import com.rise.service.EducationQualificationService;
 
 @Controller
-@RequestMapping("/eq")
+@RequestMapping("/educationqualification")
 public class EducationQualificationController extends BaseController {
 
 	@Autowired

@@ -77,7 +77,7 @@
 								</td>
 							<tr align="center">
 								<td align="center"><input type="submit" value="Delete"
-									formaction="<%=request.getContextPath()%>/eq/delete/${educationQualification.getId()}" />
+									formaction="<%=request.getContextPath()%>/educationqualification/delete/${educationQualification.getId()}" />
 									<input type="submit" value="Edit" />
 								</td>
 							</tr>
