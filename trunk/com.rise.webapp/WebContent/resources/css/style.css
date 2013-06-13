@@ -152,7 +152,8 @@ input {
 
 /*styling both submit buttons */
 #wrapper p.button input{
-	width: 30%;
+	width: auto;
+	height: auto;
 	cursor: pointer;	
 	background: rgb(61, 157, 179);
 	padding: 8px 5px;
@@ -197,7 +198,11 @@ p.signin.button{
 	text-align: right;
 	margin: 5px 0;
 }
-
+p.reset.button,p.addcontact{
+	text-align: right;
+	margin: 5px 0;
+	width: 80%;
+}
 
 /* styling the checkbox "keep me logged in"*/
 .keeplogin{

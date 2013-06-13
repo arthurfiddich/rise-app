@@ -35,6 +35,15 @@ public class HibernateConstants {
 	public static final String NEW = "/new";
 	
 	public static final String SLASH = "/";
+	public static final String LOGIN = "/login";
+	public static final String HOME = "/home";
+	public static final String SAMPLE = "/sample";
+	public static final String CANDIDATE = "/cndidate";
+	public static final String TRAINER = "/trainer";
+	public static final String AGENTS = "/agents";
+	public static final String OVERVIEW = "/overview";
+	public static final String CONTACTUS = "/contactus";
+	
 	
 	// Address Entity Constants
 	public static final String ADDRESS = "address";

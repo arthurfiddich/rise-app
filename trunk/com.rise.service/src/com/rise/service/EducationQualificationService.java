@@ -4,8 +4,10 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.rise.common.model.State;
+
 @Service
 public interface EducationQualificationService extends BaseService {
 
-	public List<String> getStates();
+	public List<State> getStates();
 }
