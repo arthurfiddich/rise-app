@@ -1,5 +1,6 @@
 package com.rise.dao.common.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.rise.common.model.EducationQualification;
 import com.rise.common.model.Person;
+import com.rise.common.model.State;
 import com.rise.common.util.checker.Checker;
 import com.rise.dao.common.EducationQualificationDao;
 
@@ -51,10 +53,19 @@ public class EducationQualificationDaoImpl extends BaseDaoImpl implements
 	}
 
 	@Override
-	public List<String> getStates() {
-		Query query = this.getCurrentSession().getNamedQuery(
-				"select Name from state");
-		List<String> list = query.list();
-		return list;
+	public  List<State> getStates() {
+		Query query = this.getCurrentSession().createSQLQuery(
+				"select * from state");
+		List<Object[]> list = query.list();
+		List<State> stateslist = new ArrayList<State>();
+		for(Object[] obj:list){
+			State state = new State();
+			state.setId(Integer.parseInt(obj[0].toString()));
+			state.setCode(obj[1].toString());
+			state.setName(obj[2].toString());
+			stateslist.add(state);
+		}
+		//List<String> list = query.list();
+		return stateslist;
 	}
 }

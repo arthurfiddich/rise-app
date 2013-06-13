@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.rise.common.model.EducationQualification;
 import com.rise.common.model.Model;
 import com.rise.common.model.Person;
-import com.rise.common.util.checker.Checker;
+import com.rise.common.model.State;
 import com.rise.dao.common.EducationQualificationDao;
 import com.rise.service.EducationQualificationService;
 
@@ -65,8 +65,8 @@ public class EducationQualificationServiceImpl extends BaseServiceImpl
 		return this.educationQualificationDao;
 	}
 
-	@Override
-	public List<String> getStates() {
+	@Transactional
+	public  List<State> getStates() {
 		return this.getBaseDao().getStates();
 	}
 
