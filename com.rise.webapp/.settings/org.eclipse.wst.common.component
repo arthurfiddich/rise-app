@@ -3,6 +3,7 @@
     <wb-module deploy-name="com.rise.webapp">
         <wb-resource deploy-path="/" source-path="/WebContent"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/test"/>
         <dependent-module archiveName="com.rise.dao.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/com.rise.dao/com.rise.dao">
             <dependency-type>uses</dependency-type>
         </dependent-module>
