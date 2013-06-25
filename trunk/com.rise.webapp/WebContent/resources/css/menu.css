@@ -45,7 +45,7 @@
 }
 
 #divcontainer {
-	border: 5px solid #FFFFFF;
+	border: 2px solid #FFFFFF;
 	width: auto;
 	height: 400px;
 	margin-bottom: 1em;
@@ -86,7 +86,7 @@
 }
 
 .buttondiv {
-	border: 3px solid #FFFFFF;
+	border: 0px solid #FFFFFF;
 	width: auto;
 	height: auto;
 	margin-bottom: 0.5em;
