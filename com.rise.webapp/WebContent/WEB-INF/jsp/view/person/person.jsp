@@ -56,136 +56,148 @@
 			</ul>
 		</div>
 		<form action="">
-		<div class="buttondiv"><input type="submit" value="save" class="buttonstyle"></div>
-		<div id="divcontainer" class="content">
-		<h1 align="left" class="headersection"><b>Personal Information</b></h1>
-			<table>
-				<tr>
-					<td>
-						<table>
-							<tr>
-								<td align="right">Title</td>
-								<td><input type="text">
-								</td>
-							</tr>
-							<tr>
-								<td align="right">First Name</td>
-								<td><input type="text">
-								</td>
-							</tr>
-							<tr>
-								<td align="right">Middle Name</td>
-								<td><input type="text">
-								</td>
-							</tr>
-							<tr>
-								<td align="right">Last Name</td>
-								<td><input type="text">
-								</td>
-							</tr>
-						</table></td>
+			<div class="buttondiv">
+				<input type="submit" value="save" class="buttonstyle"> <input
+					type="button" value="Cancel" onClick="history.go(-1);return true;"
+					class="buttonstyle" />
+			</div>
+			<div id="divcontainer" class="content">
+				<h1 align="left" class="headersection">
+					<b>Personal Information</b>
+				</h1>
+				<table>
+					<tr>
+						<td>
+							<table>
+								<tr>
+									<td align="right">Title</td>
+									<td><input type="text">
+									</td>
+								</tr>
+								<tr>
+									<td align="right">First Name</td>
+									<td><input type="text">
+									</td>
+								</tr>
+								<tr>
+									<td align="right">Middle Name</td>
+									<td><input type="text">
+									</td>
+								</tr>
+								<tr>
+									<td align="right">Last Name</td>
+									<td><input type="text">
+									</td>
+								</tr>
+							</table></td>
 						<td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-					<td>
-						<table>
-							<tr>
-								<td align="right">Suffix</td>
-								<td><input type="text">
-								</td>
-							</tr>
-							<tr>
-								<td align="right">Date Of Birth</td>
-								<td><input type="text">
-								</td>
-							</tr>
-							<tr>
-								<td align="right">Aadhar Number</td>
-								<td><input type="text">
-								</td>
-							</tr>
-							<tr>
-								<td align="right">Last Name</td>
-								<td><input type="text">
-								</td>
-							</tr>
-						</table></td>
-				</tr>
-			</table>
-			<h1 align="left" class="headersection"><b>Address Information</b></h1>
-			<table>
-				<tr>
-					<td>
-						<table>
-							<tr>
-								<td align="right">Street</td>
-								<td><input type="text">
-								</td>
-							</tr>
-							<tr>
-								<td align="right">City</td>
-								<td><input type="text">
-								</td>
-							</tr>
-							<tr>
-								<td align="right">State</td>
-								<td><input type="text">
-								</td>
-							</tr>
-						</table></td>
+						<td>
+							<table>
+								<tr>
+									<td align="right">Suffix</td>
+									<td><input type="text">
+									</td>
+								</tr>
+								<tr>
+									<td align="right">Date Of Birth</td>
+									<td><input type="text">
+									</td>
+								</tr>
+								<tr>
+									<td align="right">Aadhar Number</td>
+									<td><input type="text">
+									</td>
+								</tr>
+								<tr>
+									<td align="right">Last Name</td>
+									<td><input type="text">
+									</td>
+								</tr>
+							</table></td>
+					</tr>
+				</table>
+				<h1 align="left" class="headersection">
+					<b>Address Information</b>
+				</h1>
+				<table>
+					<tr>
+						<td>
+							<table>
+								<tr>
+									<td align="right">Street</td>
+									<td><input type="text">
+									</td>
+								</tr>
+								<tr>
+									<td align="right">City</td>
+									<td><input type="text">
+									</td>
+								</tr>
+								<tr>
+									<td align="right">State</td>
+									<td><input type="text">
+									</td>
+								</tr>
+							</table></td>
 						<td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-					<td>
-						<table>
-							<tr>
-								<td align="right">Postal Code</td>
-								<td><input type="text">
-								</td>
-							</tr>
-							<tr>
-								<td align="right">Country</td>
-								<td><input type="text">
-								</td>
-							</tr>
-						</table></td>
-				</tr>
-			</table>
-<h1 align="left" class="headersection"><b>Contact Information</b></h1>
-			<table>
-				<tr>
-					<td>
-						<table>
-							<tr>
-								<td align="right">Street</td>
-								<td><input type="text">
-								</td>
-							</tr>
-							<tr>
-								<td align="right">City</td>
-								<td><input type="text">
-								</td>
-							</tr>
-							<tr>
-								<td align="right">State</td>
-								<td><input type="text">
-								</td>
-							</tr>
-						</table></td>
+						<td>
+							<table>
+								<tr>
+									<td align="right">Postal Code</td>
+									<td><input type="text">
+									</td>
+								</tr>
+								<tr>
+									<td align="right">Country</td>
+									<td><input type="text">
+									</td>
+								</tr>
+							</table></td>
+					</tr>
+				</table>
+				<h1 align="left" class="headersection">
+					<b>Contact Information</b>
+				</h1>
+				<table>
+					<tr>
+						<td>
+							<table>
+								<tr>
+									<td align="right">Street</td>
+									<td><input type="text">
+									</td>
+								</tr>
+								<tr>
+									<td align="right">City</td>
+									<td><input type="text">
+									</td>
+								</tr>
+								<tr>
+									<td align="right">State</td>
+									<td><input type="text">
+									</td>
+								</tr>
+							</table></td>
 						<td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-					<td>
-						<table>
-							<tr>
-								<td align="right">Postal Code</td>
-								<td><input type="text">
-								</td>
-							</tr>
-							<tr>
-								<td align="right">Country</td>
-								<td><input type="text">
-								</td>
-							</tr>
-						</table></td>
-				</tr>
-			</table>
-		</div>
-		<div  class="buttondiv"><input type="submit" value="save" class="buttonstyle"></div>
+						<td>
+							<table>
+								<tr>
+									<td align="right">Postal Code</td>
+									<td><input type="text">
+									</td>
+								</tr>
+								<tr>
+									<td align="right">Country</td>
+									<td><input type="text">
+									</td>
+								</tr>
+							</table></td>
+					</tr>
+				</table>
+			</div>
+			<div class="buttondiv">
+				<input type="submit" value="save" class="buttonstyle">
+			</div>
 		</form>
 	</div>
 </body>
