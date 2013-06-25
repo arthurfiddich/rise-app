@@ -55,6 +55,8 @@
 				<li><a name="contactus" href="/rise/contactus">Contact Us</a></li>
 			</ul>
 		</div>
+		<form action="">
+		<div class="buttondiv"><input type="submit" value="save" class="buttonstyle"></div>
 		<div id="divcontainer" class="content">
 		<h1 align="left" class="headersection"><b>Personal Information</b></h1>
 			<table>
@@ -182,10 +184,9 @@
 						</table></td>
 				</tr>
 			</table>
-
 		</div>
-	</div>
-
+		<div  class="buttondiv"><input type="submit" value="save" class="buttonstyle"></div>
+		</form>
 	</div>
 </body>
 </html>
