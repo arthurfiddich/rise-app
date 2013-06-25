@@ -15,6 +15,7 @@ public class HibernateConstants {
 	public static final String VIEW_SLASH = "/view/";
 	
 	public static final String CREATE = "/create";
+	public static final String PERSON_CREATE = "/personcreate";
 	
 	public static final String UPDATE = "/update";
 	
@@ -43,6 +44,7 @@ public class HibernateConstants {
 	public static final String AGENTS = "/agents";
 	public static final String OVERVIEW = "/overview";
 	public static final String CONTACTUS = "/contactus";
+	public static final String PERSON = "/person";
 	
 	
 	// Address Entity Constants
