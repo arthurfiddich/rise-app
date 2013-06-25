@@ -116,7 +116,9 @@
 		</header>
 		<div id="menubar" style="width:auto">
 			<ul id="menu">
-				<li><a name="candidate" href="/rise/candidate">Candidate</a>
+				<li><a name="home" href="/rise/home" class="activesection">Home</a>
+				</li>
+				<li><a name="person" href="/rise/person/personcreate">Person</a>
 				</li>
 				<li><a href="#">Trainer</a>
 				</li>

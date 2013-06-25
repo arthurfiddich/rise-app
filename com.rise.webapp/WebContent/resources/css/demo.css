@@ -23,7 +23,11 @@ table {
 	border-spacing:0;
 }
 td{
-padding:5px;	
+padding:5px;
+width: 320px;
+}
+.tdtextalign{
+	align:right;
 }
 fieldset,img { 
 	border:0;
