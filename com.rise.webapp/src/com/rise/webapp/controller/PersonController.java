@@ -28,7 +28,12 @@ public class PersonController extends BaseController {
 		return HibernateConstants.VIEW_SLASH + getSimpleName()
 				+ HibernateConstants.NEW;
 	}
-
+	@RequestMapping(value = HibernateConstants.PERSON_CREATE, method = RequestMethod.GET)
+	public String create(Model argModel) {
+		argModel.addAttribute(getSimpleName(), new Person());
+		return HibernateConstants.VIEW_SLASH + getSimpleName()
+				+ HibernateConstants.PERSON;
+	}
 	@RequestMapping(value = HibernateConstants.LIST)
 	public String listPersonNames(Model argModel) {
 		List<com.rise.common.model.Model> persons = this.getBaseService().findAll();
