@@ -196,7 +196,9 @@
 				</table>
 			</div>
 			<div class="buttondiv">
-				<input type="submit" value="save" class="buttonstyle">
+				<input type="submit" value="save" class="buttonstyle"> <input
+					type="button" value="Cancel" onClick="history.go(-1);return true;"
+					class="buttonstyle" />
 			</div>
 		</form>
 	</div>
