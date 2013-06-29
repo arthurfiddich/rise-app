@@ -19,7 +19,7 @@ public class PersonServiceImpl extends BaseServiceImpl implements PersonService 
 	private PersonDao personDao;
 
 	@Override
-	public Class getPersistentClass() {
+	public Class<?> getPersistentClass() {
 		return this.personDao.getPersistentClass();
 	}
 
@@ -27,16 +27,21 @@ public class PersonServiceImpl extends BaseServiceImpl implements PersonService 
 	public Model save(Model argModel) {
 		if (argModel != null) {
 			Person person = (Person) argModel;
-			// person.setId(1000);
 			person.setDateCreated(new Date());
 			person.setModifiedBy(1);
 			person.setCreatedBy(1);
 			person.setDateModified(new Date());
-			ContactInformation contactInformation = this.getBaseDao()
-					.getContactInformationById(1);
-			if (contactInformation != null) {
-				person.setContactInformation(contactInformation);
-			}
+			
+			person.getContactInformation().setCreatedBy(1);
+			person.getContactInformation().setDateCreated(new Date());
+			person.getContactInformation().setModifiedBy(1);
+			person.getContactInformation().setDateModified(new Date());
+			
+			person.getContactInformation().getPrimaryAddress().setCreatedBy(1);
+			person.getContactInformation().getPrimaryAddress().setDateCreated(new Date());
+			person.getContactInformation().getPrimaryAddress().setModifiedBy(1);
+			person.getContactInformation().getPrimaryAddress().setDateModified(new Date());
+			
 			return this.getBaseDao().save(argModel);
 		}
 		return argModel;
@@ -46,16 +51,33 @@ public class PersonServiceImpl extends BaseServiceImpl implements PersonService 
 	public Model update(Model argModel) {
 		if (argModel != null) {
 			Person person = (Person) argModel;
-			person.setDateCreated(new Date());
-			person.setModifiedBy(1);
-			person.setCreatedBy(1);
-			person.setDateModified(new Date());
-			ContactInformation contactInformation = this.getBaseDao()
-					.getContactInformationById(1);
-			if (contactInformation != null) {
-				person.setContactInformation(contactInformation);
-			}
-			return this.getBaseDao().update(person);
+			Person personFromDb = (Person) this.getBaseDao().findById(person.getId());
+			personFromDb.getPersonName().setTitle(person.getPersonName().getTitle());
+			personFromDb.getPersonName().setFirstName(person.getPersonName().getFirstName());
+			personFromDb.getPersonName().setMiddleName(person.getPersonName().getMiddleName());
+			personFromDb.getPersonName().setLastName(person.getPersonName().getLastName());
+			personFromDb.getPersonName().setSuffix(person.getPersonName().getSuffix());
+			personFromDb.setAadhaarNumber(person.getAadhaarNumber());
+			personFromDb.setDateOfBirth(person.getDateOfBirth());
+			
+			personFromDb.getContactInformation().setEmail1(person.getContactInformation().getEmail1());
+			personFromDb.getContactInformation().setEmail2(person.getContactInformation().getEmail2());
+			personFromDb.getContactInformation().setEmail3(person.getContactInformation().getEmail3());
+			personFromDb.getContactInformation().setPhone1(person.getContactInformation().getPhone1());
+			personFromDb.getContactInformation().setPhone2(person.getContactInformation().getPhone2());
+			personFromDb.getContactInformation().setPhone3(person.getContactInformation().getPhone3());
+			personFromDb.getContactInformation().setMobile1(person.getContactInformation().getMobile1());
+			personFromDb.getContactInformation().setMobile2(person.getContactInformation().getMobile2());
+			personFromDb.getContactInformation().setMobile3(person.getContactInformation().getMobile3());
+			personFromDb.getContactInformation().setWebsite(person.getContactInformation().getWebsite());
+			
+			personFromDb.getContactInformation().getPrimaryAddress().setStreetAddress(person.getContactInformation().getPrimaryAddress().getStreetAddress());
+			personFromDb.getContactInformation().getPrimaryAddress().setCity(person.getContactInformation().getPrimaryAddress().getCity());
+			personFromDb.getContactInformation().getPrimaryAddress().setState(person.getContactInformation().getPrimaryAddress().getState());
+			personFromDb.getContactInformation().getPrimaryAddress().setPostalCode(person.getContactInformation().getPrimaryAddress().getPostalCode());
+			personFromDb.getContactInformation().getPrimaryAddress().setCountry(person.getContactInformation().getPrimaryAddress().getCountry());
+			
+			return this.getBaseDao().update(personFromDb);
 		}
 		return argModel;
 	}

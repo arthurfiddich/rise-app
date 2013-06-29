@@ -23,7 +23,8 @@ public abstract class BaseDaoImpl implements BaseDao {
 	public Model save(Model argModel) {
 		if (argModel != null) {
 			this.getCurrentSession().save(argModel);
-			return findById(argModel.getId());
+//			Model model = findById(argModel.getId());
+//			return model;
 		}
 		return argModel;
 	}
@@ -55,8 +56,9 @@ public abstract class BaseDaoImpl implements BaseDao {
 	@Override
 	public Model findById(Integer argId) {
 		if (argId != null && argId.intValue() != -1) {
-			return (Model) this.getCurrentSession().get(
+			Model model = (Model) this.getCurrentSession().get(
 					this.getPersistentClass(), argId);
+			return model;
 		}
 		return null;
 	}
@@ -75,9 +77,9 @@ public abstract class BaseDaoImpl implements BaseDao {
 	@Override
 	public Model update(Model argModel) {
 		if (argModel != null) {
-			this.getCurrentSession().saveOrUpdate(
+			this.getCurrentSession().update(
 					this.getPersistentClass().getName(), argModel);
-			return findById(argModel.getId());
+//			return findById(argModel.getId());
 		}
 		return argModel;
 	}

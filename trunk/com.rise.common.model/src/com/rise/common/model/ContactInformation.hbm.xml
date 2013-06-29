@@ -6,7 +6,7 @@
 <hibernate-mapping>
 	<class name="com.rise.common.model.ContactInformation" table="CONTACT_INFORMATION">
 		<id name="id" column="CONTACT_INFORMATION_ID">
-			<generator class="assigned"></generator>
+			<generator class="increment"></generator>
 		</id>
 
 		<property name="dateCreated" column="DATE_CREATED" />
@@ -26,6 +26,8 @@
 		<property name="mobile3" column="MOBILE3" />
 		<property name="website" column="WEBSITE" />
 
+		<many-to-one name="primaryAddress" class="com.rise.common.model.Address"
+			column="PRIMARY_ADDRESS_ID" cascade="all" not-null="true" unique="true" lazy="false"/>
 		<!-- <many-to-one name="trainingProvider" class="com.rise.common.model.TrainingProvider"
 			column="TRAINING_PROVIDER_ID" cascade="all" not-null="true" unique="true" />
 
@@ -35,8 +37,6 @@
 		<many-to-one name="organization" class="com.rise.common.model.Organization"
 			column="ORGANIZATION_ID" cascade="all" not-null="true" unique="true" />
 
-		<many-to-one name="primaryAddress" class="com.rise.common.model.Address"
-			column="ADDRESS_ID" cascade="all" not-null="true" unique="true" />
 
 		<many-to-one name="department" class="com.rise.common.model.Department"
 			column="DEPARTMENT_ID" cascade="all" not-null="true" unique="true" />

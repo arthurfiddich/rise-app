@@ -1,0 +1,2 @@
+There is a relationship between Address and ContactInformation. So In ContactInformation Address field is a foreign key. 
+So need to maintain the mapping of Address field in ContactInformation.hbm.xml.

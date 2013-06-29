@@ -6,6 +6,7 @@ import org.hibernate.Query;
 import org.springframework.stereotype.Repository;
 
 import com.rise.common.model.ContactInformation;
+import com.rise.common.model.Model;
 import com.rise.common.model.Person;
 import com.rise.common.util.checker.Checker;
 import com.rise.dao.common.PersonDao;
@@ -27,7 +28,8 @@ public class PersonDaoImpl extends BaseDaoImpl implements PersonDao {
 			Query query = this.getCurrentSession().getNamedQuery(
 					GET_CONTACT_INFORMATION);
 			query.setInteger(PARAM_CONTACT_INFORMATION_ID, argId);
-//			query.setString(PARAM_CONTACT_INFORMATION_ID, String.valueOf(1234567890));
+			// query.setString(PARAM_CONTACT_INFORMATION_ID,
+			// String.valueOf(1234567890));
 			List<ContactInformation> contactInformationList = query.list();
 			if (contactInformationList != null
 					&& contactInformationList.size() > 0) {
@@ -42,6 +44,14 @@ public class PersonDaoImpl extends BaseDaoImpl implements PersonDao {
 			}
 		}
 		return null;
+	}
+
+	@Override
+	public Model findById(Integer argId) {
+//		Person person = (Person) super.findById(argId);
+//		System.out.println(person.getContactInformation());
+//		return person;
+		return super.findById(argId);
 	}
 
 }

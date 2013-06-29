@@ -185,4 +185,15 @@ public class ContactInformation extends BaseModel {
 		this.state = argState;
 	}
 
+	@Override
+	public String toString() {
+		return "ContactInformation [email1=" + this.email1 + ", email2="
+				+ this.email2 + ", email3=" + this.email3 + ", phone1="
+				+ this.phone1 + ", phone2=" + this.phone2 + ", phone3="
+				+ this.phone3 + ", mobile1=" + this.mobile1 + ", mobile2="
+				+ this.mobile2 + ", mobile3=" + this.mobile3 + ", website="
+				+ this.website + ", primaryAddress=" + this.primaryAddress
+				+ "]";
+	}
+
 }
