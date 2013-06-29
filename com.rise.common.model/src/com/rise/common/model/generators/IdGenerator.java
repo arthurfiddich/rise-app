@@ -1,10 +1,25 @@
 package com.rise.common.model.generators;
 
 import java.io.Serializable;
+import java.lang.reflect.Field;
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Properties;
 
 import org.hibernate.HibernateException;
+import org.hibernate.MappingException;
+import org.hibernate.dialect.Dialect;
 import org.hibernate.engine.spi.SessionImplementor;
+import org.hibernate.id.IdentifierGenerationException;
+import org.hibernate.id.IdentifierGeneratorHelper.BasicHolder;
+import org.hibernate.id.IdentifierGeneratorHelper.BigDecimalHolder;
+import org.hibernate.id.IdentifierGeneratorHelper.BigIntegerHolder;
 import org.hibernate.id.IncrementGenerator;
+import org.hibernate.id.IntegralDataTypeHolder;
+import org.hibernate.type.Type;
 
 import com.rise.common.util.checker.Precondition;
 
@@ -19,17 +34,153 @@ public class IdGenerator extends IncrementGenerator {
 			'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w',
 			'x', 'y', 'z', };
 	private int codesLength;
+	private IntegralDataTypeHolder previousValueHolder;
+	private Class returnClass;
+	private IncrementGenerator incrementGenerator = null;
+	private String sql = "select max(PERSON_ID) from Person";
+	private String value;
+	private int result;
 
 	public IdGenerator() {
 		super();
 		this.codesLength = this.BASE62_CODES.length;
+		incrementGenerator = new IncrementGenerator();
 	}
 
 	@Override
-	public synchronized Serializable generate(SessionImplementor argSession,
-			Object argObject) throws HibernateException {
-		Number id = (Number) super.generate(argSession, argObject);
-		return generateId(id);
+	public void configure(Type argType, Properties argParams, Dialect argDialect)
+			throws MappingException {
+		returnClass = argType.getReturnedClass();
+		super.configure(argType, argParams, argDialect);
+	}
+
+	public Serializable generate(SessionImplementor session, Object object)
+			throws HibernateException {
+		if (this.sql != null) {
+			this.result = getNext(session);
+		}
+		Number op = makeValueThenIncrement();
+		String id = generateId(op);
+		System.out.println("ID: " + id);
+		return id;
+	}
+
+	public Number makeValueThenIncrement() {
+		final Number result = makeValue();
+		return result;
+	}
+
+	private Number makeValue() {
+		return this.result++;
+	}
+
+	public void assign() {
+		Field privateStringField = null;
+		try {
+			privateStringField = IncrementGenerator.class
+					.getDeclaredField("sql");
+		} catch (NoSuchFieldException e) {
+			e.printStackTrace();
+		} catch (SecurityException e) {
+			e.printStackTrace();
+		}
+		privateStringField.setAccessible(true);
+		System.out.println(privateStringField.toString());
+		String fieldValue = null;
+		try {
+			fieldValue = (String) privateStringField
+					.get(this.incrementGenerator);
+		} catch (IllegalArgumentException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		}
+		System.out.println("fieldValue = " + fieldValue);
+		this.sql = fieldValue;
+	}
+
+	private int getNext(SessionImplementor session) {
+		int next = 0;
+
+		java.sql.Connection conn = session.connection();
+
+		try {
+			PreparedStatement st = conn.prepareStatement(sql);
+			ResultSet rs = null;
+			try {
+				rs = st.executeQuery();
+				if (rs.next()) {
+					if (rs.wasNull())
+						next = 1;
+					// next = rs.getInt(1) + 1;
+					next = rs.getInt(1);
+				} else {
+					next = 1;
+				}
+				sql = null;
+			} finally {
+				if (rs != null)
+					rs.close();
+				st.close();
+			}
+
+		} catch (SQLException sqle) {
+		}
+
+		return next;
+	}
+
+	public String getText() {
+		return "EMP";
+	}
+
+	private void initializePreviousValueHolder(SessionImplementor session) {
+		previousValueHolder = getIntegralDataTypeHolder(returnClass);
+
+		try {
+			PreparedStatement st = session.getTransactionCoordinator()
+					.getJdbcCoordinator().getStatementPreparer()
+					.prepareStatement(sql);
+			try {
+				ResultSet rs = st.executeQuery();
+				try {
+					if (rs.next())
+						previousValueHolder.initialize(rs, 0L).increment();
+					else
+						previousValueHolder.initialize(1L);
+				} finally {
+					rs.close();
+				}
+			} finally {
+				st.close();
+			}
+		} catch (SQLException sqle) {
+			throw session
+					.getFactory()
+					.getSQLExceptionHelper()
+					.convert(
+							sqle,
+							"could not fetch initial value for increment generator",
+							sql);
+		}
+	}
+
+	public static IntegralDataTypeHolder getIntegralDataTypeHolder(
+			Class<?> integralType) {
+		if (integralType == Long.class || integralType == Integer.class
+				|| integralType == Short.class) {
+			return new BasicHolder(integralType);
+		} else if (integralType == BigInteger.class) {
+			return new BigIntegerHolder();
+		} else if (integralType == BigDecimal.class) {
+			return new BigDecimalHolder();
+		} else if (integralType == String.class) {
+			return new IdGeneratorHolder(integralType);
+		} else {
+			throw new IdentifierGenerationException(
+					"Unknown integral data type for ids : "
+							+ integralType.getName());
+		}
 	}
 
 	private String generateId(Number argId) {
