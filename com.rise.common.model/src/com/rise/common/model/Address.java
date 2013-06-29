@@ -85,4 +85,11 @@ public class Address extends BaseModel {
 		this.contactInformation = argContactInformation;
 	}
 
+	@Override
+	public String toString() {
+		return "Address [streetAddress=" + this.streetAddress + ", city="
+				+ this.city + ", state=" + this.state + ", postalCode="
+				+ this.postalCode + ", country=" + this.country + "]";
+	}
+
 }

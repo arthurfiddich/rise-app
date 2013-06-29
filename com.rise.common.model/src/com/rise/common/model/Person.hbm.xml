@@ -6,7 +6,7 @@
 <hibernate-mapping>
 	<class name="com.rise.common.model.Person" table="PERSON">
 		<id name="id" column="PERSON_ID">
-			<generator class="assigned"></generator>
+			<generator class="increment"></generator>
 		</id>
 
 		<property name="dateCreated" column="DATE_CREATED" />
@@ -25,7 +25,7 @@
 		<property name="dateOfBirth" column="DATE_OF_BIRTH" />
 		<property name="aadhaarNumber" column="AADHAAR_NUMBER" />
 
-		<set name="educationQualifications" table="EDUCATION_QUALIFICATION">
+		<set name="educationQualifications" table="EDUCATION_QUALIFICATION" cascade="all">
 			<key column="PERSON_ID" />
 			<one-to-many class="com.rise.common.model.EducationQualification" />
 		</set>
@@ -37,7 +37,7 @@
 
 		<many-to-one name="contactInformation"
 			class="com.rise.common.model.ContactInformation" unique="true"
-			not-null="true" column="CONTACT_INFORMATION_ID" />
+			not-null="true" column="CONTACT_INFORMATION_ID"  cascade="all" lazy="false"/>
 
 		<set name="awards" table="AWARD">
 			<key column="PERSON_ID" />
@@ -59,6 +59,14 @@
 			from com.rise.common.model.Person p
 			inner join p.contactInformation ci
 			where ci.id = :paramContactInformationId
+		]]>
+	</query>
+	<query name="get"><![CDATA[
+			select p
+			from com.rise.common.model.Person p
+			inner join p.contactInformation ci
+			inner join ci.primaryAddress a
+			where p.id = :paramPersonId
 		]]>
 	</query>
 </hibernate-mapping>

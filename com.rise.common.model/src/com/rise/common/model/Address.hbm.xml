@@ -6,7 +6,7 @@
 <hibernate-mapping>
 	<class name="com.rise.common.model.Address" table="ADDRESS">
 		<id name="id" column="ADDRESS_ID">
-			<generator class="assigned"></generator>
+			<generator class="increment"></generator>
 		</id>
 
 		<property name="dateCreated" column="DATE_CREATED" />
