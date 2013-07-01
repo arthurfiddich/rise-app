@@ -17,7 +17,7 @@
 	</h1>
 
 	<div id="newForm">
-		<form:form modelAttribute="educationQualification" action="save"
+		<form:form modelAttribute="educationQualification" action="/educationqualification/save"
 			method="post">
 			<div>
 				<fieldset>
@@ -36,6 +36,14 @@
 						<tr></tr>
 						<tr></tr>
 						<tr>
+							<td><form:label path="person.id" for="person.id">
+									<spring:message code="label.personId" />
+								</form:label>
+							</td>
+							<td><form:input path="person.id"
+									value="${educationqualification.getPerson().getId() }" /></td>
+						</tr>
+						<tr>
 							<td><form:label path="id" for="id">
 									<spring:message code="label.id" />
 								</form:label>
@@ -43,23 +51,20 @@
 							<td><form:input path="id" /></td>
 						</tr>
 						<tr>
-							<td><form:label path="name"
-									for="name">
+							<td><form:label path="name" for="name">
 									<spring:message code="label.name" />
 								</form:label>
 							</td>
 							<td width="60%"><form:input path="name" /></td>
 						</tr>
 						<tr>
-							<td><form:label path="university"
-									for="university">
+							<td><form:label path="university" for="university">
 									<spring:message code="label.university" />
 								</form:label></td>
 							<td><form:input path="university" /></td>
 						</tr>
 						<tr>
-							<td><form:label path="yearCompleted"
-									for="yearCompleted">
+							<td><form:label path="yearCompleted" for="yearCompleted">
 									<spring:message code="label.yearCompleted" />
 								</form:label>
 							</td>
@@ -67,16 +72,14 @@
 							</td>
 						</tr>
 						<tr>
-							<td><form:label path="monthCompleted"
-									for="monthCompleted">
+							<td><form:label path="monthCompleted" for="monthCompleted">
 									<spring:message code="label.monthCompleted" />
 								</form:label>
 							</td>
 							<td><form:input path="monthCompleted" /></td>
 						</tr>
 						<tr>
-							<td><form:label path="percentage"
-									for="percentage">
+							<td><form:label path="percentage" for="percentage">
 									<spring:message code="label.percentage" />
 								</form:label>
 							</td>
@@ -91,7 +94,8 @@
 						</tr>
 						<tr align="center">
 							<td align="center"><input type="reset" value="Reset" /> <input
-								type="submit" value="<spring:message code="label.educationqualification"/>"
+								type="submit"
+								value="<spring:message code="label.educationqualification"/>"
 								autofocus /></td>
 						</tr>
 					</table>
