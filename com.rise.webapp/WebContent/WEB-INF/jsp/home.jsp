@@ -38,8 +38,10 @@
   <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
   <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
   <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-  <link rel="stylesheet" href="/resources/demos/style.css" />
+  <link rel="stylesheet" type="text/css"
+	href="/rise/resources/css/table.css" />
   <script>
+ 
   function openwindow(){
 	  var str = "";
 	  $.ajax({
@@ -137,6 +139,23 @@
 		<div id="dialog-confirm" title="Empty the recycle bin?">
  <div id="innerdialog"></div>
 </div>
+  <table cellspacing="0">
+	         <tr>
+	         <th>First Name</th>
+	         <th>Aadhar Number</th>
+	          <th>Phone</th>
+	         </tr>
+	          <tr>
+	         <td>sowjanya</td>
+	         <td>APSFRFDTF</td>
+	          <td>9875676786768</td>
+	         </tr>
+	          <tr>
+	         <td>sousheel</td>
+	         <td>APS4324FF</td>
+	          <td>987876786768</td>
+	         </tr>
+	         </table>
 </div>
 		
 	</div>
