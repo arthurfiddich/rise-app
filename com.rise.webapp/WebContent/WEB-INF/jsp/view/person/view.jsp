@@ -33,11 +33,24 @@
 	href="/rise/resources/css/animate-custom.css" />
 <link rel="stylesheet" type="text/css"
 	href="/rise/resources/css/menu.css" />
-<!-- <script type="text/javascript">
-	function changeContent(){
-		document.getElementById('divcontainer').load('/rise/candidate');
+<script type="text/javascript" language="javascript"
+	src="/rise/resources/js/jquery.js"></script>
+<script type="text/javascript" language="javascript"
+	src="/rise/resources/js/jquery.dataTables.js"></script>
+<style type="text/css" title="currentStyle">
+@import "/rise/resources/css/datatable/demo_page.css";
+
+@import "/rise/resources/css/datatable/jquery.dataTables.css";
+</style>
+<script type="text/javascript">
+	function createFunction(){
+		window.location.href = "<%=request.getContextPath()%>/educationqualification/create/${person.getId()}";
 	}
-	</script> -->
+
+	$(document).ready(function() {
+		$('#eq').dataTable();
+	});
+</script>
 </head>
 <body>
 	<div class="container">
@@ -46,29 +59,23 @@
 		</header>
 		<div id="menubar" style="width: auto">
 			<ul id="menu">
-				<li><a name="home" href="/rise/home">Home</a>
-				</li>
+				<li><a name="home" href="/rise/home">Home</a></li>
 				<li><a name="person" href="/rise/person/personcreate"
-					class="activesection">Person</a>
-				</li>
-				<li><a name="trainer" href="/rise/trainer">Trainer</a>
-				</li>
-				<li><a name="agents" href="/rise/agents">Agents</a>
-				</li>
-				<li><a name="overview" href="/rise/overview">Overview</a>
-				</li>
-				<li><a name="contactus" href="/rise/contactus">Contact Us</a>
-				</li>
+					class="activesection">Person</a></li>
+				<li><a name="trainer" href="/rise/trainer">Trainer</a></li>
+				<li><a name="agents" href="/rise/agents">Agents</a></li>
+				<li><a name="overview" href="/rise/overview">Overview</a></li>
+				<li><a name="contactus" href="/rise/contactus">Contact Us</a></li>
 			</ul>
 		</div>
 		<form:form modelAttribute="person" action="edit" method="get">
 			<input type="hidden" name="id" value="${person.getId()}"></input>
-			<div class="buttondiv">
-				<input type="submit" value="Edit" class="buttonstyle" />
-				<input type="submit" value="Delete" class="buttonstyle"
-					formaction="<%=request.getContextPath()%>/person/delete/${person.getId()}">
-			</div>
 			<div id="divcontainer" class="content">
+				<div class="buttondiv">
+					<input type="submit" value="Edit" class="buttonstyle" /> <input
+						type="submit" value="Delete" class="buttonstyle"
+						formaction="<%=request.getContextPath()%>/person/delete/${person.getId()}">
+				</div>
 				<h1 align="left" class="headersection">
 					<b>Personal Information</b>
 				</h1>
@@ -78,8 +85,7 @@
 							<table>
 								<tr>
 									<td align="right"><form:label path="id" for="id">
-										</form:label> <spring:message code="label.id" />
-									</td>
+										</form:label> <spring:message code="label.id" /></td>
 									<td><c:out value="${person.getId()}"></c:out>
 								</tr>
 
@@ -87,8 +93,7 @@
 									<td align="right"><form:label path="personName.title"
 											for="personName.title">
 											<spring:message code="label.title" />
-										</form:label>
-									</td>
+										</form:label></td>
 									<td><c:out value="${person.getPersonName().getTitle()}"></c:out>
 									</td>
 								</tr>
@@ -96,28 +101,23 @@
 									<td align="right"><form:label path="personName.firstName"
 											for="personName.firstName">
 											<spring:message code="label.firstName" />
-										</form:label>
-									</td>
+										</form:label></td>
 									<td><c:out
-											value="${person.getPersonName().getFirstName()}"></c:out>
-									</td>
+											value="${person.getPersonName().getFirstName()}"></c:out></td>
 								</tr>
 								<tr>
 									<td align="right"><form:label path="personName.middleName"
 											for="personName.middleName">
 											<spring:message code="label.middleName" />
-										</form:label>
-									</td>
+										</form:label></td>
 									<td><c:out
-											value="${person.getPersonName().getMiddleName()}"></c:out>
-									</td>
+											value="${person.getPersonName().getMiddleName()}"></c:out></td>
 								</tr>
 								<tr>
 									<td align="right"><form:label path="personName.lastName"
 											for="personName.lastName">
 											<spring:message code="label.lastName" />
-										</form:label>
-									</td>
+										</form:label></td>
 									<td><c:out value="${person.getPersonName().getLastName()}"></c:out>
 									</td>
 								</tr>
@@ -125,13 +125,11 @@
 									<td align="right"><form:label path="personName.suffix"
 											for="personName.suffix">
 											<spring:message code="label.suffix" />
-										</form:label>
-									</td>
+										</form:label></td>
 									<td><c:out value="${person.getPersonName().getSuffix()}"></c:out>
 									</td>
 								</tr>
-							</table>
-						</td>
+							</table></td>
 						<td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 						<td>
 							<table>
@@ -139,22 +137,17 @@
 									<td align="right"><form:label path="dateOfBirth"
 											for="dateOfBirth">
 											<spring:message code="label.dateOfBirth" />
-										</form:label>
-									</td>
-									<td><c:out value="${person.getDateOfBirth()}"></c:out>
-									</td>
+										</form:label></td>
+									<td><c:out value="${person.getDateOfBirth()}"></c:out></td>
 								</tr>
 								<tr>
 									<td align="right"><form:label path="aadhaarNumber"
 											for="aadhaarNumber">
 											<spring:message code="label.aadhaarNumber" />
-										</form:label>
-									</td>
-									<td><c:out value="${person.getAadhaarNumber()}"></c:out>
-									</td>
+										</form:label></td>
+									<td><c:out value="${person.getAadhaarNumber()}"></c:out></td>
 								</tr>
-							</table>
-						</td>
+							</table></td>
 					</tr>
 				</table>
 				<h1 align="left" class="headersection">
@@ -169,8 +162,7 @@
 											path="contactInformation.primaryAddress.streetAddress"
 											for="contactInformation.primaryAddress.streetAddress">
 											<spring:message code="label.streetAddress" />
-										</form:label>
-									</td>
+										</form:label></td>
 									<td><c:out
 											value="${person.getContactInformation().getPrimaryAddress().getStreetAddress()}"></c:out>
 									</td>
@@ -180,8 +172,7 @@
 											path="contactInformation.primaryAddress.state"
 											for="contactInformation.primaryAddress.state">
 											<spring:message code="label.state" />
-										</form:label>
-									</td>
+										</form:label></td>
 									<td><c:out
 											value="${person.getContactInformation().getPrimaryAddress().getState()}"></c:out>
 									</td>
@@ -191,14 +182,12 @@
 											path="contactInformation.primaryAddress.city"
 											for="contactInformation.primaryAddress.city">
 											<spring:message code="label.city" />
-										</form:label>
-									</td>
+										</form:label></td>
 									<td><c:out
 											value="${person.getContactInformation().getPrimaryAddress().getCity()}"></c:out>
 									</td>
 								</tr>
-							</table>
-						</td>
+							</table></td>
 						<td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 						<td>
 							<table>
@@ -207,8 +196,7 @@
 											path="contactInformation.primaryAddress.postalCode"
 											for="contactInformation.primaryAddress.postalCode">
 											<spring:message code="label.postalCode" />
-										</form:label>
-									</td>
+										</form:label></td>
 									<td><c:out
 											value="${person.getContactInformation().getPrimaryAddress().getPostalCode()}"></c:out>
 									</td>
@@ -218,14 +206,12 @@
 											path="contactInformation.primaryAddress.country"
 											for="contactInformation.primaryAddress.country">
 											<spring:message code="label.country" />
-										</form:label>
-									</td>
+										</form:label></td>
 									<td><c:out
 											value="${person.getContactInformation().getPrimaryAddress().getCountry()}"></c:out>
 									</td>
 								</tr>
-							</table>
-						</td>
+							</table></td>
 					</tr>
 				</table>
 				<h1 align="left" class="headersection">
@@ -240,8 +226,7 @@
 											path="contactInformation.email1"
 											for="contactInformation.email1">
 											<spring:message code="label.email1" />
-										</form:label>
-									</td>
+										</form:label></td>
 									<td><c:out
 											value="${person.getContactInformation().getEmail1()}"></c:out>
 									</td>
@@ -250,8 +235,7 @@
 											path="contactInformation.email2"
 											for="contactInformation.email2">
 											<spring:message code="label.email2" />
-										</form:label>
-									</td>
+										</form:label></td>
 									<td><c:out
 											value="${person.getContactInformation().getEmail2()}"></c:out>
 									</td>
@@ -260,8 +244,7 @@
 											path="contactInformation.email3"
 											for="contactInformation.email3">
 											<spring:message code="label.email3" />
-										</form:label>
-									</td>
+										</form:label></td>
 									<td><c:out
 											value="${person.getContactInformation().getEmail3()}"></c:out>
 									</td>
@@ -276,8 +259,7 @@
 											path="contactInformation.phone1"
 											for="contactInformation.phone1">
 											<spring:message code="label.phone1" />
-										</form:label>
-									</td>
+										</form:label></td>
 									<td><c:out
 											value="${person.getContactInformation().getPhone1()}"></c:out>
 									</td>
@@ -286,8 +268,7 @@
 											path="contactInformation.phone2"
 											for="contactInformation.phone2">
 											<spring:message code="label.phone2" />
-										</form:label>
-									</td>
+										</form:label></td>
 									<td><c:out
 											value="${person.getContactInformation().getPhone2()}"></c:out>
 									</td>
@@ -296,8 +277,7 @@
 											path="contactInformation.phone3"
 											for="contactInformation.phone3">
 											<spring:message code="label.phone3" />
-										</form:label>
-									</td>
+										</form:label></td>
 									<td><c:out
 											value="${person.getContactInformation().getPhone3()}"></c:out>
 									</td>
@@ -312,8 +292,7 @@
 											path="contactInformation.mobile1"
 											for="contactInformation.mobile1">
 											<spring:message code="label.mobile1" />
-										</form:label>
-									</td>
+										</form:label></td>
 									<td><c:out
 											value="${person.getContactInformation().getMobile1()}"></c:out>
 									</td>
@@ -322,8 +301,7 @@
 											path="contactInformation.mobile2"
 											for="contactInformation.mobile2">
 											<spring:message code="label.mobile2" />
-										</form:label>
-									</td>
+										</form:label></td>
 									<td><c:out
 											value="${person.getContactInformation().getMobile2()}"></c:out>
 									</td>
@@ -332,8 +310,7 @@
 											path="contactInformation.mobile3"
 											for="contactInformation.mobile3">
 											<spring:message code="label.mobile3" />
-										</form:label>
-									</td>
+										</form:label></td>
 									<td><c:out
 											value="${person.getContactInformation().getMobile3()}"></c:out>
 									</td>
@@ -343,21 +320,62 @@
 											path="contactInformation.website"
 											for="contactInformation.website">
 											<spring:message code="label.website" />
-										</form:label>
-									</td>
+										</form:label></td>
 									<td><c:out
 											value="${person.getContactInformation().getWebsite()}"></c:out>
 									</td>
 								</tr>
 							</table>
 				</table>
-			</div>
-			<div class="buttondiv">
-				<input type="button" value="Edit" class="buttonstyle" />
-				<input type="submit" value="Delete" class="buttonstyle"
-					formaction="<%=request.getContextPath()%>/person/delete/${person.getId()}">
+				<div class="buttondiv">
+					<input type="submit" value="Edit" class="buttonstyle" /> <input
+						type="submit" value="Delete" class="buttonstyle"
+						formaction="<%=request.getContextPath()%>/person/delete/${person.getId()}">
+				</div>
 			</div>
 		</form:form>
+		<div id="divcontainer" class="content">
+			<h1 align="left" class="headersection">
+				<b>Education Qualifications Information</b> <input type="button"
+					value="New Education Qualification" onclick=createFunction()>
+			</h1>
+			<!-- <div>
+				<input type="button" value="New Education Qualification"
+					onclick=createFunction()>
+			</div> -->
+			<c:if test="${!empty person.getEducationQualifications()}">
+				<div id="demo">
+					<table cellpadding="0" cellspacing="0" border="0" class="display"
+						id="eq" width="100%">
+						<tr>
+							<td>Action</td>
+							<td>Name</td>
+							<td>University</td>
+							<td>Year Completed</td>
+							<td>Month Completed</td>
+							<td>Percentage</td>
+							<td>GPA</td>
+						</tr>
+						<c:forEach items="${person.getEducationQualifications()}"
+							var="equalification">
+							<tr>
+								<td><input type="submit" value="Edit">&nbsp;&nbsp;<input
+									type="submit" value="Delete"
+									formaction="<%=request.getContextPath()%>/educationqualification/delete/${person.getId()}">
+								</td>
+								<td>${equalification.name}</td>
+								<td>${equalification.university}</td>
+								<td>${equalification.yearCompleted}</td>
+								<td>${equalification.monthCompleted}</td>
+								<td>${equalification.percentage}</td>
+								<td>${equalification.gpa}</td>
+							</tr>
+						</c:forEach>
+					</table>
+				</div>
+			</c:if>
+		</div>
+
 	</div>
 </body>
 </html>

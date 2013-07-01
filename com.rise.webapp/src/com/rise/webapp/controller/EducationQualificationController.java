@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.rise.common.model.EducationQualification;
+import com.rise.common.model.Person;
 import com.rise.common.util.constants.HibernateConstants;
 import com.rise.service.BaseService;
 import com.rise.service.EducationQualificationService;
@@ -32,6 +33,21 @@ public class EducationQualificationController extends BaseController {
 		argModel.addAttribute(getSimpleName(), new EducationQualification());
 		return HibernateConstants.VIEW_SLASH + getClassNameInLowerCase()
 				+ HibernateConstants.NEW;
+	}
+
+	@RequestMapping(value = HibernateConstants.CREATE
+			+ HibernateConstants.PATH_VARIABLE_ID, method = RequestMethod.GET)
+	public String create(@PathVariable String argId, Model argModel) {
+		if (argId != null && !argId.isEmpty() && argModel != null) {
+			EducationQualification educationQualification = new EducationQualification();
+			Person person = new Person();
+			person.setId(Integer.parseInt(argId));
+			educationQualification.setPerson(person);
+			argModel.addAttribute(getSimpleName(), educationQualification);
+			return HibernateConstants.VIEW_SLASH + getClassNameInLowerCase()
+					+ HibernateConstants.NEW;
+		}
+		return HibernateConstants.ERROR;
 	}
 
 	@RequestMapping(value = HibernateConstants.LIST)
