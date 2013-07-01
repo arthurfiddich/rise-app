@@ -1,72 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC
-        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="com.rise.common.model.Person" table="PERSON">
-		<id name="id" column="PERSON_ID">
-			<generator class="increment"></generator>
-		</id>
-
-		<property name="dateCreated" column="DATE_CREATED" />
-		<property name="dateModified" column="DATE_MODIFIED" />
-		<property name="createdBy" column="CREATED_BY" />
-		<property name="modifiedBy" column="MODIFIED_BY" />
-		<!-- <property name="recordStatus" column="RECORD_STATUS" /> -->
-
-		<component name="personName" class="com.rise.common.model.PersonName">
-			<property name="title" column="TITLE" />
-			<property name="firstName" column="FIRST_NAME" />
-			<property name="middleName" column="MIDDLE_NAME" />
-			<property name="lastName" column="LAST_NAME" />
-			<property name="suffix" column="SUFFIX" />
-		</component>
-		<property name="dateOfBirth" column="DATE_OF_BIRTH" />
-		<property name="aadhaarNumber" column="AADHAAR_NUMBER" />
-
-		<set name="educationQualifications" table="EDUCATION_QUALIFICATION" cascade="all">
-			<key column="PERSON_ID" />
-			<one-to-many class="com.rise.common.model.EducationQualification" />
-		</set>
-
-		<set name="employmentExperiences" table="EMPLOYMENT_EXPERIENCE">
-			<key column="PERSON_ID" />
-			<one-to-many class="com.rise.common.model.EmploymentExperience" />
-		</set>
-
-		<many-to-one name="contactInformation"
-			class="com.rise.common.model.ContactInformation" unique="true"
-			not-null="true" column="CONTACT_INFORMATION_ID"  cascade="all" lazy="false"/>
-
-		<set name="awards" table="AWARD">
-			<key column="PERSON_ID" />
-			<one-to-many class="com.rise.common.model.Award" />
-		</set>
-
-		<!-- <many-to-one name="passport" class="com.rise.common.model.Passport" 
-			unique="true" not-null="true" column="PASSPORT_ID" /> -->
-
-		<!-- <many-to-one name="driversLicense" class="com.rise.common.model.DriversLicense" 
-			unique="true" not-null="true" column="DRIVERS_LICENSE_ID" /> -->
-
-		<!-- <many-to-one name="candidate" class="com.rise.common.model.Candidate" 
-			unique="true" not-null="true" column="CANDIDATE_ID" /> -->
-	</class>
-
-	<query name="getContactInformation"><![CDATA[
+    <class name="com.rise.common.model.Person" table="PERSON">
+        <id name="id" column="PERSON_ID">
+            <generator class="increment">
+            </generator>
+        </id>
+        
+        <property name="dateCreated" column="DATE_CREATED"/>
+        <property name="dateModified" column="DATE_MODIFIED"/>
+        <property name="createdBy" column="CREATED_BY"/>
+        <property name="modifiedBy" column="MODIFIED_BY"/>
+        <!-- <property name="recordStatus" column="RECORD_STATUS" /> -->
+        
+        <component name="personName" class="com.rise.common.model.PersonName">
+            <property name="title" column="TITLE"/>
+            <property name="firstName" column="FIRST_NAME"/>
+            <property name="middleName" column="MIDDLE_NAME"/>
+            <property name="lastName" column="LAST_NAME"/>
+            <property name="suffix" column="SUFFIX"/>
+        </component>
+        <property name="dateOfBirth" column="DATE_OF_BIRTH"/>
+        <property name="aadhaarNumber" column="AADHAAR_NUMBER"/>
+        
+        <set name="educationQualifications" table="EDUCATION_QUALIFICATION" cascade="all" lazy="false">
+            <key column="PERSON_ID"/>
+            <one-to-many class="com.rise.common.model.EducationQualification"/>
+        </set>
+        
+        <set name="employmentExperiences" table="EMPLOYMENT_EXPERIENCE">
+            <key column="PERSON_ID"/>
+            <one-to-many class="com.rise.common.model.EmploymentExperience"/>
+        </set>
+        
+        <many-to-one name="contactInformation"
+         class="com.rise.common.model.ContactInformation" unique="true"
+         not-null="true" column="CONTACT_INFORMATION_ID" cascade="all" lazy="false"/>
+        
+        <set name="awards" table="AWARD">
+            <key column="PERSON_ID"/>
+            <one-to-many class="com.rise.common.model.Award"/>
+        </set>
+        
+        <!-- <many-to-one name="passport" class="com.rise.common.model.Passport"
+        unique="true" not-null="true" column="PASSPORT_ID" /> -->
+        
+        <!-- <many-to-one name="driversLicense" class="com.rise.common.model.DriversLicense"
+        unique="true" not-null="true" column="DRIVERS_LICENSE_ID" /> -->
+        
+        <!-- <many-to-one name="candidate" class="com.rise.common.model.Candidate"
+        unique="true" not-null="true" column="CANDIDATE_ID" /> -->
+    </class>
+    
+    <query name="getContactInformation">
+        <![CDATA[
 			select ci
 			from com.rise.common.model.Person p
 			inner join p.contactInformation ci
 			where ci.id = :paramContactInformationId
 		]]>
-	</query>
-	<query name="get"><![CDATA[
+    </query>
+    <query name="get">
+        <![CDATA[
 			select p
 			from com.rise.common.model.Person p
 			inner join p.contactInformation ci
 			inner join ci.primaryAddress a
 			where p.id = :paramPersonId
 		]]>
-	</query>
+    </query>
 </hibernate-mapping>
