@@ -34,7 +34,8 @@ public class EducationQualificationServiceImpl extends BaseServiceImpl
 			educationQualification.setDateCreated(new Date());
 			educationQualification.setModifiedBy(1);
 			educationQualification.setDateModified(new Date());
-			Person person = this.getBaseDao().getPerson(1000);
+			Person person = this.getBaseDao().getPerson(
+					educationQualification.getPerson().getId());
 			if (person != null) {
 				educationQualification.setPerson(person);
 			}
@@ -66,7 +67,7 @@ public class EducationQualificationServiceImpl extends BaseServiceImpl
 	}
 
 	@Transactional
-	public  List<State> getStates() {
+	public List<State> getStates() {
 		return this.getBaseDao().getStates();
 	}
 
