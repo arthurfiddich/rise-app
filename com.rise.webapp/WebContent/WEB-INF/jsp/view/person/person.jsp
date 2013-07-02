@@ -47,7 +47,7 @@
 		<div id="menubar" style="width: auto">
 			<ul id="menu">
 				<li><a name="home" href="/rise/home">Home</a></li>
-				<li><a name="person" href="/rise/person/personcreate"
+				<li><a name="person" href="/rise/person/personview"
 					class="activesection">Person</a></li>
 				<li><a name="trainer" href="/rise/trainer">Trainer</a></li>
 				<li><a name="agents" href="/rise/agents">Agents</a></li>
