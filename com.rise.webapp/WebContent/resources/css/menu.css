@@ -11,8 +11,8 @@
 	/*Styling the background with fading effect*/
 	background: #00FFFF;
 	background: -moz-linear-gradient(top, #000, #999);
-	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#98AFC7),
-		to(#98AFC7) );
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#CAE8EA),
+		to(#CAE8EA) );
 	/*Making the shadow effect into the menu bar */
 	box-shadow: inset 1px 1px 10px #FFFFFF;
 	-moz-box-shadow: inset 1px 1px 10px #FFFFFF;
@@ -143,4 +143,20 @@
 	-webkit-box-shadow: 0px 1px 6px 4px rgba(0, 0, 0, 0.2) inset;
 	-moz-box-shadow: 0px 1px 6px 4px rgba(0, 0, 0, 0.2) inset;
 	box-shadow: 0px 1px 6px 4px rgba(0, 0, 0, 0.2) inset;
+}
+.styled-button-2 {
+	-webkit-box-shadow:rgba(0,0,0,0.0.1) 0 1px 0 0;
+	-moz-box-shadow:rgba(0,0,0,0.0.1) 0 1px 0 0;
+	box-shadow:rgba(0,0,0,0.0.1) 0 1px 0 0;
+	background-color:#5B74A8;
+	border:1px solid #29447E;
+	font-family:'Lucida Grande',Tahoma,Verdana,Arial,sans-serif;
+	font-size:12px;
+	font-weight:700;
+	padding:2px 6px;
+	height:28px;
+	color:#fff;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px
 }

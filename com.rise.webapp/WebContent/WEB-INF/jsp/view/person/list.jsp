@@ -50,10 +50,10 @@
 			</div>
 		<div id="divcontainer" class="content">
 	<h1 align="left">
-		<b>Person Home</b>
+	<img alt="Home" src="/rise/resources/images/person.png" height="32px" width="45px">
 	</h1>
 		<fieldset>
-			<legend>Person Records</legend>
+			<legend><input type="button" class="styled-button-2" value="New" /> </legend>
 			<table id="example">
 			<thead>
 				<tr height="10">
