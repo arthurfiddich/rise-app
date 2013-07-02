@@ -36,7 +36,6 @@
   <script type="text/javascript" language="javascript" src="http://www.technicalkeeda.com/js/javascripts/plugin/jquery.js"></script>
 <script type="text/javascript" src="http://www.technicalkeeda.com/js/javascripts/plugin/json2.js"></script>
   <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
-  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
   <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
   <link rel="stylesheet" type="text/css"
 	href="/rise/resources/css/table.css" />
@@ -120,7 +119,7 @@
 			<ul id="menu">
 				<li><a name="home" href="/rise/home" class="activesection">Home</a>
 				</li>
-				<li><a name="person" href="/rise/person/personcreate">Person</a>
+				<li><a name="person" href="/rise/person/list">Person</a>
 				</li>
 				<li><a href="#">Trainer</a>
 				</li>
@@ -139,7 +138,7 @@
 		<div id="dialog-confirm" title="Empty the recycle bin?">
  <div id="innerdialog"></div>
 </div>
-  <table cellspacing="0">
+  <table cellspacing="0" id="myTable">
 	         <tr>
 	         <th>First Name</th>
 	         <th>Aadhar Number</th>
