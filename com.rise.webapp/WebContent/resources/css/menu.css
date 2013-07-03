@@ -156,7 +156,30 @@
 	padding:2px 6px;
 	height:28px;
 	color:#fff;
+	cursor: pointer;
 	border-radius:5px;
 	-moz-border-radius:5px;
-	-webkit-border-radius:5px
+	-webkit-border-radius:5px;
+	-webkit-box-shadow: 0px 1px 6px 4px rgba(0, 0, 0, 0.07) inset, 0px 0px
+		0px 3px rgb(254, 254, 254), 0px 5px 3px 3px rgb(210, 210, 210);
+	-moz-box-shadow: 0px 1px 6px 4px rgba(0, 0, 0, 0.07) inset, 0px 0px 0px
+		3px rgb(254, 254, 254), 0px 5px 3px 3px rgb(210, 210, 210);
+	box-shadow: 0px 1px 6px 4px rgba(0, 0, 0, 0.07) inset, 0px 0px 0px 3px
+		rgb(254, 254, 254), 0px 5px 3px 3px rgb(210, 210, 210);
+	-webkit-transition: all 0.2s linear;
+	-moz-transition: all 0.2s linear;
+	-o-transition: all 0.2s linear;
+	transition: all 0.2s linear;
+}
+.styled-button-2:hover {
+	background: rgb(74, 179, 198);
+}
+.styled-button-2:active,.styled-button-2:focus {
+	background: rgb(40, 137, 154);
+	position: relative;
+	top: 1px;
+	border: 1px solid rgb(12, 76, 87);
+	-webkit-box-shadow: 0px 1px 6px 4px rgba(0, 0, 0, 0.2) inset;
+	-moz-box-shadow: 0px 1px 6px 4px rgba(0, 0, 0, 0.2) inset;
+	box-shadow: 0px 1px 6px 4px rgba(0, 0, 0, 0.2) inset;
 }
