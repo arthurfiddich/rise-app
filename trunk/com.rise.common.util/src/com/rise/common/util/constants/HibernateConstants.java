@@ -16,6 +16,8 @@ public class HibernateConstants {
 	
 	public static final String CREATE = "/create";
 	public static final String PERSON_CREATE = "/personcreate";
+	public static final String PERSON_VIEW = "/personview";
+	
 	
 	public static final String UPDATE = "/update";
 	
