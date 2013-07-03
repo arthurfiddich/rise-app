@@ -23,6 +23,10 @@
 			$(document).ready(function() {
 				$('#example').dataTable();
 			} );
+			function openPersonCreate(){
+				window.location.href="/rise/person/personcreate";
+				//alert("hello");
+			}
 		</script>
 		<link rel="stylesheet" type="text/css"
 	href="/rise/resources/css/table.css" />
@@ -53,7 +57,7 @@
 	<img alt="Home" src="/rise/resources/images/person.png" height="32px" width="45px">
 	</h1>
 		<fieldset>
-			<legend><input type="button" class="styled-button-2" value="New" /> </legend>
+			<legend><input type="button" class="styled-button-2" value="New" onclick="openPersonCreate();"/> </legend>
 			<table id="example">
 			<thead>
 				<tr height="10">
@@ -76,6 +80,7 @@
 					</th>
 				</tr>
 				</thead>
+				<tbody>
 				<%
 					String fullyQualifiedClassName = Person.class.getName().toLowerCase();
 					List<Person> persons = (List<Person>) request
@@ -83,7 +88,7 @@
 					if (persons != null && persons.size() > 0) {
 						for (Person person : persons) {
 				%>
-				<tbody>
+				
 				<tr>
 					<td><a
 						href="<%=request.getContextPath()%>/person/<%=person.getId()%>"><%=person.getId()%></a>
