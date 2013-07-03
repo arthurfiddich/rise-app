@@ -1,6 +1,6 @@
 #menu { /*Styling the menu width and height*/
 	list-style: none;
-	margin: 30px 8px 0px 8px;
+	margin: 30px 8px 10px 8px;
 	width: auto;
 	height: 35px;
 	padding: 0px 20px 0px 20px;
@@ -8,16 +8,17 @@
 	border-radius: 10px;
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
+	background: #FFFFFF;
 	/*Styling the background with fading effect*/
-	background: #00FFFF;
+	/* background: #00FFFF;
 	background: -moz-linear-gradient(top, #000, #999);
 	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#CAE8EA),
-		to(#CAE8EA) );
-	/*Making the shadow effect into the menu bar */
+		to(#CAE8EA) );*/
+	/*Making the shadow effect into the menu bar*/
 	box-shadow: inset 1px 1px 10px #FFFFFF;
 	-moz-box-shadow: inset 1px 1px 10px #FFFFFF;
 	-webkit-box-shadow: inset 1px 1px 10px #FFFFFF;
-	border: 1px solid #000;
+ /*	border: 1px solid #000;*/
 }
 
 #menu li /*Styling the li part of the menu*/ {
@@ -40,12 +41,17 @@
 
 #menu li:hover a /*Styling the link part of the menu li in hover state*/
 	{
-	color: #FFF;
+	color:rgba(30,90,140,0.9);
+	text-shadow: 1px 1px 10px #CCC;
+}
+#menu li:active a /*Styling the link part of the menu li in hover state*/
+	{
+	color:blue;
 	text-shadow: 1px 1px 10px #CCC;
 }
 
 #divcontainer {
-	border: 2px solid #FFFFFF;
+	border: 1px solid #FFFFFF;
 	width: auto;
 	height: auto;
 	margin-bottom: 1em;
@@ -58,8 +64,9 @@
 }
 
 .activesection {
-	padding: 5px 5px 5px 5px;
-	/*Styling the background with fading effect*/
+	color:blue;
+	/* padding: 5px 5px 5px 5px;
+	Styling the background with fading effect
 	background: #00FFFF;
 	background: -moz-linear-gradient(top, #000, #999);
 	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#98AFC7),
@@ -67,11 +74,11 @@
 		border-radius: 10px 10px 0px 0px;
 	-moz-border-radius: 10px 10px 0px 0px;
 	-webkit-border-radius: 10px 10px 0px 0px;
-	/*Making the shadow effect into the menu bar */
+	Making the shadow effect into the menu bar
 	box-shadow: inset 1px 1px 10px #FFFFFF;
 	-moz-box-shadow: inset 1px 1px 10px #FFFFFF;
 	-webkit-box-shadow: inset 1px 1px 10px #FFFFFF;
-	border: 1px solid #000;
+	border: 1px solid #000; */
 }
 
 .headersection {
@@ -116,14 +123,14 @@
 	margin-right: 10px;
 	position: static;
 	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
-	-webkit-border-radius: 2px;
-	-moz-border-radius: 2px;
-	border-radius: 2px;
-	-webkit-box-shadow: 0px 1px 6px 4px rgba(0, 0, 0, 0.07) inset, 0px 0px
+	-webkit-border-radius: 1px;
+	-moz-border-radius: 1px;
+	border-radius: 1px;
+	-webkit-box-shadow: 0px 1px 2px 4px rgba(0, 0, 0, 0.07) inset, 0px 0px
 		0px 3px rgb(254, 254, 254), 0px 5px 3px 3px rgb(210, 210, 210);
-	-moz-box-shadow: 0px 1px 6px 4px rgba(0, 0, 0, 0.07) inset, 0px 0px 0px
+	-moz-box-shadow: 0px 1px 2px 4px rgba(0, 0, 0, 0.07) inset, 0px 0px 0px
 		3px rgb(254, 254, 254), 0px 5px 3px 3px rgb(210, 210, 210);
-	box-shadow: 0px 1px 6px 4px rgba(0, 0, 0, 0.07) inset, 0px 0px 0px 3px
+	box-shadow: 0px 1px 2px 4px rgba(0, 0, 0, 0.07) inset, 0px 0px 0px 3px
 		rgb(254, 254, 254), 0px 5px 3px 3px rgb(210, 210, 210);
 	-webkit-transition: all 0.2s linear;
 	-moz-transition: all 0.2s linear;
@@ -150,6 +157,8 @@
 	box-shadow:rgba(0,0,0,0.0.1) 0 1px 0 0;
 	background-color:#5B74A8;
 	border:1px solid #29447E;
+	margin-bottom: 10px;
+	margin-right: 10px;
 	font-family:'Lucida Grande',Tahoma,Verdana,Arial,sans-serif;
 	font-size:12px;
 	font-weight:700;
@@ -175,6 +184,47 @@
 	background: rgb(74, 179, 198);
 }
 .styled-button-2:active,.styled-button-2:focus {
+	background: rgb(40, 137, 154);
+	position: relative;
+	top: 1px;
+	border: 1px solid rgb(12, 76, 87);
+	-webkit-box-shadow: 0px 1px 6px 4px rgba(0, 0, 0, 0.2) inset;
+	-moz-box-shadow: 0px 1px 6px 4px rgba(0, 0, 0, 0.2) inset;
+	box-shadow: 0px 1px 6px 4px rgba(0, 0, 0, 0.2) inset;
+}
+.styled-button-3 {
+	-webkit-box-shadow:rgba(0,0,0,0.0.1) 0 1px 0 0;
+	-moz-box-shadow:rgba(0,0,0,0.0.1) 0 1px 0 0;
+	box-shadow:rgba(0,0,0,0.0.1) 0 1px 0 0;
+	background-color:#5B74A8;
+	border:1px solid #29447E;
+	margin-bottom: 10px;
+	margin-right: 10px;
+	font-family:'Lucida Grande',Tahoma,Verdana,Arial,sans-serif;
+	font-size:12px;
+	font-weight:700;
+	padding:2px 6px;
+	height:28px;
+	color:#fff;
+	cursor: pointer;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	-webkit-box-shadow: 0px 1px 6px 4px rgba(0, 0, 0, 0.07) inset, 0px 0px
+		0px 3px rgb(254, 254, 254), 0px 5px 3px 3px rgb(210, 210, 210);
+	-moz-box-shadow: 0px 1px 6px 4px rgba(0, 0, 0, 0.07) inset, 0px 0px 0px
+		3px rgb(254, 254, 254), 0px 5px 3px 3px rgb(210, 210, 210);
+	box-shadow: 0px 1px 6px 4px rgba(0, 0, 0, 0.07) inset, 0px 0px 0px 3px
+		rgb(254, 254, 254), 0px 5px 3px 3px rgb(210, 210, 210);
+	-webkit-transition: all 0.2s linear;
+	-moz-transition: all 0.2s linear;
+	-o-transition: all 0.2s linear;
+	transition: all 0.2s linear;
+}
+.styled-button-3:hover {
+	background: rgb(74, 179, 198);
+}
+.styled-button-3:active,.styled-button-3:focus {
 	background: rgb(40, 137, 154);
 	position: relative;
 	top: 1px;

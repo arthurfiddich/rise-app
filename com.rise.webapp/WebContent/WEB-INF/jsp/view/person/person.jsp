@@ -57,9 +57,9 @@
 		</div>
 		<form:form modelAttribute="person" action="save" method="post">
 			<div class="buttondiv">
-				<input type="submit" value="save" class="buttonstyle"> <input
+				<input type="submit" value="save" class="styled-button-2"> <input
 					type="button" value="Cancel" onClick="history.go(-1);return true;"
-					class="buttonstyle" />
+					class="styled-button-2" />
 			</div>
 			<div id="divcontainer" class="content">
 				<h1 align="left" class="headersection">
@@ -204,91 +204,88 @@
 											<spring:message code="label.email1" />
 										</form:label></td>
 									<td><form:input path="contactInformation.email1" /></td>
-									<td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-									<td align="right"><form:label
-											path="contactInformation.email2"
-											for="contactInformation.email2">
-											<spring:message code="label.email2" />
-										</form:label></td>
-									<td><form:input path="contactInformation.email2" /></td>
-									<td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-									<td align="right"><form:label
-											path="contactInformation.email3"
-											for="contactInformation.email3">
-											<spring:message code="label.email3" />
-										</form:label></td>
-									<td><form:input path="contactInformation.email3" /></td>
-								</tr>
-								<!-- </table>
-						</td>
-						<td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;</td>
-						<td>
-							<table> -->
-								<tr>
+									</tr>
+									<tr>
 									<td align="right"><form:label
 											path="contactInformation.phone1"
 											for="contactInformation.phone1">
 											<spring:message code="label.phone1" />
 										</form:label></td>
 									<td><form:input path="contactInformation.phone1" /></td>
-									<td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-									<td align="right"><form:label
-											path="contactInformation.phone2"
-											for="contactInformation.phone2">
-											<spring:message code="label.phone2" />
-										</form:label></td>
-									<td><form:input path="contactInformation.phone2" /></td>
-									<td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-									<td align="right"><form:label
-											path="contactInformation.phone3"
-											for="contactInformation.phone3">
-											<spring:message code="label.phone3" />
-										</form:label></td>
-									<td><form:input path="contactInformation.phone3" /></td>
-
-								</tr>
-								<!-- </table>
-						</td>
-						<td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;</td>
-						<td>
-							<table> -->
-								<tr>
+									</tr>
+									<tr>
 									<td align="right"><form:label
 											path="contactInformation.mobile1"
 											for="contactInformation.mobile1">
 											<spring:message code="label.mobile1" />
 										</form:label></td>
 									<td><form:input path="contactInformation.mobile1" /></td>
-									<td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+									</tr>
+									</table>
+									</td>
+									<td>
+									<table>
+									<tr>
+									<td align="right"><form:label
+											path="contactInformation.email2"
+											for="contactInformation.email2">
+											<spring:message code="label.email2" />
+										</form:label></td>
+									<td><form:input path="contactInformation.email2" /></td>
+									</tr>
+									<tr>
+									<td align="right"><form:label
+											path="contactInformation.phone2"
+											for="contactInformation.phone2">
+											<spring:message code="label.phone2" />
+										</form:label></td>
+									<td><form:input path="contactInformation.phone2" /></td>
+									</tr>
+									<tr>
 									<td align="right"><form:label
 											path="contactInformation.mobile2"
 											for="contactInformation.mobile2">
 											<spring:message code="label.mobile2" />
 										</form:label></td>
 									<td><form:input path="contactInformation.mobile2" /></td>
-									<td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+									</tr>
+									</table>
+									</td>
+									<td>
+									<table>
+									<tr>
+									<td align="right"><form:label
+											path="contactInformation.email3"
+											for="contactInformation.email3">
+											<spring:message code="label.email3" />
+										</form:label></td>
+									<td><form:input path="contactInformation.email3" /></td>
+									</tr>
+									<tr>
+									<td align="right"><form:label
+											path="contactInformation.phone3"
+											for="contactInformation.phone3">
+											<spring:message code="label.phone3" />
+										</form:label></td>
+									<td><form:input path="contactInformation.phone3" /></td>
+									</tr>
+									<tr>
 									<td align="right"><form:label
 											path="contactInformation.mobile3"
 											for="contactInformation.mobile3">
 											<spring:message code="label.mobile3" />
 										</form:label></td>
 									<td><form:input path="contactInformation.mobile3" /></td>
-								</tr>
-								<tr>
-									<td align="right"><form:label
-											path="contactInformation.website"
-											for="contactInformation.website">
-											<spring:message code="label.website" />
-										</form:label></td>
-									<td><form:input path="contactInformation.website" /></td>
-								</tr>
-							</table>
+									</tr>
+									</table>
+									</td>
+									</tr>
 				</table>
 			</div>
 			<div class="buttondiv">
-				<input type="submit" value="save" class="buttonstyle"> <input
+				<input type="submit" value="save" class="styled-button-2"> <input
 					type="button" value="Cancel" onClick="history.go(-1);return true;"
-					class="buttonstyle" />
+					class="styled-button-2" />
 			</div>
 		</form:form>
 	</div>

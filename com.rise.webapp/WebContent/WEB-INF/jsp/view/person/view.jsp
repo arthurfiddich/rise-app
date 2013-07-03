@@ -72,8 +72,8 @@
 			<input type="hidden" name="id" value="${person.getId()}"></input>
 			<div id="divcontainer" class="content">
 				<div class="buttondiv">
-					<input type="submit" value="Edit" class="buttonstyle" /> <input
-						type="submit" value="Delete" class="buttonstyle"
+					<input type="submit" value="Edit" class="styled-button-2" /> <input
+						type="submit" value="Delete" class="styled-button-2"
 						formaction="<%=request.getContextPath()%>/person/delete/${person.getId()}">
 				</div>
 				<h1 align="left" class="headersection">
@@ -230,31 +230,8 @@
 									<td><c:out
 											value="${person.getContactInformation().getEmail1()}"></c:out>
 									</td>
-									<td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-									<td align="right"><form:label
-											path="contactInformation.email2"
-											for="contactInformation.email2">
-											<spring:message code="label.email2" />
-										</form:label></td>
-									<td><c:out
-											value="${person.getContactInformation().getEmail2()}"></c:out>
-									</td>
-									<td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-									<td align="right"><form:label
-											path="contactInformation.email3"
-											for="contactInformation.email3">
-											<spring:message code="label.email3" />
-										</form:label></td>
-									<td><c:out
-											value="${person.getContactInformation().getEmail3()}"></c:out>
-									</td>
-								</tr>
-								<!-- </table>
-						</td>
-						<td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;</td>
-						<td>
-							<table> -->
-								<tr>
+									</tr>
+									<tr>
 									<td align="right"><form:label
 											path="contactInformation.phone1"
 											for="contactInformation.phone1">
@@ -263,31 +240,8 @@
 									<td><c:out
 											value="${person.getContactInformation().getPhone1()}"></c:out>
 									</td>
-									<td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-									<td align="right"><form:label
-											path="contactInformation.phone2"
-											for="contactInformation.phone2">
-											<spring:message code="label.phone2" />
-										</form:label></td>
-									<td><c:out
-											value="${person.getContactInformation().getPhone2()}"></c:out>
-									</td>
-									<td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-									<td align="right"><form:label
-											path="contactInformation.phone3"
-											for="contactInformation.phone3">
-											<spring:message code="label.phone3" />
-										</form:label></td>
-									<td><c:out
-											value="${person.getContactInformation().getPhone3()}"></c:out>
-									</td>
-								</tr>
-								<!-- </table>
-						</td>
-						<td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;</td>
-						<td>
-							<table> -->
-								<tr>
+									</tr>
+									<tr>
 									<td align="right"><form:label
 											path="contactInformation.mobile1"
 											for="contactInformation.mobile1">
@@ -296,7 +250,32 @@
 									<td><c:out
 											value="${person.getContactInformation().getMobile1()}"></c:out>
 									</td>
-									<td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+									</tr>
+									</table>
+									</td>
+									<td>
+									<table>
+									<tr>
+									<td align="right"><form:label
+											path="contactInformation.email2"
+											for="contactInformation.email2">
+											<spring:message code="label.email2" />
+										</form:label></td>
+									<td><c:out
+											value="${person.getContactInformation().getEmail2()}"></c:out>
+									</td>
+									</tr>
+									<tr>
+									<td align="right"><form:label
+											path="contactInformation.phone2"
+											for="contactInformation.phone2">
+											<spring:message code="label.phone2" />
+										</form:label></td>
+									<td><c:out
+											value="${person.getContactInformation().getPhone2()}"></c:out>
+									</td>
+									</tr>
+									<tr>
 									<td align="right"><form:label
 											path="contactInformation.mobile2"
 											for="contactInformation.mobile2">
@@ -305,7 +284,32 @@
 									<td><c:out
 											value="${person.getContactInformation().getMobile2()}"></c:out>
 									</td>
-									<td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+									</tr>
+									</table>
+									</td>
+									<td>
+									<table>
+									<tr>
+									<td align="right"><form:label
+											path="contactInformation.email3"
+											for="contactInformation.email3">
+											<spring:message code="label.email3" />
+										</form:label></td>
+									<td><c:out
+											value="${person.getContactInformation().getEmail3()}"></c:out>
+									</td>
+									</tr>
+									<tr>
+									<td align="right"><form:label
+											path="contactInformation.phone3"
+											for="contactInformation.phone3">
+											<spring:message code="label.phone3" />
+										</form:label></td>
+									<td><c:out
+											value="${person.getContactInformation().getPhone3()}"></c:out>
+									</td>
+									</tr>
+									<tr>
 									<td align="right"><form:label
 											path="contactInformation.mobile3"
 											for="contactInformation.mobile3">
@@ -314,22 +318,14 @@
 									<td><c:out
 											value="${person.getContactInformation().getMobile3()}"></c:out>
 									</td>
-								</tr>
-								<tr>
-									<td align="right"><form:label
-											path="contactInformation.website"
-											for="contactInformation.website">
-											<spring:message code="label.website" />
-										</form:label></td>
-									<td><c:out
-											value="${person.getContactInformation().getWebsite()}"></c:out>
+									</tr>
+									</table>
 									</td>
-								</tr>
-							</table>
+									</tr>
 				</table>
 				<div class="buttondiv">
-					<input type="submit" value="Edit" class="buttonstyle" /> <input
-						type="submit" value="Delete" class="buttonstyle"
+					<input type="submit" value="Edit" class="styled-button-2" /> <input
+						type="submit" value="Delete" class="styled-button-2"
 						formaction="<%=request.getContextPath()%>/person/delete/${person.getId()}">
 				</div>
 			</div>
@@ -337,7 +333,7 @@
 		<div id="divcontainer" class="content">
 			<h1 align="left" class="headersection">
 				<b>Education Qualifications Information</b> <input type="button"
-					value="New Education Qualification" onclick=createFunction()>
+					value="New Education Qualification" class="styled-button-2" onclick=createFunction()>
 			</h1>
 			<!-- <div>
 				<input type="button" value="New Education Qualification"
@@ -359,8 +355,8 @@
 						<c:forEach items="${person.getEducationQualifications()}"
 							var="equalification">
 							<tr>
-								<td><input type="submit" value="Edit">&nbsp;&nbsp;<input
-									type="submit" value="Delete"
+								<td><input type="submit" value="Edit" class="styled-button-2">&nbsp;&nbsp;<input
+									type="submit" value="Delete" class="styled-button-2" 
 									formaction="<%=request.getContextPath()%>/educationqualification/delete/${person.getId()}">
 								</td>
 								<td>${equalification.name}</td>
