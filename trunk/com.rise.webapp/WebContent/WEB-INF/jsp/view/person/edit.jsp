@@ -64,9 +64,9 @@
 		<form:form modelAttribute="person" action="update" method="post">
 			<form:input path="id" value="${editeditPerson.getId()}" type="hidden" />
 			<div class="buttondiv">
-				<input type="submit" value="save" class="buttonstyle"> <input
+				<input type="submit" value="save" class="styled-button-2"> <input
 					type="button" value="Cancel" onClick="history.go(-1);return true;"
-					class="buttonstyle" />
+					class="styled-button-2" />
 			</div>
 			<div id="divcontainer" class="content">
 				<h1 align="left" class="headersection">
@@ -253,33 +253,8 @@
 									<td><form:input path="contactInformation.email1"
 											value="${editPerson.getContactInformation().getEmail1()}" />
 									</td>
-									<td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-									<td align="right"><form:label
-											path="contactInformation.email2"
-											for="contactInformation.email2">
-											<spring:message code="label.email2" />
-										</form:label>
-									</td>
-									<td><form:input path="contactInformation.email2"
-											value="${editPerson.getContactInformation().getEmail2()}" />
-									</td>
-									<td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-									<td align="right"><form:label
-											path="contactInformation.email3"
-											for="contactInformation.email3">
-											<spring:message code="label.email3" />
-										</form:label>
-									</td>
-									<td><form:input path="contactInformation.email3"
-											value="${editPerson.getContactInformation().getEmail3()}" />
-									</td>
-								</tr>
-								<!-- </table>
-						</td>
-						<td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;</td>
-						<td>
-							<table> -->
-								<tr>
+									</tr>
+									<tr>
 									<td align="right"><form:label
 											path="contactInformation.phone1"
 											for="contactInformation.phone1">
@@ -289,33 +264,8 @@
 									<td><form:input path="contactInformation.phone1"
 											value="${editPerson.getContactInformation().getPhone1()}" />
 									</td>
-									<td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-									<td align="right"><form:label
-											path="contactInformation.phone2"
-											for="contactInformation.phone2">
-											<spring:message code="label.phone2" />
-										</form:label>
-									</td>
-									<td><form:input path="contactInformation.phone2"
-											value="${editPerson.getContactInformation().getPhone2()}" />
-									</td>
-									<td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-									<td align="right"><form:label
-											path="contactInformation.phone3"
-											for="contactInformation.phone3">
-											<spring:message code="label.phone3" />
-										</form:label>
-									</td>
-									<td><form:input path="contactInformation.phone3"
-											value="${editPerson.getContactInformation().getPhone3()}" /></td>
-
-								</tr>
-								<!-- </table>
-						</td>
-						<td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;</td>
-						<td>
-							<table> -->
-								<tr>
+									</tr>
+									<tr>
 									<td align="right"><form:label
 											path="contactInformation.mobile1"
 											for="contactInformation.mobile1">
@@ -325,7 +275,33 @@
 									<td><form:input path="contactInformation.mobile1"
 											value="${editPerson.getContactInformation().getMobile1()}" />
 									</td>
-									<td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+									</tr>
+									</table>
+									</td>
+									<td>
+									<table>
+									<tr>
+									<td align="right"><form:label
+											path="contactInformation.email2"
+											for="contactInformation.email2">
+											<spring:message code="label.email2" />
+										</form:label>
+									</td>
+									<td><form:input path="contactInformation.email2"
+											value="${editPerson.getContactInformation().getEmail2()}" />
+									</tr>
+									<tr>
+									<td align="right"><form:label
+											path="contactInformation.phone2"
+											for="contactInformation.phone2">
+											<spring:message code="label.phone2" />
+										</form:label>
+									</td>
+									<td><form:input path="contactInformation.phone2"
+											value="${editPerson.getContactInformation().getPhone2()}" />
+									</td>
+									</tr>
+									<tr>
 									<td align="right"><form:label
 											path="contactInformation.mobile2"
 											for="contactInformation.mobile2">
@@ -335,7 +311,33 @@
 									<td><form:input path="contactInformation.mobile2"
 											value="${editPerson.getContactInformation().getMobile2()}" />
 									</td>
-									<td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+									</tr>
+									</table>
+									</td>
+									<td>
+									<table>
+									<tr>
+									<td align="right"><form:label
+											path="contactInformation.email3"
+											for="contactInformation.email3">
+											<spring:message code="label.email3" />
+										</form:label>
+									</td>
+									<td><form:input path="contactInformation.email3"
+											value="${editPerson.getContactInformation().getEmail3()}" />
+									</td>
+									</tr>
+									<tr>
+									<td align="right"><form:label
+											path="contactInformation.phone3"
+											for="contactInformation.phone3">
+											<spring:message code="label.phone3" />
+										</form:label>
+									</td>
+									<td><form:input path="contactInformation.phone3"
+											value="${editPerson.getContactInformation().getPhone3()}" /></td>
+									</tr>
+									<tr>
 									<td align="right"><form:label
 											path="contactInformation.mobile3"
 											for="contactInformation.mobile3">
@@ -345,22 +347,14 @@
 									<td><form:input path="contactInformation.mobile3"
 											value="${editPerson.getContactInformation().getMobile3()}" />
 									</td>
-								</tr>
-								<tr>
-									<td align="right"><form:label
-											path="contactInformation.website"
-											for="contactInformation.website">
-											<spring:message code="label.website" />
-										</form:label>
+									</tr>
+									</table>
 									</td>
-									<td><form:input path="contactInformation.website"
-											value="${editPerson.getContactInformation().getWebsite()}" /></td>
-								</tr>
-							</table>
+									</tr>
 				</table>
 			</div>
 			<div class="buttondiv">
-				<input type="submit" value="save" class="buttonstyle"> <input
+				<input type="submit" value="save" class="styled-button-2"> <input
 					type="button" value="Cancel" onClick="history.go(-1);return true;"
 					class="buttonstyle" />
 			</div>
