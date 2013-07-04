@@ -59,11 +59,9 @@
 		<form:form modelAttribute="person" action="edit" method="get">
 			<input type="hidden" name="id" value="${person.getId()}"></input>
 			<div id="divcontainer" class="content">
-				<div class="buttondiv">
 					<input type="submit" value="Edit" class="styled-button-3" /> <input
 						type="submit" value="Delete" class="styled-button-3"
 						formaction="<%=request.getContextPath()%>/person/delete/${person.getId()}">
-				</div>
 				<h1 align="left" class="headersection">
 					<b>Personal Information</b>
 				</h1>
@@ -311,11 +309,9 @@
 									</td>
 									</tr>
 				</table>
-				<div class="buttondiv">
 					<input type="submit" value="Edit" class="styled-button-3" /> <input
 						type="submit" value="Delete" class="styled-button-3"
 						formaction="<%=request.getContextPath()%>/person/delete/${person.getId()}">
-				</div>
 			</div>
 		</form:form>
 		<div id="divcontainer" class="content">
