@@ -47,8 +47,8 @@
 		<div id="menubar" style="width: auto">
 			<ul id="menu">
 				<li><a name="home" href="/rise/home">Home</a></li>
-				<li><a name="person" href="/rise/person/personview"
-					class="activesection">Person</a></li>
+				<li><a name="person" href="/rise/person/list"
+					class="activesection"><span style="color:blue;">Person</span></a></li>
 				<li><a name="trainer" href="/rise/trainer">Trainer</a></li>
 				<li><a name="agents" href="/rise/agents">Agents</a></li>
 				<li><a name="overview" href="/rise/overview">Overview</a></li>
@@ -57,9 +57,9 @@
 		</div>
 		<form:form modelAttribute="person" action="save" method="post">
 			<div class="buttondiv">
-				<input type="submit" value="save" class="styled-button-2"> <input
+				<input type="submit" value="Save" class="styled-button-3"> <input
 					type="button" value="Cancel" onClick="history.go(-1);return true;"
-					class="styled-button-2" />
+					class="styled-button-3" />
 			</div>
 			<div id="divcontainer" class="content">
 				<h1 align="left" class="headersection">
@@ -283,9 +283,9 @@
 				</table>
 			</div>
 			<div class="buttondiv">
-				<input type="submit" value="save" class="styled-button-2"> <input
+				<input type="submit" value="Save" class="styled-button-3"> <input
 					type="button" value="Cancel" onClick="history.go(-1);return true;"
-					class="styled-button-2" />
+					class="styled-button-3" />
 			</div>
 		</form:form>
 	</div>
