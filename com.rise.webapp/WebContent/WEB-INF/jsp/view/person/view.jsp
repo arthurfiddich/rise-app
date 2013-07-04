@@ -332,8 +332,12 @@
 		</form:form>
 		<div id="divcontainer" class="content">
 			<h1 align="left" class="headersection">
-				<b>Education Qualifications Information</b> <input type="button"
-					value="New Education Qualification" class="styled-button-2" onclick=createFunction()>
+				<b>Education Qualifications Information</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="button"
+					value="New Education Qualification" class="styled-button-3" onclick=createFunction()>
 			</h1>
 			<!-- <div>
 				<input type="button" value="New Education Qualification"
@@ -355,8 +359,8 @@
 						<c:forEach items="${person.getEducationQualifications()}"
 							var="equalification">
 							<tr>
-								<td><input type="submit" value="Edit" class="styled-button-2">&nbsp;&nbsp;<input
-									type="submit" value="Delete" class="styled-button-2" 
+								<td><input type="submit" value="Edit" class="styled-button-3">&nbsp;&nbsp;<input
+									type="submit" value="Delete" class="styled-button-3" 
 									formaction="<%=request.getContextPath()%>/educationqualification/delete/${person.getId()}">
 								</td>
 								<td>${equalification.name}</td>
