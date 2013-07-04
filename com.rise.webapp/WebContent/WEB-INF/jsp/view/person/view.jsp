@@ -323,10 +323,10 @@
 				<input type="button" value="New Education Qualification"
 					onclick=createFunction()>
 			</div> -->
-			<c:if test="${!empty person.getEducationQualifications()}">
-				<div id="demo">
-				<center><input type="button"
+			<div id="demo">
+			<center><input type="button"
 					value="New Education Qualification" class="styled-button-3" onclick=createFunction()></center>
+			<c:if test="${!empty person.getEducationQualifications()}">
 					<div class="tablestyle">
 					<table >
 					<thead>
