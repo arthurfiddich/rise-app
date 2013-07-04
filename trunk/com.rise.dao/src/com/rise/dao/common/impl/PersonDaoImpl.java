@@ -54,4 +54,9 @@ public class PersonDaoImpl extends BaseDaoImpl implements PersonDao {
 		return super.findById(argId);
 	}
 
+	@Override
+	public void deleteById(Integer argId) {
+		Model model = findById(argId);
+		super.delete(model);
+	}
 }

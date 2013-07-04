@@ -26,7 +26,7 @@
         <property name="dateOfBirth" column="DATE_OF_BIRTH"/>
         <property name="aadhaarNumber" column="AADHAAR_NUMBER"/>
         
-        <set name="educationQualifications" table="EDUCATION_QUALIFICATION" cascade="all" lazy="false">
+        <set name="educationQualifications" table="EDUCATION_QUALIFICATION" cascade="all" lazy="false" inverse="true">
             <key column="PERSON_ID"/>
             <one-to-many class="com.rise.common.model.EducationQualification"/>
         </set>
