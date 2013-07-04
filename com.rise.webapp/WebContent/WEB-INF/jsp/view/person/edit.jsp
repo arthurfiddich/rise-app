@@ -49,7 +49,8 @@
 				<li><a name="home" href="/rise/home">Home</a>
 				</li>
 				<li><a name="person" href="/rise/person/list"
-					class="activesection"><span style="color:blue;">Person</span></a>
+					class="activesection"><span style="color: blue;">Person</span>
+				</a>
 				</li>
 				<li><a name="trainer" href="/rise/trainer">Trainer</a>
 				</li>
@@ -63,12 +64,11 @@
 		</div>
 		<form:form modelAttribute="person" action="update" method="post">
 			<form:input path="id" value="${editeditPerson.getId()}" type="hidden" />
-			<div class="buttondiv">
+
+			<div id="divcontainer" class="content">
 				<input type="submit" value="Save" class="styled-button-3"> <input
 					type="button" value="Cancel" onClick="history.go(-1);return true;"
 					class="styled-button-3" />
-			</div>
-			<div id="divcontainer" class="content">
 				<h1 align="left" class="headersection">
 					<b>Personal Information</b>
 				</h1>
@@ -253,8 +253,8 @@
 									<td><form:input path="contactInformation.email1"
 											value="${editPerson.getContactInformation().getEmail1()}" />
 									</td>
-									</tr>
-									<tr>
+								</tr>
+								<tr>
 									<td align="right"><form:label
 											path="contactInformation.phone1"
 											for="contactInformation.phone1">
@@ -264,8 +264,8 @@
 									<td><form:input path="contactInformation.phone1"
 											value="${editPerson.getContactInformation().getPhone1()}" />
 									</td>
-									</tr>
-									<tr>
+								</tr>
+								<tr>
 									<td align="right"><form:label
 											path="contactInformation.mobile1"
 											for="contactInformation.mobile1">
@@ -275,12 +275,12 @@
 									<td><form:input path="contactInformation.mobile1"
 											value="${editPerson.getContactInformation().getMobile1()}" />
 									</td>
-									</tr>
-									</table>
-									</td>
-									<td>
-									<table>
-									<tr>
+								</tr>
+							</table>
+						</td>
+						<td>
+							<table>
+								<tr>
 									<td align="right"><form:label
 											path="contactInformation.email2"
 											for="contactInformation.email2">
@@ -289,8 +289,8 @@
 									</td>
 									<td><form:input path="contactInformation.email2"
 											value="${editPerson.getContactInformation().getEmail2()}" />
-									</tr>
-									<tr>
+								</tr>
+								<tr>
 									<td align="right"><form:label
 											path="contactInformation.phone2"
 											for="contactInformation.phone2">
@@ -300,8 +300,8 @@
 									<td><form:input path="contactInformation.phone2"
 											value="${editPerson.getContactInformation().getPhone2()}" />
 									</td>
-									</tr>
-									<tr>
+								</tr>
+								<tr>
 									<td align="right"><form:label
 											path="contactInformation.mobile2"
 											for="contactInformation.mobile2">
@@ -311,12 +311,12 @@
 									<td><form:input path="contactInformation.mobile2"
 											value="${editPerson.getContactInformation().getMobile2()}" />
 									</td>
-									</tr>
-									</table>
-									</td>
-									<td>
-									<table>
-									<tr>
+								</tr>
+							</table>
+						</td>
+						<td>
+							<table>
+								<tr>
 									<td align="right"><form:label
 											path="contactInformation.email3"
 											for="contactInformation.email3">
@@ -326,8 +326,8 @@
 									<td><form:input path="contactInformation.email3"
 											value="${editPerson.getContactInformation().getEmail3()}" />
 									</td>
-									</tr>
-									<tr>
+								</tr>
+								<tr>
 									<td align="right"><form:label
 											path="contactInformation.phone3"
 											for="contactInformation.phone3">
@@ -335,9 +335,10 @@
 										</form:label>
 									</td>
 									<td><form:input path="contactInformation.phone3"
-											value="${editPerson.getContactInformation().getPhone3()}" /></td>
-									</tr>
-									<tr>
+											value="${editPerson.getContactInformation().getPhone3()}" />
+									</td>
+								</tr>
+								<tr>
 									<td align="right"><form:label
 											path="contactInformation.mobile3"
 											for="contactInformation.mobile3">
@@ -347,17 +348,17 @@
 									<td><form:input path="contactInformation.mobile3"
 											value="${editPerson.getContactInformation().getMobile3()}" />
 									</td>
-									</tr>
-									</table>
-									</td>
-									</tr>
+								</tr>
+							</table>
+						</td>
+					</tr>
 				</table>
-			</div>
-			<div class="buttondiv">
 				<input type="submit" value="Save" class="styled-button-3"> <input
 					type="button" value="Cancel" onClick="history.go(-1);return true;"
 					class="styled-button-3" />
+					<br/>
 			</div>
+
 		</form:form>
 	</div>
 </body>
