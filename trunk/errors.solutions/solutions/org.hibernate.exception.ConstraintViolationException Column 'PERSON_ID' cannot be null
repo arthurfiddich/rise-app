@@ -1,0 +1,32 @@
+I changed the configuration like 
+
+I just added "inverse="true"" attribute.
+
+<set name="educationQualifications" table="EDUCATION_QUALIFICATION" cascade="all" lazy="false" inverse="true">
+	<key column="PERSON_ID"/>
+	<one-to-many class="com.rise.common.model.EducationQualification"/>
+</set>
+
+Now with this change I was able to delete the references for person record.
+
+Please follow this link.
+https://forum.hibernate.org/viewtopic.php?p=2457463
+
+I found a working sample ...
+
+Code:
+---segments-------
+<bag name="fareInfos" inverse="true" cascade="all" lazy="false">
+      <key column="SEGMENT_ID" not-null="true"/>
+      <one-to-many class="com.abc.model.FareInfo"/>
+</bag>
+
+--traveler-------------
+<bag name="fareInfos" inverse="true" cascade="all-delete-orphan" lazy="false">
+      <key column="TRAVELER_ID" not-null="true"/>
+      <one-to-many class="com.abc.model.FareInfo"/>
+</bag>
+
+-------fareinfo--------
+<many-to-one name="segment" column="SEGMENT_ID" cascade="save-update" not-null="true"/>
+<many-to-one name="traveler" column="TRAVELER_ID" cascade="save-update" not-null="true"/>
