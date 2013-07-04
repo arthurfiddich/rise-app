@@ -33,23 +33,11 @@
 	href="/rise/resources/css/animate-custom.css" />
 <link rel="stylesheet" type="text/css"
 	href="/rise/resources/css/menu.css" />
-<script type="text/javascript" language="javascript"
-	src="/rise/resources/js/jquery.js"></script>
-<script type="text/javascript" language="javascript"
-	src="/rise/resources/js/jquery.dataTables.js"></script>
-<style type="text/css" title="currentStyle">
-@import "/rise/resources/css/datatable/demo_page.css";
 
-@import "/rise/resources/css/datatable/jquery.dataTables.css";
-</style>
 <script type="text/javascript">
 	function createFunction(){
 		window.location.href = "<%=request.getContextPath()%>/educationqualification/create/${person.getId()}";
 	}
-
-	$(document).ready(function() {
-		$('#eq').dataTable();
-	});
 </script>
 </head>
 <body>
@@ -60,8 +48,8 @@
 		<div id="menubar" style="width: auto">
 			<ul id="menu">
 				<li><a name="home" href="/rise/home">Home</a></li>
-				<li><a name="person" href="/rise/person/personcreate"
-					class="activesection">Person</a></li>
+				<li><a name="person" href="/rise/person/list"
+					class="activesection"><span style="color:blue;">Person</span></a></li>
 				<li><a name="trainer" href="/rise/trainer">Trainer</a></li>
 				<li><a name="agents" href="/rise/agents">Agents</a></li>
 				<li><a name="overview" href="/rise/overview">Overview</a></li>
@@ -72,8 +60,8 @@
 			<input type="hidden" name="id" value="${person.getId()}"></input>
 			<div id="divcontainer" class="content">
 				<div class="buttondiv">
-					<input type="submit" value="Edit" class="styled-button-2" /> <input
-						type="submit" value="Delete" class="styled-button-2"
+					<input type="submit" value="Edit" class="styled-button-3" /> <input
+						type="submit" value="Delete" class="styled-button-3"
 						formaction="<%=request.getContextPath()%>/person/delete/${person.getId()}">
 				</div>
 				<h1 align="left" class="headersection">
@@ -324,20 +312,16 @@
 									</tr>
 				</table>
 				<div class="buttondiv">
-					<input type="submit" value="Edit" class="styled-button-2" /> <input
-						type="submit" value="Delete" class="styled-button-2"
+					<input type="submit" value="Edit" class="styled-button-3" /> <input
+						type="submit" value="Delete" class="styled-button-3"
 						formaction="<%=request.getContextPath()%>/person/delete/${person.getId()}">
 				</div>
 			</div>
 		</form:form>
 		<div id="divcontainer" class="content">
 			<h1 align="left" class="headersection">
-				<b>Education Qualifications Information</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<input type="button"
-					value="New Education Qualification" class="styled-button-3" onclick=createFunction()>
+				<b>Education Qualifications Information</b>
+				
 			</h1>
 			<!-- <div>
 				<input type="button" value="New Education Qualification"
@@ -345,17 +329,22 @@
 			</div> -->
 			<c:if test="${!empty person.getEducationQualifications()}">
 				<div id="demo">
-					<table cellpadding="0" cellspacing="0" border="0" class="display"
-						id="eq" width="100%">
+				<center><input type="button"
+					value="New Education Qualification" class="styled-button-3" onclick=createFunction()></center>
+					<div class="tablestyle">
+					<table >
+					<thead>
 						<tr>
-							<td>Action</td>
-							<td>Name</td>
-							<td>University</td>
-							<td>Year Completed</td>
-							<td>Month Completed</td>
-							<td>Percentage</td>
-							<td>GPA</td>
+							<th>Action</th>
+							<th>Name</th>
+							<th>University</th>
+							<th>Year Completed</th>
+							<th>Month Completed</th>
+							<th>Percentage</th>
+							<th>GPA</th>
 						</tr>
+						</thead>
+						<tbody>
 						<c:forEach items="${person.getEducationQualifications()}"
 							var="equalification">
 							<tr>
@@ -371,7 +360,9 @@
 								<td>${equalification.gpa}</td>
 							</tr>
 						</c:forEach>
+						</tbody>
 					</table>
+					</div>
 				</div>
 			</c:if>
 		</div>

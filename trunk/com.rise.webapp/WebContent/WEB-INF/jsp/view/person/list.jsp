@@ -40,7 +40,7 @@
 			<ul id="menu">
 				<li><a name="home" href="/rise/home">Home</a>
 				</li>
-				<li><a name="person" href="/rise/person/list" class="activesection">Person</a>
+				<li><a name="person" href="/rise/person/list" class="activesection"><span style="color:blue;">Person</span></a>
 				</li>
 				<li><a href="#">Trainer</a>
 				</li>
@@ -57,7 +57,7 @@
 	<img alt="Home" src="/rise/resources/images/person.png" height="32px" width="45px">
 	</h1>
 		<fieldset>
-			<legend><input type="button" class="styled-button-2" value="New" onclick="openPersonCreate();"/> </legend>
+			<legend><input type="button" class="styled-button-3" value="New" onclick="openPersonCreate();"/> </legend>
 			<table id="example">
 			<thead>
 				<tr height="10">
