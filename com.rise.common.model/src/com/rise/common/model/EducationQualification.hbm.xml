@@ -6,7 +6,7 @@
 <hibernate-mapping>
     <class name="com.rise.common.model.EducationQualification" table="EDUCATION_QUALIFICATION">
         <id name="id" column="EDUCATION_QUALIFICATION_ID">
-            <generator class="assigned"/>
+            <generator class="increment"/>
         </id>
         
         <property name="dateCreated" column="DATE_CREATED"/>

@@ -67,4 +67,5 @@ public class HibernateConstants {
 	
 	public static final String EDUCATION_QUALIFICATION_CLASS_NAME = "EducationQualification";
 
+	public static final String DELETE_EQ = "/deleteEq";
 }
