@@ -4,5 +4,7 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
 	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/hibernate/required/hibernate-core-4.1.9.Final.jar" sourcepath="/com.rise.extlib/src-jars/hibernate/hibernate-core-4.1.9.Final-sources.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/joda-time/joda-time-2.2.jar" sourcepath="/com.rise.extlib/src-jars/joda-time/joda-time-2.2-sources.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/log4j"/>
 	<classpathentry kind="output" path="classes"/>
 </classpath>
