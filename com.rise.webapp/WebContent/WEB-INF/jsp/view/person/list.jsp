@@ -15,100 +15,94 @@
 <title>Person Details</title>
 <link rel="stylesheet" type="text/css"
 	href="/rise/resources/css/demo_page.css" />
-		<link rel="stylesheet" type="text/css"
+<link rel="stylesheet" type="text/css"
 	href="/rise/resources/css/jquery.dataTables.css" />
-		<script type="text/javascript" language="javascript" src="/rise/resources/js/jquery.js"></script>
-		<script type="text/javascript" language="javascript" src="/rise/resources/js/jquery.dataTables.js"></script>
-		<script type="text/javascript" charset="utf-8">
-			$(document).ready(function() {
-				$('#example').dataTable();
-			} );
-			function openPersonCreate(){
-				window.location.href="/rise/person/personcreate";
-				//alert("hello");
-			}
-		</script>
-		<link rel="stylesheet" type="text/css"
+<script type="text/javascript" language="javascript"
+	src="/rise/resources/js/jquery.js"></script>
+<script type="text/javascript" language="javascript"
+	src="/rise/resources/js/jquery.dataTables.js"></script>
+<script type="text/javascript" charset="utf-8">
+	$(document).ready(function() {
+		$('#example').dataTable();
+	});
+	function openPersonCreate() {
+		window.location.href = "/rise/person/personcreate";
+		//alert("hello");
+	}
+</script>
+<link rel="stylesheet" type="text/css"
 	href="/rise/resources/css/table.css" />
 </head>
 <body>
-<div class="container">
+	<div class="container">
 		<header>
-			<h1>Rural integration Sustainable Employment</h1>
+		<h1>Rural integration Sustainable Employment</h1>
 		</header>
-		<div id="menubar" style="width:auto">
+		<div id="menubar" style="width: auto">
 			<ul id="menu">
-				<li><a name="home" href="/rise/home">Home</a>
-				</li>
-				<li><a name="person" href="/rise/person/list" class="activesection"><span style="color:blue;">Person</span></a>
-				</li>
-				<li><a href="#">Trainer</a>
-				</li>
-				<li><a href="#">Agents</a>
-				</li>
-				<li><a href="#">Overview</a>
-				</li>
-				<li><a href="#">Contact Us</a>
-				</li>
+				<li><a name="home" href="/rise/home">Home</a></li>
+				<li><a name="person" href="/rise/person/list"
+					class="activesection"><span style="color: blue;">Person</span>
+				</a></li>
+				<li><a href="#">Trainer</a></li>
+				<li><a href="#">Agents</a></li>
+				<li><a href="#">Overview</a></li>
+				<li><a href="#">Contact Us</a></li>
 			</ul>
-			</div>
+		</div>
 		<div id="divcontainer" class="content">
-	<h1 align="left">
-	<img alt="Home" src="/rise/resources/images/person.png" height="32px" width="45px">
-	</h1>
-		<fieldset>
-			<legend><input type="button" class="styled-button-3" value="New" onclick="openPersonCreate();"/> </legend>
-			<table id="example">
-			<thead>
-				<tr height="10">
-					<th align="center"><b>Person
-							ID</b>
-					</th>
-					<th align="center"><b>Title</b>
-					</th>
-					<th align="center"><b>First Name</b>
-					</th>
-					<th align="center"><b>Middle Name</b>
-					</th>
-					<th align="center"><b>Last Name</b>
-					</th>
-					<th align="center"><b>Suffix</b>
-					</th>
-					<th align="center"><b>Date Of Birth</b>
-					</th>
-					<th align="center"><b>Aadhaar Number</b>
-					</th>
-				</tr>
-				</thead>
-				<tbody>
-				<%
-					String fullyQualifiedClassName = Person.class.getName().toLowerCase();
-					List<Person> persons = (List<Person>) request
-							.getAttribute(fullyQualifiedClassName);
-					if (persons != null && persons.size() > 0) {
-						for (Person person : persons) {
-				%>
-				
-				<tr>
-					<td><a
-						href="<%=request.getContextPath()%>/person/<%=person.getId()%>"><%=person.getId()%></a>
-					</td>
-					<td><%=person.getPersonName().getTitle()%></td>
-					<td><%=person.getPersonName().getFirstName()%></td>
-					<td><%=person.getPersonName().getMiddleName()%></td>
-					<td><%=person.getPersonName().getLastName()%></td>
-					<td><%=person.getPersonName().getSuffix()%></td>
-					<td><%=person.getDateOfBirth()%></td>
-					<td><%=person.getAadhaarNumber()%></td>
-				</tr>
-				<%
-					}
-					}
-				%>
-</tbody>
-			</table>
-		</fieldset>
-	</div>
+			<h1 align="left">
+				<img alt="Home" src="/rise/resources/images/person.png"
+					height="32px" width="45px">
+			</h1>
+			<fieldset>
+				<legend>
+					<input type="button" class="styled-button-3" value="New"
+						onclick="openPersonCreate();" />
+				</legend>
+				<table id="example">
+					<thead>
+						<tr height="10">
+							<th align="center"><b>Person ID</b></th>
+							<th align="center"><b>Title</b></th>
+							<th align="center"><b>First Name</b></th>
+							<th align="center"><b>Middle Name</b></th>
+							<th align="center"><b>Last Name</b></th>
+							<th align="center"><b>Suffix</b></th>
+							<th align="center"><b>Date Of Birth</b></th>
+							<th align="center"><b>Aadhaar Number</b></th>
+						</tr>
+					</thead>
+					<tbody>
+						<%
+							String fullyQualifiedClassName = Person.class.getName()
+									.toLowerCase();
+							List<Person> persons = (List<Person>) request
+									.getAttribute(fullyQualifiedClassName);
+							if (persons != null && persons.size() > 0) {
+								for (Person person : persons) {
+						%>
+
+						<tr>
+							<td><a
+								href="<%=request.getContextPath()%>/person/<%=person.getId()%>"><%=person.getId()%></a>
+							</td>
+							<td><%=person.getPersonName().getTitle()%></td>
+							<td><%=person.getPersonName().getFirstName()%></td>
+							<td><%=person.getPersonName().getMiddleName()%></td>
+							<td><%=person.getPersonName().getLastName()%></td>
+							<td><%=person.getPersonName().getSuffix()%></td>
+							<td><%=person.getDateOfBirth()%></td>
+							<td><%=person.getAadhaarNumber()%></td>
+						</tr>
+						<%
+							}
+							}
+						%>
+					</tbody>
+				</table>
+			</fieldset>
+		</div>
 	</div>
 </body>
 </html>
