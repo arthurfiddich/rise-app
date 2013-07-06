@@ -48,15 +48,14 @@ public class EducationQualificationServiceImpl extends BaseServiceImpl
 	public Model update(Model argModel) {
 		if (argModel != null) {
 			EducationQualification educationQualification = (EducationQualification) argModel;
-			educationQualification.setCreatedBy(1);
-			educationQualification.setDateCreated(new Date());
-			educationQualification.setModifiedBy(1);
-			educationQualification.setDateModified(new Date());
-			Person person = this.getBaseDao().getPerson(1000);
-			if (person != null) {
-				educationQualification.setPerson(person);
-			}
-			return this.getBaseDao().update(educationQualification);
+			EducationQualification educationQualificationFromDb = (EducationQualification) this.getBaseDao().findById(educationQualification.getId());
+			educationQualificationFromDb.setName(educationQualification.getName());
+			educationQualificationFromDb.setUniversity(educationQualification.getUniversity());
+			educationQualificationFromDb.setYearCompleted(educationQualification.getYearCompleted());
+			educationQualificationFromDb.setMonthCompleted(educationQualification.getMonthCompleted());
+			educationQualificationFromDb.setPercentage(educationQualification.getPercentage());
+			educationQualificationFromDb.setGpa(educationQualification.getGpa());
+			return this.getBaseDao().update(educationQualificationFromDb);
 		}
 		return argModel;
 	}

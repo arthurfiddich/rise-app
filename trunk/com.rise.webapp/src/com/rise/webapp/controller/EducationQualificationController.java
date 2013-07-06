@@ -60,6 +60,19 @@ public class EducationQualificationController extends BaseController {
 				+ HibernateConstants.LIST;
 	}
 
+	@RequestMapping(value = HibernateConstants.EDIT
+			+ HibernateConstants.PATH_VARIABLE_ID, method = RequestMethod.GET)
+	public String editEducationQualification(Model argModel,
+			@PathVariable("argId") int argId) {
+		EducationQualification educationQualification = (EducationQualification) this
+				.getBaseService().findById(argId);
+		argModel.addAttribute(HibernateConstants.EDIT_EDUCATION_QUALIFICATION,
+				educationQualification);
+		argModel.addAttribute(HibernateConstants.EDIT_MODE, true);
+		return HibernateConstants.VIEW_SLASH + getClassNameInLowerCase()
+				+ HibernateConstants.EDIT;
+	}
+
 	@RequestMapping(value = HibernateConstants.EDIT, method = RequestMethod.GET)
 	public String editEducationQualification(Model argModel,
 			EducationQualification argEducationQualification) {
@@ -72,7 +85,7 @@ public class EducationQualificationController extends BaseController {
 				+ HibernateConstants.EDIT;
 	}
 
-	@RequestMapping(value = HibernateConstants.DELETE
+	@RequestMapping(value = HibernateConstants.DELETE_EQ
 			+ HibernateConstants.PATH_VARIABLE_ID, method = RequestMethod.GET)
 	public String deleteEducationQualification(@PathVariable("argId") int argId) {
 		if (argId != -1) {

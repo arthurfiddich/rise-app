@@ -62,9 +62,8 @@
 				</li>
 			</ul>
 		</div>
-		<form:form modelAttribute="editEducationQualification"
-			action="/educationqualification/update" method="post">
-			<form:input path="id" value="${editEducationQualification.getId()}" type="hidden" />
+		<form:form modelAttribute="educationQualification"
+			action="/educationqualification/save" method="post">
 			<div id="divcontainer" class="content">
 				<input type="submit" value="Save" class="styled-button-3"> <input
 					type="button" value="Cancel" onClick="history.go(-1);return true;"
@@ -81,7 +80,7 @@
 											<spring:message code="label.personId" />
 										</form:label></td>
 									<td><form:input path="person.id"
-											value="${editEducationQualification.getPerson().getId() }" />
+											value="${educationqualification.getPerson().getId() }" />
 									</td>
 								</tr>
 								<tr>
@@ -89,7 +88,7 @@
 											<spring:message code="label.name" />
 										</form:label>
 									</td>
-									<td><form:input path="name" value="${editEducationQualification.getName()}"/>
+									<td><form:input path="name" value="${educationqualification.getName()}"/>
 									</td>
 								</tr>
 								<tr>
@@ -98,7 +97,7 @@
 											<spring:message code="label.university" />
 										</form:label>
 									</td>
-									<td><form:input path="university" value="${editEducationQualification.getUniversity()}"/>
+									<td><form:input path="university" value="${educationqualification.getUniversity()}"/>
 									</td>
 								</tr>
 								<tr>
@@ -107,7 +106,7 @@
 											<spring:message code="label.yearCompleted" />
 										</form:label>
 									</td>
-									<td><form:input path="yearCompleted" value="${editEducationQualification.getYearCompleted()}"/>
+									<td><form:input path="yearCompleted" value="${educationqualification.getYearCompleted()}"/>
 									</td>
 								</tr>
 								<tr>
@@ -116,7 +115,7 @@
 											<spring:message code="label.monthCompleted" />
 										</form:label>
 									</td>
-									<td><form:input path="monthCompleted" value="${editEducationQualification.getMonthCompleted()}"/>
+									<td><form:input path="monthCompleted" value="${educationqualification.getMonthCompleted()}"/>
 									</td>
 								</tr>
 								<tr>
@@ -125,7 +124,7 @@
 											<spring:message code="label.percentage" />
 										</form:label>
 									</td>
-									<td><form:input path="percentage" value="${editEducationQualification.getPercentage()}"/>
+									<td><form:input path="percentage" value="${educationqualification.getPercentage()}"/>
 									</td>
 								</tr>
 								<tr>
@@ -133,7 +132,7 @@
 											<spring:message code="label.gpa" />
 										</form:label>
 									</td>
-									<td><form:input path="gpa" value="${editEducationQualification.getGpa()}"/>
+									<td><form:input path="gpa" value="${educationqualification.getGpa()}"/>
 									</td>
 								</tr>
 							</table>

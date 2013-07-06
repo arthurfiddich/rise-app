@@ -35,8 +35,15 @@
 	href="/rise/resources/css/menu.css" />
 
 <script type="text/javascript">
-	function createFunction(){
+	<%-- function createEducationQualification(){
 		window.location.href = "<%=request.getContextPath()%>/educationqualification/create/${person.getId()}";
+	}
+	function editEducationQualification(){
+		window.location.href = "<%=request.getContextPath()%>/educationqualification/edit/${person.getId()}";
+	} --%>
+	function educationQualificationOperation(keyword,eqId){
+		alert(eqId);
+		window.location.href = "<%=request.getContextPath()%>/educationqualification/"+keyword+"/"+eqId;
 	}
 </script>
 </head>
@@ -49,7 +56,8 @@
 			<ul id="menu">
 				<li><a name="home" href="/rise/home">Home</a></li>
 				<li><a name="person" href="/rise/person/list"
-					class="activesection"><span style="color:blue;">Person</span></a></li>
+					class="activesection"><span style="color: blue;">Person</span>
+				</a></li>
 				<li><a name="trainer" href="/rise/trainer">Trainer</a></li>
 				<li><a name="agents" href="/rise/agents">Agents</a></li>
 				<li><a name="overview" href="/rise/overview">Overview</a></li>
@@ -59,9 +67,9 @@
 		<form:form modelAttribute="person" action="edit" method="get">
 			<input type="hidden" name="id" value="${person.getId()}"></input>
 			<div id="divcontainer" class="content">
-					<input type="submit" value="Edit" class="styled-button-3" /> <input
-						type="submit" value="Delete" class="styled-button-3"
-						formaction="<%=request.getContextPath()%>/person/delete/${person.getId()}">
+				<input type="submit" value="Edit" class="styled-button-3" /> <input
+					type="submit" value="Delete" class="styled-button-3"
+					formaction="<%=request.getContextPath()%>/person/delete/${person.getId()}">
 				<h1 align="left" class="headersection">
 					<b>Personal Information</b>
 				</h1>
@@ -72,7 +80,7 @@
 								<tr>
 									<td align="right"><form:label path="id" for="id">
 										</form:label> <spring:message code="label.id" /></td>
-									<td><c:out value="${person.getId()}"></c:out>
+									<td><c:out value="${person.getId()}"></c:out></td>
 								</tr>
 
 								<tr>
@@ -216,8 +224,8 @@
 									<td><c:out
 											value="${person.getContactInformation().getEmail1()}"></c:out>
 									</td>
-									</tr>
-									<tr>
+								</tr>
+								<tr>
 									<td align="right"><form:label
 											path="contactInformation.phone1"
 											for="contactInformation.phone1">
@@ -226,8 +234,8 @@
 									<td><c:out
 											value="${person.getContactInformation().getPhone1()}"></c:out>
 									</td>
-									</tr>
-									<tr>
+								</tr>
+								<tr>
 									<td align="right"><form:label
 											path="contactInformation.mobile1"
 											for="contactInformation.mobile1">
@@ -236,12 +244,12 @@
 									<td><c:out
 											value="${person.getContactInformation().getMobile1()}"></c:out>
 									</td>
-									</tr>
-									</table>
-									</td>
-									<td>
-									<table>
-									<tr>
+								</tr>
+							</table>
+						</td>
+						<td>
+							<table>
+								<tr>
 									<td align="right"><form:label
 											path="contactInformation.email2"
 											for="contactInformation.email2">
@@ -250,8 +258,8 @@
 									<td><c:out
 											value="${person.getContactInformation().getEmail2()}"></c:out>
 									</td>
-									</tr>
-									<tr>
+								</tr>
+								<tr>
 									<td align="right"><form:label
 											path="contactInformation.phone2"
 											for="contactInformation.phone2">
@@ -260,8 +268,8 @@
 									<td><c:out
 											value="${person.getContactInformation().getPhone2()}"></c:out>
 									</td>
-									</tr>
-									<tr>
+								</tr>
+								<tr>
 									<td align="right"><form:label
 											path="contactInformation.mobile2"
 											for="contactInformation.mobile2">
@@ -270,12 +278,12 @@
 									<td><c:out
 											value="${person.getContactInformation().getMobile2()}"></c:out>
 									</td>
-									</tr>
-									</table>
-									</td>
-									<td>
-									<table>
-									<tr>
+								</tr>
+							</table>
+						</td>
+						<td>
+							<table>
+								<tr>
 									<td align="right"><form:label
 											path="contactInformation.email3"
 											for="contactInformation.email3">
@@ -284,8 +292,8 @@
 									<td><c:out
 											value="${person.getContactInformation().getEmail3()}"></c:out>
 									</td>
-									</tr>
-									<tr>
+								</tr>
+								<tr>
 									<td align="right"><form:label
 											path="contactInformation.phone3"
 											for="contactInformation.phone3">
@@ -294,8 +302,8 @@
 									<td><c:out
 											value="${person.getContactInformation().getPhone3()}"></c:out>
 									</td>
-									</tr>
-									<tr>
+								</tr>
+								<tr>
 									<td align="right"><form:label
 											path="contactInformation.mobile3"
 											for="contactInformation.mobile3">
@@ -304,62 +312,71 @@
 									<td><c:out
 											value="${person.getContactInformation().getMobile3()}"></c:out>
 									</td>
-									</tr>
-									</table>
-									</td>
-									</tr>
+								</tr>
+							</table>
+						</td>
+					</tr>
 				</table>
-					<input type="submit" value="Edit" class="styled-button-3" /> <input
-						type="submit" value="Delete" class="styled-button-3"
-						formaction="<%=request.getContextPath()%>/person/delete/${person.getId()}">
+				<input type="submit" value="Edit" class="styled-button-3" /> <input
+					type="submit" value="Delete" class="styled-button-3"
+					formaction="<%=request.getContextPath()%>/person/delete/${person.getId()}">
 			</div>
 		</form:form>
 		<div id="divcontainer" class="content">
 			<h1 align="left" class="headersection">
 				<b>Education Qualifications Information</b>
-				
+
 			</h1>
 			<!-- <div>
 				<input type="button" value="New Education Qualification"
 					onclick=createFunction()>
 			</div> -->
 			<div id="demo">
-			<center><input type="button"
-					value="New Education Qualification" class="styled-button-3" onclick=createFunction()></center>
-			<c:if test="${!empty person.getEducationQualifications()}">
+				<center>
+					<input type="button" value="New Education Qualification"
+						class="styled-button-3" onclick=educationQualificationOperation('create',${person.getId()})>
+				</center>
+				<c:if test="${!empty person.getEducationQualifications()}">
 					<div class="tablestyle">
-					<table >
-					<thead>
-						<tr>
-							<th>Action</th>
-							<th>Name</th>
-							<th>University</th>
-							<th>Year Completed</th>
-							<th>Month Completed</th>
-							<th>Percentage</th>
-							<th>GPA</th>
-						</tr>
-						</thead>
-						<tbody>
-						<c:forEach items="${person.getEducationQualifications()}"
-							var="equalification">
-							<tr>
-								<td><input type="submit" value="Edit" class="styled-button-3">&nbsp;&nbsp;<input
-									type="submit" value="Delete" class="styled-button-3" 
-									formaction="<%=request.getContextPath()%>/educationqualification/delete/${person.getId()}">
-								</td>
-								<td>${equalification.name}</td>
-								<td>${equalification.university}</td>
-								<td>${equalification.yearCompleted}</td>
-								<td>${equalification.monthCompleted}</td>
-								<td>${equalification.percentage}</td>
-								<td>${equalification.gpa}</td>
-							</tr>
-						</c:forEach>
-						</tbody>
-					</table>
+						<table>
+							<thead>
+								<tr>
+									<th>Action</th>
+									<th>ID</th>
+									<th>Name</th>
+									<th>University</th>
+									<th>Year Completed</th>
+									<th>Month Completed</th>
+									<th>Percentage</th>
+									<th>GPA</th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach items="${person.getEducationQualifications()}"
+									var="equalification">
+									<tr>
+										<td><input type="submit" value="Edit"
+											class="styled-button-3"
+											onclick=educationQualificationOperation('edit',${equalification.id})>&nbsp;&nbsp;<input
+											type="submit" value="Delete" class="styled-button-3"
+											onclick=educationQualificationOperation('deleteEq',${equalification.id})>
+										</td>
+										<td><a
+											href="<%=request.getContextPath()%>/educationqualification/${equalification.id}"><span
+												style="color: white;"><u>${equalification.id}</u>
+											</span> </a></td>
+										<td>${equalification.name}</td>
+										<td>${equalification.university}</td>
+										<td>${equalification.yearCompleted}</td>
+										<td>${equalification.monthCompleted}</td>
+										<td>${equalification.percentage}</td>
+										<td>${equalification.gpa}</td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
 					</div>
-				</div>
+			</div>
 			</c:if>
 		</div>
 
