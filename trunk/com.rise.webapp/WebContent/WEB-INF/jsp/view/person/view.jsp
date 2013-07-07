@@ -45,6 +45,11 @@
 		alert(eqId);
 		window.location.href = "<%=request.getContextPath()%>/educationqualification/"+keyword+"/"+eqId;
 	}
+	
+	function awardOperation(keyword,eqId){
+		alert(eqId);
+		window.location.href = "<%=request.getContextPath()%>/award/"+keyword+"/"+eqId;
+	}
 </script>
 </head>
 <body>
@@ -363,8 +368,7 @@
 										</td>
 										<td><a
 											href="<%=request.getContextPath()%>/educationqualification/${equalification.id}"><span
-												style="color: white;"><u>${equalification.id}</u>
-											</span> </a></td>
+												style="color: white;"><u>${equalification.id}</u> </span> </a></td>
 										<td>${equalification.name}</td>
 										<td>${equalification.university}</td>
 										<td>${equalification.yearCompleted}</td>
@@ -376,8 +380,55 @@
 							</tbody>
 						</table>
 					</div>
+				</c:if>
 			</div>
-			</c:if>
+		</div>
+
+		<div id="divcontainer" class="content">
+			<h1 align="left" class="headersection">
+				<b>Awards</b>
+
+			</h1>
+			<div id="demo">
+				<center>
+					<input type="button" value="New Award" class="styled-button-3"
+						onclick=awardOperation('create',${person.getId()})>
+				</center>
+				<c:if test="${!empty person.getAwards()}">
+					<div class="tablestyle">
+						<table>
+							<thead>
+								<tr>
+									<th>Action</th>
+									<th>ID</th>
+									<th>Name</th>
+									<th>Issued By</th>
+									<th>Date Issued</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach items="${person.getAwards()}" var="award">
+									<tr>
+										<td><input type="submit" value="Edit"
+											class="styled-button-3" onclick=awardOperation('edit',${award.id})>&nbsp;&nbsp;<input
+											type="submit" value="Delete" class="styled-button-3"
+											onclick=awardOperation('delete',${award.id})>
+										</td>
+										<td><a
+											href="<%=request.getContextPath()%>/award/${award.id}"><span
+												style="color: white;"><u>${award.id}</u> </span> </a></td>
+										<td>${award.name}</td>
+										<td>${award.issuedBy}</td>
+										<td>${award.dateIssued}</td>
+										<td>${award.description}</td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
+					</div>
+				</c:if>
+			</div>
 		</div>
 
 	</div>

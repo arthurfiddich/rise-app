@@ -40,7 +40,7 @@
          class="com.rise.common.model.ContactInformation" unique="true"
          not-null="true" column="CONTACT_INFORMATION_ID" cascade="all" lazy="false"/>
         
-        <set name="awards" table="AWARD">
+        <set name="awards" table="AWARD" cascade="all" lazy="false" inverse="true">
             <key column="PERSON_ID"/>
             <one-to-many class="com.rise.common.model.Award"/>
         </set>

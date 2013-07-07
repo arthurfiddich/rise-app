@@ -6,7 +6,7 @@
 <hibernate-mapping>
 	<class name="com.rise.common.model.Award" table="AWARD">
 		<id name="id" column="AWARD_ID">
-			<generator class="assigned"></generator>
+			<generator class="increment"></generator>
 		</id>
 
 		<property name="dateCreated" column="DATE_CREATED" />
@@ -21,7 +21,15 @@
 		<property name="description" column="DESCRIPTION" />
 
 		<many-to-one name="person" class="com.rise.common.model.Person"
-			column="PERSON_ID" cascade="all" not-null="true" />
+			column="PERSON_ID" not-null="true" />
 
 	</class>
+	<query name="getPersonByAward">
+        <![CDATA[
+			select p
+			from com.rise.common.model.Award a
+			inner join a.person p
+			where p.id = :paramPersonId
+		]]>
+    </query>
 </hibernate-mapping>
