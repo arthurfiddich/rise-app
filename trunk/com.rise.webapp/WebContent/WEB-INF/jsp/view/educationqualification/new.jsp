@@ -48,7 +48,7 @@
 			<ul id="menu">
 				<li><a name="home" href="/rise/home">Home</a>
 				</li>
-				<li><a name="person" href="/rise/person/list"
+				<li><a name="person" href="/rise/educationqualification/list"
 					class="activesection"><span style="color: blue;">Education
 							Qualification</span> </a>
 				</li>
