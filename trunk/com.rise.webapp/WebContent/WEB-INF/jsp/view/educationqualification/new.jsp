@@ -33,11 +33,82 @@
 	href="/rise/resources/css/animate-custom.css" />
 <link rel="stylesheet" type="text/css"
 	href="/rise/resources/css/menu.css" />
+   <script type="text/javascript" language="javascript" src="http://www.technicalkeeda.com/js/javascripts/plugin/jquery.js"></script>
+<script type="text/javascript" src="http://www.technicalkeeda.com/js/javascripts/plugin/json2.js"></script>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css" />
 <!-- <script type="text/javascript">
 	function changeContent(){
 		document.getElementById('divcontainer').load('/rise/candidate');
 	}
 	</script> -->
+<script>
+	function openwindow() {
+		alert('Entered...');
+		var str = "";
+		$
+				.ajax({
+					type : "POST",
+
+					url : "/rise/person/ajaxList",
+					dataType : "json",
+					contentType : "application/json; charset=utf-8",
+					data : "name='hello'",
+
+					success : function(response) {
+						str += "<table>";
+						$
+								.each(
+										response,
+										function(index, value) {
+											str += "<tr>";
+											str += "<td><input type='radio' value='"
+													+ value.personName.firstName
+													+ "' id='"
+													+ index
+													+ "' onclick='fun(this.id)''><span style='color:#000'>"
+													+ value.personName.firstName + "</span></td>";
+											str += "<td>" + value.id + "</td>";
+											str += "<input type='hidden' value='"+value.id+"' id='hid"+index+"'>";
+											str += "</tr>";
+										});
+						str += "</table>";
+						$("#innerdialog").html(str);
+						$(function() {
+							$("#dialog-confirm").dialog({
+								resizable : true,
+								width : 400,
+								height : 300,
+								modal : true
+							});
+						});
+
+					},
+					error : function(e) {
+						str += "error";
+						alert('Error: ' + e);
+						$("#innerdialog").html(str);
+						$(function() {
+							$("#dialog-confirm").dialog({
+								resizable : true,
+								height : 200,
+								modal : true
+							});
+						});
+
+					}
+				});
+	}
+	function fun(index) {
+		alert(document.getElementById(index).value);
+		alert(document.getElementById('hid' + index).value);
+		$("#id").val(document.getElementById(index).value);
+		//document.getElementById("esi").value = document.getElementById(index).value;
+		$("#dialog-confirm").dialog("close");
+	}
+</script>
 </head>
 <body>
 	<div class="container">
@@ -66,7 +137,7 @@
 			action="/educationqualification/save" method="post">
 			<div id="divcontainer" class="content">
 				<input type="submit" value="Save" class="styled-button-3"> <input
-					type="button" value="Cancel" onClick="history.go(-1);return true;"
+					type="button" value="Cancel" onClick="history.go(-1);"
 					class="styled-button-3" />
 				<h1 align="left" class="headersection">
 					<b>Education Qualification Information</b>
@@ -79,8 +150,9 @@
 									<td><form:label path="person.id" for="person.id">
 											<spring:message code="label.personId" />
 										</form:label></td>
-									<td><form:input path="person.id"
-											value="${educationqualification.getPerson().getId() }" />
+									<td><form:input path="person.id" id="id"
+											value="${educationqualification.getPerson().getId() }" /> <input
+										type="button" onclick="openwindow();" value="go">
 									</td>
 								</tr>
 								<tr>
@@ -140,10 +212,12 @@
 					</tr>
 				</table>
 				<input type="submit" value="Save" class="styled-button-3"> <input
-					type="button" value="Cancel" onClick="history.go(-1);return true;"
+					type="button" value="Cancel" onClick="history.go(-1);"
 					class="styled-button-3" />
 			</div>
-
+<div id="dialog-confirm" title="Persons List">
+ <div id="innerdialog"></div>
+</div>
 		</form:form>
 	</div>
 </body>
