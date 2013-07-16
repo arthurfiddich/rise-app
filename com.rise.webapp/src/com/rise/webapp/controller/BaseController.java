@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 import org.springframework.stereotype.Controller;
 
+import com.rise.common.util.Helper.TenantConfigHelper;
 import com.rise.service.BaseService;
 
 @Controller
@@ -15,6 +16,7 @@ public abstract class BaseController {
 	// protected BaseService baseService;
 
 	private Logger logger = LogManager.getLogger(BaseController.class);
+	private TenantConfigHelper tenantConfigHelper = TenantConfigHelper.getInstance();
 
 	protected String getSimpleName() {
 		if (logger.isTraceEnabled()) {

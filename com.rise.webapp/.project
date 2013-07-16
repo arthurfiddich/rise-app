@@ -8,6 +8,7 @@
 		<project>com.rise.common.util</project>
 		<project>com.rise.common.model</project>
 		<project>com.rise.service</project>
+		<project>com.rise.xmlns.query.config</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

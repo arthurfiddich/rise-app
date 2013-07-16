@@ -50,6 +50,11 @@
 		alert(eqId);
 		window.location.href = "<%=request.getContextPath()%>/award/"+keyword+"/"+eqId;
 	}
+
+	function employmentexperienceOperation(keyword,eqId){
+		alert(eqId);
+		window.location.href = "<%=request.getContextPath()%>/employmentexperience/"+keyword+"/"+eqId;
+	}
 </script>
 </head>
 <body>
@@ -422,6 +427,53 @@
 										<td>${award.issuedBy}</td>
 										<td>${award.dateIssued}</td>
 										<td>${award.description}</td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
+					</div>
+				</c:if>
+			</div>
+		</div>
+		
+		<div id="divcontainer" class="content">
+			<h1 align="left" class="headersection">
+				<b>Employment Experiences</b>
+
+			</h1>
+			<div id="demo">
+				<center>
+					<input type="button" value="New Employment Experience" class="styled-button-3"
+						onclick=employmentexperienceOperation('create',${person.getId()})>
+				</center>
+				<c:if test="${!empty person.getEmploymentExperiences()}">
+					<div class="tablestyle">
+						<table>
+							<thead>
+								<tr>
+									<th>Action</th>
+									<th>ID</th>
+									<th>JobTitle</th>
+									<th>From Date</th>
+									<th>To Date</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach items="${person.getEmploymentExperiences()}" var="employmentExperience">
+									<tr>
+										<td><input type="submit" value="Edit"
+											class="styled-button-3" onclick=employmentexperienceOperation('edit',${employmentExperience.id})>&nbsp;&nbsp;<input
+											type="submit" value="Delete" class="styled-button-3"
+											onclick=employmentexperienceOperation('delete',${employmentExperience.id})>
+										</td>
+										<td><a
+											href="<%=request.getContextPath()%>/employmentexperience/${employmentExperience.id}"><span
+												style="color: white;"><u>${employmentExperience.id}</u> </span> </a></td>
+										<td>${employmentExperience.jobTitle}</td>
+										<td>${employmentExperience.fromDate}</td>
+										<td>${employmentExperience.toDate}</td>
+										<td>${employmentExperience.description}</td>
 									</tr>
 								</c:forEach>
 							</tbody>
