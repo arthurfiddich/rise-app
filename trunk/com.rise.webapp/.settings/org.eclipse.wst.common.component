@@ -6,6 +6,8 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/test"/>
         <wb-resource deploy-path="/" source-path="/etc"/>
         <wb-resource deploy-path="/" source-path="/log4j"/>
+        <wb-resource deploy-path="/" source-path="/conf"/>
+        <wb-resource deploy-path="/" source-path="/xsd"/>
         <dependent-module archiveName="com.rise.dao.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/com.rise.dao/com.rise.dao">
             <dependency-type>uses</dependency-type>
         </dependent-module>
@@ -19,6 +21,9 @@
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="com.rise.service.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/com.rise.service/com.rise.service">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="com.rise.xmlns.query.config.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/com.rise.xmlns.query.config/com.rise.xmlns.query.config">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <property name="java-output-path" value="/com.rise.webapp/build/classes"/>

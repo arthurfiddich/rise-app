@@ -46,7 +46,7 @@
 	</script> -->
 <script>
 	function openwindow() {
-		alert('Entered...');
+		//alert('Entered...');
 		var str = "";
 		$
 				.ajax({
@@ -102,9 +102,9 @@
 				});
 	}
 	function fun(index) {
-		alert(document.getElementById(index).value);
-		alert(document.getElementById('hid' + index).value);
-		$("#id").val(document.getElementById(index).value);
+		//alert(document.getElementById(index).value);
+		//alert(document.getElementById('hid' + index).value);
+		$("#id").val(document.getElementById('hid' + index).value);
 		//document.getElementById("esi").value = document.getElementById(index).value;
 		$("#dialog-confirm").dialog("close");
 	}

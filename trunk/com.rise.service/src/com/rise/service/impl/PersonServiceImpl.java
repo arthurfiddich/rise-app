@@ -1,14 +1,20 @@
 package com.rise.service.impl;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.rise.common.model.BaseModel;
 import com.rise.common.model.ContactInformation;
 import com.rise.common.model.Model;
 import com.rise.common.model.Person;
+import com.rise.common.model.PersonName;
+import com.rise.common.util.Helper.QueryInfo;
+import com.rise.common.util.hibernate.QueryBuilder;
 import com.rise.dao.common.PersonDao;
 import com.rise.service.PersonService;
 
@@ -87,4 +93,32 @@ public class PersonServiceImpl extends BaseServiceImpl implements PersonService 
 		return this.personDao;
 	}
 
+	@Transactional
+	public List<Person> getPersons() {
+		List<Class> componentClassList = new ArrayList<Class>();
+		List<Class> superClassList = new ArrayList<Class>();
+		componentClassList.add(PersonName.class);
+		superClassList.add(BaseModel.class);
+		QueryInfo queryInfo = QueryBuilder.buildQuery(this.getPersistentClass(),
+				componentClassList, superClassList);
+		List<Object[]> results = this.getBaseDao().getPersons(queryInfo.getQuery());
+		if (results != null && results.size() > 0) {
+			List<Person> persons = new ArrayList<Person>();
+			for (Object[] objects : results) {
+				Person person = new Person();
+				PersonName personName = new PersonName();
+				person.setAadhaarNumber(objects[1].toString());
+				personName.setTitle(objects[2].toString());
+				personName.setFirstName(objects[3].toString());
+				personName.setMiddleName(objects[4].toString());
+				personName.setLastName(objects[5].toString());
+				personName.setSuffix(objects[6].toString());
+				person.setId(Integer.parseInt(objects[7].toString()));
+				person.setPersonName(personName);
+				persons.add(person);
+			}
+			return persons;
+		}
+		return new ArrayList<Person>();
+	}
 }

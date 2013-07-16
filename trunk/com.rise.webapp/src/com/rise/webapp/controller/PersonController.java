@@ -141,22 +141,10 @@ public class PersonController extends BaseController {
 		if (logger.isTraceEnabled()) {
 			logger.trace("################################# Entered into PersonController List Method: #################################");
 		}
-		List<com.rise.common.model.Model> persons = this.getBaseService()
-				.findAll();
-		List<Person> personsList = new ArrayList<Person>();
-		for (com.rise.common.model.Model model : persons) {
-			Person person = (Person) model;
-			Person person1  = new Person();
-			person1.setId(person.getId());
-			PersonName personName = new PersonName();
-			personName.setFirstName(person.getPersonName().getFirstName());
-			person1.setPersonName(personName);
-			personsList.add(person1);
-		}
-		return personsList;
+		return this.getBaseService().getPersons();
 	}
 	@Override
-	public BaseService getBaseService() {
+	public PersonService getBaseService() {
 		return this.personService;
 	}
 
