@@ -6,7 +6,7 @@
 <hibernate-mapping>
 	<class name="com.rise.common.model.EmploymentExperience" table="EMPLOYMENT_EXPERIENCE">
 		<id name="id" column="EMPLOYMENT_EXPERIENCE_ID">
-			<generator class="assigned" />
+			<generator class="increment" />
 		</id>
 
 		<property name="dateCreated" column="DATE_CREATED" />
@@ -19,6 +19,7 @@
 		<property name="fromDate" column="FROM_DATE" />
 		<property name="toDate" column="TO_DATE" />
 		<property name="Description" column="DESCRIPTION" />
+		<property name="reasonForLeaving" column="REASON_FOR_LEAVING" />
 
 		<many-to-one name="person" class="com.rise.common.model.Person"
 			not-null="true" cascade="all" column="PERSON_ID" />
@@ -26,4 +27,12 @@
 		<many-to-one name="organization" class="com.rise.common.model.Organization"
 			not-null="true" cascade="all" column="ORGANIZATION_ID" />
 	</class>
+	<query name="getPersonByEmploymentExperience">
+        <![CDATA[
+			select p
+			from com.rise.common.model.EmploymentExperience ee
+			inner join ee.person p
+			where p.id = :paramPersonId
+		]]>
+    </query>
 </hibernate-mapping>
