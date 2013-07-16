@@ -13,6 +13,7 @@ public class EmploymentExperience extends BaseModel {
 	private Date fromDate;
 	private Date toDate;
 	private String description;
+	private String reasonForLeaving;
 
 	private Person person;
 	private Organization organization;
@@ -51,6 +52,14 @@ public class EmploymentExperience extends BaseModel {
 
 	public void setDescription(String argDescription) {
 		this.description = argDescription;
+	}
+
+	public String getReasonForLeaving() {
+		return this.reasonForLeaving;
+	}
+
+	public void setReasonForLeaving(String argReasonForLeaving) {
+		this.reasonForLeaving = argReasonForLeaving;
 	}
 
 	public Person getPerson() {

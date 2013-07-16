@@ -1,5 +1,6 @@
 package com.rise.dao.common.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.rise.common.model.ContactInformation;
 import com.rise.common.model.Model;
 import com.rise.common.model.Person;
+import com.rise.common.model.PersonName;
 import com.rise.common.util.checker.Checker;
 import com.rise.dao.common.PersonDao;
 
@@ -48,9 +50,9 @@ public class PersonDaoImpl extends BaseDaoImpl implements PersonDao {
 
 	@Override
 	public Model findById(Integer argId) {
-//		Person person = (Person) super.findById(argId);
-//		System.out.println(person.getContactInformation());
-//		return person;
+		// Person person = (Person) super.findById(argId);
+		// System.out.println(person.getContactInformation());
+		// return person;
 		return super.findById(argId);
 	}
 
@@ -58,5 +60,18 @@ public class PersonDaoImpl extends BaseDaoImpl implements PersonDao {
 	public void deleteById(Integer argId) {
 		Model model = findById(argId);
 		super.delete(model);
+	}
+
+	@Override
+	public List<Object[]> getPersons(String argQuery) {
+		if (argQuery != null && !argQuery.isEmpty()) {
+			Query query = this.getCurrentSession().createQuery(argQuery);
+			List<Object[]> results = query.list();
+			if (results == null) {
+				results = new ArrayList<Object[]>();
+			}
+			return results;
+		}
+		return null;
 	}
 }

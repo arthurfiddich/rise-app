@@ -31,7 +31,7 @@
             <one-to-many class="com.rise.common.model.EducationQualification"/>
         </set>
         
-        <set name="employmentExperiences" table="EMPLOYMENT_EXPERIENCE">
+        <set name="employmentExperiences" table="EMPLOYMENT_EXPERIENCE" cascade="all" lazy="false" inverse="true">
             <key column="PERSON_ID"/>
             <one-to-many class="com.rise.common.model.EmploymentExperience"/>
         </set>
