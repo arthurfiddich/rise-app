@@ -6,10 +6,13 @@ import javax.servlet.http.HttpServlet;
 
 import com.rise.common.util.Helper.TenantConfigHelper;
 
-public class StartupHook extends HttpServlet{
+@SuppressWarnings("serial")
+public class StartupHook extends HttpServlet {
 
 	@Override
 	public void init(ServletConfig argConfig) throws ServletException {
+		GenerateFile.prepareClassesListFile("com.rise.common.model",
+				"classNames.txt");
 		TenantConfigHelper.getInstance();
 		super.init(argConfig);
 	}

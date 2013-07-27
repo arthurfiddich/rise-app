@@ -49,7 +49,7 @@ public class QueryBuilder {
 		}
 		if (found) {
 			Field[] fields = argComponentClass.getDeclaredFields();
-			if(argSuperClass){
+			if (argSuperClass) {
 				return queryPartBuilder(argComponentClass, fields, true);
 			}
 			return queryPartBuilder(argComponentClass, fields, false);
@@ -114,7 +114,8 @@ public class QueryBuilder {
 		}
 		queryInfo.setSelectClasue(queryBuilder.toString());
 		queryBuilder.append(HibernateHelperConstants.SPACE);
-		String fromClause = buildFromClause(argClass);
+		String simpleName = argClass.getSimpleName();
+		String fromClause = buildFromClause(simpleName);
 		queryInfo.setFromClause(fromClause);
 		queryBuilder.append(fromClause);
 		queryInfo.setQuery(queryBuilder.toString());
@@ -141,15 +142,29 @@ public class QueryBuilder {
 		return queryBuilder.toString();
 	}
 
-	private static String buildFromClause(Class argClass) {
-		if (argClass != null) {
-			StringBuilder fromClauseBuilder = new StringBuilder();
-			fromClauseBuilder.append(HibernateHelperConstants.FROM);
-			fromClauseBuilder.append(HibernateHelperConstants.SPACE);
-			fromClauseBuilder.append(argClass.getSimpleName());
-			return fromClauseBuilder.toString();
-		}
-		return HibernateHelperConstants.EMPTY;
+	public static String buildQuery(String argClassName, String argQueryPart) {
+		String className = Precondition.ensureNotEmpty(argClassName,
+				"Class Name");
+		String queryPart = Precondition.ensureNotEmpty(argQueryPart,
+				"Query Part");
+//		QueryInfo queryInfo = new QueryInfo();
+		StringBuilder queryBuilder = new StringBuilder();
+		queryBuilder.append(HibernateHelperConstants.SELECT);
+		queryBuilder.append(HibernateHelperConstants.SPACE);
+		queryBuilder.append(queryPart);
+		queryBuilder.append(HibernateHelperConstants.SPACE);
+		queryBuilder.append(buildFromClause(className));
+		return queryBuilder.toString();
+	}
+
+	private static String buildFromClause(String argClassName) {
+		String className = Precondition.ensureNotEmpty(argClassName,
+				"From Class Name");
+		StringBuilder fromClauseBuilder = new StringBuilder();
+		fromClauseBuilder.append(HibernateHelperConstants.FROM);
+		fromClauseBuilder.append(HibernateHelperConstants.SPACE);
+		fromClauseBuilder.append(className);
+		return fromClauseBuilder.toString();
 	}
 
 	public static String buildQuery(String argClassName) {

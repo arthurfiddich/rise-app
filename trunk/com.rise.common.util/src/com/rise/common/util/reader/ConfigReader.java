@@ -1,5 +1,6 @@
 package com.rise.common.util.reader;
 
+import java.util.List;
 import java.util.Properties;
 
 public interface ConfigReader {
@@ -14,5 +15,7 @@ public interface ConfigReader {
 			boolean skipValidation);
 
 	public Properties readPropertyFile(String filename);
+	
+	public List<String> readTextFile(String argFileName);
 
 }

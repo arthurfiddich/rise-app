@@ -1,6 +1,5 @@
 package com.rise.common.util.Helper;
 
-import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.List;
 import java.util.Map;
@@ -18,8 +17,11 @@ public class TenantConfigHelper {
 	private static Logger logger = LogManager
 			.getLogger(TenantConfigHelper.class);
 	private static final String QUERY_CONFIG_FILE_LOCATION = "com.rise.query.config.xml";
+	private static final String MODEL_CLASS_PROPERTY_FILE_LOCATION = "classNames.txt";
 	private static TenantConfigHelper instance = createInstance();
 	private QueryConfigHelper queryConfigHelper;
+	private QueryBuilderHelper queryBuilderHelper;
+
 	private String tenantId;
 
 	public static TenantConfigHelper getInstance() {
@@ -43,6 +45,9 @@ public class TenantConfigHelper {
 		System.out.println(url.getPath());
 		this.setQueryConfigHelper(QueryConfigHelper.createInstance(
 				this.getTenantId(), QUERY_CONFIG_FILE_LOCATION));
+
+		this.setQueryBuilderHelper(QueryBuilderHelper.createInstance(
+				this.getTenantId(), MODEL_CLASS_PROPERTY_FILE_LOCATION));
 	}
 
 	public List<Field> getFields(String argClassName) {
@@ -91,4 +96,29 @@ public class TenantConfigHelper {
 		this.queryConfigHelper = argQueryConfigHelper;
 	}
 
+	public QueryBuilderHelper getQueryBuilderHelper() {
+		return this.queryBuilderHelper;
+	}
+
+	public void setQueryBuilderHelper(QueryBuilderHelper argQueryBuilderHelper) {
+		this.queryBuilderHelper = argQueryBuilderHelper;
+	}
+
+	public String buildQuery(Class argClass, List<Class> argComponentClassList,
+			List<Class> argSuperClassList) {
+		return this.queryBuilderHelper.buildQuery(argClass,
+				argComponentClassList, argSuperClassList);
+	}
+
+	public Map<String, String> getModelNameVsQueryPartMap() {
+		return this.queryBuilderHelper.getModelNameVsQueryPartMap();
+	}
+
+	public Map<String, String> getComponentModelClassMap() {
+		return this.queryBuilderHelper.getComponentModelClassMap();
+	}
+
+	public Map<String, List<String>> getModelNameVsFieldsMap() {
+		return this.queryBuilderHelper.getModelNameVsFieldsMap();
+	}
 }

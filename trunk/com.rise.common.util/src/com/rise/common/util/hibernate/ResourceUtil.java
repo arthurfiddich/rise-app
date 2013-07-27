@@ -1,7 +1,6 @@
 package com.rise.common.util.hibernate;
 
 import java.io.File;
-import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -12,8 +11,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
-
-import com.rise.common.util.Helper.GenericJaxbHelper;
 
 public class ResourceUtil {
 	private static PathMatchingResourcePatternResolver pathMatchingResourcePatternResolver = new PathMatchingResourcePatternResolver();
@@ -50,8 +47,8 @@ public class ResourceUtil {
 			Set<String> alreadyAdded = new HashSet<String>();
 			List<Resource> allResources = new ArrayList<Resource>();
 			for (String relativePathName : relativePathNames) {
-				for (Resource resource : getResourcesByPattern(
-						"classpath*:/**/" + relativePathName)) {
+				for (Resource resource : getResourcesByPattern("classpath*:/**/"
+						+ relativePathName)) {
 					String resourcePath = resource.getURL().toString();
 					if (!alreadyAdded.contains(resourcePath)) {
 						allResources.add(resource);
@@ -108,7 +105,7 @@ public class ResourceUtil {
 		}
 		return string;
 	}
-	
+
 	public static Resource getFirstResourceByPattern(String relativePathName) {
 		Resource[] resources = getResources(relativePathName);
 		if (resources != null && resources.length > 0) {
@@ -116,5 +113,17 @@ public class ResourceUtil {
 		}
 		return null;
 	}
+
+	public static String getWritableConfigFolderPath() {
+		return getAbsolutePath("conf");
+	}
 	
+	public static String getAbsolutePath(String path) {
+		if (path != null) {
+			if (path.charAt(0) != File.separatorChar) {
+				path = getRootDirectory() + File.separatorChar + path;
+			}
+		}
+		return path;
+	}
 }
