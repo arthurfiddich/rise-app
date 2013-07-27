@@ -14,4 +14,5 @@ public class HibernateHelperConstants {
 	public static final String SPACE = " ";
 	public static final String FROM = "from";
 	public static final String EMPTY = "";
+	public static final String UTF_8 = "UTF-8";
 }

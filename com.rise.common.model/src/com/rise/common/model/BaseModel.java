@@ -2,6 +2,8 @@ package com.rise.common.model;
 
 import java.util.Date;
 
+import com.rise.common.util.annotation.DesiredField;
+
 public class BaseModel implements Model {
 
 	/**
@@ -9,6 +11,7 @@ public class BaseModel implements Model {
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	@DesiredField
 	private Integer id;
 	private Integer createdBy;
 	private Integer modifiedBy;

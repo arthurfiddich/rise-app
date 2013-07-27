@@ -1,5 +1,7 @@
 package com.rise.common.model;
 
+import com.rise.common.util.annotation.DesiredField;
+
 /**
  * We are not extending with BaseModel because its a unique class and I am using
  * this POJO class to make it "component" into another class. In Hibernate terms
@@ -13,17 +15,22 @@ package com.rise.common.model;
  * @author Administrator
  * 
  */
-public class PersonName/* extends BaseModel */{
+public class PersonName extends BaseModel {
 
-	// /**
-	// *
-	// */
-	// private static final long serialVersionUID = 1L;
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = 1L;
 
+	@DesiredField
 	private String title;
+	@DesiredField
 	private String firstName;
+	@DesiredField
 	private String middleName;
+	@DesiredField
 	private String lastName;
+	@DesiredField
 	private String suffix;
 
 	public PersonName() {

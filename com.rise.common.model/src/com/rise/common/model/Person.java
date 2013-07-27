@@ -3,6 +3,8 @@ package com.rise.common.model;
 import java.util.Date;
 import java.util.Set;
 
+import com.rise.common.util.annotation.DesiredField;
+
 public class Person extends BaseModel {
 	/**
 	 * Here I am using Component based mapping for PersonName in Person
@@ -18,7 +20,9 @@ public class Person extends BaseModel {
 	// private String middleName;
 	// private String lastName;
 	// private String suffix;
+	@DesiredField
 	private Date dateOfBirth;
+	@DesiredField
 	private String aadhaarNumber;
 
 	private Set<EducationQualification> educationQualifications;

@@ -31,11 +31,11 @@ public abstract class AbstractConfigReader implements ConfigReader {
 		try {
 			logger.info("LOADING RESOURCE: " + resourceUri);
 			if (argSkipValidation) {
-				return (new GenericJaxbHelper<Object>(argPackageName)
-						.unmarshal(argInputStream).getValue());
+				return new GenericJaxbHelper<Object>(argPackageName).unmarshal(
+						argInputStream).getValue();
 			} else {
-				return (GenericJaxbHelper.unmarshalWithXsdValidation(
-						resourceUri, argInputStream, argXsd, argPackageName));
+				return GenericJaxbHelper.unmarshalWithXsdValidation(
+						resourceUri, argInputStream, argXsd, argPackageName);
 			}
 		} catch (Exception e) {
 			throw new RuntimeException("Failed load file/resource "
@@ -48,7 +48,7 @@ public abstract class AbstractConfigReader implements ConfigReader {
 			logger.info("LOADING RESOURCE: " + argFilename);
 			Properties properties = new Properties();
 			properties.load(argInputStream);
-			return (properties);
+			return properties;
 		} catch (Exception e) {
 			throw new RuntimeException("Failed load resource " + argFilename, e);
 		}

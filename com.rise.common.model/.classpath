@@ -17,5 +17,7 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="src" path="/com.rise.common.util"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/log4j"/>
+	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/reflections/reflections-0.9.9-RC1-uberjar.jar"/>
+	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/reflections/guava-r05.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
