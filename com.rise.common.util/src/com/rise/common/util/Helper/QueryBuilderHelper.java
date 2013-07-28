@@ -114,18 +114,23 @@ public class QueryBuilderHelper {
 	public String buildQuery(Class argClass, List<Class> argComponentClassList,
 			List<Class> argSuperClassList) {
 		Class clazz = Precondition.ensureNotNull(argClass, "Class");
-		List<Class> componentClassList = (List<Class>) Precondition
-				.ensureNotEmpty(argComponentClassList, "Component List");
-		List<Class> superClassList = (List<Class>) Precondition.ensureNotEmpty(
-				argSuperClassList, "Super Class List");
+		// List<Class> componentClassList = (List<Class>) Precondition
+		// .ensureNotEmpty(argComponentClassList, "Component List");
+		// List<Class> superClassList = (List<Class>)
+		// Precondition.ensureNotEmpty(
+		// argSuperClassList, "Super Class List");
 		List<String> queryParts = new ArrayList<String>();
 		String parentQueryPart = execute(clazz);
 		parentQueryPart = Precondition.ensureNotEmpty(parentQueryPart,
 				"Parent Query Part");
 		queryParts.add(parentQueryPart);
-		queryParts.addAll(execute(componentClassList));
-		for (Class superClass : superClassList) {
-			queryParts.add(execute(superClass));
+		if (Precondition.checkNotEmpty(argComponentClassList)) {
+			queryParts.addAll(execute(argComponentClassList));
+		}
+		if (Precondition.checkNotEmpty(argSuperClassList)) {
+			for (Class superClass : argSuperClassList) {
+				queryParts.add(execute(superClass));
+			}
 		}
 		return appendAllParts(queryParts);
 	}
