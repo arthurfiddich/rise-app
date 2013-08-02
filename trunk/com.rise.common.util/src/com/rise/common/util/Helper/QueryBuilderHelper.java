@@ -20,7 +20,8 @@ public class QueryBuilderHelper {
 	private String configurationFile;
 	private Map<String, String> modelNameVsQueryPartMap = new HashMap<String, String>();
 	private Map<String, String> componentModelClassMap = new HashMap<String, String>();
-	private Map<String, List<String>> modelNameVsFieldsMap = new HashMap<String, List<String>>();
+	private Map<String, List<Field>> modelNameVsFieldsMap = new HashMap<String, List<Field>>();
+	private Map<String, Class<?>> modelNameVsClassObjectMap = new HashMap<String, Class<?>>();
 
 	public static QueryBuilderHelper createInstance(String argTenantId,
 			String argConfigurationFile) {
@@ -42,6 +43,7 @@ public class QueryBuilderHelper {
 		for (String modelClassName : tokens) {
 			try {
 				Class clazz = Class.forName(modelClassName);
+				this.getModelNameVsClassObjectMap().put(modelClassName, clazz);
 				build(clazz);
 			} catch (ClassNotFoundException e) {
 				throw new PreconditionException("Class not found exception: "
@@ -53,28 +55,28 @@ public class QueryBuilderHelper {
 
 	private void build(Class argClazz) {
 		Field[] fields = argClazz.getDeclaredFields();
-		List<String> fieldList = new ArrayList<String>();
+		List<Field> fieldList = new ArrayList<Field>();
 		for (int i = 0; i < fields.length; i++) {
 			Field field = fields[i];
 			if (Precondition.checkNotNull(field)) {
 				DesiredField desiredField = field
 						.getAnnotation(DesiredField.class);
 				if (desiredField != null) {
-					fieldList.add(field.getName());
+					fieldList.add(field);
 				}
 			}
 		}
 		buildQuery(argClazz.getSimpleName(), fieldList);
 	}
 
-	private void buildQuery(String argSimpleName, List<String> argFieldList) {
+	private void buildQuery(String argSimpleName, List<Field> argFieldList) {
 		if (Precondition.checkNotEmpty(argSimpleName)
 				&& Precondition.checkNotEmpty(argFieldList)) {
 			StringBuilder normalQueryBuilder = new StringBuilder();
 			StringBuilder aliasNameQueryBuilder = new StringBuilder();
 			String paramName = Introspector.decapitalize(argSimpleName);
 			for (int i = 0; i < argFieldList.size(); i++) {
-				String fieldName = argFieldList.get(i);
+				String fieldName = argFieldList.get(i).getName();
 				String aliasparamName = buildParamName(paramName, fieldName);
 				if (Precondition.checkNotEmpty(fieldName)) {
 					normalQueryBuilder.append(fieldName);
@@ -202,13 +204,22 @@ public class QueryBuilderHelper {
 		this.componentModelClassMap = argComponentModelClassMap;
 	}
 
-	public Map<String, List<String>> getModelNameVsFieldsMap() {
+	public Map<String, List<Field>> getModelNameVsFieldsMap() {
 		return this.modelNameVsFieldsMap;
 	}
 
 	public void setModelNameVsFieldsMap(
-			Map<String, List<String>> argModelNameVsFieldsMap) {
+			Map<String, List<Field>> argModelNameVsFieldsMap) {
 		this.modelNameVsFieldsMap = argModelNameVsFieldsMap;
+	}
+
+	public Map<String, Class<?>> getModelNameVsClassObjectMap() {
+		return this.modelNameVsClassObjectMap;
+	}
+
+	public void setModelNameVsClassObjectMap(
+			Map<String, Class<?>> argModelNameVsClassObjectMap) {
+		this.modelNameVsClassObjectMap = argModelNameVsClassObjectMap;
 	}
 
 }
