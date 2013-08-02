@@ -118,7 +118,12 @@ public class TenantConfigHelper {
 		return this.queryBuilderHelper.getComponentModelClassMap();
 	}
 
-	public Map<String, List<String>> getModelNameVsFieldsMap() {
+	public Map<String, List<java.lang.reflect.Field>> getModelNameVsFieldsMap() {
 		return this.queryBuilderHelper.getModelNameVsFieldsMap();
 	}
+
+	public Map<String, Class<?>> getModelNameVsClassObjectMap() {
+		return this.queryBuilderHelper.getModelNameVsClassObjectMap();
+	}
+
 }
