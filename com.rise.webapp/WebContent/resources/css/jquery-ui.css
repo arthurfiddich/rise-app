@@ -195,6 +195,7 @@ input.ui-button {
 }
 .ui-button-icon-only .ui-icon {
 	left: 50%;
+	top:50%;
 	margin-left: -8px;
 }
 .ui-button-text-icon-primary .ui-button-icon-primary,
@@ -786,8 +787,8 @@ body .ui-tooltip {
 /* Component containers
 ----------------------------------*/
 .ui-widget {
-	font-family: Verdana,Arial,sans-serif;
-	font-size: 1.1em;
+	font-family: Cambria, Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
+	font-size: 1em;
 }
 .ui-widget .ui-widget {
 	font-size: 1em;
@@ -796,7 +797,7 @@ body .ui-tooltip {
 .ui-widget select,
 .ui-widget textarea,
 .ui-widget button {
-	font-family: Verdana,Arial,sans-serif;
+	font-family: Cambria, Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
 	font-size: 1em;
 }
 .ui-widget-content {

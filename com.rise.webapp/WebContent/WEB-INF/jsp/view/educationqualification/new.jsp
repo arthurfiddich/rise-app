@@ -34,11 +34,24 @@
 <link rel="stylesheet" type="text/css"
 	href="/rise/resources/css/menu.css" />
    <script type="text/javascript" language="javascript" src="http://www.technicalkeeda.com/js/javascripts/plugin/jquery.js"></script>
-<script type="text/javascript" src="http://www.technicalkeeda.com/js/javascripts/plugin/json2.js"></script>
-  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+  <link rel="stylesheet" type="text/css"
+	href="/rise/resources/css/jquery-ui.css" />
   <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
   <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
   <link rel="stylesheet" href="/resources/demos/style.css" />
+  <link rel="stylesheet" type="text/css"
+	href="/rise/resources/css/demo_page.css" />
+<link rel="stylesheet" type="text/css"
+	href="/rise/resources/css/jquery.dataTables.css" />
+<script type="text/javascript" language="javascript"
+	src="/rise/resources/js/jquery.dataTables.js"></script>
+<script type="text/javascript" charset="utf-8">
+function createTable(){
+	$('#example').dataTable();	
+}
+</script>
+	<link rel="stylesheet" type="text/css"
+	href="/rise/resources/css/menu.css" />
 <!-- <script type="text/javascript">
 	function changeContent(){
 		document.getElementById('divcontainer').load('/rise/candidate');
@@ -58,29 +71,43 @@
 					data : "name='hello'",
 
 					success : function(response) {
-						str += "<table>";
+						str+="<div class='datatablestyle'>"
+						str += "<table id='example'>";
+						str+="<thead>";
+						str+="<tr>";
+						str+="<th>";
+						str+="Id";
+						str+="</th>";
+						str+="<th>";
+						str+="Name";
+						str+="</th>";
+						str+="</tr>";
+						str+="</thead>";
+						str+="<tbody>";
 						$
 								.each(
 										response,
 										function(index, value) {
 											str += "<tr>";
-											str += "<td><input type='radio' value='"
+											str += "<td><span value='"
 													+ value.personName.firstName
 													+ "' id='"
 													+ index
-													+ "' onclick='fun(this.id)''><span style='color:#000'>"
+													+ "' onclick='fun(this.id)'' style='color:blue;'>"+value.id+"</span></td><td><span style='color:#000'>"
 													+ value.personName.firstName + "</span></td>";
-											str += "<td>" + value.id + "</td>";
 											str += "<input type='hidden' value='"+value.id+"' id='hid"+index+"'>";
 											str += "</tr>";
 										});
+						str+="</tbody>";
 						str += "</table>";
+						str+="</div>";
 						$("#innerdialog").html(str);
+						createTable();
 						$(function() {
 							$("#dialog-confirm").dialog({
 								resizable : true,
-								width : 400,
-								height : 300,
+								width : 700,
+								height : 500,
 								modal : true
 							});
 						});
@@ -142,6 +169,7 @@
 				<h1 align="left" class="headersection">
 					<b>Education Qualification Information</b>
 				</h1>
+				<div class="maintablestyle">
 				<table>
 					<tr>
 						<td>
@@ -211,6 +239,7 @@
 						</td>
 					</tr>
 				</table>
+				</div>
 				<input type="submit" value="Save" class="styled-button-3"> <input
 					type="button" value="Cancel" onClick="history.go(-1);"
 					class="styled-button-3" />
