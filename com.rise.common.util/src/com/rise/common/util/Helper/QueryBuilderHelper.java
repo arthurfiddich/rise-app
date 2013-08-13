@@ -55,6 +55,21 @@ public class QueryBuilderHelper {
 
 	private void build(Class argClazz) {
 		Field[] fields = argClazz.getDeclaredFields();
+		String paramName = Introspector.decapitalize(argClazz.getSimpleName());
+		List<Field> fieldList = getFields(fields);
+//		Class superClass = argClazz.getSuperclass();
+//		if (Precondition.checkNotNull(superClass)) {
+//			List<Field> superClassFields = getFields(superClass
+//					.getDeclaredFields());
+//			if (Precondition.checkNotEmpty(superClassFields)) {
+//				fieldList.addAll(superClassFields);
+//			}
+//		}
+		buildQuery(paramName, fieldList);
+		this.getModelNameVsFieldsMap().put(paramName, fieldList);
+	}
+
+	private List<Field> getFields(Field[] fields) {
 		List<Field> fieldList = new ArrayList<Field>();
 		for (int i = 0; i < fields.length; i++) {
 			Field field = fields[i];
@@ -66,18 +81,17 @@ public class QueryBuilderHelper {
 				}
 			}
 		}
-		buildQuery(argClazz.getSimpleName(), fieldList);
+		return fieldList;
 	}
 
-	private void buildQuery(String argSimpleName, List<Field> argFieldList) {
-		if (Precondition.checkNotEmpty(argSimpleName)
+	private void buildQuery(String argParamName, List<Field> argFieldList) {
+		if (Precondition.checkNotEmpty(argParamName)
 				&& Precondition.checkNotEmpty(argFieldList)) {
 			StringBuilder normalQueryBuilder = new StringBuilder();
 			StringBuilder aliasNameQueryBuilder = new StringBuilder();
-			String paramName = Introspector.decapitalize(argSimpleName);
 			for (int i = 0; i < argFieldList.size(); i++) {
 				String fieldName = argFieldList.get(i).getName();
-				String aliasparamName = buildParamName(paramName, fieldName);
+				String aliasparamName = buildParamName(argParamName, fieldName);
 				if (Precondition.checkNotEmpty(fieldName)) {
 					normalQueryBuilder.append(fieldName);
 					appendComma(argFieldList.size(), normalQueryBuilder, i);
@@ -87,11 +101,10 @@ public class QueryBuilderHelper {
 					appendComma(argFieldList.size(), aliasNameQueryBuilder, i);
 				}
 			}
-			this.getModelNameVsQueryPartMap().put(paramName,
+			this.getModelNameVsQueryPartMap().put(argParamName,
 					normalQueryBuilder.toString());
-			this.getComponentModelClassMap().put(paramName,
+			this.getComponentModelClassMap().put(argParamName,
 					aliasNameQueryBuilder.toString());
-			this.getModelNameVsFieldsMap().put(paramName, argFieldList);
 		}
 	}
 
