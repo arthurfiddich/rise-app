@@ -126,4 +126,9 @@ public class TenantConfigHelper {
 		return this.queryBuilderHelper.getModelNameVsClassObjectMap();
 	}
 
+	public List<String> getFieldsBasedOnClass(
+			String argClassName) {
+		return this.queryBuilderHelper.getFieldsBasedOnClass(argClassName);
+	}
+
 }

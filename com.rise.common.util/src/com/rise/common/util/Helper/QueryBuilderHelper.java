@@ -57,14 +57,14 @@ public class QueryBuilderHelper {
 		Field[] fields = argClazz.getDeclaredFields();
 		String paramName = Introspector.decapitalize(argClazz.getSimpleName());
 		List<Field> fieldList = getFields(fields);
-//		Class superClass = argClazz.getSuperclass();
-//		if (Precondition.checkNotNull(superClass)) {
-//			List<Field> superClassFields = getFields(superClass
-//					.getDeclaredFields());
-//			if (Precondition.checkNotEmpty(superClassFields)) {
-//				fieldList.addAll(superClassFields);
-//			}
-//		}
+		// Class superClass = argClazz.getSuperclass();
+		// if (Precondition.checkNotNull(superClass)) {
+		// List<Field> superClassFields = getFields(superClass
+		// .getDeclaredFields());
+		// if (Precondition.checkNotEmpty(superClassFields)) {
+		// fieldList.addAll(superClassFields);
+		// }
+		// }
 		buildQuery(paramName, fieldList);
 		this.getModelNameVsFieldsMap().put(paramName, fieldList);
 	}
@@ -177,6 +177,17 @@ public class QueryBuilderHelper {
 			}
 		}
 		return queryPartsList;
+	}
+
+	public List<String> getFieldsBasedOnClass(String argClassName) {
+		String className = Precondition.ensureNotEmpty(argClassName,
+				"Class Name");
+		List<String> fieldNamesList = new ArrayList<String>();
+		List<Field> list = this.getModelNameVsFieldsMap().get(className);
+		for (Field field : list) {
+			fieldNamesList.add(field.getName());
+		}
+		return fieldNamesList;
 	}
 
 	private void append(int argSize, StringBuilder queryBuilder, int argCount) {
