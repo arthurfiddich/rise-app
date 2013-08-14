@@ -71,42 +71,62 @@ function createTable(){
 					data : "name='hello'",
 
 					success : function(response) {
-						str+="<div class='datatablestyle'>"
+						str += "<div class='datatablestyle'>"
 						str += "<table id='example'>";
-						str+="<thead>";
-						str+="<tr>";
-						str+="<th>";
-						str+="Id";
-						str+="</th>";
-						str+="<th>";
-						str+="Name";
-						str+="</th>";
-						str+="</tr>";
-						str+="</thead>";
-						str+="<tbody>";
+						str += "<thead>";
+						str += "<tr>";
+						$.each(response.fieldsList, function(index, value) {
+							str += "<th>";
+							str += value;
+							str += "</th>";
+						});
+						str += "</tr>";
+						str += "</thead>";
+						str += "<tbody>";
 						$
 								.each(
-										response,
+										response.resultsList,
 										function(index, value) {
 											str += "<tr>";
 											str += "<td><span value='"
 													+ value.personName.firstName
 													+ "' id='"
 													+ index
-													+ "' onclick='fun(this.id)'' style='color:blue;'>"+value.id+"</span></td><td><span style='color:#000'>"
-													+ value.personName.firstName + "</span></td>";
+													+ "' onclick='fun(this.id)'' style='color:blue;'>"
+													+ value.id
+													+ "</span></td><td><span style='color:#000'>"
+													+ value.personName.title
+													+ "</span></td>";
+											str += "<td><span style='color:#000'>"
+													+ value.personName.firstName
+													+ "</span></td>";
+											str += "<td><span style='color:#000'>"
+													+ value.personName.middleName
+													+ "</span></td>";
+											str += "<td><span style='color:#000'>"
+													+ value.personName.lastName
+													+ "</span></td>";
+											str += "<td><span style='color:#000'>"
+													+ value.personName.suffix
+													+ "</span></td>";
+											str += "<td><span style='color:#000'>"
+													+ value.dateOfBirth
+													+ "</span></td>";
+											str += "<td><span style='color:#000'>"
+													+ value.aadhaarNumber
+													+ "</span></td>";
 											str += "<input type='hidden' value='"+value.id+"' id='hid"+index+"'>";
 											str += "</tr>";
 										});
-						str+="</tbody>";
+						str += "</tbody>";
 						str += "</table>";
-						str+="</div>";
+						str += "</div>";
 						$("#innerdialog").html(str);
 						createTable();
 						$(function() {
 							$("#dialog-confirm").dialog({
 								resizable : true,
-								width : 700,
+								width : 1000,
 								height : 500,
 								modal : true
 							});
