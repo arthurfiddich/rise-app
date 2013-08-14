@@ -1,5 +1,7 @@
 package com.rise.webapp.controller;
 
+import java.beans.Introspector;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,9 +18,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.rise.common.model.Person;
 import com.rise.common.model.PersonName;
+import com.rise.common.util.Helper.TenantConfigHelper;
+import com.rise.common.util.checker.Precondition;
 import com.rise.common.util.constants.HibernateConstants;
-import com.rise.service.BaseService;
 import com.rise.service.PersonService;
+import com.rise.webapp.binding.BindingResult;
 
 @Controller
 @RequestMapping("/person")
@@ -135,14 +139,43 @@ public class PersonController extends BaseController {
 		}
 		return HibernateConstants.ERROR;
 	}
+
 	@RequestMapping(value = HibernateConstants.AJAX_LIST)
-	public @ResponseBody List<Person> ajaxListPersonNames(Model argModel) {
+	public @ResponseBody
+	BindingResult<Person> ajaxListPersonNames(Model argModel) {
 		logger.error("Hello....................");
 		if (logger.isTraceEnabled()) {
 			logger.trace("################################# Entered into PersonController List Method: #################################");
 		}
-		return this.getBaseService().getPersons();
+		BindingResult<Person> bindingResult = new BindingResult<Person>();
+		List<Person> persons = this.getBaseService().getPersons();
+		if (Precondition.checkNotEmpty(persons)) {
+			bindingResult.setResultsList(persons);
+		}
+		List<String> fieldsBasedOnClass = getAllFields();
+		bindingResult.setFieldsList(fieldsBasedOnClass);
+		return bindingResult;
 	}
+
+	private List<String> getAllFields() {
+		String simpleName = Introspector.decapitalize(this.getBaseService().getPersistentClass()
+				.getSimpleName());
+		List<String> fieldsList = new ArrayList<String>();
+		fieldsList.addAll(TenantConfigHelper.getInstance()
+				.getFieldsBasedOnClass(simpleName));
+		String componentClassName = Introspector.decapitalize(PersonName.class
+				.getSimpleName());
+		fieldsList.addAll(TenantConfigHelper.getInstance()
+				.getFieldsBasedOnClass(componentClassName));
+		Class clazz = this.getBaseService().getPersistentClass()
+				.getSuperclass();
+		String superClassName = Introspector
+				.decapitalize(clazz.getSimpleName());
+		fieldsList.addAll(TenantConfigHelper.getInstance()
+				.getFieldsBasedOnClass(superClassName));
+		return fieldsList;
+	}
+
 	@Override
 	public PersonService getBaseService() {
 		return this.personService;
