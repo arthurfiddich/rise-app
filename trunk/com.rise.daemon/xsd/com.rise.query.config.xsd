@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://xmlns.rise.com/common/v1" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://xmlns.rise.com/common/v1">
+
+
+    <xsd:element name="queryConfigs" type="QueryConfigs"></xsd:element>
+    
+    <xsd:complexType name="QueryConfigs">
+    	<xsd:sequence>
+    		<xsd:element name="queryConfig" type="QueryConfig" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+    	</xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="QueryConfig">
+    	<xsd:sequence>
+    		<xsd:element name="className" type="Token" maxOccurs="1"
+    			minOccurs="1">
+    		</xsd:element>
+    		<xsd:element name="component" type="Component"
+    			maxOccurs="1" minOccurs="1">
+    		</xsd:element>
+    		<xsd:element name="superClass" type="SuperClass"
+    			maxOccurs="1" minOccurs="1">
+    		</xsd:element>
+    		<xsd:element name="field" type="Field" maxOccurs="unbounded" minOccurs="1"></xsd:element>
+    	</xsd:sequence>
+    </xsd:complexType>
+
+
+
+    <xsd:simpleType name="Token">
+    	<xsd:restriction base="xsd:token">
+    		<xsd:minLength value="1"></xsd:minLength>
+    		<xsd:whiteSpace value="collapse"></xsd:whiteSpace>
+    	</xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:complexType name="Component">
+    	<xsd:sequence>
+    		<xsd:element name="name" type="Token" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+    	</xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="SuperClass">
+    	<xsd:sequence>
+    		<xsd:element name="name" type="Token" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+    	</xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="Field">
+    	<xsd:sequence>
+    		<xsd:element name="name" type="Token" maxOccurs="1"
+    			minOccurs="1">
+    		</xsd:element>
+    		<xsd:element name="type" type="Token" maxOccurs="1" minOccurs="1"></xsd:element>
+    	</xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>
