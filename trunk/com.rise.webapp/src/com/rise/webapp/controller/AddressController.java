@@ -14,12 +14,11 @@ import com.rise.common.model.Address;
 import com.rise.common.util.constants.HibernateConstants;
 import com.rise.service.AddressService;
 import com.rise.service.BaseService;
-import com.rise.service.PersonService;
 
 @Controller
 @RequestMapping("/address")
 public class AddressController extends BaseController {
-	
+
 	@Autowired
 	private AddressService addressService;
 
@@ -32,7 +31,8 @@ public class AddressController extends BaseController {
 
 	@RequestMapping(value = HibernateConstants.LIST)
 	public String listPersonNames(Model argModel) {
-		List<com.rise.common.model.Model> addresses = getBaseService().findAll();
+		List<com.rise.common.model.Model> addresses = getBaseService()
+				.findAll();
 		argModel.addAttribute(getSimpleName(), new Address());
 		argModel.addAttribute(getFullyQualifiedName(), addresses);
 		return HibernateConstants.VIEW_SLASH + getSimpleName()
@@ -41,8 +41,8 @@ public class AddressController extends BaseController {
 
 	@RequestMapping(value = HibernateConstants.EDIT, method = RequestMethod.GET)
 	public String editAddress(Model argModel, Address argAddress) {
-		Address address = (Address) this.getBaseService().findById(argAddress
-				.getId());
+		Address address = (Address) this.getBaseService().findById(
+				argAddress.getId());
 		argModel.addAttribute(HibernateConstants.EDIT_ADDRESS, address);
 		argModel.addAttribute(HibernateConstants.EDIT_MODE, true);
 		return HibernateConstants.VIEW_SLASH + getSimpleName()
@@ -79,8 +79,8 @@ public class AddressController extends BaseController {
 	@RequestMapping(value = HibernateConstants.PATH_VARIABLE_ID, method = RequestMethod.GET)
 	public String getPerson(@PathVariable String argId, Model argModel) {
 		if (argId != null && !argId.isEmpty() && argModel != null) {
-			Address address = (Address) this.getBaseService().findById(Integer
-					.parseInt(argId));
+			Address address = (Address) this.getBaseService().findById(
+					Integer.parseInt(argId));
 			argModel.addAttribute(getSimpleName(), address);
 			return HibernateConstants.VIEW_SLASH + getSimpleName()
 					+ HibernateConstants.VIEW;

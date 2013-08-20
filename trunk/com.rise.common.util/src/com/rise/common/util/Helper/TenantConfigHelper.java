@@ -43,8 +43,8 @@ public class TenantConfigHelper {
 		System.out.println(url.toString());
 		System.out.println(url.toExternalForm());
 		System.out.println(url.getPath());
-		this.setQueryConfigHelper(QueryConfigHelper.createInstance(
-				this.getTenantId(), QUERY_CONFIG_FILE_LOCATION));
+//		this.setQueryConfigHelper(QueryConfigHelper.createInstance(
+//				this.getTenantId(), QUERY_CONFIG_FILE_LOCATION));
 
 		this.setQueryBuilderHelper(QueryBuilderHelper.createInstance(
 				this.getTenantId(), MODEL_CLASS_PROPERTY_FILE_LOCATION));
