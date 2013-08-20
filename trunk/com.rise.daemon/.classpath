@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jetty"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/com.rise.common.util"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/slf4j"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/hibernate"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jetty-jsp"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/logback"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/spring"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/com.rise.common.model"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/com.rise.dao"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/com.rise.service"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/com.rise.xmlns.query.config"/>
+	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/spring/com.springsource.antlr-2.7.6.jar"/>
+	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/spring/com.springsource.org.aopalliance-1.0.0.jar"/>
+	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/spring/com.springsource.org.apache.log4j-1.2.15.jar"/>
+	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/apache/commons/beanutils/commons-beanutils-1.8.3.jar"/>
+	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/apache/commons/collections/commons-collections-testframework-3.2.1.jar"/>
+	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/apache/commons/dbcp/commons-dbcp-1.4.jar"/>
+	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/apache/commons/lang/commons-lang3-3.1.jar"/>
+	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/apache/commons/logging/commons-logging-1.1.2.jar"/>
+	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/apache/commons/pool/commons-pool-1.6.jar"/>
+	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/apache/flume/flume-ng-sdk-1.4.0.jar"/>
+	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/reflections/guava-r05.jar"/>
+	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/jackson/jackson-core-asl-1.5.3.jar"/>
+	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/jackson/jackson-mapper-asl-1.5.3.jar"/>
+	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/javax/javax.servlet-3.0.jar"/>
+	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/joda-time/joda-time-2.2.jar" sourcepath="/com.rise.extlib/src-jars/joda-time/joda-time-2.2-sources.jar"/>
+	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/jstl/jstl-1.2.jar"/>
+	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/mysql/mysql-connector-java-5.0.8-bin.jar"/>
+	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/reflections/reflections-0.9.9-RC1-uberjar.jar"/>
+	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/xinclude/xercesImpl-2.9.1.jar"/>
+	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/xinclude/xincluder.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
