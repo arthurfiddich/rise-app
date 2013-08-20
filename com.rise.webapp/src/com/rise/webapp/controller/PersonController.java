@@ -1,12 +1,11 @@
 package com.rise.webapp.controller;
 
 import java.beans.Introspector;
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,7 +29,8 @@ public class PersonController extends BaseController {
 
 	@Autowired
 	private PersonService personService;
-	private Logger logger = LogManager.getLogger(PersonController.class);
+	private static final Logger logger = LoggerFactory
+			.getLogger(PersonController.class);
 
 	@RequestMapping(value = HibernateConstants.CREATE, method = RequestMethod.GET)
 	public String get(Model argModel) {
@@ -158,8 +158,8 @@ public class PersonController extends BaseController {
 	}
 
 	private List<String> getAllFields() {
-		String simpleName = Introspector.decapitalize(this.getBaseService().getPersistentClass()
-				.getSimpleName());
+		String simpleName = Introspector.decapitalize(this.getBaseService()
+				.getPersistentClass().getSimpleName());
 		List<String> fieldsList = new ArrayList<String>();
 		fieldsList.addAll(TenantConfigHelper.getInstance()
 				.getFieldsBasedOnClass(simpleName));

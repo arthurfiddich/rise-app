@@ -51,7 +51,7 @@ public abstract class AutoFileCloser {
 			if (pending instanceof RuntimeException) {
 				throw (RuntimeException) pending;
 			} else {
-				new RuntimeException(pending);
+				throw new RuntimeException(pending);
 			}
 		}
 	}

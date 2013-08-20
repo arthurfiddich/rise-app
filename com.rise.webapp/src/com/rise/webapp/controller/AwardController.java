@@ -2,8 +2,8 @@ package com.rise.webapp.controller;
 
 import java.util.List;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.rise.common.model.Award;
-import com.rise.common.model.EducationQualification;
 import com.rise.common.model.Person;
 import com.rise.common.util.constants.HibernateConstants;
 import com.rise.service.AwardService;
@@ -26,7 +25,7 @@ public class AwardController extends BaseController {
 	@Autowired
 	private AwardService awardService;
 
-	private Logger logger = LogManager.getLogger(AwardController.class);
+	private Logger logger = LoggerFactory.getLogger(AwardController.class);
 
 	@RequestMapping(value = HibernateConstants.CREATE, method = RequestMethod.GET)
 	public String get(Model argModel) {

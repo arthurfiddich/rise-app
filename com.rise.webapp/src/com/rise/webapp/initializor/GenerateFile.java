@@ -6,16 +6,16 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.reflections.Reflections;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.rise.common.util.writer.FileSystemConfigWriter;
 import com.rise.common.util.writer.FileWriter;
 
 public class GenerateFile {
 
-	private static final Logger logger = LogManager
+	private static final Logger logger = LoggerFactory
 			.getLogger(GenerateFile.class);
 
 	public static void prepareClassesListFile(String argPackageName,
