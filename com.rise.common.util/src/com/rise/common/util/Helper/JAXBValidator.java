@@ -14,8 +14,8 @@ import javax.xml.bind.ValidationEvent;
 import javax.xml.bind.ValidationEventHandler;
 import javax.xml.bind.ValidationEventLocator;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * The Class JAXBValidator.
@@ -23,12 +23,14 @@ import org.apache.logging.log4j.Logger;
 public class JAXBValidator implements ValidationEventHandler {
 
 	/** The logger for logging the messages into log file. */
-	private Logger logger = LogManager.getLogger(JAXBValidator.class);
+	private static final Logger logger = LoggerFactory
+			.getLogger(JAXBValidator.class);
 
 	private String configurationFile;
 
 	/*
 	 * Handles the xsd validation with custom messages (non-Javadoc)
+	 * 
 	 * @see javax.xml.bind.ValidationEventHandler#handleEvent(javax.xml.bind.
 	 * ValidationEvent)
 	 */
@@ -36,8 +38,8 @@ public class JAXBValidator implements ValidationEventHandler {
 	public boolean handleEvent(ValidationEvent argEvent) {
 		if (argEvent.getSeverity() == argEvent.ERROR
 				|| argEvent.getSeverity() == argEvent.FATAL_ERROR) {
-			ValidationEventLocator validationEventLocator =
-					argEvent.getLocator();
+			ValidationEventLocator validationEventLocator = argEvent
+					.getLocator();
 			logger.error("XML Validation failed for xml file : "
 					+ this.getConfigurationFile() + "\n with Exception :"
 					+ argEvent.getMessage() + " at row: "

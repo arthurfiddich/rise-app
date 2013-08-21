@@ -5,8 +5,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.collections.MultiMap;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.rise.common.util.hibernate.ResourceUtil;
 import com.rise.xmlns.common.v1.Field;
@@ -14,7 +14,7 @@ import com.rise.xmlns.common.v1.QueryConfig;
 
 public class TenantConfigHelper {
 
-	private static Logger logger = LogManager
+	private static final Logger logger = LoggerFactory
 			.getLogger(TenantConfigHelper.class);
 	private static final String QUERY_CONFIG_FILE_LOCATION = "com.rise.query.config.xml";
 	private static final String MODEL_CLASS_PROPERTY_FILE_LOCATION = "classNames.txt";

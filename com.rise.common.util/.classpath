@@ -6,11 +6,12 @@
 	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/hibernate/required/hibernate-core-4.1.9.Final.jar" sourcepath="/com.rise.extlib/src-jars/hibernate/hibernate-core-4.1.9.Final-sources.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/joda-time/joda-time-2.2.jar" sourcepath="/com.rise.extlib/src-jars/joda-time/joda-time-2.2-sources.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/log4j"/>
 	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/xinclude/xincluder.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/com.rise.xmlns.query.config"/>
 	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/apache/commons/collections/commons-collections-3.2.1.jar"/>
 	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/spring/spring-core-3.2.2.RELEASE.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/apache-poi"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/logback"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/slf4j"/>
 	<classpathentry kind="output" path="classes"/>
 </classpath>
