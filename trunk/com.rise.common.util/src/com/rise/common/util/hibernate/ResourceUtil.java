@@ -7,14 +7,15 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
 public class ResourceUtil {
 	private static PathMatchingResourcePatternResolver pathMatchingResourcePatternResolver = new PathMatchingResourcePatternResolver();
-	private static Logger logger = LogManager.getLogger(ResourceUtil.class);
+	private static final Logger logger = LoggerFactory
+			.getLogger(ResourceUtil.class);
 
 	public static String getRootDirectory() {
 		String rootDirectory = System.getenv("ROOT_DIRECTORY");
@@ -117,7 +118,7 @@ public class ResourceUtil {
 	public static String getWritableConfigFolderPath() {
 		return getAbsolutePath("conf");
 	}
-	
+
 	public static String getAbsolutePath(String path) {
 		if (path != null) {
 			if (path.charAt(0) != File.separatorChar) {

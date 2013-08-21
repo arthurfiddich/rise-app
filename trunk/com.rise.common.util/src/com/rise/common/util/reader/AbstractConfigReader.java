@@ -3,15 +3,15 @@ package com.rise.common.util.reader;
 import java.io.InputStream;
 import java.util.Properties;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.core.io.Resource;
 
 import com.rise.common.util.Helper.GenericJaxbHelper;
 
 public abstract class AbstractConfigReader implements ConfigReader {
 
-	private static final Logger logger = LogManager
+	private static final Logger logger = LoggerFactory
 			.getLogger(AbstractConfigReader.class);
 
 	public Object read(Resource argResource, String argXsd,

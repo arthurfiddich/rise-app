@@ -7,8 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.core.io.Resource;
 
 import com.rise.common.util.checker.Precondition;
@@ -17,7 +17,7 @@ import com.rise.common.util.hibernate.ResourceUtil;
 
 public class FileSystemConfigReader extends AbstractConfigReader {
 
-	private static final Logger logger = LogManager
+	private static final Logger logger = LoggerFactory
 			.getLogger(FileSystemConfigReader.class);
 
 	@Override

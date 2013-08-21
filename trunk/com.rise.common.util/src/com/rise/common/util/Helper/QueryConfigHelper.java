@@ -7,13 +7,11 @@ import java.util.Map;
 
 import org.apache.commons.collections.MultiMap;
 import org.apache.commons.collections.map.MultiValueMap;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.springframework.core.io.Resource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.rise.common.util.checker.Precondition;
 import com.rise.common.util.constants.HibernateHelperConstants;
-import com.rise.common.util.hibernate.ResourceUtil;
 import com.rise.common.util.reader.FileSystemConfigReader;
 import com.rise.xmlns.common.v1.Component;
 import com.rise.xmlns.common.v1.Field;
@@ -23,7 +21,7 @@ import com.rise.xmlns.common.v1.SuperClass;
 
 public class QueryConfigHelper {
 
-	private static Logger logger = LogManager
+	private static final Logger logger = LoggerFactory
 			.getLogger(QueryConfigHelper.class);
 	public static final String PACKAGE_NAME = com.rise.xmlns.common.v1.ObjectFactory.class
 			.getPackage().getName();
