@@ -73,4 +73,6 @@ public class HibernateConstants {
 	public static final String EDIT_EMPLOYMENT_EXPERIENCE = "editEmploymentExperience";
 
 	public static final String AJAX_LIST = "ajaxList";
+
+	public static final String SET_UP = "setUp";
 }

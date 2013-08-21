@@ -3,7 +3,10 @@ package com.rise.common.model;
 import java.util.Date;
 import java.util.Set;
 
+import com.rise.common.util.annotation.Component;
 import com.rise.common.util.annotation.DesiredField;
+import com.rise.common.util.annotation.FieldType.Type;
+import com.rise.common.util.annotation.Reference;
 
 public class Person extends BaseModel {
 	/**
@@ -22,16 +25,33 @@ public class Person extends BaseModel {
 	// private String suffix;
 	@DesiredField
 	private Date dateOfBirth;
+	
 	@DesiredField
 	private String aadhaarNumber;
 
+	@Reference(className="com.rise.common.model.EducationQualification", type = Type.SET)
 	private Set<EducationQualification> educationQualifications;
+	
+	@Reference(className="com.rise.common.model.EmploymentExperience", type = Type.SET)
 	private Set<EmploymentExperience> employmentExperiences;
+	
+	@Reference(className="com.rise.common.model.ContactInformation", type = Type.DEFAULT)
 	private ContactInformation contactInformation;
+	
+	@Reference(className="com.rise.common.model.DriversLicense", type = Type.DEFAULT)
 	private DriversLicense driversLicense;
+	
+	@Component
+	@Reference(className="com.rise.common.model.PersonName", type = Type.DEFAULT)
 	private PersonName personName;
+	
+	@Reference(className="com.rise.common.model.Candidate", type = Type.DEFAULT)
 	private Candidate candidate;
+	
+	@Reference(className="com.rise.common.model.Passport", type = Type.DEFAULT)
 	private Passport passport;
+	
+	@Reference(className="com.rise.common.model.Award", type = Type.SET)
 	private Set<Award> awards;
 
 	public Person() {

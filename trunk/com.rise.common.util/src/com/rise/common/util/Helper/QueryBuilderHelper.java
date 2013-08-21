@@ -7,10 +7,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.rise.common.util.annotation.Component;
 import com.rise.common.util.annotation.DesiredField;
 import com.rise.common.util.checker.Precondition;
 import com.rise.common.util.checker.PreconditionException;
 import com.rise.common.util.constants.HibernateHelperConstants;
+import com.rise.common.util.controller.components.Entity;
 import com.rise.common.util.reader.ConfigReader;
 import com.rise.common.util.reader.FileSystemConfigReader;
 
@@ -18,10 +20,12 @@ public class QueryBuilderHelper {
 
 	private String tenantId;
 	private String configurationFile;
+	private List<Class<?>> modelClassesList = new ArrayList<Class<?>>();
 	private Map<String, String> modelNameVsQueryPartMap = new HashMap<String, String>();
 	private Map<String, String> componentModelClassMap = new HashMap<String, String>();
 	private Map<String, List<Field>> modelNameVsFieldsMap = new HashMap<String, List<Field>>();
 	private Map<String, Class<?>> modelNameVsClassObjectMap = new HashMap<String, Class<?>>();
+	private Map<String, List<com.rise.common.util.controller.components.Field>> entityNameVsFieldPojoListMap = new HashMap<String, List<com.rise.common.util.controller.components.Field>>();
 
 	public static QueryBuilderHelper createInstance(String argTenantId,
 			String argConfigurationFile) {
@@ -34,7 +38,54 @@ public class QueryBuilderHelper {
 
 	private void initialize() {
 		ConfigReader configReader = new FileSystemConfigReader();
-		buildMaps(configReader.readTextFile(this.getConfigurationFile()));
+		List<String> tokens = configReader.readTextFile(this
+				.getConfigurationFile());
+		buildMaps(tokens);
+		buildEntityNameVsFieldsList();
+	}
+
+	private void buildEntityNameVsFieldsList() {
+		if (Precondition.checkNotEmpty(this.getModelClassesList())) {
+			Map<String, List<com.rise.common.util.controller.components.Field>> entityNameVsFieldPojoListMap = new HashMap<String, List<com.rise.common.util.controller.components.Field>>();
+			for (Class<?> clazz : this.getModelClassesList()) {
+				List<Field> fieldsList = getFields(clazz.getDeclaredFields());
+				fieldsList.addAll(getFields(clazz));
+				List<com.rise.common.util.controller.components.Field> fieldPojoList = buildControllerComponentFields(fieldsList);
+				entityNameVsFieldPojoListMap.put(clazz.getSimpleName(),
+						fieldPojoList);
+			}
+			this.setEntityNameVsFieldPojoListMap(entityNameVsFieldPojoListMap);
+		}
+	}
+
+	private List<com.rise.common.util.controller.components.Field> buildControllerComponentFields(
+			List<Field> argFieldsList) {
+		if (Precondition.checkNotEmpty(argFieldsList)) {
+			List<com.rise.common.util.controller.components.Field> fieldPojoList = new ArrayList<com.rise.common.util.controller.components.Field>();
+			for (Field field : argFieldsList) {
+				com.rise.common.util.controller.components.Field fieldPojo = new com.rise.common.util.controller.components.Field();
+				fieldPojo.setFieldName(field.getName());
+				fieldPojoList.add(fieldPojo);
+			}
+			return fieldPojoList;
+		}
+		return new ArrayList<com.rise.common.util.controller.components.Field>();
+	}
+
+	private List<Field> getFields(Class argClass) {
+		Field[] fields = argClass.getDeclaredFields();
+		List<Field> fieldList = new ArrayList<Field>();
+		for (int i = 0; i < fields.length; i++) {
+			Field field = fields[i];
+			if (Precondition.checkNotNull(field)) {
+				Component componentField = field.getAnnotation(Component.class);
+				if (componentField != null) {
+					fieldList.addAll(this.getModelNameVsFieldsMap().get(
+							Introspector.decapitalize(field.getName())));
+				}
+			}
+		}
+		return fieldList;
 	}
 
 	private void buildMaps(List<String> argTokens) {
@@ -44,6 +95,7 @@ public class QueryBuilderHelper {
 			try {
 				Class clazz = Class.forName(modelClassName);
 				this.getModelNameVsClassObjectMap().put(modelClassName, clazz);
+				this.modelClassesList.add(clazz);
 				build(clazz);
 			} catch (ClassNotFoundException e) {
 				throw new PreconditionException("Class not found exception: "
@@ -210,6 +262,21 @@ public class QueryBuilderHelper {
 		this.configurationFile = argConfigurationFile;
 	}
 
+	/**
+	 * @return the modelClassesList
+	 */
+	public List<Class<?>> getModelClassesList() {
+		return this.modelClassesList;
+	}
+
+	/**
+	 * @param argModelClassesList
+	 *            the modelClassesList to set
+	 */
+	public void setModelClassesList(List<Class<?>> argModelClassesList) {
+		this.modelClassesList = argModelClassesList;
+	}
+
 	public Map<String, String> getModelNameVsQueryPartMap() {
 		return this.modelNameVsQueryPartMap;
 	}
@@ -244,6 +311,22 @@ public class QueryBuilderHelper {
 	public void setModelNameVsClassObjectMap(
 			Map<String, Class<?>> argModelNameVsClassObjectMap) {
 		this.modelNameVsClassObjectMap = argModelNameVsClassObjectMap;
+	}
+
+	/**
+	 * @return the entityNameVsFieldPojoListMap
+	 */
+	public Map<String, List<com.rise.common.util.controller.components.Field>> getEntityNameVsFieldPojoListMap() {
+		return this.entityNameVsFieldPojoListMap;
+	}
+
+	/**
+	 * @param argEntityNameVsFieldPojoListMap
+	 *            the entityNameVsFieldPojoListMap to set
+	 */
+	public void setEntityNameVsFieldPojoListMap(
+			Map<String, List<com.rise.common.util.controller.components.Field>> argEntityNameVsFieldPojoListMap) {
+		this.entityNameVsFieldPojoListMap = argEntityNameVsFieldPojoListMap;
 	}
 
 }

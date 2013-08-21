@@ -43,8 +43,8 @@ public class TenantConfigHelper {
 		System.out.println(url.toString());
 		System.out.println(url.toExternalForm());
 		System.out.println(url.getPath());
-//		this.setQueryConfigHelper(QueryConfigHelper.createInstance(
-//				this.getTenantId(), QUERY_CONFIG_FILE_LOCATION));
+		// this.setQueryConfigHelper(QueryConfigHelper.createInstance(
+		// this.getTenantId(), QUERY_CONFIG_FILE_LOCATION));
 
 		this.setQueryBuilderHelper(QueryBuilderHelper.createInstance(
 				this.getTenantId(), MODEL_CLASS_PROPERTY_FILE_LOCATION));
@@ -110,6 +110,22 @@ public class TenantConfigHelper {
 				argComponentClassList, argSuperClassList);
 	}
 
+	/**
+	 * @return
+	 * @see com.rise.common.util.Helper.QueryBuilderHelper#getModelClassesList()
+	 */
+	public List<Class<?>> getModelClassesList() {
+		return this.queryBuilderHelper.getModelClassesList();
+	}
+
+	/**
+	 * @return
+	 * @see com.rise.common.util.Helper.QueryBuilderHelper#getEntityNameVsFieldPojoListMap()
+	 */
+	public Map<String, List<com.rise.common.util.controller.components.Field>> getEntityNameVsFieldPojoListMap() {
+		return this.queryBuilderHelper.getEntityNameVsFieldPojoListMap();
+	}
+
 	public Map<String, String> getModelNameVsQueryPartMap() {
 		return this.queryBuilderHelper.getModelNameVsQueryPartMap();
 	}
@@ -126,8 +142,7 @@ public class TenantConfigHelper {
 		return this.queryBuilderHelper.getModelNameVsClassObjectMap();
 	}
 
-	public List<String> getFieldsBasedOnClass(
-			String argClassName) {
+	public List<String> getFieldsBasedOnClass(String argClassName) {
 		return this.queryBuilderHelper.getFieldsBasedOnClass(argClassName);
 	}
 

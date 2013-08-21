@@ -11,5 +11,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/com.rise.xmlns.query.config"/>
 	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/apache/commons/collections/commons-collections-3.2.1.jar"/>
 	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/spring/spring-core-3.2.2.RELEASE.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/apache-poi"/>
 	<classpathentry kind="output" path="classes"/>
 </classpath>
