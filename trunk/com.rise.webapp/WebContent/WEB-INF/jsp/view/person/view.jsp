@@ -42,26 +42,44 @@
 		window.location.href = "<%=request.getContextPath()%>/educationqualification/edit/${person.getId()}";
 	} --%>
 	function educationQualificationOperation(keyword,eqId){
-		alert(eqId);
+		//alert(eqId);
 		window.location.href = "<%=request.getContextPath()%>/educationqualification/"+keyword+"/"+eqId;
 	}
 	
 	function awardOperation(keyword,eqId){
-		alert(eqId);
+		//alert(eqId);
 		window.location.href = "<%=request.getContextPath()%>/award/"+keyword+"/"+eqId;
 	}
 
 	function employmentexperienceOperation(keyword,eqId){
-		alert(eqId);
+		//alert(eqId);
 		window.location.href = "<%=request.getContextPath()%>/employmentexperience/"+keyword+"/"+eqId;
 	}
+	function openSetupWindow(){
+		  window.location.href="/rise/setUp";
+	  }
 </script>
 </head>
 <body>
 	<div class="container">
-		<header>
-			<h1>Rural Integration Sustainable Employment</h1>
-		</header>
+		<div class="headertablestyle">
+			<table width="100%">
+				<tr>
+					<td width="20%" align="center"><img
+						src="/rise/resources/images/indian-flag.gif" height="85px"
+						width="195px"></img>
+					</td>
+					<td align="center" width="70%"><span
+						style='font: bold 30px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;'>Rural
+							integration Sustainable Employment</span></td>
+
+					<td align="center"><span style="align: right;"><input
+							type="button" value="Setup" class="styled-button-3"
+							onclick="openSetupWindow()">
+					</span></td>
+				</tr>
+			</table>
+		</div>
 		<div id="menubar" style="width: auto">
 			<ul id="menu">
 				<li><a name="home" href="/rise/home">Home</a></li>
