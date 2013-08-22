@@ -36,7 +36,11 @@ public class LoginController extends BaseController {
 		argModel.addAttribute(getSimpleName(), new Address());
 		return HibernateConstants.HOME;
 	}
-
+	@RequestMapping(value = HibernateConstants.SET_UP, method = RequestMethod.GET)
+	public String setUp(Model argModel) {
+		//argModel.addAttribute(getSimpleName(), new Address());
+		return HibernateConstants.SET_UP;
+	}
 	@RequestMapping(value = HibernateConstants.CANDIDATE, method = RequestMethod.GET)
 	public String candidate(Model argModel) {
 		argModel.addAttribute(getSimpleName(), new Person());

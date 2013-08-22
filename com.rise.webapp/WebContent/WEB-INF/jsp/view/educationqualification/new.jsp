@@ -208,7 +208,10 @@ function createTable(){
 											value="${educationqualification.getPerson().getId() }" />
 									</td>
 									
-									<td><img src="rise/resources/images/search_image.jpg" onclick="openwindow();" alt="go"></img></td>
+									<td>
+									<img alt="Go" src="rise/resources/images/searchimage.png"
+					height="32px" width="45px" onclick="openwindow();">
+							</td>
 								</tr>
 								<tr>
 									<td align="right"><form:label path="name" for="name">

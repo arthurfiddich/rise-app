@@ -33,17 +33,32 @@
 	href="/rise/resources/css/animate-custom.css" />
 <link rel="stylesheet" type="text/css"
 	href="/rise/resources/css/menu.css" />
-<!-- <script type="text/javascript">
-	function changeContent(){
-		document.getElementById('divcontainer').load('/rise/candidate');
-	}
-	</script> -->
+ <script type="text/javascript">
+ function openSetupWindow(){
+	  window.location.href="/rise/setUp";
+ }
+	</script> 
 </head>
 <body>
 	<div class="container">
-		<header>
-			<h1>Rural integration Sustainable Employment</h1>
-		</header>
+		<div class="headertablestyle">
+			<table width="100%">
+				<tr>
+					<td width="20%" align="center"><img
+						src="/rise/resources/images/indian-flag.gif" height="85px"
+						width="195px"></img>
+					</td>
+					<td align="center" width="70%"><span
+						style='font: bold 30px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;'>Rural
+							integration Sustainable Employment</span></td>
+
+					<td align="center"><span style="align: right;"><input
+							type="button" value="Setup" class="styled-button-3"
+							onclick="openSetupWindow()">
+					</span></td>
+				</tr>
+			</table>
+		</div>
 		<div id="menubar" style="width: auto">
 			<ul id="menu">
 				<li><a name="home" href="/rise/home">Home</a>

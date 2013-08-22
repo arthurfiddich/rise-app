@@ -26,75 +26,39 @@
 			unique: true
 		});
 	});
-	function openPersonCreate() {
-		window.location.href = "/rise/person/personcreate";
-		//alert("hello");
-	}
 	function openDataImport(){
-		var str ="";
-		str+="<li>Person</li>";
-		str+="<li>Candidate</li>";
-		str+="<li>Agent</li>";
-		$("#subleftcontent").html(str);
-		$("#subleftcontent").style.display="block";
+		window.location.href="/rise/export/create";
 	}
 	function openDataExport(){
-		var value ='person';
-		var str ="";
-		str+="<ul>";
-		str+="<li style='list-style:none;'><a href=javascript:openDetails('"+value+"');>Person</a></li>";
-		str+="<li style='list-style:none;'><a href='javascript:openDetails();'>Candidate</a></li>";
-		str+="<li style='list-style:none;'><a href='javascript:openDetails();'>Agent</a></li>";
-		str+="</ul>";
-		$("#subleftcontent").html(str);
+		window.location.href="/rise/export/create";
 	}
-	function openDetails(data){
-		alert(data);
-		var str ="";
-		$
-		.ajax({
-			type : "POST",
-
-			url : "/rise/person/ajaxList",
-			dataType : "json",
-			contentType : "application/json; charset=utf-8",
-			data : "name='hello'",
-
-			success : function(response) {
-				//str += "<div class='datatablestyle'>";
-				str += "<table border='0'>";
-				
-				$.each(response.fieldsList, function(index, value) {
-					str += "<tr>";
-					str += "<td align='right'>";
-					str += "<input type='checkbox'/>";
-					str += "</td>";
-					str += "<td align='left'>";
-					str += "<span>"+value+"</span>";
-					str += "</td>";
-					str += "</tr>";
-				});
-				
-				str += "</table>";
-				//str += "</div>";
-				$("#subrightcontent").html(str);	
-			},
-			error : function(e) {
-				str += "error";
-				alert('Error: ' + e);
-				$("#subrightcontent").html("No Data Found");	
-			}
-		});
-	}
+	function openSetupWindow(){
+		  window.location.href="/rise/setUp";
+	  }
 </script>
 	
     
 </head>
 <body>
 	<div class="container">
-		<header>
-		<h1>Rural integration Sustainable Employment</h1>
-		</header>
+		<div class="headertablestyle">
+			<table width="100%">
+				<tr>
+					<td width="20%" align="center"><img
+						src="/rise/resources/images/indian-flag.gif" height="85px"
+						width="195px"></img>
+					</td>
+					<td align="center" width="70%"><span
+						style='font: bold 30px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;'>Rural
+							integration Sustainable Employment</span></td>
+
+					<td align="center"><span style="align: right;"><input
+							type="button" value="Setup" class="styled-button-3"
+							onclick="openSetupWindow()">
+					</span></td>
+				</tr>
+			</table>
+		</div>
 		<div id="menubar" style="width: auto">
 			<ul id="menu">
 				<li><a name="home" href="/rise/home">Home</a></li>
@@ -110,7 +74,7 @@
 		<div id="content" class="maincontentcontainer"> 
     <div id="left" class="leftcontainer">   
    <ul id="navigation">
-		<li><a href="?1">Data Management</a>
+		<li><a href="?1"><span style="color:white">Data Management</span></a>
 			<ul>
 			<li><a href="javascript:openDataExport();">Data Export</a></li>
 				<li><a href="javascript:openDataImport();">Data Import</a>
@@ -120,9 +84,6 @@
 	</ul>
 
     </div>  <div id="right" class="rightcontainer" style="display:block;">    
-     <div class="maincontentcontainer" style="display:block;">
-    <div id="subleftcontent" class="leftcontainer" style="display:block;"></div>
-   <div id="subrightcontent" class="rightcontainer" style="display:block;"></div>
  </div>
      </div></div>
 	</div>

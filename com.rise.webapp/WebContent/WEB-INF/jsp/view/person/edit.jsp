@@ -33,11 +33,11 @@
 	href="/rise/resources/css/animate-custom.css" />
 <link rel="stylesheet" type="text/css"
 	href="/rise/resources/css/menu.css" />
-<!-- <script type="text/javascript">
-	function changeContent(){
-		document.getElementById('divcontainer').load('/rise/candidate');
-	}
-	</script> -->
+<script type="text/javascript">
+function openSetupWindow(){
+	  window.location.href="/rise/setUp";
+}
+	</script> 
 </head>
 <body>
 	<div class="container">
