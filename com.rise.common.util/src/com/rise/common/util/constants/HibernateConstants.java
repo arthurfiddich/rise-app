@@ -75,4 +75,6 @@ public class HibernateConstants {
 	public static final String AJAX_LIST = "ajaxList";
 
 	public static final String SET_UP = "setUp";
+
+	public static final String EXPORT_AJAX_LIST = "exportajaxList";
 }

@@ -1,8 +1,10 @@
 package com.rise.service.impl;
 
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,7 +15,10 @@ import com.rise.common.model.Model;
 import com.rise.common.model.Person;
 import com.rise.common.model.PersonName;
 import com.rise.common.util.Helper.TenantConfigHelper;
+import com.rise.common.util.checker.Precondition;
 import com.rise.common.util.checker.PreconditionException;
+import com.rise.common.util.controller.components.Export;
+import com.rise.common.util.controller.components.Field;
 import com.rise.common.util.hibernate.QueryBuilder;
 import com.rise.dao.common.PersonDao;
 import com.rise.service.PersonService;
@@ -148,8 +153,8 @@ public class PersonServiceImpl extends BaseServiceImpl implements PersonService 
 				.getSimpleName(), query);
 		List<Object[]> results = this.getBaseDao().getPersons(query);
 		try {
-			List<Object> objects = assignProperties(results, componentClassList,
-					this.getPersistentClass());
+			List<Object> objects = assignProperties(results,
+					componentClassList, this.getPersistentClass());
 			List<Person> personsList = new ArrayList<Person>();
 			for (Object object : objects) {
 				personsList.add((Person) object);
@@ -158,6 +163,20 @@ public class PersonServiceImpl extends BaseServiceImpl implements PersonService 
 		} catch (Exception e) {
 			throw new PreconditionException(
 					"Exception while converting objects to person objects: ", e);
+		}
+	}
+
+	@Override
+	public void writeStream(String argEntityName, String argSelectedFieldNames,
+			OutputStream argOutputStream) {
+		String entityName = Precondition.ensureNotEmpty(argEntityName,
+				"EntityName");
+		String commaSeperatedSelectedFieldNames = Precondition.ensureNotEmpty(
+				argSelectedFieldNames, "Selected Field Names");
+		Precondition.ensureNotNull(argOutputStream, "OutputStream");
+		List<Model> personsList = this.getBaseDao().findAll();
+		if(Precondition.checkNotEmpty(personsList)){
+			
 		}
 	}
 }
