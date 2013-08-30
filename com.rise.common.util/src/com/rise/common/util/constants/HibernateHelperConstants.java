@@ -15,4 +15,12 @@ public class HibernateHelperConstants {
 	public static final String FROM = "from";
 	public static final String EMPTY = "";
 	public static final String UTF_8 = "UTF-8";
+	public static final String APPLICATION_CONTEXT = "Application Context";
+	public static final String DATA_SOURCE = "dataSource";
+	public static final String SQL_DATA_SOURCE = "SQL Data Source";
+	public static final String RESULT_SET_META_DATA = "Result Set MetaData";
+	public static final String COLUMN_LENGTH = "Column Length";
+	public static final String TABLE_NAME = "Table Name";
+	public static final String DATA_BASE_DIRECTORY_NAME = "database";
+
 }
