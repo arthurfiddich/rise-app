@@ -2,6 +2,7 @@ package com.rise.webapp.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,12 +14,16 @@ import com.rise.common.util.Helper.TenantConfigHelper;
 import com.rise.common.util.constants.HibernateConstants;
 import com.rise.common.util.controller.components.Export;
 import com.rise.service.BaseService;
+import com.rise.service.PersonService;
 
 @Controller
 @RequestMapping("/export")
 public class ExportController extends BaseController {
 
 	private Logger logger = LoggerFactory.getLogger(BaseController.class);
+	
+	@Autowired
+	private PersonService personService;
 
 	@RequestMapping(value = HibernateConstants.CREATE, method = RequestMethod.GET)
 	public String exportPage(Model argModel) {
@@ -37,15 +42,7 @@ public class ExportController extends BaseController {
 		}
 		System.out.println("entity :"+entity);
 		System.out.println("fieldarray :"+fieldarray);
-		/*BindingResult<Person> bindingResult = new BindingResult<Person>();
-		Map<String, List<Field>> entityNameVsFieldListMap= TenantConfigHelper.getInstance()
-		.getEntityNameVsFieldPojoListMap();
-		//String value = request.getParameter("name");
-		//List<Field> fieldList = entityNameVsFieldListMap.get(value);
-		List<String> fields = new ArrayList<String>();
-		for(Field field: fieldList){
-			fields.add(field.getFieldName());
-		}*/
+		this.personService.exportData();
 		return "hello";
 	}
 	
@@ -55,9 +52,4 @@ public class ExportController extends BaseController {
 		return null;
 	}
 
-	// public void generateReport(HttpServletRequest request,
-	// HttpServletResponse response, BindingResult argBindingResult,
-	// String argJsonString) throws Exception {
-	// System.out.println(argJsonString);
-	// }
 }

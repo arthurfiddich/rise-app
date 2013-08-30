@@ -18,7 +18,7 @@
 	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/spring/com.springsource.org.apache.log4j-1.2.15.jar"/>
 	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/apache/commons/beanutils/commons-beanutils-1.8.3.jar"/>
 	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/apache/commons/collections/commons-collections-testframework-3.2.1.jar"/>
-	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/apache/commons/dbcp/commons-dbcp-1.4.jar"/>
+	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/apache/commons/dbcp/commons-dbcp-1.4.jar" sourcepath="/com.rise.extlib/src-jars/apache/commons/dbcp/commons-dbcp-1.4-sources.jar"/>
 	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/apache/commons/lang/commons-lang3-3.1.jar"/>
 	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/apache/commons/logging/commons-logging-1.1.2.jar"/>
 	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/apache/commons/pool/commons-pool-1.6.jar"/>

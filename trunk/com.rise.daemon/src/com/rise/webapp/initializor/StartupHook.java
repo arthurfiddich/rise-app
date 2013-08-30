@@ -5,6 +5,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 
 import com.rise.common.util.Helper.TenantConfigHelper;
+import com.rise.common.util.database.DatabaseUtil;
 
 @SuppressWarnings("serial")
 public class StartupHook extends HttpServlet {
@@ -14,6 +15,7 @@ public class StartupHook extends HttpServlet {
 		GenerateFile.prepareClassesListFile("com.rise.common.model",
 				"classNames.txt");
 		TenantConfigHelper.getInstance();
+		DatabaseUtil.getInstance();
 		super.init(argConfig);
 	}
 }

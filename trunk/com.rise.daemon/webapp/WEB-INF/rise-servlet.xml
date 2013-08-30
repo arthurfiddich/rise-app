@@ -68,4 +68,6 @@
 		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
+	
+	<bean id="applicationContextProvder" class="com.rise.common.util.database.ApplicationContextProvider"/>
 </beans>
