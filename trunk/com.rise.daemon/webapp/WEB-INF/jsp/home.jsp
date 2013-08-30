@@ -37,8 +37,7 @@
 <script type="text/javascript" src="http://www.technicalkeeda.com/js/javascripts/plugin/json2.js"></script>
   <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
   <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-  <link rel="stylesheet" type="text/css"
-	href="/rise/resources/css/table.css" />
+  
 	<SCRIPT LANGUAGE="JavaScript">  
   
 var ob;  
@@ -234,29 +233,40 @@ document.onmouseup = MU;
 	//document.getElementById("esi").value = document.getElementById(index).value;
 	$( "#dialog-confirm" ).dialog("close");
   }
+  function openSetupWindow(){
+	  window.location.href="/rise/setUp";
+  }
   </script>
 </head>
 <body>
 	<div class="container">
-		<header>
-			<h1>Rural integration Sustainable Employment</h1>
-		</header>
-		<div id="menubar" style="width:auto">
+	<div class="headertablestyle">
+	<table width="100%">
+	<tr>
+	<td width="20%" align="center">
+	<img src="/rise/resources/images/indian-flag.gif" height="85px" width="195px"></img></td>
+	<td align="center" width="70%">
+			<span style='font: bold 30px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;'>Rural integration Sustainable Employment</span>
+	</td>
+	
+	<td align="center">
+	<span style="align:right;"><input type="button" value="Setup" class="styled-button-3" onclick="openSetupWindow()"></span>
+	</td>
+	</tr>
+	</table>
+		</div>
+		
+		<div id="menubar" style="width: auto">
 			<ul id="menu">
-				<li><a name="home" href="/rise/home" class="activesection"><span style="color:blue;">Home</span></a>
-				</li>
-				<li><a name="person" href="/rise/person/list">Person</a>
-				</li>
-				<li><a href="#">Trainer</a>
-				</li>
-				<li><a href="#">Agents</a>
-				</li>
-				<li><a href="#">Overview</a>
-				</li>
-				<li><a href="#">Contact Us</a>
-				</li>
+				<li><a name="home" href="/rise/home"class="activesection"><span style="color: blue;">Home</span></a></li>
+				<li><a name="person" href="/rise/person/list">Person
+				</a></li>
+				<li><a  name="Trainer" href="/rise/trainer">Trainer</a></li>
+				<li><a href="#">Agents</a></li>
+				<li><a href="#">Overview</a></li>
+				<li><a href="#">Contact Us</a></li>
 			</ul>
-			</div>
+		</div>
 		<div id="divcontainer" class="content">
 		ESI Number : <input type="text" id="esi">
 		<input type="hidden" id="hidesi">
@@ -264,6 +274,7 @@ document.onmouseup = MU;
 		<div id="dialog-confirm" title="Empty the recycle bin?">
  <div id="innerdialog"></div>
 </div>
+<div class="datatablestyle">
   <table cellspacing="0" id="myTable">
   <thead>
 	         <tr>
@@ -285,6 +296,7 @@ document.onmouseup = MU;
 	         </tr>
 	         </tbody>
 	         </table>
+	         </div>
 </div>
 		
 	</div>

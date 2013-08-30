@@ -92,7 +92,7 @@ function createTable(){
 													+ value.personName.firstName
 													+ "' id='"
 													+ index
-													+ "' onclick='fun(this.id)'' style='color:blue;'>"
+													+ "' onclick='fun(this.id)'' style='color:blue;cursor: pointer;' onmouseover='colorchange(this.id);' onmouseout='colororiginal(this.id);''>"
 													+ value.id
 													+ "</span></td><td><span style='color:#000'>"
 													+ value.personName.title
@@ -155,6 +155,12 @@ function createTable(){
 		//document.getElementById("esi").value = document.getElementById(index).value;
 		$("#dialog-confirm").dialog("close");
 	}
+	function colorchange(index){
+		document.getElementById(index).style.color="red"; 
+	}
+	function colororiginal(index){
+		document.getElementById(index).style.color="blue"; 
+	}
 </script>
 </head>
 <body>
@@ -199,9 +205,13 @@ function createTable(){
 											<spring:message code="label.personId" />
 										</form:label></td>
 									<td><form:input path="person.id" id="id"
-											value="${educationqualification.getPerson().getId() }" /> <input
-										type="button" onclick="openwindow();" value="go">
+											value="${educationqualification.getPerson().getId() }" />
 									</td>
+									
+									<td>
+									<img alt="Go" src="rise/resources/images/searchimage.png"
+					height="32px" width="45px" onclick="openwindow();">
+							</td>
 								</tr>
 								<tr>
 									<td align="right"><form:label path="name" for="name">
