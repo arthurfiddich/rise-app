@@ -9,5 +9,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/spring"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/com.rise.common.util"/>
 	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/apache/commons/beanutils/commons-beanutils-1.8.3.jar"/>
+	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/apache/commons/dbcp/commons-dbcp-1.4.jar"/>
 	<classpathentry kind="output" path="classes"/>
 </classpath>

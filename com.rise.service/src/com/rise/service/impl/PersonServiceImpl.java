@@ -4,7 +4,6 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,8 +16,9 @@ import com.rise.common.model.PersonName;
 import com.rise.common.util.Helper.TenantConfigHelper;
 import com.rise.common.util.checker.Precondition;
 import com.rise.common.util.checker.PreconditionException;
-import com.rise.common.util.controller.components.Export;
-import com.rise.common.util.controller.components.Field;
+import com.rise.common.util.constants.HibernateHelperConstants;
+import com.rise.common.util.database.DatabaseDataExporter;
+import com.rise.common.util.exception.DatabaseException;
 import com.rise.common.util.hibernate.QueryBuilder;
 import com.rise.dao.common.PersonDao;
 import com.rise.service.PersonService;
@@ -175,8 +175,15 @@ public class PersonServiceImpl extends BaseServiceImpl implements PersonService 
 				argSelectedFieldNames, "Selected Field Names");
 		Precondition.ensureNotNull(argOutputStream, "OutputStream");
 		List<Model> personsList = this.getBaseDao().findAll();
-		if(Precondition.checkNotEmpty(personsList)){
-			
+		if (Precondition.checkNotEmpty(personsList)) {
+
 		}
+	}
+
+	@Override
+	public void exportData() throws DatabaseException {
+		DatabaseDataExporter databaseDataExporter = new DatabaseDataExporter(
+				HibernateHelperConstants.DATA_BASE_DIRECTORY_NAME);
+		databaseDataExporter.exportData(this.getPersistentClass().getSimpleName());
 	}
 }
