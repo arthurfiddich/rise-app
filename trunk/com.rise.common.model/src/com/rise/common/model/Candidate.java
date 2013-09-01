@@ -2,6 +2,8 @@ package com.rise.common.model;
 
 import java.util.Set;
 
+import com.rise.common.util.annotation.DesiredField;
+
 public class Candidate extends BaseModel {
 
 	/**
@@ -9,6 +11,7 @@ public class Candidate extends BaseModel {
 	 */
 	private static final long serialVersionUID = 1L;
 
+	@DesiredField
 	private String contactPersonName;
 
 	private Set<CandidateTrainingBatch> candidateTrainingBatches;

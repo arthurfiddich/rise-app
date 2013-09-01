@@ -7,6 +7,7 @@ import com.rise.common.util.annotation.Component;
 import com.rise.common.util.annotation.DesiredField;
 import com.rise.common.util.annotation.FieldType.Type;
 import com.rise.common.util.annotation.Reference;
+import com.rise.common.util.checker.HibernateClassNameConstants;
 
 public class Person extends BaseModel {
 	/**
@@ -25,33 +26,34 @@ public class Person extends BaseModel {
 	// private String suffix;
 	@DesiredField
 	private Date dateOfBirth;
-	
+
 	@DesiredField
 	private String aadhaarNumber;
 
-	@Reference(className="com.rise.common.model.EducationQualification", type = Type.SET)
+	@Reference(className = "com.rise.common.model.EducationQualification", type = Type.SET, prefix = "EDU", name = HibernateClassNameConstants.EDUCATION_QUALIFICATION, variableName = "educationQualifications")
 	private Set<EducationQualification> educationQualifications;
-	
-	@Reference(className="com.rise.common.model.EmploymentExperience", type = Type.SET)
+
+	@Reference(className = "com.rise.common.model.EmploymentExperience", type = Type.SET, prefix = "EMP-EXP", name = HibernateClassNameConstants.EMPLOYMENT_EXPERIENCE, variableName = "employmentExperiences")
 	private Set<EmploymentExperience> employmentExperiences;
-	
-	@Reference(className="com.rise.common.model.ContactInformation", type = Type.DEFAULT)
+
+	@Reference(className = "com.rise.common.model.ContactInformation", type = Type.DEFAULT, prefix = "CI", name = HibernateClassNameConstants.CONTACT_INFORMATION, variableName = "contactInformation")
 	private ContactInformation contactInformation;
-	
-	@Reference(className="com.rise.common.model.DriversLicense", type = Type.DEFAULT)
+
+	@Reference(className = "com.rise.common.model.DriversLicense", type = Type.DEFAULT, prefix = "DL", name = HibernateClassNameConstants.DRIVERS_LICENSE, variableName = "driversLicense")
 	private DriversLicense driversLicense;
-	
+
 	@Component
-	@Reference(className="com.rise.common.model.PersonName", type = Type.DEFAULT)
+	// @Reference(className="com.rise.common.model.PersonName", type =
+	// Type.DEFAULT)
 	private PersonName personName;
-	
-	@Reference(className="com.rise.common.model.Candidate", type = Type.DEFAULT)
+
+	@Reference(className = "com.rise.common.model.Candidate", type = Type.DEFAULT, prefix = "CANDIDATE", name = HibernateClassNameConstants.CANDIDATE, variableName = "candidate")
 	private Candidate candidate;
-	
-	@Reference(className="com.rise.common.model.Passport", type = Type.DEFAULT)
+
+	@Reference(className = "com.rise.common.model.Passport", type = Type.DEFAULT, prefix = "PASSPORT", name = HibernateClassNameConstants.PASSPORT, variableName = "passport")
 	private Passport passport;
-	
-	@Reference(className="com.rise.common.model.Award", type = Type.SET)
+
+	@Reference(className = "com.rise.common.model.Award", type = Type.SET, prefix = "AWARD", name = HibernateClassNameConstants.AWARD, variableName = "awards")
 	private Set<Award> awards;
 
 	public Person() {

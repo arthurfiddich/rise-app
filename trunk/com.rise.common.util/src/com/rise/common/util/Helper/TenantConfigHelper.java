@@ -146,4 +146,56 @@ public class TenantConfigHelper {
 		return this.queryBuilderHelper.getFieldsBasedOnClass(argClassName);
 	}
 
+	/**
+	 * @return
+	 * @see com.rise.common.util.Helper.QueryBuilderHelper#getModelNameVsRefereceFieldsMap()
+	 */
+	public Map<String, List<java.lang.reflect.Field>> getModelNameVsRefereceFieldsMap() {
+		return this.queryBuilderHelper.getModelNameVsRefereceFieldsMap();
+	}
+
+	/**
+	 * @return
+	 * @see com.rise.common.util.Helper.QueryBuilderHelper#getModelNameVsComponentFieldsMap()
+	 */
+	public Map<String, List<java.lang.reflect.Field>> getModelNameVsComponentFieldsMap() {
+		return this.queryBuilderHelper.getModelNameVsComponentFieldsMap();
+	}
+
+	/**
+	 * @return
+	 * @see com.rise.common.util.Helper.QueryBuilderHelper#getModelNameVsRefereceFieldNamesMap()
+	 */
+	public Map<String, List<String>> getModelNameVsRefereceFieldNamesMap() {
+		return this.queryBuilderHelper.getModelNameVsRefereceFieldNamesMap();
+	}
+
+	/**
+	 * @param argModelClassName
+	 * @return
+	 * @see com.rise.common.util.Helper.QueryBuilderHelper#getReferenceFieldsListByModelName(java.lang.String)
+	 */
+	public List<java.lang.reflect.Field> getReferenceFieldsListByModelName(
+			String argModelClassName) {
+		return this.queryBuilderHelper
+				.getReferenceFieldsListByModelName(argModelClassName);
+	}
+
+	/**
+	 * @return
+	 * @see com.rise.common.util.Helper.QueryBuilderHelper#getModelNameVsRefereceFieldNamePrefixVsColumnNamesListMap()
+	 */
+	public Map<String, Map<String, List<String>>> getModelNameVsRefereceFieldNamePrefixVsColumnNamesListMap() {
+		return this.queryBuilderHelper
+				.getModelNameVsRefereceFieldNamePrefixVsColumnNamesListMap();
+	}
+
+	/**
+	 * @return
+	 * @see com.rise.common.util.Helper.QueryBuilderHelper#getModelNameVsFieldNamesMap()
+	 */
+	public Map<String, List<String>> getModelNameVsFieldNamesMap() {
+		return this.queryBuilderHelper.getModelNameVsFieldNamesMap();
+	}
+
 }

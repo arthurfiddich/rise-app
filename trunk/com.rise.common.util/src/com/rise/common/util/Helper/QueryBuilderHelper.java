@@ -1,18 +1,22 @@
 package com.rise.common.util.Helper;
 
 import java.beans.Introspector;
+import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import com.rise.common.util.annotation.Component;
 import com.rise.common.util.annotation.DesiredField;
+import com.rise.common.util.annotation.FieldType.Type;
+import com.rise.common.util.annotation.Reference;
 import com.rise.common.util.checker.Precondition;
 import com.rise.common.util.checker.PreconditionException;
 import com.rise.common.util.constants.HibernateHelperConstants;
-import com.rise.common.util.controller.components.Entity;
 import com.rise.common.util.reader.ConfigReader;
 import com.rise.common.util.reader.FileSystemConfigReader;
 
@@ -24,8 +28,13 @@ public class QueryBuilderHelper {
 	private Map<String, String> modelNameVsQueryPartMap = new HashMap<String, String>();
 	private Map<String, String> componentModelClassMap = new HashMap<String, String>();
 	private Map<String, List<Field>> modelNameVsFieldsMap = new HashMap<String, List<Field>>();
+	private Map<String, List<String>> modelNameVsFieldNamesMap = new HashMap<String, List<String>>();
 	private Map<String, Class<?>> modelNameVsClassObjectMap = new HashMap<String, Class<?>>();
 	private Map<String, List<com.rise.common.util.controller.components.Field>> entityNameVsFieldPojoListMap = new HashMap<String, List<com.rise.common.util.controller.components.Field>>();
+	private Map<String, List<Field>> modelNameVsRefereceFieldsMap = new HashMap<String, List<Field>>();
+	private Map<String, List<Field>> modelNameVsComponentFieldsMap = new HashMap<String, List<Field>>();
+	private Map<String, List<String>> modelNameVsRefereceFieldNamesMap = new HashMap<String, List<String>>();
+	private Map<String, Map<String, List<String>>> modelNameVsRefereceFieldNamePrefixVsColumnNamesListMap = new HashMap<String, Map<String, List<String>>>();
 
 	public static QueryBuilderHelper createInstance(String argTenantId,
 			String argConfigurationFile) {
@@ -42,6 +51,135 @@ public class QueryBuilderHelper {
 				.getConfigurationFile());
 		buildMaps(tokens);
 		buildEntityNameVsFieldsList();
+		collectAllReferenceAndComponentFields();
+		buildClassNameVsFieldNamesMap();
+		prepareModelClassNameVsCollectionOfReferenceFieldsMap();
+	}
+
+	private void buildClassNameVsFieldNamesMap() {
+		Map<String, List<Field>> modelNameVsFieldsMap = this
+				.getModelNameVsFieldsMap();
+		if (Precondition.checkNotNull(modelNameVsFieldsMap)) {
+			Iterator<Map.Entry<String, List<Field>>> iterator = modelNameVsFieldsMap
+					.entrySet().iterator();
+			while (iterator.hasNext()) {
+				Entry<String, List<Field>> entry = iterator.next();
+				List<String> fieldNamesList = new ArrayList<String>();
+				for (Field field : entry.getValue()) {
+					Annotation[] annotationsArray = field.getAnnotations();
+					for (Annotation annotation : annotationsArray) {
+						if (annotation instanceof DesiredField) {
+							fieldNamesList.add(field.getName());
+						}
+					}
+				}
+				this.getModelNameVsFieldNamesMap().put(entry.getKey(),
+						fieldNamesList);
+			}
+		}
+	}
+
+	private void prepareModelClassNameVsCollectionOfReferenceFieldsMap() {
+		Map<String, List<Field>> modelClassNameVsReferenceFieldsMap = this
+				.getModelNameVsRefereceFieldsMap();
+		if (Precondition.checkNotNull(modelClassNameVsReferenceFieldsMap)) {
+			Iterator<Map.Entry<String, List<Field>>> iterator = modelClassNameVsReferenceFieldsMap
+					.entrySet().iterator();
+			while (iterator.hasNext()) {
+				Entry<String, List<Field>> entry = iterator.next();
+				prepareFieldNamePrefixVsColumnNameMap(entry);
+			}
+		}
+	}
+
+	private void prepareFieldNamePrefixVsColumnNameMap(
+			Entry<String, List<Field>> argEntry) {
+		if (Precondition.checkNotNull(argEntry)) {
+			Map<String, List<String>> refereceFieldNamePrefixVsColumnNameMap = new HashMap<String, List<String>>();
+			for (Field field : argEntry.getValue()) {
+				Annotation[] annotationsArray = field.getAnnotations();
+				for (Annotation annotation : annotationsArray) {
+					if (annotation instanceof Reference) {
+						Reference reference = (Reference) annotation;
+						List<String> value = this.getModelNameVsFieldNamesMap()
+								.get(reference.name());
+						value = getFieldNamesList(value, reference);
+						refereceFieldNamePrefixVsColumnNameMap.put(
+								reference.name(), value);
+					}
+				}
+			}
+			this.getModelNameVsRefereceFieldNamePrefixVsColumnNamesListMap()
+					.put(argEntry.getKey(),
+							refereceFieldNamePrefixVsColumnNameMap);
+		}
+	}
+
+	private List<String> getFieldNamesList(List<String> argValue,
+			Reference argReference) {
+		if (Precondition.checkNotEmpty(argValue)
+				&& Precondition.checkNotNull(argReference)) {
+			List<String> columnNamesList = new ArrayList<String>();
+			for (String fieldName : argValue) {
+				StringBuilder fieldNameBuilder = new StringBuilder();
+				fieldNameBuilder.append(argReference.prefix());
+				fieldNameBuilder.append(HibernateHelperConstants.HYPHEN);
+				fieldNameBuilder.append(fieldName);
+				columnNamesList.add(fieldNameBuilder.toString());
+			}
+			return columnNamesList;
+		}
+		return argValue;
+	}
+
+	private void collectAllReferenceAndComponentFields() {
+		List<Class<?>> modelClassList = this.getModelClassesList();
+		if (Precondition.checkNotEmpty(modelClassList)) {
+			for (Class<?> clazz : modelClassList) {
+				getAllReferecedFields(clazz);
+				getAllComponentsFields(clazz);
+			}
+		}
+	}
+
+	private void getAllComponentsFields(Class<?> argClazz) {
+		Field[] fields = argClazz.getDeclaredFields();
+		if (Precondition.checkNotNull(fields) && fields.length > 0) {
+			List<Field> componentFieldsList = new ArrayList<Field>();
+			for (int i = 0; i < fields.length; i++) {
+				Field field = fields[i];
+				if (Precondition.checkNotNull(field)) {
+					Component reference = field.getAnnotation(Component.class);
+					if (Precondition.checkNotNull(reference)) {
+						componentFieldsList.add(field);
+					}
+				}
+			}
+			this.getModelNameVsComponentFieldsMap().put(
+					argClazz.getSimpleName(), componentFieldsList);
+		}
+	}
+
+	private void getAllReferecedFields(Class<?> argClass) {
+		Field[] fields = argClass.getDeclaredFields();
+		if (Precondition.checkNotNull(fields) && fields.length > 0) {
+			List<Field> referencedFieldsList = new ArrayList<Field>();
+			List<String> referencedFieldNamesList = new ArrayList<String>();
+			for (int i = 0; i < fields.length; i++) {
+				Field field = fields[i];
+				if (Precondition.checkNotNull(field)) {
+					Reference reference = field.getAnnotation(Reference.class);
+					if (Precondition.checkNotNull(reference)) {
+						referencedFieldsList.add(field);
+						referencedFieldNamesList.add(field.getName());
+					}
+				}
+			}
+			this.getModelNameVsRefereceFieldsMap().put(
+					argClass.getSimpleName(), referencedFieldsList);
+			this.getModelNameVsRefereceFieldNamesMap().put(
+					argClass.getSimpleName(), referencedFieldNamesList);
+		}
 	}
 
 	private void buildEntityNameVsFieldsList() {
@@ -242,8 +380,41 @@ public class QueryBuilderHelper {
 		return fieldNamesList;
 	}
 
+	public List<Field> getReferenceFieldsListByModelName(
+			String argModelClassName) {
+		String modelCassName = Precondition.ensureNotEmpty(argModelClassName,
+				HibernateHelperConstants.CLASS_NAME);
+		return this.getModelNameVsRefereceFieldsMap().get(modelCassName);
+	}
+
 	private void append(int argSize, StringBuilder queryBuilder, int argCount) {
 		appendComma(argSize, queryBuilder, argCount);
+	}
+
+	public Type getTypeBasedOnFieldNameAndEntityName(String argTableName,
+			String argFieldName) {
+		if (Precondition.checkNotEmpty(argFieldName)
+				&& Precondition.checkNotEmpty(argTableName)) {
+			List<Field> fieldMap = this.getModelNameVsFieldsMap().get(
+					argTableName);
+			if (Precondition.checkNotEmpty(fieldMap)) {
+				for (Field field : fieldMap) {
+					Annotation[] annotationsArray = field.getAnnotations();
+					if (annotationsArray.length > 0) {
+						for (Annotation annotation : annotationsArray) {
+							if (annotation instanceof Reference) {
+								Reference reference = (Reference) annotation;
+								if (reference.variableName().equals(
+										argFieldName)) {
+									return reference.type();
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		return null;
 	}
 
 	public String getTenantId() {
@@ -327,6 +498,87 @@ public class QueryBuilderHelper {
 	public void setEntityNameVsFieldPojoListMap(
 			Map<String, List<com.rise.common.util.controller.components.Field>> argEntityNameVsFieldPojoListMap) {
 		this.entityNameVsFieldPojoListMap = argEntityNameVsFieldPojoListMap;
+	}
+
+	/**
+	 * @return the modelNameVsRefereceFieldsMap
+	 */
+	public Map<String, List<Field>> getModelNameVsRefereceFieldsMap() {
+		return this.modelNameVsRefereceFieldsMap;
+	}
+
+	/**
+	 * @param argModelNameVsRefereceFieldsMap
+	 *            the modelNameVsRefereceFieldsMap to set
+	 */
+	public void setModelNameVsRefereceFieldsMap(
+			Map<String, List<Field>> argModelNameVsRefereceFieldsMap) {
+		this.modelNameVsRefereceFieldsMap = argModelNameVsRefereceFieldsMap;
+	}
+
+	/**
+	 * @return the modelNameVsComponentFieldsMap
+	 */
+	public Map<String, List<Field>> getModelNameVsComponentFieldsMap() {
+		return this.modelNameVsComponentFieldsMap;
+	}
+
+	/**
+	 * @param argModelNameVsComponentFieldsMap
+	 *            the modelNameVsComponentFieldsMap to set
+	 */
+	public void setModelNameVsComponentFieldsMap(
+			Map<String, List<Field>> argModelNameVsComponentFieldsMap) {
+		this.modelNameVsComponentFieldsMap = argModelNameVsComponentFieldsMap;
+	}
+
+	/**
+	 * @return the modelNameVsRefereceFieldNamesMap
+	 */
+	public Map<String, List<String>> getModelNameVsRefereceFieldNamesMap() {
+		return this.modelNameVsRefereceFieldNamesMap;
+	}
+
+	/**
+	 * @param argModelNameVsRefereceFieldNamesMap
+	 *            the modelNameVsRefereceFieldNamesMap to set
+	 */
+	public void setModelNameVsRefereceFieldNamesMap(
+			Map<String, List<String>> argModelNameVsRefereceFieldNamesMap) {
+		this.modelNameVsRefereceFieldNamesMap = argModelNameVsRefereceFieldNamesMap;
+	}
+
+	/**
+	 * @return the modelNameVsRefereceFieldNamePrefixVsColumnNamesListMap
+	 */
+	public Map<String, Map<String, List<String>>> getModelNameVsRefereceFieldNamePrefixVsColumnNamesListMap() {
+		return this.modelNameVsRefereceFieldNamePrefixVsColumnNamesListMap;
+	}
+
+	/**
+	 * @param argModelNameVsRefereceFieldNamePrefixVsColumnNamesListMap
+	 *            the modelNameVsRefereceFieldNamePrefixVsColumnNamesListMap to
+	 *            set
+	 */
+	public void setModelNameVsRefereceFieldNamePrefixVsColumnNamesListMap(
+			Map<String, Map<String, List<String>>> argModelNameVsRefereceFieldNamePrefixVsColumnNamesListMap) {
+		this.modelNameVsRefereceFieldNamePrefixVsColumnNamesListMap = argModelNameVsRefereceFieldNamePrefixVsColumnNamesListMap;
+	}
+
+	/**
+	 * @return the modelNameVsFieldNamesMap
+	 */
+	public Map<String, List<String>> getModelNameVsFieldNamesMap() {
+		return this.modelNameVsFieldNamesMap;
+	}
+
+	/**
+	 * @param argModelNameVsFieldNamesMap
+	 *            the modelNameVsFieldNamesMap to set
+	 */
+	public void setModelNameVsFieldNamesMap(
+			Map<String, List<String>> argModelNameVsFieldNamesMap) {
+		this.modelNameVsFieldNamesMap = argModelNameVsFieldNamesMap;
 	}
 
 }

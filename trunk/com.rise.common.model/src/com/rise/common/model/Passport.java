@@ -2,6 +2,8 @@ package com.rise.common.model;
 
 import java.util.Date;
 
+import com.rise.common.util.annotation.DesiredField;
+
 public class Passport extends BaseModel {
 
 	/**
@@ -9,11 +11,17 @@ public class Passport extends BaseModel {
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	@DesiredField
 	private String passportNumber;
+	@DesiredField
 	private String issuedBy;
+	@DesiredField
 	private String issuedPlace;
+	@DesiredField
 	private Date issuedDate;
+	@DesiredField
 	private Date expiryDate;
+	@DesiredField
 	private boolean emigrationCheckRequired;
 
 	private Person person;

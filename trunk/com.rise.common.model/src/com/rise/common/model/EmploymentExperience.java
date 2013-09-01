@@ -2,6 +2,8 @@ package com.rise.common.model;
 
 import java.util.Date;
 
+import com.rise.common.util.annotation.DesiredField;
+
 public class EmploymentExperience extends BaseModel {
 
 	/**
@@ -9,10 +11,15 @@ public class EmploymentExperience extends BaseModel {
 	 */
 	private static final long serialVersionUID = 1L;
 
+	@DesiredField
 	private String jobTitle;
+	@DesiredField
 	private Date fromDate;
+	@DesiredField
 	private Date toDate;
+	@DesiredField
 	private String description;
+	@DesiredField
 	private String reasonForLeaving;
 
 	private Person person;
