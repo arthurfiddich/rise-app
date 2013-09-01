@@ -8,7 +8,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.util.List;
+import java.util.Map;
 
+import com.rise.common.util.Helper.TenantConfigHelper;
 import com.rise.common.util.checker.Precondition;
 import com.rise.common.util.constants.HibernateHelperConstants;
 import com.rise.common.util.exception.DatabaseException;
@@ -16,8 +19,8 @@ import com.rise.common.util.exception.DatabaseException;
 public class TableDataExporter extends AbstractDataImporterExporter implements
 		DataExporter {
 
-	private static final String SELECT_FROM = "select * from `";
-	private static final String APOSTROPHE = "`";
+	protected static final String SELECT_FROM = "select * from `";
+	protected static final String APOSTROPHE = "`";
 
 	public TableDataExporter() {
 		super();
@@ -48,11 +51,7 @@ public class TableDataExporter extends AbstractDataImporterExporter implements
 			resultSetMetaData = resultSet.getMetaData();
 			bufferedWriter = new BufferedWriter(new FileWriter(
 					getDataFileName()));
-			String columnHeadersToken = getColumnHeadersToken(resultSetMetaData);
-			bufferedWriter.write(columnHeadersToken);
-			bufferedWriter.write(this.getRecordDelimiter());
-
-			writeRows(bufferedWriter, resultSet, resultSetMetaData);
+			write(bufferedWriter, resultSet, resultSetMetaData);
 			DatabaseUtil.getInstance().commit(connection);
 		} catch (Exception e) {
 			DatabaseUtil.getInstance().rollback(connection);
@@ -73,6 +72,16 @@ public class TableDataExporter extends AbstractDataImporterExporter implements
 		}
 	}
 
+	protected void write(BufferedWriter bufferedWriter, ResultSet resultSet,
+			ResultSetMetaData resultSetMetaData) throws IOException,
+			SQLException {
+		String columnHeadersToken = getColumnHeadersToken(resultSetMetaData);
+		bufferedWriter.write(columnHeadersToken);
+		bufferedWriter.write(this.getRecordDelimiter());
+
+		writeRows(bufferedWriter, resultSet, resultSetMetaData);
+	}
+
 	private void writeRows(BufferedWriter bufferedWriter, ResultSet resultSet,
 			ResultSetMetaData resultSetMetaData) throws SQLException,
 			IOException {
@@ -90,7 +99,8 @@ public class TableDataExporter extends AbstractDataImporterExporter implements
 		}
 	}
 
-	private String getColumnHeadersToken(ResultSetMetaData argResultSetMetaData) {
+	protected String getColumnHeadersToken(
+			ResultSetMetaData argResultSetMetaData) {
 		ResultSetMetaData resultSetMetaData = Precondition.ensureNotNull(
 				argResultSetMetaData,
 				HibernateHelperConstants.RESULT_SET_META_DATA);
@@ -99,10 +109,16 @@ public class TableDataExporter extends AbstractDataImporterExporter implements
 			columnCount = Precondition.ensureNonNegative(columnCount,
 					HibernateHelperConstants.COLUMN_LENGTH);
 			StringBuilder headerBuilder = new StringBuilder();
+			Map<String, List<String>> modelClassNameVsReferecedFieldNamesListMap = TenantConfigHelper
+					.getInstance().getModelNameVsRefereceFieldNamesMap();
 			for (int i = 1; i < columnCount; i++) {
-				headerBuilder.append(resultSetMetaData.getColumnName(i));
-				if (i < columnCount) {
-					headerBuilder.append(this.getFieldDelimiter());
+				String columnName = resultSetMetaData.getColumnName(i);
+				if (!modelClassNameVsReferecedFieldNamesListMap
+						.containsKey(columnName)) {
+					headerBuilder.append(columnName);
+					if (i < columnCount) {
+						headerBuilder.append(this.getFieldDelimiter());
+					}
 				}
 			}
 			return headerBuilder.toString();
@@ -115,6 +131,12 @@ public class TableDataExporter extends AbstractDataImporterExporter implements
 	@Override
 	public void exportData(String argTableName) throws DatabaseException {
 
+	}
+
+	@Override
+	public void exportData(String argTableName, List<String> argColumnNames)
+			throws DatabaseException {
+		
 	}
 
 }

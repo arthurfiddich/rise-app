@@ -2,6 +2,8 @@ package com.rise.common.model;
 
 import java.util.Date;
 
+import com.rise.common.util.annotation.DesiredField;
+
 public class Award extends BaseModel {
 
 	/**
@@ -9,9 +11,13 @@ public class Award extends BaseModel {
 	 */
 	private static final long serialVersionUID = 1L;
 
+	@DesiredField
 	private String name;
+	@DesiredField
 	private String issuedBy;
+	@DesiredField
 	private Date dateIssued;
+	@DesiredField
 	private String description;
 
 	private Person person;

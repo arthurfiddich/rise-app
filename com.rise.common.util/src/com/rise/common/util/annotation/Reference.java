@@ -13,4 +13,7 @@ public @interface Reference {
 
 	public Type type();
 	public String className();
+	public String prefix();
+	public String name();
+	public String variableName();
 }

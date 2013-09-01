@@ -1,5 +1,7 @@
 package com.rise.common.model;
 
+import com.rise.common.util.annotation.DesiredField;
+
 public class ContactInformation extends BaseModel {
 
 	/**
@@ -7,15 +9,25 @@ public class ContactInformation extends BaseModel {
 	 */
 	private static final long serialVersionUID = 1L;
 
+	@DesiredField
 	private String email1;
+	@DesiredField
 	private String email2;
+	@DesiredField
 	private String email3;
+	@DesiredField
 	private String phone1;
+	@DesiredField
 	private String phone2;
+	@DesiredField
 	private String phone3;
+	@DesiredField
 	private String mobile1;
+	@DesiredField
 	private String mobile2;
+	@DesiredField
 	private String mobile3;
+	@DesiredField
 	private String website;
 
 	private TrainingProvider trainingProvider;

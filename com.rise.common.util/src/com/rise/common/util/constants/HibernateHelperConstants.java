@@ -22,5 +22,9 @@ public class HibernateHelperConstants {
 	public static final String COLUMN_LENGTH = "Column Length";
 	public static final String TABLE_NAME = "Table Name";
 	public static final String DATA_BASE_DIRECTORY_NAME = "database";
+	public static final int HEADER_INDEX = 0;
+	public static final String XSSF_SHEET = "Xssf Sheet";
+	public static final String HEADER_COLUMN_NAMES_LIST = "Header/Column Names";
+	public static final String HYPHEN = "-";
 
 }

@@ -2,18 +2,26 @@ package com.rise.common.model;
 
 import java.util.Date;
 
+import com.rise.common.util.annotation.DesiredField;
+
 public class DriversLicense extends BaseModel {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
+	@DesiredField
 	private String driversLicenseNumber;
+	@DesiredField
 	private String issuedBy;
+	@DesiredField
 	private String issuedState;
+	@DesiredField
 	private String issuedPlace;
+	@DesiredField
 	private Date issuedDate;
+	@DesiredField
 	private Date expiryDate;
 
 	private DriversLicenseVehicleType driversLicenseVehicleType;

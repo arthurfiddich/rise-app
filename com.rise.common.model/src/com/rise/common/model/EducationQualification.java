@@ -1,5 +1,7 @@
 package com.rise.common.model;
 
+import com.rise.common.util.annotation.DesiredField;
+
 public class EducationQualification extends BaseModel {
 
 	/**
@@ -7,11 +9,17 @@ public class EducationQualification extends BaseModel {
 	 */
 	private static final long serialVersionUID = 1L;
 
+	@DesiredField
 	private String name;
+	@DesiredField
 	private String university;
+	@DesiredField
 	private int yearCompleted;
+	@DesiredField
 	private int monthCompleted;
+	@DesiredField
 	private int percentage;
+	@DesiredField
 	private float gpa;
 
 	private Person person;

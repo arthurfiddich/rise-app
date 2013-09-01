@@ -3,7 +3,7 @@ package com.rise.common.util.annotation;
 public class FieldType {
 
 	public static enum Type {
-		LIST("list"), SET("set"), DEFAULT("default"), MAP("map");
+		LIST("list"), SET("set"), DEFAULT("default"), MAP("map"), DATE("date");
 
 		public String type;
 

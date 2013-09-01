@@ -1,6 +1,7 @@
 package com.rise.common.util.database;
 
 import java.io.File;
+import java.util.List;
 
 import com.rise.common.util.checker.Precondition;
 import com.rise.common.util.constants.HibernateHelperConstants;
@@ -34,5 +35,11 @@ public class DatabaseDataExporter extends AbstractDatabaseDataImporterExporter
 			throw new DatabaseException("Error while exporting data for table "
 					+ tableName, e);
 		}
+	}
+
+	@Override
+	public void exportData(String argTableName, List<String> argColumnNames)
+			throws DatabaseException {
+		
 	}
 }
