@@ -16,5 +16,6 @@ public interface PersonService extends BaseService {
 	public void writeStream(String argEntityName, String argSelectedFieldNames,
 			OutputStream argOutputStream);
 	
-	public void exportData() throws DatabaseException;
+	void exportData(String argTableName, List<String> argColumnNamesList)
+			throws DatabaseException;
 }

@@ -4,6 +4,8 @@ import java.beans.Introspector;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -35,6 +37,8 @@ public class QueryBuilderHelper {
 	private Map<String, List<Field>> modelNameVsComponentFieldsMap = new HashMap<String, List<Field>>();
 	private Map<String, List<String>> modelNameVsRefereceFieldNamesMap = new HashMap<String, List<String>>();
 	private Map<String, Map<String, List<String>>> modelNameVsRefereceFieldNamePrefixVsColumnNamesListMap = new HashMap<String, Map<String, List<String>>>();
+	private Map<String, List<Reference>> modelNameVsReferecesMap = new HashMap<String, List<Reference>>();
+	private Map<String, String> classNameVsTableNameMap = new HashMap<String, String>();
 
 	public static QueryBuilderHelper createInstance(String argTenantId,
 			String argConfigurationFile) {
@@ -54,6 +58,37 @@ public class QueryBuilderHelper {
 		collectAllReferenceAndComponentFields();
 		buildClassNameVsFieldNamesMap();
 		prepareModelClassNameVsCollectionOfReferenceFieldsMap();
+		buildClassNameVsTableNameMap();
+	}
+
+	private void buildClassNameVsTableNameMap() {
+		List<Class<?>> modelClassesList = this.getModelClassesList();
+		if (Precondition.checkNotEmpty(modelClassesList)) {
+			for (Class<?> clazz : modelClassesList) {
+				String className = clazz.getSimpleName();
+				String tableName = buildTableName(className);
+				this.getClassNameVsTableNameMap().put(clazz.getName(), tableName);
+			}
+		}
+	}
+
+	private String buildTableName(String argClassName) {
+		String tableName = argClassName;
+		if (Precondition.checkNotEmpty(tableName)) {
+			StringBuilder tableNameBuilder = new StringBuilder();
+			for (int i = 0; i < tableName.length(); i++) {
+				char ch = tableName.charAt(i);
+				if (Character.isUpperCase(ch)) {
+					if (i > 0) {
+						tableNameBuilder
+								.append(HibernateHelperConstants.UNDER_SCORE);
+					}
+				}
+				tableNameBuilder.append(ch);
+			}
+			tableName = tableNameBuilder.toString().toUpperCase();
+		}
+		return tableName;
 	}
 
 	private void buildClassNameVsFieldNamesMap() {
@@ -74,7 +109,7 @@ public class QueryBuilderHelper {
 					}
 				}
 				this.getModelNameVsFieldNamesMap().put(entry.getKey(),
-						fieldNamesList);
+						Collections.unmodifiableList(fieldNamesList));
 			}
 		}
 	}
@@ -105,7 +140,7 @@ public class QueryBuilderHelper {
 								.get(reference.name());
 						value = getFieldNamesList(value, reference);
 						refereceFieldNamePrefixVsColumnNameMap.put(
-								reference.name(), value);
+								reference.variableName(), value);
 					}
 				}
 			}
@@ -165,6 +200,7 @@ public class QueryBuilderHelper {
 		if (Precondition.checkNotNull(fields) && fields.length > 0) {
 			List<Field> referencedFieldsList = new ArrayList<Field>();
 			List<String> referencedFieldNamesList = new ArrayList<String>();
+			List<Reference> referenceAnnotationsList = new ArrayList<Reference>();
 			for (int i = 0; i < fields.length; i++) {
 				Field field = fields[i];
 				if (Precondition.checkNotNull(field)) {
@@ -172,6 +208,7 @@ public class QueryBuilderHelper {
 					if (Precondition.checkNotNull(reference)) {
 						referencedFieldsList.add(field);
 						referencedFieldNamesList.add(field.getName());
+						referenceAnnotationsList.add(reference);
 					}
 				}
 			}
@@ -179,6 +216,8 @@ public class QueryBuilderHelper {
 					argClass.getSimpleName(), referencedFieldsList);
 			this.getModelNameVsRefereceFieldNamesMap().put(
 					argClass.getSimpleName(), referencedFieldNamesList);
+			this.getModelNameVsReferecesMap().put(argClass.getSimpleName(),
+					referenceAnnotationsList);
 		}
 	}
 
@@ -247,14 +286,6 @@ public class QueryBuilderHelper {
 		Field[] fields = argClazz.getDeclaredFields();
 		String paramName = Introspector.decapitalize(argClazz.getSimpleName());
 		List<Field> fieldList = getFields(fields);
-		// Class superClass = argClazz.getSuperclass();
-		// if (Precondition.checkNotNull(superClass)) {
-		// List<Field> superClassFields = getFields(superClass
-		// .getDeclaredFields());
-		// if (Precondition.checkNotEmpty(superClassFields)) {
-		// fieldList.addAll(superClassFields);
-		// }
-		// }
 		buildQuery(paramName, fieldList);
 		this.getModelNameVsFieldsMap().put(paramName, fieldList);
 	}
@@ -319,11 +350,6 @@ public class QueryBuilderHelper {
 	public String buildQuery(Class argClass, List<Class> argComponentClassList,
 			List<Class> argSuperClassList) {
 		Class clazz = Precondition.ensureNotNull(argClass, "Class");
-		// List<Class> componentClassList = (List<Class>) Precondition
-		// .ensureNotEmpty(argComponentClassList, "Component List");
-		// List<Class> superClassList = (List<Class>)
-		// Precondition.ensureNotEmpty(
-		// argSuperClassList, "Super Class List");
 		List<String> queryParts = new ArrayList<String>();
 		String parentQueryPart = execute(clazz);
 		parentQueryPart = Precondition.ensureNotEmpty(parentQueryPart,
@@ -579,6 +605,38 @@ public class QueryBuilderHelper {
 	public void setModelNameVsFieldNamesMap(
 			Map<String, List<String>> argModelNameVsFieldNamesMap) {
 		this.modelNameVsFieldNamesMap = argModelNameVsFieldNamesMap;
+	}
+
+	/**
+	 * @return the modelNameVsReferecesMap
+	 */
+	public Map<String, List<Reference>> getModelNameVsReferecesMap() {
+		return this.modelNameVsReferecesMap;
+	}
+
+	/**
+	 * @param argModelNameVsReferecesMap
+	 *            the modelNameVsReferecesMap to set
+	 */
+	public void setModelNameVsReferecesMap(
+			Map<String, List<Reference>> argModelNameVsReferecesMap) {
+		this.modelNameVsReferecesMap = argModelNameVsReferecesMap;
+	}
+
+	/**
+	 * @return the classNameVsTableNameMap
+	 */
+	public Map<String, String> getClassNameVsTableNameMap() {
+		return this.classNameVsTableNameMap;
+	}
+
+	/**
+	 * @param argClassNameVsTableNameMap
+	 *            the classNameVsTableNameMap to set
+	 */
+	public void setClassNameVsTableNameMap(
+			Map<String, String> argClassNameVsTableNameMap) {
+		this.classNameVsTableNameMap = argClassNameVsTableNameMap;
 	}
 
 }

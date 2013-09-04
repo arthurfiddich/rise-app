@@ -31,7 +31,7 @@
 	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/jstl/jstl-1.2.jar"/>
 	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/mysql/mysql-connector-java-5.0.8-bin.jar"/>
 	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/reflections/reflections-0.9.9-RC1-uberjar.jar"/>
-	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/xinclude/xercesImpl-2.9.1.jar"/>
+	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/xinclude/xercesImpl-2.9.1.jar" sourcepath="C:/Users/Administrator/Downloads/com.springsource.org.apache.xerces-sources-2.9.1.jar"/>
 	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/xinclude/xincluder.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
