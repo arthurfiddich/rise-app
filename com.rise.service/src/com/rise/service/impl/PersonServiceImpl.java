@@ -18,6 +18,7 @@ import com.rise.common.util.checker.Precondition;
 import com.rise.common.util.checker.PreconditionException;
 import com.rise.common.util.constants.HibernateHelperConstants;
 import com.rise.common.util.database.DatabaseDataExporter;
+import com.rise.common.util.database.exporter.ExcelDataExporter;
 import com.rise.common.util.exception.DatabaseException;
 import com.rise.common.util.hibernate.QueryBuilder;
 import com.rise.dao.common.PersonDao;
@@ -181,9 +182,10 @@ public class PersonServiceImpl extends BaseServiceImpl implements PersonService 
 	}
 
 	@Override
-	public void exportData() throws DatabaseException {
-		DatabaseDataExporter databaseDataExporter = new DatabaseDataExporter(
-				HibernateHelperConstants.DATA_BASE_DIRECTORY_NAME);
-		databaseDataExporter.exportData(this.getPersistentClass().getSimpleName());
+	public void exportData(String argTableName, List<String> argColumnNamesList)
+			throws DatabaseException {
+		ExcelDataExporter databaseDataExporter = new ExcelDataExporter(
+				argTableName, null);
+		databaseDataExporter.exportData(argTableName, argColumnNamesList);
 	}
 }

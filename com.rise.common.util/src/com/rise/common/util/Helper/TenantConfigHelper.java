@@ -8,6 +8,8 @@ import org.apache.commons.collections.MultiMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.rise.common.util.annotation.FieldType.Type;
+import com.rise.common.util.annotation.Reference;
 import com.rise.common.util.hibernate.ResourceUtil;
 import com.rise.xmlns.common.v1.Field;
 import com.rise.xmlns.common.v1.QueryConfig;
@@ -196,6 +198,35 @@ public class TenantConfigHelper {
 	 */
 	public Map<String, List<String>> getModelNameVsFieldNamesMap() {
 		return this.queryBuilderHelper.getModelNameVsFieldNamesMap();
+	}
+
+	/**
+	 * @param argTableName
+	 * @param argFieldName
+	 * @return
+	 * @see com.rise.common.util.Helper.QueryBuilderHelper#getTypeBasedOnFieldNameAndEntityName(java.lang.String,
+	 *      java.lang.String)
+	 */
+	public Type getTypeBasedOnFieldNameAndEntityName(String argTableName,
+			String argFieldName) {
+		return this.queryBuilderHelper.getTypeBasedOnFieldNameAndEntityName(
+				argTableName, argFieldName);
+	}
+
+	/**
+	 * @return
+	 * @see com.rise.common.util.Helper.QueryBuilderHelper#getModelNameVsReferecesMap()
+	 */
+	public Map<String, List<Reference>> getModelNameVsReferecesMap() {
+		return this.queryBuilderHelper.getModelNameVsReferecesMap();
+	}
+
+	/**
+	 * @return
+	 * @see com.rise.common.util.Helper.QueryBuilderHelper#getClassNameVsTableNameMap()
+	 */
+	public Map<String, String> getClassNameVsTableNameMap() {
+		return this.queryBuilderHelper.getClassNameVsTableNameMap();
 	}
 
 }

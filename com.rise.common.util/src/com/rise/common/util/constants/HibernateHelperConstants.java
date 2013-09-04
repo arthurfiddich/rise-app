@@ -26,5 +26,7 @@ public class HibernateHelperConstants {
 	public static final String XSSF_SHEET = "Xssf Sheet";
 	public static final String HEADER_COLUMN_NAMES_LIST = "Header/Column Names";
 	public static final String HYPHEN = "-";
+	public static final String UNDER_SCORE = "_";
+	public static final String EQUALS = "=";
 
 }
