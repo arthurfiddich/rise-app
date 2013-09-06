@@ -36,7 +36,7 @@ public class Person extends BaseModel {
 	@Reference(className = "com.rise.common.model.EmploymentExperience", type = Type.SET, prefix = "EMP-EXP", name = HibernateClassNameConstants.EMPLOYMENT_EXPERIENCE, variableName = "employmentExperiences")
 	private Set<EmploymentExperience> employmentExperiences;
 
-	@Reference(className = "com.rise.common.model.ContactInformation", type = Type.DEFAULT, prefix = "CI", name = HibernateClassNameConstants.CONTACT_INFORMATION, variableName = "contactInformation")
+//	@Reference(className = "com.rise.common.model.ContactInformation", type = Type.DEFAULT, prefix = "CI", name = HibernateClassNameConstants.CONTACT_INFORMATION, variableName = "contactInformation")
 	private ContactInformation contactInformation;
 
 	@Reference(className = "com.rise.common.model.DriversLicense", type = Type.DEFAULT, prefix = "DL", name = HibernateClassNameConstants.DRIVERS_LICENSE, variableName = "driversLicense")

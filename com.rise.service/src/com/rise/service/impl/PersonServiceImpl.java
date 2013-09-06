@@ -185,7 +185,7 @@ public class PersonServiceImpl extends BaseServiceImpl implements PersonService 
 	public void exportData(String argTableName, List<String> argColumnNamesList)
 			throws DatabaseException {
 		ExcelDataExporter databaseDataExporter = new ExcelDataExporter(
-				argTableName, null);
+				argTableName, ".xlsx");
 		databaseDataExporter.exportData(argTableName, argColumnNamesList);
 	}
 }
