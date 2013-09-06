@@ -188,6 +188,7 @@ public class ExcelDataExporter extends TableDataExporter implements
 					.getTableName());
 			if (Precondition.checkNotEmpty(referencesList)) {
 				int columnCount = this.getOriginalColumnsLength();
+				int rowNumber = argXssfSheet.getLastRowNum();
 				for (Reference reference : referencesList) {
 					String query = buildReferencedFieldQuery(reference,
 							argResultSet);
@@ -199,7 +200,7 @@ public class ExcelDataExporter extends TableDataExporter implements
 						if (Precondition.checkNotEmpty(columnNamesList)) {
 							exportReferencedData(columnNamesList, query,
 									argXssfSheet, referencedClassName,
-									columnCount);
+									columnCount, rowNumber);
 							columnCount += columnNamesList.size();
 						}
 					}
@@ -210,12 +211,12 @@ public class ExcelDataExporter extends TableDataExporter implements
 
 	private void exportReferencedData(List<String> argColumnNamesList,
 			String argSqlQuery, XSSFSheet argXssfSheet,
-			String argReferencedClassName, int argColumnCount) {
+			String argReferencedClassName, int argColumnCount, int argRowNumber) {
 		BufferedWriter bufferedWriter = null;
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
-		int rowNumber = argXssfSheet.getLastRowNum();
+		int rowNumber = argRowNumber;
 		try {
 			connection = DatabaseUtil.getInstance().getConnection();
 			preparedStatement = connection.prepareStatement(argSqlQuery);
@@ -235,7 +236,7 @@ public class ExcelDataExporter extends TableDataExporter implements
 					addEmptyValuesToTheRow(row, argColumnCount, "");
 				}
 				prepareRow(argColumnNamesList, resultSet, row,
-						argReferencedClassName);
+						argReferencedClassName, argColumnCount);
 				rowNumber++;
 			}
 			DatabaseUtil.getInstance().commit(connection);
@@ -322,12 +323,33 @@ public class ExcelDataExporter extends TableDataExporter implements
 		}
 	}
 
+	private void prepareRow(List<String> argColumnNamesList,
+			ResultSet argResultSet, Row argRow, String argReferencedClassName,
+			int argColumnCount) throws SQLException {
+		int lastCellNum = argRow.getLastCellNum();
+		if (lastCellNum != -1 && lastCellNum != argColumnCount) {
+			lastCellNum = argColumnCount;
+		}
+		if (lastCellNum == -1) {
+			lastCellNum = 0;
+		}
+		assignValuesToRow(argColumnNamesList, argResultSet, argRow,
+				argReferencedClassName, lastCellNum);
+	}
+
 	protected void prepareRow(List<String> argColumnNames, ResultSet resultSet,
 			Row argRow, String argReferencedClassName) throws SQLException {
 		int lastCellNum = argRow.getLastCellNum();
 		if (lastCellNum == -1) {
 			lastCellNum = 0;
 		}
+		assignValuesToRow(argColumnNames, resultSet, argRow,
+				argReferencedClassName, lastCellNum);
+	}
+
+	protected void assignValuesToRow(List<String> argColumnNames,
+			ResultSet resultSet, Row argRow, String argReferencedClassName,
+			int lastCellNum) throws SQLException {
 		Map<String, String> fieldNameVsDbColumnNameMap = TenantConfigHelper
 				.getInstance().getClassNameVsDbColumnNameMap()
 				.get(argReferencedClassName);
