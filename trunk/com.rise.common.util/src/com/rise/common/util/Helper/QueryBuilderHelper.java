@@ -4,13 +4,13 @@ import java.beans.Introspector;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
 
 import com.rise.common.util.annotation.Component;
 import com.rise.common.util.annotation.DesiredField;
@@ -39,6 +39,7 @@ public class QueryBuilderHelper {
 	private Map<String, Map<String, List<String>>> modelNameVsRefereceFieldNamePrefixVsColumnNamesListMap = new HashMap<String, Map<String, List<String>>>();
 	private Map<String, List<Reference>> modelNameVsReferecesMap = new HashMap<String, List<Reference>>();
 	private Map<String, String> classNameVsTableNameMap = new HashMap<String, String>();
+	private Map<String, Map<String, String>> classNameVsDbColumnNameMap = new HashMap<String, Map<String, String>>();
 
 	public static QueryBuilderHelper createInstance(String argTenantId,
 			String argConfigurationFile) {
@@ -59,6 +60,34 @@ public class QueryBuilderHelper {
 		buildClassNameVsFieldNamesMap();
 		prepareModelClassNameVsCollectionOfReferenceFieldsMap();
 		buildClassNameVsTableNameMap();
+		buildDbColumnsMap();
+	}
+
+	private void buildDbColumnsMap() {
+		Map<String, List<String>> modelNameVsFieldNamesMap = this
+				.getModelNameVsFieldNamesMap();
+		if (Precondition.checkNotNull(modelNameVsFieldNamesMap)) {
+			Set<Entry<String, List<String>>> mapEntry = modelNameVsFieldNamesMap
+					.entrySet();
+			Iterator<Map.Entry<String, List<String>>> iterator = mapEntry
+					.iterator();
+			while (iterator.hasNext()) {
+				Entry<String, List<String>> entry = iterator.next();
+				List<String> FieldList = entry.getValue();
+				if (Precondition.checkNotEmpty(FieldList)) {
+					Map<String, String> fieldNameVsDbColumnNameMap = new HashMap<String, String>();
+					for (String fieldName : FieldList) {
+						String dbColumnName = buildTableName(fieldName);
+						if (Precondition.checkNotEmpty(dbColumnName)) {
+							fieldNameVsDbColumnNameMap.put(fieldName,
+									dbColumnName);
+						}
+					}
+					this.classNameVsDbColumnNameMap.put(entry.getKey(),
+							fieldNameVsDbColumnNameMap);
+				}
+			}
+		}
 	}
 
 	private void buildClassNameVsTableNameMap() {
@@ -67,7 +96,8 @@ public class QueryBuilderHelper {
 			for (Class<?> clazz : modelClassesList) {
 				String className = clazz.getSimpleName();
 				String tableName = buildTableName(className);
-				this.getClassNameVsTableNameMap().put(clazz.getName(), tableName);
+				this.getClassNameVsTableNameMap().put(clazz.getName(),
+						tableName);
 			}
 		}
 	}
@@ -637,6 +667,15 @@ public class QueryBuilderHelper {
 	public void setClassNameVsTableNameMap(
 			Map<String, String> argClassNameVsTableNameMap) {
 		this.classNameVsTableNameMap = argClassNameVsTableNameMap;
+	}
+
+	public Map<String, Map<String, String>> getClassNameVsDbColumnNameMap() {
+		return this.classNameVsDbColumnNameMap;
+	}
+
+	public void setClassNameVsDbColumnNameMap(
+			Map<String, Map<String, String>> argClassNameVsDbColumnNameMap) {
+		this.classNameVsDbColumnNameMap = argClassNameVsDbColumnNameMap;
 	}
 
 }

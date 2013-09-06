@@ -229,4 +229,7 @@ public class TenantConfigHelper {
 		return this.queryBuilderHelper.getClassNameVsTableNameMap();
 	}
 
+	public Map<String, Map<String, String>> getClassNameVsDbColumnNameMap() {
+		return this.queryBuilderHelper.getClassNameVsDbColumnNameMap();
+	}
 }

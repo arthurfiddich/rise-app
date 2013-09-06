@@ -1,15 +1,20 @@
 package com.rise.common.util.database.exporter;
 
+import java.beans.Introspector;
 import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.sql.Connection;
+import java.sql.DatabaseMetaData;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -26,9 +31,13 @@ import com.rise.common.util.database.DataExporter;
 import com.rise.common.util.database.DatabaseUtil;
 import com.rise.common.util.database.TableDataExporter;
 import com.rise.common.util.exception.DatabaseException;
+import com.rise.common.util.file.AutoFileCloser;
 
 public class ExcelDataExporter extends TableDataExporter implements
 		DataExporter {
+
+	private int originalColumnsLength;
+	private String primaryKey;
 
 	public ExcelDataExporter(String argTableName, String argFileExtension) {
 		super(argTableName, argFileExtension);
@@ -73,12 +82,54 @@ public class ExcelDataExporter extends TableDataExporter implements
 						HibernateHelperConstants.HEADER_COLUMN_NAMES_LIST);
 		XSSFWorkbook xssfWorkbook = getWorkbook();
 		XSSFSheet xssfSheet = createSheet(xssfWorkbook, argTableName);
+		getPrimaryKey(this.getTableName());
 		List<String> referencedColumnsList = prepareCompleteColumnList(argTableName);
-		if(Precondition.checkNotEmpty(referencedColumnsList)){
-			columnNamesList.addAll(referencedColumnsList);
-		}
+		this.setOriginalColumnsLength(columnNamesList.size());
 		addHeadersToSheet(columnNamesList, xssfSheet);
-		addValuesToSheet(argColumnNames, xssfSheet);
+		addHeadersToSheet(referencedColumnsList, xssfSheet);
+		addValuesToSheet(columnNamesList, xssfSheet);
+		writeToFile(xssfWorkbook);
+	}
+
+	private void getPrimaryKey(String argTableName) {
+		Connection connection = null;
+		DatabaseMetaData databaseMetaData = null;
+		ResultSet resultSet = null;
+		try {
+			connection = DatabaseUtil.getInstance().getConnection();
+			databaseMetaData = connection.getMetaData();
+			resultSet = databaseMetaData.getExportedKeys("", "", argTableName);
+			resultSet.next();
+			String primaryKey = resultSet
+					.getString(HibernateHelperConstants.PKCOLUMN_NAME);
+			this.setPrimaryKey(primaryKey);
+			System.out.println("Primary Key: " + primaryKey);
+		} catch (SQLException e) {
+			DatabaseUtil.getInstance().rollback(connection);
+			throw new DatabaseException(
+					"Exception while getting the primary key: "
+							+ this.getTableName(), e);
+		} finally {
+			DatabaseUtil.getInstance().close(resultSet);
+			DatabaseUtil.getInstance().close(connection);
+		}
+
+	}
+
+	private void writeToFile(XSSFWorkbook argXssfWorkbook) {
+		final XSSFWorkbook xssfWorkbook = Precondition.ensureNotNull(
+				argXssfWorkbook, HibernateHelperConstants.XSSF_WORK_BOOK);
+		new AutoFileCloser() {
+
+			@Override
+			protected void doWork() throws Throwable {
+				String dataFilePath = "database" + File.separator
+						+ getDataFileName();
+				FileOutputStream fileOutputStream = autoClose(fileOutputStream = new FileOutputStream(
+						dataFilePath));
+				xssfWorkbook.write(fileOutputStream);
+			}
+		};
 	}
 
 	private void addValuesToSheet(List<String> argColumnNames,
@@ -97,12 +148,16 @@ public class ExcelDataExporter extends TableDataExporter implements
 			String sqlQuery = SELECT_FROM + argTableName + APOSTROPHE;
 			preparedStatement = connection.prepareStatement(sqlQuery);
 			resultSet = preparedStatement.executeQuery();
-			int rowNum = 1;
+			String className = Introspector.decapitalize(this.getTableName());
 			while (resultSet.next()) {
-				Row row = argXssfSheet.createRow(rowNum++);
-				prepareRow(argColumnNames, resultSet, row);
-				prepareReferencedFieldRow(argColumnNames, resultSet, rowNum,
-						argXssfSheet);
+				int lastRowNum = argXssfSheet.getLastRowNum();
+				int rowNumber = lastRowNum + 1;
+				Row row = argXssfSheet.getRow(rowNumber);
+				if (row == null) {
+					row = argXssfSheet.createRow(rowNumber);
+				}
+				prepareRow(argColumnNames, resultSet, row, className);
+				prepareReferencedFieldRow(resultSet, argXssfSheet);
 			}
 			DatabaseUtil.getInstance().commit(connection);
 		} catch (Exception e) {
@@ -124,23 +179,28 @@ public class ExcelDataExporter extends TableDataExporter implements
 		}
 	}
 
-	private void prepareReferencedFieldRow(List<String> argColumnNames,
-			ResultSet argResultSet, int argRowNum, XSSFSheet argXssfSheet) {
+	private void prepareReferencedFieldRow(ResultSet argResultSet,
+			XSSFSheet argXssfSheet) {
 		Map<String, List<Reference>> modelNameVsReferenceMap = TenantConfigHelper
 				.getInstance().getModelNameVsReferecesMap();
 		if (Precondition.checkNotNull(modelNameVsReferenceMap)) {
 			List<Reference> referencesList = modelNameVsReferenceMap.get(this
 					.getTableName());
 			if (Precondition.checkNotEmpty(referencesList)) {
+				int columnCount = this.getOriginalColumnsLength();
 				for (Reference reference : referencesList) {
 					String query = buildReferencedFieldQuery(reference,
 							argResultSet);
 					if (Precondition.checkNotEmpty(query)) {
-						String referencedtableName = getReferencedTableName(reference);
-						List<String> columnNamesList = getColumnsList(referencedtableName);
+						String referencedClassName = getReferencedClassName(reference);
+						List<String> columnNamesList = TenantConfigHelper
+								.getInstance().getModelNameVsFieldNamesMap()
+								.get(referencedClassName);
 						if (Precondition.checkNotEmpty(columnNamesList)) {
 							exportReferencedData(columnNamesList, query,
-									argRowNum, argXssfSheet);
+									argXssfSheet, referencedClassName,
+									columnCount);
+							columnCount += columnNamesList.size();
 						}
 					}
 				}
@@ -149,22 +209,34 @@ public class ExcelDataExporter extends TableDataExporter implements
 	}
 
 	private void exportReferencedData(List<String> argColumnNamesList,
-			String argSqlQuery, int argRowNum, XSSFSheet argXssfSheet) {
+			String argSqlQuery, XSSFSheet argXssfSheet,
+			String argReferencedClassName, int argColumnCount) {
 		BufferedWriter bufferedWriter = null;
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
+		int rowNumber = argXssfSheet.getLastRowNum();
 		try {
 			connection = DatabaseUtil.getInstance().getConnection();
 			preparedStatement = connection.prepareStatement(argSqlQuery);
 			resultSet = preparedStatement.executeQuery();
-			while (resultSet.next()) {
-				Row row = argXssfSheet.getRow(argRowNum);
+			if (!resultSet.next()) {
+				Row row = argXssfSheet.getRow(rowNumber);
 				if (row == null) {
-					row = argXssfSheet.createRow(argRowNum);
+					row = argXssfSheet.createRow(rowNumber);
 				}
-				prepareRow(argColumnNamesList, resultSet, row);
-				argRowNum++;
+				addEmptyValuesToTheRow(row, argColumnNamesList.size());
+			}
+			resultSet.previous();
+			while (resultSet.next()) {
+				Row row = argXssfSheet.getRow(rowNumber);
+				if (row == null) {
+					row = argXssfSheet.createRow(rowNumber);
+					addEmptyValuesToTheRow(row, argColumnCount, "");
+				}
+				prepareRow(argColumnNamesList, resultSet, row,
+						argReferencedClassName);
+				rowNumber++;
 			}
 			DatabaseUtil.getInstance().commit(connection);
 		} catch (Exception e) {
@@ -182,6 +254,25 @@ public class ExcelDataExporter extends TableDataExporter implements
 				} catch (Exception ignore) {
 					// ignore
 				}
+			}
+		}
+	}
+
+	private void addEmptyValuesToTheRow(Row argRow, int argJ) {
+		if (Precondition.checkNotNull(argRow)) {
+			int lastCellNumber = argRow.getLastCellNum();
+			for (int i = 0; i < argJ; i++) {
+				Cell cell = argRow.createCell(i + lastCellNumber);
+				cell.setCellValue(HibernateHelperConstants.EMPTY);
+			}
+		}
+	}
+
+	private void addEmptyValuesToTheRow(Row argRow, int argJ, String argDummy) {
+		if (Precondition.checkNotNull(argRow)) {
+			for (int i = 0; i < argJ; i++) {
+				Cell cell = argRow.createCell(i);
+				cell.setCellValue(HibernateHelperConstants.EMPTY);
 			}
 		}
 	}
@@ -204,20 +295,26 @@ public class ExcelDataExporter extends TableDataExporter implements
 		return null;
 	}
 
+	protected String getReferencedClassName(Reference argReference) {
+		if (Precondition.checkNotNull(argReference)) {
+			return argReference.name();
+		}
+		return HibernateHelperConstants.EMPTY;
+	}
+
 	protected String buildConditionalQuery(String referencedtableName,
 			ResultSet argResultSet) {
 		try {
 			StringBuilder queryBuilder = new StringBuilder();
-			String primaryKeyColumnName = argResultSet.getString("");
 			queryBuilder.append(SELECT_FROM);
 			queryBuilder.append(referencedtableName);
 			queryBuilder.append(APOSTROPHE);
-			queryBuilder.append("WHERE");
 			queryBuilder.append(HibernateHelperConstants.SPACE);
-			queryBuilder.append(primaryKeyColumnName);
+			queryBuilder.append(HibernateHelperConstants.WHERE);
+			queryBuilder.append(HibernateHelperConstants.SPACE);
+			queryBuilder.append(this.getPrimaryKey());
 			queryBuilder.append(HibernateHelperConstants.EQUALS);
-			queryBuilder.append((String) argResultSet
-					.getObject(primaryKeyColumnName));
+			queryBuilder.append(argResultSet.getString(this.getPrimaryKey()));
 			return queryBuilder.toString();
 		} catch (SQLException e) {
 			throw new DatabaseException(
@@ -226,25 +323,43 @@ public class ExcelDataExporter extends TableDataExporter implements
 	}
 
 	protected void prepareRow(List<String> argColumnNames, ResultSet resultSet,
-			Row row) throws SQLException {
-		for (int i = 0; i < argColumnNames.size(); i++) {
-			Cell cell = row.createCell(i);
-			Object object = resultSet.getObject(argColumnNames.get(i));
-			setCellValue(cell, object);
+			Row argRow, String argReferencedClassName) throws SQLException {
+		int lastCellNum = argRow.getLastCellNum();
+		if (lastCellNum == -1) {
+			lastCellNum = 0;
+		}
+		Map<String, String> fieldNameVsDbColumnNameMap = TenantConfigHelper
+				.getInstance().getClassNameVsDbColumnNameMap()
+				.get(argReferencedClassName);
+		for (int i = lastCellNum; i < argColumnNames.size() + lastCellNum; i++) {
+			Cell cell = argRow.createCell(i);
+			String columnLabel = fieldNameVsDbColumnNameMap.get(argColumnNames
+					.get(i - lastCellNum));
+			if (Precondition.checkNotEmpty(columnLabel)) {
+				Object object = resultSet.getObject(columnLabel);
+				setCellValue(cell, object);
+			} else {
+				setCellValue(cell, HibernateHelperConstants.EMPTY);
+			}
 		}
 	}
 
 	private void setCellValue(Cell argCell, Object argObject) {
 		if (argObject instanceof String) {
 			argCell.setCellValue((String) argObject);
+			System.out.println((String) argObject);
 		} else if (argObject instanceof Integer) {
 			argCell.setCellValue((Integer) argObject);
+			System.out.println((Integer) argObject);
 		} else if (argObject instanceof Date) {
 			argCell.setCellValue((Date) argObject);
+			System.out.println((Date) argObject);
 		} else if (argObject instanceof Float) {
 			argCell.setCellValue((Float) argObject);
+			System.out.println((Float) argObject);
 		} else if (argObject instanceof Double) {
 			argCell.setCellValue((Double) argObject);
+			System.out.println((Double) argObject);
 		}
 	}
 
@@ -283,11 +398,32 @@ public class ExcelDataExporter extends TableDataExporter implements
 						HibernateHelperConstants.HEADER_COLUMN_NAMES_LIST);
 		XSSFSheet xssfSheet = Precondition.ensureNotNull(argXssfSheet,
 				HibernateHelperConstants.XSSF_SHEET);
-		Row row = xssfSheet.createRow(HibernateHelperConstants.HEADER_INDEX);
+		Row row = xssfSheet.getRow(HibernateHelperConstants.HEADER_INDEX);
+		if (row == null) {
+			row = xssfSheet.createRow(HibernateHelperConstants.HEADER_INDEX);
+		}
+		int cellNumber = (row.getLastCellNum() != -1) ? row.getLastCellNum()
+				: 0;
 		for (int i = 0; i < columnNamesList.size(); i++) {
-			Cell cell = row.createCell(i);
+			Cell cell = row.createCell(i + cellNumber);
 			cell.setCellValue(columnNamesList.get(i));
 		}
+	}
+
+	public int getOriginalColumnsLength() {
+		return this.originalColumnsLength;
+	}
+
+	public void setOriginalColumnsLength(int argOriginalColumnsLength) {
+		this.originalColumnsLength = argOriginalColumnsLength;
+	}
+
+	public String getPrimaryKey() {
+		return this.primaryKey;
+	}
+
+	public void setPrimaryKey(String argPrimaryKey) {
+		this.primaryKey = argPrimaryKey;
 	}
 
 }
