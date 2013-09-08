@@ -18,7 +18,7 @@
 	src="/rise/resources/js/jquery.js"></script>
 	<link type="text/css" href="/rise/resources/css/jquery.treeview.css" rel="stylesheet" />
      <script type="text/javascript" src="/rise/resources/js/jquery.treeview.js"></script>
-    <script type="text/javascript" src="/rise/resources/js/jquery-cookie.js"></script>
+    <script type="text/javascript" src="/rise/resources/js/jquery.cookie.js"></script>
 <script type="text/javascript" charset="utf-8">
 <%Map<String, List<Field>> entityNameVsFieldListMap = new LinkedHashMap<String, List<Field>>();%>
 
@@ -38,7 +38,8 @@
 	function colletFields(checkid,checkvalue){
 		//alert(checkid);
 		//alert(checkvalue);
-		alert($("#"+checkid).val());
+		//alert($("#checkid").val());
+		//alert($("#"+checkid).val());
 		//alert($("#"+checkid).prop('checked'));
 		
 	}
@@ -48,10 +49,11 @@
 		 if(length>1){
 			for(var i = 0; i < length-1; i++)
 			{
-				if($("#"+i).prop('checked') ==true){
-					fieldarray+=$("#"+i).val()+",";
+				if($("#field"+i).prop('checked') ==true){
+					fieldarray+=$("#field"+i).val()+",";
 				}
 			}
+			alert(fieldarray);
 		 }
 		 $
 			.ajax({
@@ -88,7 +90,7 @@
 	  if(str_array[i]!=null && str_array[i]!=""){
 		  str += "<tr>";
 			str += "<td align='right'>";
-			str += "<input type='checkbox' value='"+str_array[i]+"' id='"+i+"' onclick='colletFields(this.id,this.value)'/>";
+			str += "<input type='checkbox' value='"+str_array[i]+"' id='field"+i+"' onclick='colletFields(this.id,this.value)'></input>";
 			str += "</td>";
 			str += "<td align='left'>";
 			str += "<span>"+str_array[i]+"</span>";
@@ -185,7 +187,7 @@
    <ul id="navigation">
 		<li><a href="?1">Data Management</a>
 			<ul>
-			<li><a href="javascript:openDataExport();"><span style="color:blue">Data Export</span></a></li>
+			<li><a href="javascript:openDataExport();"><span style="color:blue;text-shadow: 1px 1px 10px #CCC">Data Export</span></a></li>
 				<li><a href="javascript:openDataImport();">Data Import</a>
 				</li>
 	</ul>
