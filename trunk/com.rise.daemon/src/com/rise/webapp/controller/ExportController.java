@@ -1,6 +1,7 @@
 package com.rise.webapp.controller;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -48,8 +49,8 @@ public class ExportController extends BaseController {
 		}
 		System.out.println("entity :" + entity);
 		System.out.println("fieldarray :" + fieldarray);
-		List<String> tokens = TenantConfigHelper.getInstance().getModelNameVsFieldNamesMap()
-				.get(entity.toLowerCase());
+		String[] fieldArray = fieldarray.split(",");
+		List<String> tokens = Arrays.asList(fieldArray);
 		List<String> columnNames = new ArrayList<String>();
 		columnNames.addAll(tokens);
 		this.personService.exportData(entity, columnNames);
