@@ -4,12 +4,16 @@ import java.beans.Introspector;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -22,10 +26,20 @@ import com.rise.common.util.checker.Precondition;
 import com.rise.common.util.constants.HibernateConstants;
 import com.rise.service.PersonService;
 import com.rise.webapp.binding.BindingResult;
+import com.rise.webapp.validators.PersonValidator;
 
 @Controller
 @RequestMapping("/person")
 public class PersonController extends BaseController {
+
+	@Autowired
+	private PersonValidator personValidator;
+
+	@InitBinder
+	protected void initBinder(WebDataBinder binder) {
+		// this.baseValidator.setClazz(this.getBaseService().getPersistentClass());
+		binder.setValidator(personValidator);
+	}
 
 	@Autowired
 	private PersonService personService;
@@ -63,7 +77,7 @@ public class PersonController extends BaseController {
 	}
 
 	@RequestMapping(value = HibernateConstants.LIST)
-	public String listPersonNames(Model argModel) {
+	public String listPersonNames(@Valid Model argModel) {
 		logger.error("Hello....................");
 		if (logger.isTraceEnabled()) {
 			logger.trace("################################# Entered into PersonController List Method: #################################");
@@ -104,9 +118,14 @@ public class PersonController extends BaseController {
 	}
 
 	@RequestMapping(value = HibernateConstants.SAVE, method = RequestMethod.POST)
-	public String save(Model argModel, Person argPerson) {
+	public String save(Model argModel, @Valid Person argPerson,
+			org.springframework.validation.BindingResult argBindingResult) {
 		if (logger.isTraceEnabled()) {
 			logger.trace("################################# Entered into PersonController Save Method: #################################");
+		}
+		if (argBindingResult.hasErrors()) {
+			return HibernateConstants.VIEW_SLASH + getSimpleName()
+					+ HibernateConstants.PERSON;
 		}
 		Person person = (Person) this.getBaseService().save(argPerson);
 		argModel.addAttribute(getSimpleName(), person);

@@ -33,11 +33,11 @@
 	href="/rise/resources/css/animate-custom.css" />
 <link rel="stylesheet" type="text/css"
 	href="/rise/resources/css/menu.css" />
- <script type="text/javascript">
- function openSetupWindow(){
-	  window.location.href="/rise/setUp";
- }
-	</script> 
+<script type="text/javascript">
+	function openSetupWindow() {
+		window.location.href = "/rise/setUp";
+	}
+</script>
 </head>
 <body>
 	<div class="container">
@@ -54,8 +54,7 @@
 
 					<td align="center"><span style="align: right;"><input
 							type="button" value="Setup" class="styled-button-3"
-							onclick="openSetupWindow()">
-					</span></td>
+							onclick="openSetupWindow()"> </span></td>
 				</tr>
 			</table>
 		</div>
@@ -101,6 +100,7 @@
 											<spring:message code="label.title" />
 										</form:label>
 									</td>
+									<td><form:errors path="personName.title" cssClass="error" /></td>
 									<td><form:input path="personName.title" />
 									</td>
 								</tr>
@@ -110,6 +110,7 @@
 											<spring:message code="label.firstName" />
 										</form:label>
 									</td>
+									<td><form:errors path="personName.firstName" cssClass="error" /></td>
 									<td><form:input path="personName.firstName" />
 									</td>
 								</tr>
@@ -119,6 +120,7 @@
 											<spring:message code="label.middleName" />
 										</form:label>
 									</td>
+									<td><form:errors path="personName.middleName" cssClass="error" /></td>
 									<td><form:input path="personName.middleName" />
 									</td>
 								</tr>
@@ -128,6 +130,7 @@
 											<spring:message code="label.lastName" />
 										</form:label>
 									</td>
+									<td><form:errors path="personName.lastName" cssClass="error" /></td>
 									<td><form:input path="personName.lastName" />
 									</td>
 								</tr>
@@ -137,6 +140,7 @@
 											<spring:message code="label.suffix" />
 										</form:label>
 									</td>
+									<td><form:errors path="personName.suffix" cssClass="error" /></td>
 									<td><form:input path="personName.suffix" />
 									</td>
 								</tr>
@@ -151,6 +155,7 @@
 											<spring:message code="label.dateOfBirth" />
 										</form:label>
 									</td>
+									<td><form:errors path="dateOfBirth" cssClass="error" /></td>
 									<td><form:input path="dateOfBirth" />
 									</td>
 								</tr>
@@ -160,6 +165,7 @@
 											<spring:message code="label.aadhaarNumber" />
 										</form:label>
 									</td>
+									<td><form:errors path="aadhaarNumber" cssClass="error" /></td>
 									<td><form:input path="aadhaarNumber" />
 									</td>
 								</tr>
@@ -181,6 +187,7 @@
 											<spring:message code="label.streetAddress" />
 										</form:label>
 									</td>
+									<td><form:errors path="contactInformation.primaryAddress.streetAddress" cssClass="error" /></td>
 									<td><form:input
 											path="contactInformation.primaryAddress.streetAddress" />
 									</td>
@@ -192,6 +199,7 @@
 											<spring:message code="label.state" />
 										</form:label>
 									</td>
+									<td><form:errors path="contactInformation.primaryAddress.state" cssClass="error" /></td>
 									<td><form:input
 											path="contactInformation.primaryAddress.state" />
 									</td>
@@ -203,6 +211,7 @@
 											<spring:message code="label.city" />
 										</form:label>
 									</td>
+									<td><form:errors path="contactInformation.primaryAddress.city" cssClass="error" /></td>
 									<td><form:input
 											path="contactInformation.primaryAddress.city" />
 									</td>
@@ -219,6 +228,7 @@
 											<spring:message code="label.postalCode" />
 										</form:label>
 									</td>
+									<td><form:errors path="contactInformation.primaryAddress.postalCode" cssClass="error" /></td>
 									<td><form:input
 											path="contactInformation.primaryAddress.postalCode" />
 									</td>
@@ -230,6 +240,7 @@
 											<spring:message code="label.country" />
 										</form:label>
 									</td>
+									<td><form:errors path="contactInformation.primaryAddress.country" cssClass="error" /></td>
 									<td><form:input
 											path="contactInformation.primaryAddress.country" />
 									</td>
@@ -252,6 +263,7 @@
 											<spring:message code="label.email1" />
 										</form:label>
 									</td>
+									<td><form:errors path="contactInformation.email1" cssClass="error" /></td>
 									<td><form:input path="contactInformation.email1" />
 									</td>
 								</tr>
@@ -262,6 +274,7 @@
 											<spring:message code="label.phone1" />
 										</form:label>
 									</td>
+									<td><form:errors path="contactInformation.phone1" cssClass="error" /></td>
 									<td><form:input path="contactInformation.phone1" />
 									</td>
 								</tr>
@@ -272,6 +285,7 @@
 											<spring:message code="label.mobile1" />
 										</form:label>
 									</td>
+									<td><form:errors path="contactInformation.mobile1" cssClass="error" /></td>
 									<td><form:input path="contactInformation.mobile1" />
 									</td>
 								</tr>
@@ -285,6 +299,7 @@
 											<spring:message code="label.email2" />
 										</form:label>
 									</td>
+									<td><form:errors path="contactInformation.email2" cssClass="error" /></td>
 									<td><form:input path="contactInformation.email2" />
 									</td>
 								</tr>
@@ -295,6 +310,7 @@
 											<spring:message code="label.phone2" />
 										</form:label>
 									</td>
+									<td><form:errors path="contactInformation.phone2" cssClass="error" /></td>
 									<td><form:input path="contactInformation.phone2" />
 									</td>
 								</tr>
@@ -305,6 +321,7 @@
 											<spring:message code="label.mobile2" />
 										</form:label>
 									</td>
+									<td><form:errors path="contactInformation.mobile2" cssClass="error" /></td>
 									<td><form:input path="contactInformation.mobile2" />
 									</td>
 								</tr>
@@ -318,6 +335,7 @@
 											<spring:message code="label.email3" />
 										</form:label>
 									</td>
+									<td><form:errors path="contactInformation.email3" cssClass="error" /></td>
 									<td><form:input path="contactInformation.email3" />
 									</td>
 								</tr>
@@ -328,6 +346,7 @@
 											<spring:message code="label.phone3" />
 										</form:label>
 									</td>
+									<td><form:errors path="contactInformation.phone3" cssClass="error" /></td>
 									<td><form:input path="contactInformation.phone3" />
 									</td>
 								</tr>
@@ -338,6 +357,7 @@
 											<spring:message code="label.mobile3" />
 										</form:label>
 									</td>
+									<td><form:errors path="contactInformation.mobile3" cssClass="error" /></td>
 									<td><form:input path="contactInformation.mobile3" />
 									</td>
 								</tr>

@@ -5,8 +5,11 @@ import java.util.Set;
 
 import com.rise.common.util.annotation.Component;
 import com.rise.common.util.annotation.DesiredField;
+import com.rise.common.util.annotation.InHouse;
+import com.rise.common.util.annotation.Validation;
 import com.rise.common.util.annotation.FieldType.Type;
 import com.rise.common.util.annotation.Reference;
+import com.rise.common.util.annotation.ValidationType;
 import com.rise.common.util.checker.HibernateClassNameConstants;
 
 public class Person extends BaseModel {
@@ -25,9 +28,11 @@ public class Person extends BaseModel {
 	// private String lastName;
 	// private String suffix;
 	@DesiredField
+	@Validation(validationType = ValidationType.DATE_OF_BIRTH)
 	private Date dateOfBirth;
 
 	@DesiredField
+	@Validation(validationType = ValidationType.AADHAAR_NUMBER)
 	private String aadhaarNumber;
 
 	@Reference(className = "com.rise.common.model.EducationQualification", type = Type.SET, prefix = "EDU", name = HibernateClassNameConstants.EDUCATION_QUALIFICATION, variableName = "educationQualifications")
@@ -36,7 +41,11 @@ public class Person extends BaseModel {
 	@Reference(className = "com.rise.common.model.EmploymentExperience", type = Type.SET, prefix = "EMP-EXP", name = HibernateClassNameConstants.EMPLOYMENT_EXPERIENCE, variableName = "employmentExperiences")
 	private Set<EmploymentExperience> employmentExperiences;
 
-//	@Reference(className = "com.rise.common.model.ContactInformation", type = Type.DEFAULT, prefix = "CI", name = HibernateClassNameConstants.CONTACT_INFORMATION, variableName = "contactInformation")
+	// @Reference(className = "com.rise.common.model.ContactInformation", type =
+	// Type.DEFAULT, prefix = "CI", name =
+	// HibernateClassNameConstants.CONTACT_INFORMATION, variableName =
+	// "contactInformation")
+	@InHouse
 	private ContactInformation contactInformation;
 
 	@Reference(className = "com.rise.common.model.DriversLicense", type = Type.DEFAULT, prefix = "DL", name = HibernateClassNameConstants.DRIVERS_LICENSE, variableName = "driversLicense")
@@ -45,6 +54,7 @@ public class Person extends BaseModel {
 	@Component
 	// @Reference(className="com.rise.common.model.PersonName", type =
 	// Type.DEFAULT)
+	@InHouse
 	private PersonName personName;
 
 	@Reference(className = "com.rise.common.model.Candidate", type = Type.DEFAULT, prefix = "CANDIDATE", name = HibernateClassNameConstants.CANDIDATE, variableName = "candidate")

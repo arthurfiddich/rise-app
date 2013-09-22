@@ -19,6 +19,7 @@ import com.rise.common.util.annotation.Reference;
 import com.rise.common.util.checker.Precondition;
 import com.rise.common.util.checker.PreconditionException;
 import com.rise.common.util.constants.HibernateHelperConstants;
+import com.rise.common.util.file.ReflectionUtil;
 import com.rise.common.util.reader.ConfigReader;
 import com.rise.common.util.reader.FileSystemConfigReader;
 
@@ -41,6 +42,11 @@ public class QueryBuilderHelper {
 	private Map<String, String> classNameVsTableNameMap = new HashMap<String, String>();
 	private Map<String, Map<String, String>> classNameVsDbColumnNameMap = new HashMap<String, Map<String, String>>();
 
+	/*
+	 * This map has "fully qualified class name vs validator inctsnces"
+	 */
+	private Map<String, Object> fullyQualifiedClassNameVsValidatorInstance = new HashMap<String, Object>();
+
 	public static QueryBuilderHelper createInstance(String argTenantId,
 			String argConfigurationFile) {
 		QueryBuilderHelper queryBuilderHelper = new QueryBuilderHelper();
@@ -61,6 +67,40 @@ public class QueryBuilderHelper {
 		prepareModelClassNameVsCollectionOfReferenceFieldsMap();
 		buildClassNameVsTableNameMap();
 		buildDbColumnsMap();
+		Map<String, Object> fullyQualifiedClassNamVsValidatorInstanceMap = buildClassNameVsValidatorInstances();
+		if (Precondition
+				.checkNotNull(fullyQualifiedClassNamVsValidatorInstanceMap)) {
+			this.getFullyQualifiedClassNameVsValidatorInstance().putAll(
+					fullyQualifiedClassNamVsValidatorInstanceMap);
+		}
+	}
+
+	/*
+	 * This class will hold the
+	 * "Fully Qualified Class Name Vs Instance Of Validator".
+	 */
+	public Map<String, Object> buildClassNameVsValidatorInstances() {
+		List<String> fullyQualifiedClassNames = ReflectionUtil
+				.getClassNamesFromPackage(
+						HibernateHelperConstants.VALIDATORS_PACKAGE_NAME, false);
+		if (Precondition.checkNotEmpty(fullyQualifiedClassNames)) {
+			Map<String, Object> fullyQualifiedClassNameVsObject = new HashMap<String, Object>();
+			for (String fullyQualifiedClassName : fullyQualifiedClassNames) {
+				try {
+					Class<?> classInstance = Class
+							.forName(fullyQualifiedClassName);
+					Object newInstance = classInstance.newInstance();
+					fullyQualifiedClassNameVsObject.put(
+							fullyQualifiedClassName, newInstance);
+				} catch (Exception e) {
+					throw new PreconditionException(
+							"Class not found exception/Exception while creating a new instance: "
+									+ fullyQualifiedClassName, e);
+				}
+			}
+			return fullyQualifiedClassNameVsObject;
+		}
+		return null;
 	}
 
 	private void buildDbColumnsMap() {
@@ -295,18 +335,19 @@ public class QueryBuilderHelper {
 		return fieldList;
 	}
 
-	private void buildMaps(List<String> argTokens) {
-		List<String> tokens = (List<String>) Precondition.ensureNotEmpty(
-				argTokens, "Tokens");
-		for (String modelClassName : tokens) {
+	private void buildMaps(List<String> argFullyQualifiedClassNames) {
+		List<String> fullyQualifiedClassNames = (List<String>) Precondition
+				.ensureNotEmpty(argFullyQualifiedClassNames, "Tokens");
+		for (String fullyQualifiedClassName : fullyQualifiedClassNames) {
 			try {
-				Class clazz = Class.forName(modelClassName);
-				this.getModelNameVsClassObjectMap().put(modelClassName, clazz);
+				Class clazz = Class.forName(fullyQualifiedClassName);
+				this.getModelNameVsClassObjectMap().put(
+						fullyQualifiedClassName, clazz);
 				this.modelClassesList.add(clazz);
 				build(clazz);
 			} catch (ClassNotFoundException e) {
 				throw new PreconditionException("Class not found exception: "
-						+ modelClassName, e);
+						+ fullyQualifiedClassName, e);
 			}
 		}
 
@@ -676,6 +717,15 @@ public class QueryBuilderHelper {
 	public void setClassNameVsDbColumnNameMap(
 			Map<String, Map<String, String>> argClassNameVsDbColumnNameMap) {
 		this.classNameVsDbColumnNameMap = argClassNameVsDbColumnNameMap;
+	}
+
+	public Map<String, Object> getFullyQualifiedClassNameVsValidatorInstance() {
+		return this.fullyQualifiedClassNameVsValidatorInstance;
+	}
+
+	public void setFullyQualifiedClassNameVsValidatorInstance(
+			Map<String, Object> argFullyQualifiedClassNameVsValidatorInstance) {
+		this.fullyQualifiedClassNameVsValidatorInstance = argFullyQualifiedClassNameVsValidatorInstance;
 	}
 
 }

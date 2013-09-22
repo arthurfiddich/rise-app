@@ -5,19 +5,11 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import com.rise.common.util.annotation.FieldType.Type;
-
 @Target(value = ElementType.FIELD)
 @Retention(value = RetentionPolicy.RUNTIME)
-public @interface Reference {
+public @interface Validation {
 
-	public Type type();
+	public ValidationType validationType();
 
-	public String className();
-
-	public String prefix();
-
-	public String name();
-
-	public String variableName();
+	public String annotationPackage() default "com.rise.validation.impl";
 }

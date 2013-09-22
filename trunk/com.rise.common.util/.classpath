@@ -15,5 +15,6 @@
 	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/spring/spring-context-3.2.2.RELEASE.jar"/>
 	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/spring/spring-beans-3.2.2.RELEASE.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/apache-poi"/>
+	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/reflections/reflections-0.9.9-RC1-uberjar.jar"/>
 	<classpathentry kind="output" path="classes"/>
 </classpath>
