@@ -232,4 +232,10 @@ public class TenantConfigHelper {
 	public Map<String, Map<String, String>> getClassNameVsDbColumnNameMap() {
 		return this.queryBuilderHelper.getClassNameVsDbColumnNameMap();
 	}
+
+	public Map<String, Object> getFullyQualifiedClassNameVsValidatorInstance() {
+		return this.queryBuilderHelper
+				.getFullyQualifiedClassNameVsValidatorInstance();
+	}
+
 }

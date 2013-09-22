@@ -1,6 +1,8 @@
 package com.rise.common.model;
 
 import com.rise.common.util.annotation.DesiredField;
+import com.rise.common.util.annotation.Validation;
+import com.rise.common.util.annotation.ValidationType;
 
 public class ContactInformation extends BaseModel {
 
@@ -10,24 +12,34 @@ public class ContactInformation extends BaseModel {
 	private static final long serialVersionUID = 1L;
 
 	@DesiredField
+	@Validation(validationType = ValidationType.EMAIL)
 	private String email1;
 	@DesiredField
+	@Validation(validationType = ValidationType.EMAIL)
 	private String email2;
 	@DesiredField
+	@Validation(validationType = ValidationType.EMAIL)
 	private String email3;
 	@DesiredField
+	@Validation(validationType = ValidationType.PHONE_NUMBER)
 	private String phone1;
 	@DesiredField
+	@Validation(validationType = ValidationType.PHONE_NUMBER)
 	private String phone2;
 	@DesiredField
+	@Validation(validationType = ValidationType.PHONE_NUMBER)
 	private String phone3;
 	@DesiredField
+	@Validation(validationType = ValidationType.PHONE_NUMBER)
 	private String mobile1;
 	@DesiredField
+	@Validation(validationType = ValidationType.PHONE_NUMBER)
 	private String mobile2;
 	@DesiredField
+	@Validation(validationType = ValidationType.PHONE_NUMBER)
 	private String mobile3;
 	@DesiredField
+	@Validation(validationType = ValidationType.WEBSITE)
 	private String website;
 
 	private TrainingProvider trainingProvider;

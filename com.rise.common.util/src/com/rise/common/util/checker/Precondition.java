@@ -75,4 +75,8 @@ public class Precondition {
 		}
 		return value;
 	}
+	
+	public static boolean checkNotEmpty(Object[] value) {
+		return checkNotNull(value) && value.length > 0;
+	}
 }
