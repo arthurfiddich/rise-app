@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
+	<classpathentry kind="src" path="/com.rise.common.util"/>
+	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/validations/phone/geocoder-2.9.jar"/>
+	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/validations/phone/libphonenumber-5.8.jar" sourcepath="/com.rise.extlib/src-jars/validations/phone/libphonenumber-5.7-sources.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
