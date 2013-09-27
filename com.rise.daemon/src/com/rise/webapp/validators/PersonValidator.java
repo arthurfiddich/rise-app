@@ -1,11 +1,9 @@
 package com.rise.webapp.validators;
 
 import java.beans.BeanInfo;
-import java.beans.IntrospectionException;
 import java.beans.Introspector;
 import java.beans.PropertyDescriptor;
 import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import java.util.Map;
 
@@ -13,7 +11,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
-import com.rise.common.model.ContactInformation;
 import com.rise.common.model.Person;
 import com.rise.common.util.Helper.TenantConfigHelper;
 import com.rise.common.util.annotation.InHouse;
@@ -43,12 +40,6 @@ public class PersonValidator implements Validator {
 				validate(field.getType(), argErrors, obj);
 			}
 		}
-		// argErrors.rejectValue("Errors", "All Errors");
-		// ContactInformation contactInformation =
-		// person.getContactInformation();
-		// if (Precondition.checkNotNull(contactInformation)) {
-		// validate(argTarget, argErrors, person);
-		// }
 	}
 
 	@SuppressWarnings("unchecked")
@@ -69,8 +60,9 @@ public class PersonValidator implements Validator {
 						com.rise.validation.Validation<String, String> validation = (com.rise.validation.Validation<String, String>) instance;
 						boolean valid = validation.validate(result.toString());
 						if (!valid) {
-							argErrors.rejectValue(field.getName(),
-									field.getName() + " Validation Failed");
+							argErrors.rejectValue(argClass.getSimpleName()
+									+ "." + field.getName(),field.getName(), field.getName()
+									+ " Validation Failed");
 						}
 					}
 				} catch (IllegalArgumentException e) {

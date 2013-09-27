@@ -38,6 +38,20 @@
 		window.location.href = "/rise/setUp";
 	}
 </script>
+
+<style>
+.error {
+	color: #ff0000;
+}
+ 
+.errorblock {
+	color: #000;
+	background-color: #ffEEEE;
+	border: 3px solid #ff0000;
+	padding: 8px;
+	margin: 16px;
+}
+</style>
 </head>
 <body>
 	<div class="container">
@@ -77,298 +91,323 @@
 			</ul>
 		</div>
 		<form:form modelAttribute="person" action="save" method="post">
-			<div id="divcontainer" class="content">
-				<input type="submit" value="Save" class="styled-button-3"> <input
-					type="button" value="Cancel" onClick="history.go(-1);return true;"
-					class="styled-button-3" />
-				<h1 align="left" class="headersection">
-					<b>Personal Information</b>
-				</h1>
-				<table>
-					<tr>
-						<td>
-							<table>
-								<%-- <tr>
+			<form:errors path="*" cssClass="errorblock" element="div" />
+				<div id="divcontainer" class="content">
+					<input type="submit" value="Save" class="styled-button-3">
+					<input type="button" value="Cancel"
+						onClick="history.go(-1);return true;" class="styled-button-3" />
+					<h1 align="left" class="headersection">
+						<b>Personal Information</b>
+					</h1>
+					<table>
+						<tr>
+							<td>
+								<table>
+									<%-- <tr>
 									<td align="right"><form:label path="id" for="id">
 											<spring:message code="label.id" />
 										</form:label></td>
 									<td><form:input path="id" /></td>
 								</tr> --%>
-								<tr>
-									<td align="right"><form:label path="personName.title"
-											for="personName.title">
-											<spring:message code="label.title" />
-										</form:label>
-									</td>
-									<td><form:errors path="personName.title" cssClass="error" /></td>
-									<td><form:input path="personName.title" />
-									</td>
-								</tr>
-								<tr>
-									<td align="right"><form:label path="personName.firstName"
-											for="personName.firstName">
-											<spring:message code="label.firstName" />
-										</form:label>
-									</td>
-									<td><form:errors path="personName.firstName" cssClass="error" /></td>
-									<td><form:input path="personName.firstName" />
-									</td>
-								</tr>
-								<tr>
-									<td align="right"><form:label path="personName.middleName"
-											for="personName.middleName">
-											<spring:message code="label.middleName" />
-										</form:label>
-									</td>
-									<td><form:errors path="personName.middleName" cssClass="error" /></td>
-									<td><form:input path="personName.middleName" />
-									</td>
-								</tr>
-								<tr>
-									<td align="right"><form:label path="personName.lastName"
-											for="personName.lastName">
-											<spring:message code="label.lastName" />
-										</form:label>
-									</td>
-									<td><form:errors path="personName.lastName" cssClass="error" /></td>
-									<td><form:input path="personName.lastName" />
-									</td>
-								</tr>
-								<tr>
-									<td align="right"><form:label path="personName.suffix"
-											for="personName.suffix">
-											<spring:message code="label.suffix" />
-										</form:label>
-									</td>
-									<td><form:errors path="personName.suffix" cssClass="error" /></td>
-									<td><form:input path="personName.suffix" />
-									</td>
-								</tr>
-							</table>
-						</td>
-						<td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-						<td>
-							<table>
-								<tr>
-									<td align="right"><form:label path="dateOfBirth"
-											for="dateOfBirth">
-											<spring:message code="label.dateOfBirth" />
-										</form:label>
-									</td>
-									<td><form:errors path="dateOfBirth" cssClass="error" /></td>
-									<td><form:input path="dateOfBirth" />
-									</td>
-								</tr>
-								<tr>
-									<td align="right"><form:label path="aadhaarNumber"
-											for="aadhaarNumber">
-											<spring:message code="label.aadhaarNumber" />
-										</form:label>
-									</td>
-									<td><form:errors path="aadhaarNumber" cssClass="error" /></td>
-									<td><form:input path="aadhaarNumber" />
-									</td>
-								</tr>
-							</table>
-						</td>
-					</tr>
-				</table>
-				<h1 align="left" class="headersection">
-					<b>Address Information</b>
-				</h1>
-				<table>
-					<tr>
-						<td>
-							<table>
-								<tr>
-									<td align="right"><form:label
-											path="contactInformation.primaryAddress.streetAddress"
-											for="contactInformation.primaryAddress.streetAddress">
-											<spring:message code="label.streetAddress" />
-										</form:label>
-									</td>
-									<td><form:errors path="contactInformation.primaryAddress.streetAddress" cssClass="error" /></td>
-									<td><form:input
-											path="contactInformation.primaryAddress.streetAddress" />
-									</td>
-								</tr>
-								<tr>
-									<td align="right"><form:label
-											path="contactInformation.primaryAddress.state"
-											for="contactInformation.primaryAddress.state">
-											<spring:message code="label.state" />
-										</form:label>
-									</td>
-									<td><form:errors path="contactInformation.primaryAddress.state" cssClass="error" /></td>
-									<td><form:input
-											path="contactInformation.primaryAddress.state" />
-									</td>
-								</tr>
-								<tr>
-									<td align="right"><form:label
-											path="contactInformation.primaryAddress.city"
-											for="contactInformation.primaryAddress.city">
-											<spring:message code="label.city" />
-										</form:label>
-									</td>
-									<td><form:errors path="contactInformation.primaryAddress.city" cssClass="error" /></td>
-									<td><form:input
-											path="contactInformation.primaryAddress.city" />
-									</td>
-								</tr>
-							</table>
-						</td>
-						<td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-						<td>
-							<table>
-								<tr>
-									<td align="right"><form:label
-											path="contactInformation.primaryAddress.postalCode"
-											for="contactInformation.primaryAddress.postalCode">
-											<spring:message code="label.postalCode" />
-										</form:label>
-									</td>
-									<td><form:errors path="contactInformation.primaryAddress.postalCode" cssClass="error" /></td>
-									<td><form:input
-											path="contactInformation.primaryAddress.postalCode" />
-									</td>
-								</tr>
-								<tr>
-									<td align="right"><form:label
-											path="contactInformation.primaryAddress.country"
-											for="contactInformation.primaryAddress.country">
-											<spring:message code="label.country" />
-										</form:label>
-									</td>
-									<td><form:errors path="contactInformation.primaryAddress.country" cssClass="error" /></td>
-									<td><form:input
-											path="contactInformation.primaryAddress.country" />
-									</td>
-								</tr>
-							</table>
-						</td>
-					</tr>
-				</table>
-				<h1 align="left" class="headersection">
-					<b>Contact Information</b>
-				</h1>
-				<table>
-					<tr>
-						<td>
-							<table>
-								<tr>
-									<td align="right"><form:label
-											path="contactInformation.email1"
-											for="contactInformation.email1">
-											<spring:message code="label.email1" />
-										</form:label>
-									</td>
-									<td><form:errors path="contactInformation.email1" cssClass="error" /></td>
-									<td><form:input path="contactInformation.email1" />
-									</td>
-								</tr>
-								<tr>
-									<td align="right"><form:label
-											path="contactInformation.phone1"
-											for="contactInformation.phone1">
-											<spring:message code="label.phone1" />
-										</form:label>
-									</td>
-									<td><form:errors path="contactInformation.phone1" cssClass="error" /></td>
-									<td><form:input path="contactInformation.phone1" />
-									</td>
-								</tr>
-								<tr>
-									<td align="right"><form:label
-											path="contactInformation.mobile1"
-											for="contactInformation.mobile1">
-											<spring:message code="label.mobile1" />
-										</form:label>
-									</td>
-									<td><form:errors path="contactInformation.mobile1" cssClass="error" /></td>
-									<td><form:input path="contactInformation.mobile1" />
-									</td>
-								</tr>
-							</table></td>
-						<td>
-							<table>
-								<tr>
-									<td align="right"><form:label
-											path="contactInformation.email2"
-											for="contactInformation.email2">
-											<spring:message code="label.email2" />
-										</form:label>
-									</td>
-									<td><form:errors path="contactInformation.email2" cssClass="error" /></td>
-									<td><form:input path="contactInformation.email2" />
-									</td>
-								</tr>
-								<tr>
-									<td align="right"><form:label
-											path="contactInformation.phone2"
-											for="contactInformation.phone2">
-											<spring:message code="label.phone2" />
-										</form:label>
-									</td>
-									<td><form:errors path="contactInformation.phone2" cssClass="error" /></td>
-									<td><form:input path="contactInformation.phone2" />
-									</td>
-								</tr>
-								<tr>
-									<td align="right"><form:label
-											path="contactInformation.mobile2"
-											for="contactInformation.mobile2">
-											<spring:message code="label.mobile2" />
-										</form:label>
-									</td>
-									<td><form:errors path="contactInformation.mobile2" cssClass="error" /></td>
-									<td><form:input path="contactInformation.mobile2" />
-									</td>
-								</tr>
-							</table></td>
-						<td>
-							<table>
-								<tr>
-									<td align="right"><form:label
-											path="contactInformation.email3"
-											for="contactInformation.email3">
-											<spring:message code="label.email3" />
-										</form:label>
-									</td>
-									<td><form:errors path="contactInformation.email3" cssClass="error" /></td>
-									<td><form:input path="contactInformation.email3" />
-									</td>
-								</tr>
-								<tr>
-									<td align="right"><form:label
-											path="contactInformation.phone3"
-											for="contactInformation.phone3">
-											<spring:message code="label.phone3" />
-										</form:label>
-									</td>
-									<td><form:errors path="contactInformation.phone3" cssClass="error" /></td>
-									<td><form:input path="contactInformation.phone3" />
-									</td>
-								</tr>
-								<tr>
-									<td align="right"><form:label
-											path="contactInformation.mobile3"
-											for="contactInformation.mobile3">
-											<spring:message code="label.mobile3" />
-										</form:label>
-									</td>
-									<td><form:errors path="contactInformation.mobile3" cssClass="error" /></td>
-									<td><form:input path="contactInformation.mobile3" />
-									</td>
-								</tr>
-							</table></td>
-					</tr>
-				</table>
-				<input type="submit" value="Save" class="styled-button-3"> <input
-					type="button" value="Cancel" onClick="history.go(-1);return true;"
-					class="styled-button-3" />
-			</div>
-
+									<tr>
+										<td align="right"><form:label path="personName.title"
+												for="personName.title">
+												<spring:message code="label.title" />
+											</form:label>
+										</td>
+										<td><form:errors path="personName.title" cssClass="error" />
+										</td>
+										<td><form:input path="personName.title" />
+										</td>
+									</tr>
+									<tr>
+										<td align="right"><form:label path="personName.firstName"
+												for="personName.firstName">
+												<spring:message code="label.firstName" />
+											</form:label>
+										</td>
+										<td><form:errors path="personName.firstName"
+												cssClass="error" /></td>
+										<td><form:input path="personName.firstName" />
+										</td>
+									</tr>
+									<tr>
+										<td align="right"><form:label
+												path="personName.middleName" for="personName.middleName">
+												<spring:message code="label.middleName" />
+											</form:label>
+										</td>
+										<td><form:errors path="personName.middleName"
+												cssClass="error" /></td>
+										<td><form:input path="personName.middleName" />
+										</td>
+									</tr>
+									<tr>
+										<td align="right"><form:label path="personName.lastName"
+												for="personName.lastName">
+												<spring:message code="label.lastName" />
+											</form:label>
+										</td>
+										<td><form:errors path="personName.lastName"
+												cssClass="error" /></td>
+										<td><form:input path="personName.lastName" />
+										</td>
+									</tr>
+									<tr>
+										<td align="right"><form:label path="personName.suffix"
+												for="personName.suffix">
+												<spring:message code="label.suffix" />
+											</form:label>
+										</td>
+										<td><form:errors path="personName.suffix"
+												cssClass="error" /></td>
+										<td><form:input path="personName.suffix" />
+										</td>
+									</tr>
+								</table>
+							</td>
+							<td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+							<td>
+								<table>
+									<tr>
+										<td align="right"><form:label path="dateOfBirth"
+												for="dateOfBirth">
+												<spring:message code="label.dateOfBirth" />
+											</form:label>
+										</td>
+										<td><form:errors path="dateOfBirth" cssClass="red" /></td>
+										<td><form:input path="dateOfBirth" />
+										</td>
+									</tr>
+									<tr>
+										<td align="right"><form:label path="aadhaarNumber"
+												for="aadhaarNumber">
+												<spring:message code="label.aadhaarNumber" />
+											</form:label>
+										</td>
+										<td><form:errors path="aadhaarNumber" cssClass="error" />
+										</td>
+										<td><form:input path="aadhaarNumber" />
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+					<h1 align="left" class="headersection">
+						<b>Address Information</b>
+					</h1>
+					<table>
+						<tr>
+							<td>
+								<table>
+									<tr>
+										<td align="right"><form:label
+												path="contactInformation.primaryAddress.streetAddress"
+												for="contactInformation.primaryAddress.streetAddress">
+												<spring:message code="label.streetAddress" />
+											</form:label>
+										</td>
+										<td><form:errors
+												path="contactInformation.primaryAddress.streetAddress"
+												cssClass="error" /></td>
+										<td><form:input
+												path="contactInformation.primaryAddress.streetAddress" />
+										</td>
+									</tr>
+									<tr>
+										<td align="right"><form:label
+												path="contactInformation.primaryAddress.state"
+												for="contactInformation.primaryAddress.state">
+												<spring:message code="label.state" />
+											</form:label>
+										</td>
+										<td><form:errors
+												path="contactInformation.primaryAddress.state"
+												cssClass="error" /></td>
+										<td><form:input
+												path="contactInformation.primaryAddress.state" />
+										</td>
+									</tr>
+									<tr>
+										<td align="right"><form:label
+												path="contactInformation.primaryAddress.city"
+												for="contactInformation.primaryAddress.city">
+												<spring:message code="label.city" />
+											</form:label>
+										</td>
+										<td><form:errors
+												path="contactInformation.primaryAddress.city"
+												cssClass="error" /></td>
+										<td><form:input
+												path="contactInformation.primaryAddress.city" />
+										</td>
+									</tr>
+								</table>
+							</td>
+							<td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+							<td>
+								<table>
+									<tr>
+										<td align="right"><form:label
+												path="contactInformation.primaryAddress.postalCode"
+												for="contactInformation.primaryAddress.postalCode">
+												<spring:message code="label.postalCode" />
+											</form:label>
+										</td>
+										<td><form:errors
+												path="contactInformation.primaryAddress.postalCode"
+												cssClass="error" /></td>
+										<td><form:input
+												path="contactInformation.primaryAddress.postalCode" />
+										</td>
+									</tr>
+									<tr>
+										<td align="right"><form:label
+												path="contactInformation.primaryAddress.country"
+												for="contactInformation.primaryAddress.country">
+												<spring:message code="label.country" />
+											</form:label>
+										</td>
+										<td><form:errors
+												path="contactInformation.primaryAddress.country"
+												cssClass="error" /></td>
+										<td><form:input
+												path="contactInformation.primaryAddress.country" />
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+					<h1 align="left" class="headersection">
+						<b>Contact Information</b>
+					</h1>
+					<table>
+						<tr>
+							<td>
+								<table>
+									<tr>
+										<td align="right"><form:label
+												path="contactInformation.email1"
+												for="contactInformation.email1">
+												<spring:message code="label.email1" />
+											</form:label>
+										</td>
+										<td><form:errors path="contactInformation.email1"
+												cssClass="error" /></td>
+										<td><form:input path="contactInformation.email1" />
+										</td>
+									</tr>
+									<tr>
+										<td align="right"><form:label
+												path="contactInformation.phone1"
+												for="contactInformation.phone1">
+												<spring:message code="label.phone1" />
+											</form:label>
+										</td>
+										<td><form:errors path="contactInformation.phone1"
+												cssClass="error" /></td>
+										<td><form:input path="contactInformation.phone1" />
+										</td>
+									</tr>
+									<tr>
+										<td align="right"><form:label
+												path="contactInformation.mobile1"
+												for="contactInformation.mobile1">
+												<spring:message code="label.mobile1" />
+											</form:label>
+										</td>
+										<td><form:errors path="contactInformation.mobile1"
+												cssClass="red">Required</form:errors></td>
+										<td><form:input path="contactInformation.mobile1" />
+										</td>
+									</tr>
+								</table></td>
+							<td>
+								<table>
+									<tr>
+										<td align="right"><form:label
+												path="contactInformation.email2"
+												for="contactInformation.email2">
+												<spring:message code="label.email2" />
+											</form:label>
+										</td>
+										<td><form:errors path="contactInformation.email2"
+												cssClass="error" /></td>
+										<td><form:input path="contactInformation.email2" />
+										</td>
+									</tr>
+									<tr>
+										<td align="right"><form:label
+												path="contactInformation.phone2"
+												for="contactInformation.phone2">
+												<spring:message code="label.phone2" />
+											</form:label>
+										</td>
+										<td><form:errors path="contactInformation.phone2"
+												cssClass="error" /></td>
+										<td><form:input path="contactInformation.phone2" />
+										</td>
+									</tr>
+									<tr>
+										<td align="right"><form:label
+												path="contactInformation.mobile2"
+												for="contactInformation.mobile2">
+												<spring:message code="label.mobile2" />
+											</form:label>
+										</td>
+										<td><form:errors path="contactInformation.mobile2"
+												cssClass="error" /></td>
+										<td><form:input path="contactInformation.mobile2" />
+										</td>
+									</tr>
+								</table></td>
+							<td>
+								<table>
+									<tr>
+										<td align="right"><form:label
+												path="contactInformation.email3"
+												for="contactInformation.email3">
+												<spring:message code="label.email3" />
+											</form:label>
+										</td>
+										<td><form:errors path="contactInformation.email3"
+												cssClass="error" /></td>
+										<td><form:input path="contactInformation.email3" />
+										</td>
+									</tr>
+									<tr>
+										<td align="right"><form:label
+												path="contactInformation.phone3"
+												for="contactInformation.phone3">
+												<spring:message code="label.phone3" />
+											</form:label>
+										</td>
+										<td><form:errors path="contactInformation.phone3"
+												cssClass="error" /></td>
+										<td><form:input path="contactInformation.phone3" />
+										</td>
+									</tr>
+									<tr>
+										<td align="right"><form:label
+												path="contactInformation.mobile3"
+												for="contactInformation.mobile3">
+												<spring:message code="label.mobile3" />
+											</form:label>
+										</td>
+										<td><form:errors path="contactInformation.mobile3"
+												cssClass="error" /></td>
+										<td><form:input path="contactInformation.mobile3" />
+										</td>
+									</tr>
+								</table></td>
+						</tr>
+					</table>
+					<input type="submit" value="Save" class="styled-button-3">
+					<input type="button" value="Cancel"
+						onClick="history.go(-1);return true;" class="styled-button-3" />
+				</div>
 		</form:form>
 	</div>
 </body>
