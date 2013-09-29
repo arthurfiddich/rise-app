@@ -9,4 +9,5 @@ import java.lang.annotation.Target;
 @Retention(value = RetentionPolicy.RUNTIME)
 public @interface InHouse {
 
+	public String[] parentClassNames() default {};
 }

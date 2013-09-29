@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
+import com.rise.common.model.Address;
 import com.rise.common.model.Person;
 import com.rise.common.util.Helper.TenantConfigHelper;
 import com.rise.common.util.annotation.InHouse;
@@ -18,6 +19,7 @@ import com.rise.common.util.annotation.Validation;
 import com.rise.common.util.annotation.processor.AnnotationProcessor;
 import com.rise.common.util.checker.Precondition;
 import com.rise.common.util.constants.HibernateHelperConstants;
+import com.rise.validation.impl.AddressValidation;
 
 @Component
 public class PersonValidator implements Validator {
@@ -40,19 +42,30 @@ public class PersonValidator implements Validator {
 				validate(field.getType(), argErrors, obj);
 			}
 		}
+		Address address = person.getContactInformation().getPrimaryAddress();
+		AddressValidation addressValidation = new AddressValidation();
+		try {
+			boolean valid = addressValidation.validate(address);
+			if (!valid) {
+				argErrors.rejectValue(Address.class.getSimpleName(), "Address",
+						"Adress is not valid...");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 	}
 
 	@SuppressWarnings("unchecked")
 	protected void validate(Class<?> argClass, Errors argErrors,
 			Object argObject) {
-		List<Field> calidationFieldsList = AnnotationProcessor
+		List<Field> ValidationFieldsList = AnnotationProcessor
 				.getAnnotatedFields(argClass, Validation.class);
-		if (Precondition.checkNotEmpty(calidationFieldsList)) {
-			for (Field field : calidationFieldsList) {
+		if (Precondition.checkNotEmpty(ValidationFieldsList)) {
+			for (Field field : ValidationFieldsList) {
 				try {
 					field.setAccessible(true);
-					Object result;
-					result = field.get(argObject);
+					Object result = field.get(argObject);
 
 					Object instance = getValidatorInstance(argClass, field);
 					if (Precondition.checkNotNull(instance)
@@ -61,8 +74,8 @@ public class PersonValidator implements Validator {
 						boolean valid = validation.validate(result.toString());
 						if (!valid) {
 							argErrors.rejectValue(argClass.getSimpleName()
-									+ "." + field.getName(),field.getName(), field.getName()
-									+ " Validation Failed");
+									+ "." + field.getName(), field.getName(),
+									field.getName() + " Validation Failed");
 						}
 					}
 				} catch (IllegalArgumentException e) {
