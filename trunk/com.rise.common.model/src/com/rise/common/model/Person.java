@@ -5,10 +5,10 @@ import java.util.Set;
 
 import com.rise.common.util.annotation.Component;
 import com.rise.common.util.annotation.DesiredField;
-import com.rise.common.util.annotation.InHouse;
-import com.rise.common.util.annotation.Validation;
 import com.rise.common.util.annotation.FieldType.Type;
+import com.rise.common.util.annotation.InHouse;
 import com.rise.common.util.annotation.Reference;
+import com.rise.common.util.annotation.Validation;
 import com.rise.common.util.annotation.ValidationType;
 import com.rise.common.util.checker.HibernateClassNameConstants;
 

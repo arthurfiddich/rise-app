@@ -1,6 +1,7 @@
 package com.rise.common.model;
 
 import com.rise.common.util.annotation.DesiredField;
+import com.rise.common.util.annotation.InHouse;
 import com.rise.common.util.annotation.Validation;
 import com.rise.common.util.annotation.ValidationType;
 
@@ -45,6 +46,7 @@ public class ContactInformation extends BaseModel {
 	private TrainingProvider trainingProvider;
 	private EmploymentAgency employmentAgency;
 	private Organization organization;
+	@InHouse(parentClassNames = { "com.rise.Person" })
 	private Address primaryAddress;
 	private Department department;
 	private Ministry ministry;

@@ -1,5 +1,10 @@
 package com.rise.common.model;
 
+import com.rise.common.util.annotation.DesiredField;
+import com.rise.common.util.annotation.Validation;
+import com.rise.common.util.annotation.ValidationType;
+
+@Validation(validationType = ValidationType.ADDRESS)
 public class Address extends BaseModel {
 
 	/**
@@ -7,10 +12,15 @@ public class Address extends BaseModel {
 	 */
 	private static final long serialVersionUID = 1L;
 
+	@DesiredField
 	private String streetAddress;
+	@DesiredField
 	private String city;
+	@DesiredField
 	private String state;
+	@DesiredField
 	private String postalCode;
+	@DesiredField
 	private String country;
 
 	private Candidate candidate;

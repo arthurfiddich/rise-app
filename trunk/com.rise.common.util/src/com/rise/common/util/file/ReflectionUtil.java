@@ -24,6 +24,22 @@ public class ReflectionUtil {
 
 	public static List<String> getClassNames(String argPackageName) {
 		Reflections reflections = new Reflections(argPackageName);
+		List<String> fullyQualifiedClassNamesList = new ArrayList<String>();
+		Set<Class<? extends Serializable>> allClasses = reflections
+				.getSubTypesOf(Serializable.class);
+		Iterator<Class<? extends Serializable>> s = allClasses.iterator();
+		logger.info("Loading Class Names: ");
+		while (s.hasNext()) {
+			Class<? extends Serializable> st = s.next();
+			String fullyQualifiedClassName = st.getName();
+			fullyQualifiedClassNamesList.add(fullyQualifiedClassName);
+			logger.info("Class Names: " + fullyQualifiedClassName);
+		}
+		return fullyQualifiedClassNamesList;
+	}
+	
+	public static List<String> getSimpleClassNames(String argPackageName) {
+		Reflections reflections = new Reflections(argPackageName);
 		List<String> simpleClassNamesList = new ArrayList<String>();
 		Set<Class<? extends Serializable>> allClasses = reflections
 				.getSubTypesOf(Serializable.class);
@@ -31,7 +47,7 @@ public class ReflectionUtil {
 		logger.info("Loading Class Names: ");
 		while (s.hasNext()) {
 			Class<? extends Serializable> st = s.next();
-			String simpleClassName = st.getName();
+			String simpleClassName = st.getSimpleName();
 			simpleClassNamesList.add(simpleClassName);
 			logger.info("Class Names: " + simpleClassName);
 		}

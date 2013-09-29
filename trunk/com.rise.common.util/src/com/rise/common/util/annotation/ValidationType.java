@@ -4,7 +4,7 @@ import com.rise.common.util.checker.Precondition;
 
 public enum ValidationType {
 	PHONE_NUMBER("PhoneNumber"), EMAIL("Email"), DATE_OF_BIRTH("Dob"), AADHAAR_NUMBER(
-			"AadhaarNumber"), WEBSITE("Website");
+			"AadhaarNumber"), WEBSITE("Website"), ADDRESS("Address");
 
 	public String validationType;
 
