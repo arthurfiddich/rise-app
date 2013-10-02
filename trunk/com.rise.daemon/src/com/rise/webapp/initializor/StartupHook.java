@@ -16,6 +16,8 @@ public class StartupHook extends HttpServlet {
 				"classNames.txt");
 		TenantConfigHelper.getInstance();
 		DatabaseUtil.getInstance();
+		GenerateFile.prepareUiComponentsFile("com.rise.common.model",
+				"uiComponent.txt");
 		super.init(argConfig);
 	}
 }

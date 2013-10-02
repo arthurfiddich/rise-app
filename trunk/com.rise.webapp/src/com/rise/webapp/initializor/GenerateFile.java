@@ -32,7 +32,7 @@ public class GenerateFile {
 			simpleClassNamesList.add(simpleClassName);
 			logger.info("Class Names: " + simpleClassName);
 		}
-		FileWriter<String, String> fileWriter = new FileSystemConfigWriter();
+		FileSystemConfigWriter fileWriter = new FileSystemConfigWriter();
 		fileWriter.writeTextFile(argOutputFileName, simpleClassNamesList);
 	}
 }
