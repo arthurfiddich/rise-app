@@ -11,13 +11,13 @@ import com.rise.common.util.constants.HibernateHelperConstants;
 import com.rise.common.util.file.AutoFileCloser;
 import com.rise.common.util.hibernate.ResourceUtil;
 
-public abstract class AbstractFileWriter implements FileWriter<String, String> {
-
+public abstract class AbstractFileWriter<T, S> implements FileWriter<String, S> {
 	@Override
 	public void writeTextFile(String argFileName, List<String> argTokensList) {
-		Precondition.ensureNotEmpty(argFileName, "Output File Name");
+		Precondition.ensureNotEmpty(argFileName,
+				HibernateHelperConstants.OUTPUT_FILE_NAME);
 		final List<String> tokens = (List<String>) Precondition.ensureNotEmpty(
-				argTokensList, "Output Tokens");
+				argTokensList, HibernateHelperConstants.OUTPUT_TOKENS);
 		final String outputFileName = ResourceUtil
 				.getWritableConfigFolderPath()
 				+ File.separatorChar

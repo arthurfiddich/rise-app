@@ -45,7 +45,7 @@ public class Person extends BaseModel {
 	// Type.DEFAULT, prefix = "CI", name =
 	// HibernateClassNameConstants.CONTACT_INFORMATION, variableName =
 	// "contactInformation")
-	@InHouse
+	@InHouse(parentClassNames = { "com.rise.common.model.Person" })
 	private ContactInformation contactInformation;
 
 	@Reference(className = "com.rise.common.model.DriversLicense", type = Type.DEFAULT, prefix = "DL", name = HibernateClassNameConstants.DRIVERS_LICENSE, variableName = "driversLicense")
@@ -54,7 +54,7 @@ public class Person extends BaseModel {
 	@Component
 	// @Reference(className="com.rise.common.model.PersonName", type =
 	// Type.DEFAULT)
-	@InHouse
+	@InHouse(parentClassNames = { "com.rise.common.model.Person" })
 	private PersonName personName;
 
 	@Reference(className = "com.rise.common.model.Candidate", type = Type.DEFAULT, prefix = "CANDIDATE", name = HibernateClassNameConstants.CANDIDATE, variableName = "candidate")

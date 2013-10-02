@@ -46,7 +46,7 @@ public class ContactInformation extends BaseModel {
 	private TrainingProvider trainingProvider;
 	private EmploymentAgency employmentAgency;
 	private Organization organization;
-	@InHouse(parentClassNames = { "com.rise.Person" })
+	@InHouse(parentClassNames = { "com.rise.common.model.Person" })
 	private Address primaryAddress;
 	private Department department;
 	private Ministry ministry;

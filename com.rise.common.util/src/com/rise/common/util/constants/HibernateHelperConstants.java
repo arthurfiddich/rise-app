@@ -31,9 +31,11 @@ public class HibernateHelperConstants {
 	public static final String PKCOLUMN_NAME = "PKCOLUMN_NAME";
 	public static final String WHERE = "WHERE";
 	public static final String XSSF_WORK_BOOK = "XSSF Work Book";
-	
+
 	public static final String VALIDATORS_PACKAGE_NAME = "com.rise.validation.impl";
 	public static final String VALIDATION_KEY_WORD = "Validation";
-	
+	public static final String OUTPUT_FILE_NAME = "Output File Name";
+	public static final String OUTPUT_TOKENS = "Output Tokens";
+	public static final String MAP = "Empty Map";
 
 }
