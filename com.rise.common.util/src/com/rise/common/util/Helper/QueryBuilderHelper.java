@@ -12,6 +12,9 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.rise.common.util.annotation.Component;
 import com.rise.common.util.annotation.DesiredField;
 import com.rise.common.util.annotation.FieldType.Type;
@@ -24,6 +27,9 @@ import com.rise.common.util.reader.ConfigReader;
 import com.rise.common.util.reader.FileSystemConfigReader;
 
 public class QueryBuilderHelper {
+
+	private static final Logger logger = LoggerFactory
+			.getLogger(QueryBuilderHelper.class);
 
 	private String tenantId;
 	private String configurationFile;
@@ -49,6 +55,8 @@ public class QueryBuilderHelper {
 
 	public static QueryBuilderHelper createInstance(String argTenantId,
 			String argConfigurationFile) {
+		logger.debug("Creating/Initializing an instance for this class: "
+				+ QueryBuilderHelper.class.getSimpleName());
 		QueryBuilderHelper queryBuilderHelper = new QueryBuilderHelper();
 		queryBuilderHelper.setConfigurationFile(argConfigurationFile);
 		queryBuilderHelper.setTenantId(argTenantId);
