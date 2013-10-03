@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 
 import com.rise.common.util.annotation.FieldType.Type;
 import com.rise.common.util.annotation.Reference;
+import com.rise.common.util.file.UiComponentFileReader;
 import com.rise.common.util.hibernate.ResourceUtil;
 import com.rise.xmlns.common.v1.Field;
 import com.rise.xmlns.common.v1.QueryConfig;
@@ -20,9 +21,11 @@ public class TenantConfigHelper {
 			.getLogger(TenantConfigHelper.class);
 	private static final String QUERY_CONFIG_FILE_LOCATION = "com.rise.query.config.xml";
 	private static final String MODEL_CLASS_PROPERTY_FILE_LOCATION = "classNames.txt";
+	private static final String UI_COMPONENT_PROPERTY_FILE_LOCATION = "uiComponent.txt";
 	private static TenantConfigHelper instance = createInstance();
 	private QueryConfigHelper queryConfigHelper;
 	private QueryBuilderHelper queryBuilderHelper;
+	private UiComponentFileReader uiComponentFileReader;
 
 	private String tenantId;
 
@@ -50,6 +53,9 @@ public class TenantConfigHelper {
 
 		this.setQueryBuilderHelper(QueryBuilderHelper.createInstance(
 				this.getTenantId(), MODEL_CLASS_PROPERTY_FILE_LOCATION));
+
+		this.setUiComponentFileReader(UiComponentFileReader.createInstance(
+				this.getTenantId(), UI_COMPONENT_PROPERTY_FILE_LOCATION));
 	}
 
 	public List<Field> getFields(String argClassName) {
@@ -236,6 +242,23 @@ public class TenantConfigHelper {
 	public Map<String, Object> getFullyQualifiedClassNameVsValidatorInstance() {
 		return this.queryBuilderHelper
 				.getFullyQualifiedClassNameVsValidatorInstance();
+	}
+
+	public UiComponentFileReader getUiComponentFileReader() {
+		return this.uiComponentFileReader;
+	}
+
+	public void setUiComponentFileReader(
+			UiComponentFileReader argUiComponentFileReader) {
+		this.uiComponentFileReader = argUiComponentFileReader;
+	}
+
+	public Map<String, String> getModelNameVsUiComponentsMap() {
+		return this.uiComponentFileReader.getModelNameVsUiComponentsMap();
+	}
+
+	public Map<String, List<String>> getModelNameVsUiComponentListMap() {
+		return this.uiComponentFileReader.getModelNameVsUiComponentListMap();
 	}
 
 }
