@@ -10,9 +10,14 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import org.apache.log4j.chainsaw.Main;
+
 import com.rise.common.util.Helper.TenantConfigHelper;
+import com.rise.common.util.annotation.MainTab;
+import com.rise.common.util.annotation.Tab;
 import com.rise.common.util.annotation.Validation;
 import com.rise.common.util.checker.Precondition;
+import com.rise.common.util.constants.HibernateHelperConstants;
 
 public class AnnotationProcessor {
 
@@ -192,7 +197,7 @@ public class AnnotationProcessor {
 		}
 		return null;
 	}
-	
+
 	/*
 	 * This method will provide the validation type.
 	 */
@@ -211,4 +216,74 @@ public class AnnotationProcessor {
 		return null;
 	}
 
+	/**
+	 * This method will give list of TABS...
+	 */
+	public static List<Tab> getTabs() {
+		List<Class<?>> modelClassesList = TenantConfigHelper.getInstance()
+				.getModelClassesList();
+		if (Precondition.checkNotEmpty(modelClassesList)) {
+			List<Tab> tabsList = new ArrayList<Tab>();
+			for (Class<?> clazz : modelClassesList) {
+				Tab tabAnnotation = clazz.getAnnotation(Tab.class);
+				if (Precondition.checkNotNull(tabAnnotation)) {
+					tabsList.add(tabAnnotation);
+				}
+			}
+			return tabsList;
+		}
+		return null;
+	}
+
+	/**
+	 * This method will provide active tab names...
+	 */
+	public static List<String> getActiveTabs() {
+		List<Tab> tabsList = getTabs();
+		if (Precondition.checkNotEmpty(tabsList)) {
+			List<String> activeTabsList = new ArrayList<String>();
+			for (Tab tab : tabsList) {
+				String status = tab.mainTab().name();
+				boolean active = MainTab.isActive(status);
+				if (active) {
+					activeTabsList.add(tab.tabName());
+				}
+			}
+			return activeTabsList;
+		}
+		return null;
+	}
+
+	/**
+	 * This method will provide in-active tab names...
+	 */
+	public static List<String> getInActiveTabs() {
+		List<Tab> tabsList = getTabs();
+		if (Precondition.checkNotEmpty(tabsList)) {
+			List<String> inActiveTabsList = new ArrayList<String>();
+			for (Tab tab : tabsList) {
+				String status = tab.mainTab().name();
+				boolean active = MainTab.isActive(status);
+				if (!active) {
+					inActiveTabsList.add(tab.tabName());
+				}
+			}
+			return inActiveTabsList;
+		}
+		return null;
+	}
+
+	/**
+	 * This method will provide in-active tab names...
+	 */
+	public static List<String> getActiveTabNamesIncludeHome() {
+		List<String> activeTabsList = getActiveTabs();
+		if (Precondition.checkNotEmpty(activeTabsList)) {
+			List<String> activeTabsIncludeHomeList = new ArrayList<String>();
+			activeTabsIncludeHomeList.add(HibernateHelperConstants.HOME);
+			activeTabsIncludeHomeList.addAll(activeTabsList);
+			return activeTabsIncludeHomeList;
+		}
+		return null;
+	}
 }

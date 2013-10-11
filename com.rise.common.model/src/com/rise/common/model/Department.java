@@ -4,7 +4,10 @@ import java.util.Set;
 
 import com.rise.common.model.BaseModel;
 import com.rise.common.model.ContactInformation;
+import com.rise.common.util.annotation.MainTab;
+import com.rise.common.util.annotation.Tab;
 
+@Tab(tabName = "Department", mainTab = MainTab.TRUE)
 public class Department extends BaseModel {
 
 	/**

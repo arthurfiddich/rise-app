@@ -2,6 +2,10 @@ package com.rise.common.model;
 
 import java.util.Date;
 
+import com.rise.common.util.annotation.MainTab;
+import com.rise.common.util.annotation.Tab;
+
+@Tab(tabName = "ProvidentFund", mainTab = MainTab.FALSE)
 public class ProvidentFund extends BaseModel {
 
 	/**

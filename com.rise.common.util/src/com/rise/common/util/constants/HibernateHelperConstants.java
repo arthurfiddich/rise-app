@@ -37,5 +37,7 @@ public class HibernateHelperConstants {
 	public static final String OUTPUT_FILE_NAME = "Output File Name";
 	public static final String OUTPUT_TOKENS = "Output Tokens";
 	public static final String MAP = "Empty Map";
+	public static final String HOME = "Home";
+	public static final String ACTIVE_TABS_LIST = "activeTabsList";
 
 }

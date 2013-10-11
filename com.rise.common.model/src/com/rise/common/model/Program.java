@@ -2,9 +2,10 @@ package com.rise.common.model;
 
 import java.util.Set;
 
-import com.rise.common.model.BaseModel;
-import com.rise.common.model.ContactInformation;
+import com.rise.common.util.annotation.MainTab;
+import com.rise.common.util.annotation.Tab;
 
+@Tab(tabName = "Program", mainTab = MainTab.FALSE)
 public class Program extends BaseModel {
 
 	/**

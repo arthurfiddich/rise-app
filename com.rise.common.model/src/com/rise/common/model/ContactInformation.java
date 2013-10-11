@@ -2,9 +2,12 @@ package com.rise.common.model;
 
 import com.rise.common.util.annotation.DesiredField;
 import com.rise.common.util.annotation.InHouse;
+import com.rise.common.util.annotation.MainTab;
+import com.rise.common.util.annotation.Tab;
 import com.rise.common.util.annotation.Validation;
 import com.rise.common.util.annotation.ValidationType;
 
+@Tab(tabName = "ContactInformation", mainTab = MainTab.FALSE)
 public class ContactInformation extends BaseModel {
 
 	/**

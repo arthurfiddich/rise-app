@@ -7,11 +7,14 @@ import com.rise.common.util.annotation.Component;
 import com.rise.common.util.annotation.DesiredField;
 import com.rise.common.util.annotation.FieldType.Type;
 import com.rise.common.util.annotation.InHouse;
+import com.rise.common.util.annotation.MainTab;
 import com.rise.common.util.annotation.Reference;
+import com.rise.common.util.annotation.Tab;
 import com.rise.common.util.annotation.Validation;
 import com.rise.common.util.annotation.ValidationType;
 import com.rise.common.util.checker.HibernateClassNameConstants;
 
+@Tab(tabName = "Person", mainTab = MainTab.TRUE)
 public class Person extends BaseModel {
 	/**
 	 * Here I am using Component based mapping for PersonName in Person

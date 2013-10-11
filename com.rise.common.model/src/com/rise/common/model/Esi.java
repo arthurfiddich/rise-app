@@ -2,6 +2,10 @@ package com.rise.common.model;
 
 import java.util.Date;
 
+import com.rise.common.util.annotation.MainTab;
+import com.rise.common.util.annotation.Tab;
+
+@Tab(tabName = "Esi", mainTab = MainTab.FALSE)
 public class Esi extends BaseModel {
 
 	/**
