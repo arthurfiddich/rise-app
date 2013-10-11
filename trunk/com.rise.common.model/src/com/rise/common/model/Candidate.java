@@ -3,7 +3,10 @@ package com.rise.common.model;
 import java.util.Set;
 
 import com.rise.common.util.annotation.DesiredField;
+import com.rise.common.util.annotation.MainTab;
+import com.rise.common.util.annotation.Tab;
 
+@Tab(tabName = "Candidate", mainTab = MainTab.TRUE)
 public class Candidate extends BaseModel {
 
 	/**

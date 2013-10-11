@@ -2,6 +2,10 @@ package com.rise.common.model;
 
 import java.util.Set;
 
+import com.rise.common.util.annotation.MainTab;
+import com.rise.common.util.annotation.Tab;
+
+@Tab(tabName = "Organization", mainTab = MainTab.FALSE)
 public class Organization extends BaseModel {
 
 	/**

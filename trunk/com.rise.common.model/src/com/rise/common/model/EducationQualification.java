@@ -1,7 +1,10 @@
 package com.rise.common.model;
 
 import com.rise.common.util.annotation.DesiredField;
+import com.rise.common.util.annotation.MainTab;
+import com.rise.common.util.annotation.Tab;
 
+@Tab(tabName = "EducationQualification", mainTab = MainTab.FALSE)
 public class EducationQualification extends BaseModel {
 
 	/**

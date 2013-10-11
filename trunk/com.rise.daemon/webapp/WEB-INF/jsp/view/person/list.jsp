@@ -1,6 +1,8 @@
+<%@page import="java.beans.Introspector"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ page import="java.util.List"%>
+<%@ page import="java.beans.Introspector"%>
 <%@ page import="com.rise.common.model.Person;"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -29,9 +31,9 @@
 		window.location.href = "/rise/person/personcreate";
 		//alert("hello");
 	}
-	function openSetupWindow(){
-		  window.location.href="/rise/setUp";
-	  }
+	function openSetupWindow() {
+		window.location.href = "/rise/setUp";
+	}
 </script>
 <link rel="stylesheet" type="text/css"
 	href="/rise/resources/css/table.css" />
@@ -52,8 +54,7 @@
 
 					<td align="center"><span style="align: right;"><input
 							type="button" value="Setup" class="styled-button-3"
-							onclick="openSetupWindow()">
-					</span></td>
+							onclick="openSetupWindow()"> </span></td>
 				</tr>
 			</table>
 		</div>
@@ -109,8 +110,7 @@
 					</thead>
 					<tbody>
 						<%
-							String fullyQualifiedClassName = Person.class.getName()
-									.toLowerCase();
+							String fullyQualifiedClassName = Person.class.getName().toLowerCase();
 							List<Person> persons = (List<Person>) request
 									.getAttribute(fullyQualifiedClassName);
 							if (persons != null && persons.size() > 0) {

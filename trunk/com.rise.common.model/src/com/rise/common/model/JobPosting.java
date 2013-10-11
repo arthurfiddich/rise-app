@@ -3,8 +3,10 @@ package com.rise.common.model;
 import java.util.Date;
 import java.util.Set;
 
-import com.rise.common.model.BaseModel;
+import com.rise.common.util.annotation.MainTab;
+import com.rise.common.util.annotation.Tab;
 
+@Tab(tabName = "JobPosting", mainTab = MainTab.TRUE)
 public class JobPosting extends BaseModel {
 
 	/**

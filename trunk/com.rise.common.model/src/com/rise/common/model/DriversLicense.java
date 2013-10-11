@@ -3,7 +3,10 @@ package com.rise.common.model;
 import java.util.Date;
 
 import com.rise.common.util.annotation.DesiredField;
+import com.rise.common.util.annotation.MainTab;
+import com.rise.common.util.annotation.Tab;
 
+@Tab(tabName = "DriversLicense", mainTab = MainTab.FALSE)
 public class DriversLicense extends BaseModel {
 
 	/**

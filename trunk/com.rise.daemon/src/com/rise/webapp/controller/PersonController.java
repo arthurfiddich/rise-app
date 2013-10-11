@@ -22,8 +22,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.rise.common.model.Person;
 import com.rise.common.model.PersonName;
 import com.rise.common.util.Helper.TenantConfigHelper;
+import com.rise.common.util.annotation.processor.AnnotationProcessor;
 import com.rise.common.util.checker.Precondition;
 import com.rise.common.util.constants.HibernateConstants;
+import com.rise.common.util.constants.HibernateHelperConstants;
 import com.rise.service.PersonService;
 import com.rise.webapp.binding.BindingResult;
 import com.rise.webapp.validators.PersonValidator;
@@ -61,9 +63,15 @@ public class PersonController extends BaseController {
 		if (logger.isTraceEnabled()) {
 			logger.trace("################################# Entered into PersonController PersonCreate Method: #################################");
 		}
+		List<String> activeTabsList = AnnotationProcessor
+				.getActiveTabNamesIncludeHome();
 		argModel.addAttribute(getSimpleName(), new Person());
-		return HibernateConstants.VIEW_SLASH + getSimpleName()
-				+ HibernateConstants.PERSON;
+		argModel.addAttribute("className", "person");
+		argModel.addAttribute(HibernateHelperConstants.ACTIVE_TABS_LIST,
+				activeTabsList);
+		return "/view/person/personNew";
+		// return HibernateConstants.VIEW_SLASH + getSimpleName()
+		// + HibernateConstants.PERSON;
 	}
 
 	@RequestMapping(value = HibernateConstants.PERSON_VIEW, method = RequestMethod.GET)
