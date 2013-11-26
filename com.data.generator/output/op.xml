@@ -1,0 +1,213 @@
+<sparql xmlns="http://www.w3.org/2005/sparql-results#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.w3.org/2001/sw/DataAccess/rf1/result2.xsd">
+	<head>
+		<variable name="y" />
+	</head>
+	<results distinct="false" ordered="true">
+		<result>
+			<binding name="y">
+				<literal xml:lang="en">Ákos Ráthonyi</literal>
+			</binding>
+		</result>
+		<result>
+			<binding name="y">
+				<literal xml:lang="en">Álvaro Arzú</literal>
+			</binding>
+		</result>
+		<result>
+			<binding name="y">
+				<literal xml:lang="en">Álvaro Colom</literal>
+			</binding>
+		</result>
+		<result>
+			<binding name="y">
+				<literal xml:lang="en">Álvaro Rafael González</literal>
+			</binding>
+		</result>
+		<result>
+			<binding name="y">
+				<literal xml:lang="en">Álvaro de Castro</literal>
+			</binding>
+		</result>
+		<result>
+			<binding name="y">
+				<literal xml:lang="en">Ángel Berlanga</literal>
+			</binding>
+		</result>
+		<result>
+			<binding name="y">
+				<literal xml:lang="en">Ángel María Villar</literal>
+			</binding>
+		</result>
+		<result>
+			<binding name="y">
+				<literal xml:lang="en">Ángel Suquía Goicoechea</literal>
+			</binding>
+		</result>
+		<result>
+			<binding name="y">
+				<literal xml:lang="en">Ángel di María</literal>
+			</binding>
+		</result>
+		<result>
+			<binding name="y">
+				<literal xml:lang="en">Árpád Göncz</literal>
+			</binding>
+		</result>
+		<result>
+			<binding name="y">
+				<literal xml:lang="en">Árpád Szakasits</literal>
+			</binding>
+		</result>
+		<result>
+			<binding name="y">
+				<literal xml:lang="en">Ásgeir Sigurvinsson</literal>
+			</binding>
+		</result>
+		<result>
+			<binding name="y">
+				<literal xml:lang="en">Åsne Seierstad</literal>
+			</binding>
+		</result>
+		<result>
+			<binding name="y">
+				<literal xml:lang="en">Ælle of Sussex</literal>
+			</binding>
+		</result>
+		<result>
+			<binding name="y">
+				<literal xml:lang="en">Æthelbald of Mercia</literal>
+			</binding>
+		</result>
+		<result>
+			<binding name="y">
+				<literal xml:lang="en">Æthelbald of Wessex</literal>
+			</binding>
+		</result>
+		<result>
+			<binding name="y">
+				<literal xml:lang="en">Æthelberht II of East Anglia</literal>
+			</binding>
+		</result>
+		<result>
+			<binding name="y">
+				<literal xml:lang="en">Æthelthryth</literal>
+			</binding>
+		</result>
+		<result>
+			<binding name="y">
+				<literal xml:lang="en">Æthelwold of East Anglia</literal>
+			</binding>
+		</result>
+		<result>
+			<binding name="y">
+				<literal xml:lang="en">Çağan Irmak</literal>
+			</binding>
+		</result>
+		<result>
+			<binding name="y">
+				<literal xml:lang="en">Ève Curie</literal>
+			</binding>
+		</result>
+		<result>
+			<binding name="y">
+				<literal xml:lang="en">Édgar Barreto</literal>
+			</binding>
+		</result>
+		<result>
+			<binding name="y">
+				<literal xml:lang="en">Édika</literal>
+			</binding>
+		</result>
+		<result>
+			<binding name="y">
+				<literal xml:lang="en">Édouard-Alfred Martel</literal>
+			</binding>
+		</result>
+		<result>
+			<binding name="y">
+				<literal xml:lang="en">Édouard Adolphe Casimir Joseph Mortier</literal>
+			</binding>
+		</result>
+		<result>
+			<binding name="y">
+				<literal xml:lang="en">Édouard Chatton</literal>
+			</binding>
+		</result>
+		<result>
+			<binding name="y">
+				<literal xml:lang="en">Édouard Cortès</literal>
+			</binding>
+		</result>
+		<result>
+			<binding name="y">
+				<literal xml:lang="en">Édouard Goursat</literal>
+			</binding>
+		</result>
+		<result>
+			<binding name="y">
+				<literal xml:lang="en">Édouard Herriot</literal>
+			</binding>
+		</result>
+		<result>
+			<binding name="y">
+				<literal xml:lang="en">Élie Barnavi</literal>
+			</binding>
+		</result>
+		<result>
+			<binding name="y">
+				<literal xml:lang="en">Élie Doté</literal>
+			</binding>
+		</result>
+		<result>
+			<binding name="y">
+				<literal xml:lang="en">Émile Biayenda</literal>
+			</binding>
+		</result>
+		<result>
+			<binding name="y">
+				<literal xml:lang="en">Émile Boutroux</literal>
+			</binding>
+		</result>
+		<result>
+			<binding name="y">
+				<literal xml:lang="en">Émile Gaboriau</literal>
+			</binding>
+		</result>
+		<result>
+			<binding name="y">
+				<literal xml:lang="en">Émile Meyerson</literal>
+			</binding>
+		</result>
+		<result>
+			<binding name="y">
+				<literal xml:lang="en">Émile Nelligan</literal>
+			</binding>
+		</result>
+		<result>
+			<binding name="y">
+				<literal xml:lang="en">Émile Ollivier</literal>
+			</binding>
+		</result>
+		<result>
+			<binding name="y">
+				<literal xml:lang="en">Émilie Gamelin</literal>
+			</binding>
+		</result>
+		<result>
+			<binding name="y">
+				<literal xml:lang="en">Éric Boullier</literal>
+			</binding>
+		</result>
+		<result>
+			<binding name="y">
+				<literal xml:lang="en">Éric Dazé</literal>
+			</binding>
+		</result>
+		<result>
+			<binding name="y">
+				<literal xml:lang="en">Éric Desjardins</literal>
+			</binding>
+		</result>
+	</results>
+</sparql>
