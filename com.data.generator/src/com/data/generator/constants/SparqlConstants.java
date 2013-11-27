@@ -6,4 +6,10 @@ public class SparqlConstants {
 	public static final String DB_FOLDER_NAME = "db";
 	public static final String DOT = ".";
 	public static final String FORWARD_SLASH = "/";
+	public static final double DEFAULT_LIMIT = 2000.0;
+	public static final int DEFAULT_BATCH_SIZE = 1000;
+	public static final String SPACE = " ";
+	public static final String OFF_SET = "Offset";
+	public static final String DEFAULT_FILE_EXTENSION = "csv";
+	public static final String HYPHEN = "-";
 }
