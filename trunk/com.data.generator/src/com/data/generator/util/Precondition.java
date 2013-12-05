@@ -2,7 +2,6 @@ package com.data.generator.util;
 
 import java.util.Collection;
 
-
 public class Precondition {
 
 	public static boolean checkNotNull(Object argValue) {
@@ -65,10 +64,10 @@ public class Precondition {
 	}
 
 	public static boolean checkNonNegative(int argValue) {
-		if (argValue == -1) {
-			throw new PreconditionException(
-					"Expected value not to be negitive: " + argValue);
-		}
+		// if (argValue == -1) {
+		// throw new PreconditionException(
+		// "Expected value not to be negitive: " + argValue);
+		// }
 		return argValue > -1;
 	}
 
@@ -92,7 +91,7 @@ public class Precondition {
 	public static boolean checkEmpty(Collection<?> argValue) {
 		return checkNotNull(argValue) && argValue.isEmpty();
 	}
-	
+
 	public static boolean checkEmpty(String argValue) {
 		return checkNotNull(argValue) && argValue.isEmpty();
 	}

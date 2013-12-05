@@ -1,4 +1,4 @@
-package com.data.generator.impl;
+package com.data.generator.executor;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.RecursiveAction;
 
 import com.data.generator.constants.CommonConstants;
 import com.data.generator.file.impl.CsvWriter;
@@ -15,8 +16,12 @@ import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.query.ResultSet;
 import com.hp.hpl.jena.rdf.model.RDFNode;
 
-public class DbpediaDataGenerator implements Runnable {
+public class DbpediaDataGenerator extends RecursiveAction {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	/**
 	 * Provide an unique id (Mostly your DB user name).By using this unique id I
 	 * will create a temp file to write the content. I will use this temp file
@@ -70,7 +75,8 @@ public class DbpediaDataGenerator implements Runnable {
 					for (String columnName : this.getColumnNamesList()) {
 						RDFNode rdfNode = querySolution.get(columnName);
 						if (rdfNode.isLiteral()) {
-							String value = rdfNode.asNode().getLiteral().getValue().toString();
+							String value = rdfNode.asNode().getLiteral()
+									.getValue().toString();
 							tokensList.add(value);
 						}
 					}
@@ -140,7 +146,7 @@ public class DbpediaDataGenerator implements Runnable {
 	}
 
 	@Override
-	public void run() {
+	protected void compute() {
 		generate();
 	}
 }

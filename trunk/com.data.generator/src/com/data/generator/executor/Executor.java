@@ -11,6 +11,7 @@ import java.util.concurrent.TimeUnit;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.data.generator.constants.CommonConstants;
 import com.data.generator.constants.SparqlConstants;
 import com.data.generator.impl.DbpediaDataGenerator;
 import com.data.generator.util.Precondition;
@@ -87,11 +88,11 @@ public class Executor {
 			int offset = 0;
 			for (int i = 0; i < numberOfIterations; i++) {
 				String query = "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> PREFIX owl:<http://dbpedia.org/ontology/> select DISTINCT ?name ?description where { ?x a owl:Person; rdfs:label ?name; owl:abstract ?description. FILTER(LANG(?name) = \"en\") FILTER(LANG(?description) = \"en\") } LIMIT"
-						+ SparqlConstants.SPACE
+						+ CommonConstants.SPACE
 						+ SparqlConstants.DEFAULT_BATCH_SIZE
-						+ SparqlConstants.SPACE
+						+ CommonConstants.SPACE
 						+ SparqlConstants.OFF_SET
-						+ SparqlConstants.SPACE + offset;
+						+ CommonConstants.SPACE + offset;
 				DbpediaDataGenerator dbpediaDataGenerator = new DbpediaDataGenerator(
 						this.getDirectoryName(), query,
 						SparqlConstants.SPARQL_ENDPOINT);
@@ -107,8 +108,8 @@ public class Executor {
 
 	private String prepareOutputFileName(int argCount) {
 		return new StringBuilder().append(this.getDirectoryName())
-				.append(SparqlConstants.HYPHEN).append(argCount)
-				.append(SparqlConstants.DOT).append(this.getFileExtension())
+				.append(CommonConstants.HYPHEN).append(argCount)
+				.append(CommonConstants.DOT).append(this.getFileExtension())
 				.toString();
 	}
 
