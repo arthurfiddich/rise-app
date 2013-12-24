@@ -5,7 +5,7 @@ public class ForkJoinPoolMain {
 		ForkJoinExecutor forkJoinExecutor = new ForkJoinExecutor(64, "db");
 		forkJoinExecutor.initialize();
 		forkJoinExecutor.setNumberOfRecords(10000);
-		forkJoinExecutor.setFileExtension("csv");
+		forkJoinExecutor.setFileExtension("txt");
 		forkJoinExecutor.getForkJoinPool().invoke(forkJoinExecutor);
 	}
 }

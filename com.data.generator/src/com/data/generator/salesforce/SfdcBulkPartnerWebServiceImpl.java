@@ -40,13 +40,16 @@ public class SfdcBulkPartnerWebServiceImpl extends SfdcPartnerWebServiceImpl {
 			.getLogger(SfdcBulkPartnerWebServiceImpl.class);
 
 	private BulkConnection bulkConnection;
+	private String sObjectType;
+	private String sampleFileName;
+	private String operationType;
 
 	public SfdcBulkPartnerWebServiceImpl(String argSessionId,
 			String argServerUrl) {
 		super(argSessionId, argServerUrl);
 	}
 
-	private SfdcBulkPartnerWebServiceImpl(String argUserName,
+	public SfdcBulkPartnerWebServiceImpl(String argUserName,
 			String argPassword, String argSecurityToken, String argAuthUrl) {
 		super(argUserName, argPassword, argSecurityToken, argAuthUrl);
 	}
@@ -56,6 +59,24 @@ public class SfdcBulkPartnerWebServiceImpl extends SfdcPartnerWebServiceImpl {
 		initializeBinding();
 	}
 
+	public void execute() {
+		JobInfo job = null;
+		try {
+			job = createJob(this.getsObjectType(), this.getBulkConnection(),
+					this.getOperationType());
+			List<BatchInfo> batchInfoList = createBatchesFromCSVFile(
+					this.getBulkConnection(), job, this.getSampleFileName());
+			closeJob(this.getBulkConnection(), job.getId());
+			awaitCompletion(this.getBulkConnection(), job, batchInfoList);
+			checkResults(this.getBulkConnection(), job, batchInfoList);
+		} catch (AsyncApiException e) {
+			throw new BulkDataException("Exception while creating a job: ", e);
+		} catch (IOException e) {
+			throw new BulkDataException(
+					"Exception while checking the results: ", e);
+		}
+	}
+
 	@Override
 	protected void initializeBinding() {
 		try {
@@ -63,8 +84,8 @@ public class SfdcBulkPartnerWebServiceImpl extends SfdcPartnerWebServiceImpl {
 			ConnectorConfig partnerConfig = new ConnectorConfig();
 			partnerConfig.setUsername(this.getUserName());
 			partnerConfig.setPassword(this.getPasswordWithSecurityToken());
-			// partnerConfig
-			// .setAuthEndpoint("https://login.salesforce.com/services/Soap/u/29.0");
+			partnerConfig
+					.setAuthEndpoint("https://login.salesforce.com/services/Soap/u/28.0");
 			// Creating the connection automatically handles login and stores
 			// the session in partnerConfig
 			PartnerConnection partnerConnection = new PartnerConnection(
@@ -78,8 +99,7 @@ public class SfdcBulkPartnerWebServiceImpl extends SfdcPartnerWebServiceImpl {
 			// The endpoint for the Bulk API service is the same as for the
 			// normal SOAP uri until the /Soap/ part. From here it's
 			// '/async/versionNumber'
-			String soapEndpoint = partnerConnection.getConfig()
-					.getServiceEndpoint();
+			String soapEndpoint = partnerConfig.getServiceEndpoint();
 			String apiVersion = getApiVersion(soapEndpoint);
 			if (Precondition.checkEmpty(apiVersion)) {
 				apiVersion = SalesforceConstants.CURRENT_USED_VERSION;
@@ -126,10 +146,16 @@ public class SfdcBulkPartnerWebServiceImpl extends SfdcPartnerWebServiceImpl {
 				+ argSoapEndpoint);
 		if (Precondition.checkNotEmpty(argSoapEndpoint)) {
 			int forwardSlashLastIndex = argSoapEndpoint
-					.lastIndexOf(CommonConstants.FORWARD_SLASH);
+					.indexOf(CommonConstants.U_SLASH);
 			if (Precondition.checkNonNegative(forwardSlashLastIndex)) {
-				return argSoapEndpoint.substring(forwardSlashLastIndex,
-						argSoapEndpoint.length());
+				String soapApi = argSoapEndpoint
+						.substring(forwardSlashLastIndex
+								+ CommonConstants.U_SLASH.length());
+				int apiVersionIndex = soapApi
+						.indexOf(CommonConstants.FORWARD_SLASH);
+				if (Precondition.checkNonNegative(apiVersionIndex)) {
+					return soapApi.substring(0, apiVersionIndex);
+				}
 			}
 		}
 		return SalesforceConstants.EMPTY;
@@ -172,6 +198,30 @@ public class SfdcBulkPartnerWebServiceImpl extends SfdcPartnerWebServiceImpl {
 		this.bulkConnection = argBulkConnection;
 	}
 
+	public String getsObjectType() {
+		return this.sObjectType;
+	}
+
+	public void setsObjectType(String argSObjectType) {
+		this.sObjectType = argSObjectType;
+	}
+
+	public String getSampleFileName() {
+		return this.sampleFileName;
+	}
+
+	public void setSampleFileName(String argSampleFileName) {
+		this.sampleFileName = argSampleFileName;
+	}
+
+	public String getOperationType() {
+		return this.operationType;
+	}
+
+	public void setOperationType(String argOperationType) {
+		this.operationType = argOperationType;
+	}
+
 	/**
 	 * Create and upload batches using a CSV file. The file into the appropriate
 	 * size batch files.
@@ -201,7 +251,7 @@ public class SfdcBulkPartnerWebServiceImpl extends SfdcPartnerWebServiceImpl {
 					.getBytes(CommonConstants.UTF_8);
 			int headerBytesLength = headerBytes.length;
 			File file = new File(CommonConstants.TMEP_DIRECTORY_NAME);
-			tempFile = File.createTempFile(argCsvFileName,
+			tempFile = File.createTempFile("temp",
 					CommonConstants.CSV_EXTENSION, file);
 
 			// Split the CSV file into multiple batches
