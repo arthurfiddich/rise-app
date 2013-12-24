@@ -5,7 +5,7 @@ public class ExecutorMain {
 		long start = System.currentTimeMillis();
 		Executor executor = new Executor("db");
 		executor.setNumberOfRecords(10000);
-		executor.setFileExtension("txt");
+		executor.setFileExtension("csv");
 		executor.initialize();
 		executor.generate();
 		long end = System.currentTimeMillis();

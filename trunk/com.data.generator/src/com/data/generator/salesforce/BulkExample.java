@@ -37,7 +37,7 @@ public class BulkExample {
         BulkExample example = new BulkExample();
         // Replace arguments below with your credentials and test file name
         // The first parameter indicates that we are loading Account records
-        example.runSample("Account", "myUser@myOrg.com", "myPassword", "mySampleData.csv");
+        example.runSample("Account", "crypto@ciphercloud.com", "CipherCloud@1234fGP3X2CMH9ozDTcOr5xY1Ev1", "./db/test.csv");
     }
 
     /**
