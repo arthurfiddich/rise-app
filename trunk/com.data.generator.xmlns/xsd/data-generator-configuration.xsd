@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://xmlns.data.generator.com/configuration/v1" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://xmlns.data.generator.com/configuration/v1">
+
+    <element name="dataSourceConfiguration"
+    	type="tns:DataSourceConfiguration">
+    </element>
+    
+    <complexType name="DataSourceConfiguration">
+    	<complexContent>
+    		<extension base="tns:BaseObject">
+    			<sequence>
+    				<element name="mainDataSource" type="tns:DataSource"
+    					maxOccurs="1" minOccurs="1">
+    				</element>
+    				<element name="additionalDataSource" type="tns:AdditionalDataSource"
+    					maxOccurs="unbounded" minOccurs="0">
+    				</element>
+    			</sequence>
+    		</extension>
+    	</complexContent>
+    </complexType>
+
+    <complexType name="DataSource">
+    	<sequence>
+    		<element name="name" type="token" maxOccurs="1"
+    			minOccurs="1">
+    		</element>
+    		<element name="entity" type="tns:Entity" maxOccurs="unbounded" minOccurs="0"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="BaseObject">
+    	<sequence>
+    		<element name="id" type="ID" maxOccurs="1" minOccurs="1"></element>
+    		<element name="uniqueId" type="token" maxOccurs="1"
+    			minOccurs="1">
+    		</element>
+    		<element name="dateGenerated" type="dateTime" maxOccurs="1"
+    			minOccurs="1">
+    		</element>
+    		<element name="lastModified" type="dateTime" maxOccurs="1"
+    			minOccurs="1">
+    		</element>
+    		<element name="dateCreated" type="dateTime" maxOccurs="1" minOccurs="1"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="AdditionalDataSource">
+    	<sequence>
+    		<element name="name" type="token" maxOccurs="1" minOccurs="1"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="Entity">
+    	<complexContent>
+    		<extension base="tns:BaseObject">
+    			<sequence>
+    				<element name="name" type="token" maxOccurs="1"
+    					minOccurs="1">
+    				</element>
+    				<element name="label" type="token" maxOccurs="1"
+    					minOccurs="1">
+    				</element>
+    				<element name="field" type="tns:Field"
+    					maxOccurs="unbounded" minOccurs="0">
+    				</element>
+    			</sequence>
+    		</extension>
+    	</complexContent>
+    </complexType>
+
+    <complexType name="Field">
+    	<complexContent>
+    		<extension base="tns:BaseObject">
+    			<sequence>
+    				<element name="name" type="token" maxOccurs="1"
+    					minOccurs="1">
+    				</element>
+    				<element name="label" type="token" maxOccurs="1"
+    					minOccurs="1">
+    				</element>
+    				<element name="type" type="token" maxOccurs="1"
+    					minOccurs="1">
+    				</element>
+    				<element name="length" type="double" maxOccurs="1"
+    					minOccurs="0">
+    				</element>
+    				<element name="maxLength" type="double"
+    					maxOccurs="1" minOccurs="0">
+    				</element>
+    				<element name="precision" type="unsignedInt"
+    					maxOccurs="1" minOccurs="0">
+    				</element>
+    				<element name="scale" type="unsignedInt"
+    					maxOccurs="1" minOccurs="0">
+    				</element>
+    				<element name="digits" type="double" maxOccurs="1"
+    					minOccurs="0">
+    				</element>
+    				<element name="byteLength" type="double"
+    					maxOccurs="1" minOccurs="0">
+    				</element>
+    				<element name="calculatedFormula" type="token"
+    					maxOccurs="1" minOccurs="0">
+    				</element>
+    				<element name="controllerName" type="token"
+    					maxOccurs="1" minOccurs="0">
+    				</element>
+    				<element name="defaultValue" type="token"
+    					maxOccurs="1" minOccurs="0">
+    				</element>
+    				<element name="soapType" type="token" maxOccurs="1"
+    					minOccurs="0">
+    				</element>
+    				<element name="unique" type="boolean" maxOccurs="1"
+    					minOccurs="0">
+    				</element>
+    				<element name="nameField" type="boolean"
+    					maxOccurs="1" minOccurs="0">
+    				</element>
+    				<element name="nullable" type="boolean"
+    					maxOccurs="1" minOccurs="0">
+    				</element>
+    				<element name="custom" type="boolean" maxOccurs="1"
+    					minOccurs="0">
+    				</element>
+    				<element name="updatable" type="boolean"
+    					maxOccurs="1" minOccurs="0">
+    				</element>
+    				<element name="filterable" type="boolean"
+    					maxOccurs="1" minOccurs="0">
+    				</element>
+    				<element name="autoNumber" type="boolean"
+    					maxOccurs="1" minOccurs="0">
+    				</element>
+    				<element name="idLookup" type="boolean"
+    					maxOccurs="1" minOccurs="0">
+    				</element>
+    				<element name="externalId" type="boolean"
+    					maxOccurs="1" minOccurs="0">
+    				</element>
+    				<element name="htmlFormatted" type="boolean"
+    					maxOccurs="1" minOccurs="0">
+    				</element>
+    				<element name="computedValue" type="boolean"
+    					maxOccurs="1" minOccurs="0">
+    				</element>
+    				<element name="caseSensitive" type="boolean"
+    					maxOccurs="1" minOccurs="0">
+    				</element>
+    				<element name="namePointing" type="boolean"
+    					maxOccurs="1" minOccurs="0">
+    				</element>
+    				<element name="pickList" type="boolean"
+    					maxOccurs="1" minOccurs="0">
+    				</element>
+    				<element name="restrictedPickList" type="boolean"
+    					maxOccurs="1" minOccurs="0">
+    				</element>
+    				<element name="sortable" type="boolean"
+    					maxOccurs="1" minOccurs="0">
+    				</element>
+    				<element name="groupable" type="boolean"
+    					maxOccurs="1" minOccurs="0">
+    				</element>
+    				<element name="inlineHelpText" type="token"
+    					maxOccurs="1" minOccurs="0">
+    				</element>
+    				<element name="relationshipOrder" type="double"
+    					maxOccurs="1" minOccurs="0">
+    				</element>
+    				<element name="calculated" type="boolean"
+    					maxOccurs="1" minOccurs="0">
+    				</element>
+    				<element name="createable" type="boolean"
+    					maxOccurs="1" minOccurs="0">
+    				</element>
+    				<element name="hasDependentPickLists" type="boolean"
+    					maxOccurs="1" minOccurs="0">
+    				</element>
+    				<element name="usedInReports" type="boolean"
+    					maxOccurs="1" minOccurs="0">
+    				</element>
+    				<element name="usedInCharts" type="boolean"
+    					maxOccurs="1" minOccurs="0">
+    				</element>
+    				<element name="writeRequiresMasterRead"
+    					type="boolean" maxOccurs="1" minOccurs="0">
+    				</element>
+    				<element name="defaultedOnCreate" type="boolean"
+    					maxOccurs="1" minOccurs="0">
+    				</element>
+    				<element name="deprecatedAndHidden" type="boolean"
+    					maxOccurs="1" minOccurs="0">
+    				</element>
+    				<element name="relationship" type="token"
+    					maxOccurs="1" minOccurs="0">
+    				</element>
+    				<element name="enitityUniqueId" type="token"
+    					maxOccurs="1" minOccurs="1">
+    				</element>
+    				<element name="referenceTo" type="token"
+    					maxOccurs="unbounded" minOccurs="0">
+    				</element>
+    				<element name="entity" type="tns:ObjectRef"
+    					maxOccurs="1" minOccurs="1">
+    				</element>
+    				<element name="picklistItems"
+    					type="tns:PicklistItem" maxOccurs="unbounded" minOccurs="0">
+    				</element>
+    				<element name="dataSourceFieldName" type="tns:DataSourceFieldName" maxOccurs="1" minOccurs="0"></element>
+    			</sequence>
+    		</extension>
+    	</complexContent>
+    </complexType>
+
+    <complexType name="ObjectRef">
+    	<sequence>
+    		<element name="refId" type="IDREF" maxOccurs="1" minOccurs="1"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="PicklistItem">
+    	<sequence>
+    		<element name="dataSource" type="token" maxOccurs="1"
+    			minOccurs="0">
+    		</element>
+    		<element name="active" type="boolean" maxOccurs="1"
+    			minOccurs="0">
+    		</element>
+    		<element name="defaultValue" type="boolean" maxOccurs="1"
+    			minOccurs="0">
+    		</element>
+    		<element name="label" type="token" maxOccurs="1"
+    			minOccurs="0">
+    		</element>
+    		<element name="validFor" type="byte" maxOccurs="unbounded"
+    			minOccurs="0">
+    		</element>
+    		<element name="value" type="token" maxOccurs="1" minOccurs="0"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="DataSourceFieldName">
+    	<sequence>
+            <element name="fieldName" type="token" maxOccurs="1" minOccurs="1"></element>
+            <element name="fieldType" type="token" maxOccurs="1"
+    			minOccurs="1">
+    		</element>
+        </sequence>
+    </complexType>
+</schema>
