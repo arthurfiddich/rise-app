@@ -3,6 +3,7 @@ package com.rise.webapp.controller;
 import java.beans.Introspector;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.validation.Valid;
 
@@ -65,8 +66,23 @@ public class PersonController extends BaseController {
 		}
 		List<String> activeTabsList = AnnotationProcessor
 				.getActiveTabNamesIncludeHome();
+		Map<String, List<String>> modelNameVsUiComponentMap = TenantConfigHelper
+				.getInstance().getModelNameVsUiComponentListMap();
+		if (Precondition.checkNotNull(modelNameVsUiComponentMap)
+				&& modelNameVsUiComponentMap.size() > 0) {
+			List<String> uiComponentList = modelNameVsUiComponentMap
+					.get(Person.class.getName());
+			if (Precondition.checkNotEmpty(uiComponentList)) {
+				argModel.addAttribute(
+						HibernateHelperConstants.UI_COMPONENT_List,
+						uiComponentList);
+			}
+		}
 		argModel.addAttribute(getSimpleName(), new Person());
-		argModel.addAttribute("className", "person");
+		argModel.addAttribute(HibernateHelperConstants.CLASS_NAME, "person");
+		argModel.addAttribute(
+				HibernateHelperConstants.FULLY_QUALIFIED_CLASS_NAME,
+				Person.class.getName());
 		argModel.addAttribute(HibernateHelperConstants.ACTIVE_TABS_LIST,
 				activeTabsList);
 		return "/view/person/personNew";

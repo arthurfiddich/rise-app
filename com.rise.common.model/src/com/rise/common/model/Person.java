@@ -14,6 +14,11 @@ import com.rise.common.util.annotation.Validation;
 import com.rise.common.util.annotation.ValidationType;
 import com.rise.common.util.checker.HibernateClassNameConstants;
 
+/**
+ * Sample URL: http://localhost:8080/rise/person/list
+ * @author Amar
+ *
+ */
 @Tab(tabName = "Person", mainTab = MainTab.TRUE)
 public class Person extends BaseModel {
 	/**
