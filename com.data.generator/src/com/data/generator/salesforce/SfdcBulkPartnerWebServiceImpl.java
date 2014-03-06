@@ -17,6 +17,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.data.generator.constants.CommonConstants;
+import com.data.generator.constants.KeyBoardConstants;
 import com.data.generator.constants.SalesforceConstants;
 import com.data.generator.exceptions.BulkDataException;
 import com.data.generator.exceptions.PartnerConnectionException;
@@ -129,12 +130,12 @@ public class SfdcBulkPartnerWebServiceImpl extends SfdcPartnerWebServiceImpl {
 				&& Precondition.checkNotEmpty(argApiVersion)) {
 			StringBuilder restEndPointBuilder = new StringBuilder();
 			String soapToken = SalesforceConstants.SOAP_TOKEN
-					+ CommonConstants.FORWARD_SLASH;
+					+ KeyBoardConstants.FORWARD_SLASH;
 			String endPoint = argEndPoint.substring(0,
 					argEndPoint.indexOf(soapToken));
 			restEndPointBuilder.append(endPoint);
 			restEndPointBuilder.append(SalesforceConstants.ASYNC);
-			restEndPointBuilder.append(CommonConstants.FORWARD_SLASH);
+			restEndPointBuilder.append(KeyBoardConstants.FORWARD_SLASH);
 			restEndPointBuilder.append(argApiVersion);
 			return restEndPointBuilder.toString();
 		}
@@ -152,7 +153,7 @@ public class SfdcBulkPartnerWebServiceImpl extends SfdcPartnerWebServiceImpl {
 						.substring(forwardSlashLastIndex
 								+ CommonConstants.U_SLASH.length());
 				int apiVersionIndex = soapApi
-						.indexOf(CommonConstants.FORWARD_SLASH);
+						.indexOf(KeyBoardConstants.FORWARD_SLASH);
 				if (Precondition.checkNonNegative(apiVersionIndex)) {
 					return soapApi.substring(0, apiVersionIndex);
 				}
@@ -247,7 +248,7 @@ public class SfdcBulkPartnerWebServiceImpl extends SfdcPartnerWebServiceImpl {
 			bufferedReader = new BufferedReader(new InputStreamReader(
 					new FileInputStream(argCsvFileName)));
 			// read the CSV header row
-			byte[] headerBytes = (bufferedReader.readLine() + CommonConstants.NEW_LINE)
+			byte[] headerBytes = (bufferedReader.readLine() + KeyBoardConstants.NEW_LINE)
 					.getBytes(CommonConstants.UTF_8);
 			int headerBytesLength = headerBytes.length;
 			File file = new File(CommonConstants.TMEP_DIRECTORY_NAME);
@@ -264,7 +265,7 @@ public class SfdcBulkPartnerWebServiceImpl extends SfdcPartnerWebServiceImpl {
 			int currentLines = 0;
 			String nextLine;
 			while ((nextLine = bufferedReader.readLine()) != null) {
-				byte[] bytes = (nextLine + CommonConstants.NEW_LINE)
+				byte[] bytes = (nextLine + KeyBoardConstants.NEW_LINE)
 						.getBytes(CommonConstants.UTF_8);
 				// Create a new batch when our batch size limit is reached
 				if (currentBytes + bytes.length > maxBytesPerBatch

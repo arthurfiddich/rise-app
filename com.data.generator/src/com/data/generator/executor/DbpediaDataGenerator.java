@@ -9,6 +9,7 @@ import java.util.Map;
 import java.util.concurrent.RecursiveAction;
 
 import com.data.generator.constants.CommonConstants;
+import com.data.generator.constants.KeyBoardConstants;
 import com.data.generator.file.impl.CsvWriter;
 import com.data.generator.util.Precondition;
 import com.data.generator.util.SparqlUtil;
@@ -99,10 +100,10 @@ public class DbpediaDataGenerator extends RecursiveAction {
 	}
 
 	private String prepareOutputFile() {
-		return new StringBuilder().append(CommonConstants.DOT)
-				.append(CommonConstants.FORWARD_SLASH)
+		return new StringBuilder().append(KeyBoardConstants.DOT)
+				.append(KeyBoardConstants.FORWARD_SLASH)
 				.append(this.getDirectoryName())
-				.append(CommonConstants.FORWARD_SLASH)
+				.append(KeyBoardConstants.FORWARD_SLASH)
 				.append(this.getOutputFileName()).toString();
 	}
 
