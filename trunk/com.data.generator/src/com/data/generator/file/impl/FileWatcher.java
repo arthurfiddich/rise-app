@@ -9,7 +9,7 @@ import java.nio.file.WatchKey;
 import java.nio.file.WatchService;
 import java.util.List;
 
-import com.data.generator.constants.CommonConstants;
+import com.data.generator.constants.KeyBoardConstants;
 import com.data.generator.file.Watcher;
 import com.data.generator.util.Precondition;
 
@@ -42,8 +42,8 @@ public class FileWatcher implements Watcher<String> {
 	}
 
 	private String prepareWatcherDirectory(String argPathName) {
-		return new StringBuilder().append(CommonConstants.DOT)
-				.append(CommonConstants.FORWARD_SLASH).append(argPathName)
+		return new StringBuilder().append(KeyBoardConstants.DOT)
+				.append(KeyBoardConstants.FORWARD_SLASH).append(argPathName)
 				.toString();
 	}
 
