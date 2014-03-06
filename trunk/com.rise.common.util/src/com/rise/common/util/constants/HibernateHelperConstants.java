@@ -39,5 +39,7 @@ public class HibernateHelperConstants {
 	public static final String MAP = "Empty Map";
 	public static final String HOME = "Home";
 	public static final String ACTIVE_TABS_LIST = "activeTabsList";
+	public static final String UI_COMPONENT_List = "uiComponentList";
+	public static final String FULLY_QUALIFIED_CLASS_NAME = "FullyQualifiedClassName";
 
 }
