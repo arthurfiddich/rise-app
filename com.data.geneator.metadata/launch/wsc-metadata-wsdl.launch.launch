@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/com.data.geneator.metadata/lib/salesforce/wsc-23.jar"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="1"/>
+</listAttribute>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="com.sforce.ws.tools.wsdlc"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="./wsdl/metadata.wsdl ./lib/salesforce/metadata.jar"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="com.data.geneator.metadata"/>
+</launchConfiguration>
