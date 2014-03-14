@@ -21,12 +21,14 @@
     </complexType>
 
     <complexType name="DataSource">
-    	<sequence>
-    		<element name="name" type="token" maxOccurs="1"
-    			minOccurs="1">
-    		</element>
-    		<element name="entity" type="tns:Entity" maxOccurs="unbounded" minOccurs="0"></element>
-    	</sequence>
+    	<complexContent>
+    		<extension base="tns:BaseObject">
+    			<sequence>
+    				<element name="name" type="token" maxOccurs="1" minOccurs="1"></element>
+    				<element name="entity" type="tns:Entity" maxOccurs="unbounded" minOccurs="0"></element>
+    			</sequence>
+    		</extension>
+    	</complexContent>
     </complexType>
 
     <complexType name="BaseObject">
@@ -64,6 +66,10 @@
     				<element name="field" type="tns:Field"
     					maxOccurs="unbounded" minOccurs="0">
     				</element>
+    				<element name="keyPrefix" type="token" maxOccurs="1"
+    					minOccurs="1">
+    				</element>
+    				<element name="dataSourceUniqueId" type="token" maxOccurs="1" minOccurs="1"></element>
     			</sequence>
     		</extension>
     	</complexContent>

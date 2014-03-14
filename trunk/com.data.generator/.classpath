@@ -19,5 +19,6 @@
 	<classpathentry kind="lib" path="lib/xincluder.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/logs"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/com.data.generator.xmlns.pojo"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/spring"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
