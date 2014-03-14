@@ -8,9 +8,14 @@
 	<lastModified>2001-12-31T12:00:00</lastModified>
 	<dateCreated>2001-12-31T12:00:00</dateCreated>
 	<mainDataSource>
+		<id>idvalue1</id>
+		<uniqueId>token</uniqueId>
+		<dateGenerated>2001-12-31T12:00:00</dateGenerated>
+		<lastModified>2001-12-31T12:00:00</lastModified>
+		<dateCreated>2001-12-31T12:00:00</dateCreated>
 		<name>token</name>
 		<entity>
-			<id>idvalue1</id>
+			<id>idvalue2</id>
 			<uniqueId>token</uniqueId>
 			<dateGenerated>2001-12-31T12:00:00</dateGenerated>
 			<lastModified>2001-12-31T12:00:00</lastModified>
@@ -18,7 +23,7 @@
 			<name>token</name>
 			<label>token</label>
 			<field>
-				<id>idvalue2</id>
+				<id>idvalue3</id>
 				<uniqueId>token</uniqueId>
 				<dateGenerated>2001-12-31T12:00:00</dateGenerated>
 				<lastModified>2001-12-31T12:00:00</lastModified>
@@ -82,6 +87,8 @@
 					<fieldType>token</fieldType>
 				</dataSourceFieldName>
 			</field>
+			<keyPrefix>token</keyPrefix>
+			<dataSourceUniqueId>token</dataSourceUniqueId>
 		</entity>
 	</mainDataSource>
 	<additionalDataSource>
