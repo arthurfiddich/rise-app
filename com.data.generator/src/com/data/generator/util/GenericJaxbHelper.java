@@ -5,6 +5,7 @@ import com.elharo.xml.xinclude.XIncludeFilter;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
+import org.xml.sax.helpers.XMLFilterImpl;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -26,6 +27,7 @@ import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.UnmarshallerHandler;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParserFactory;
+import javax.xml.transform.sax.SAXSource;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 
@@ -173,8 +175,8 @@ public class GenericJaxbHelper<T> {
 			throws JAXBException {
 		Unmarshaller unmarshaller = this.jaxbContext.createUnmarshaller();
 		@SuppressWarnings("unchecked")
-		JAXBElement<T> element =
-				(JAXBElement<T>) unmarshaller.unmarshal(fileInputStream);
+		JAXBElement<T> element = (JAXBElement<T>) unmarshaller
+				.unmarshal(fileInputStream);
 		return element;
 	}
 
@@ -196,9 +198,8 @@ public class GenericJaxbHelper<T> {
 			throws JAXBException {
 		Unmarshaller unmarshaller = this.jaxbContext.createUnmarshaller();
 		try {
-			SchemaFactory sf =
-					SchemaFactory
-							.newInstance(javax.xml.XMLConstants.W3C_XML_SCHEMA_NS_URI);
+			SchemaFactory sf = SchemaFactory
+					.newInstance(javax.xml.XMLConstants.W3C_XML_SCHEMA_NS_URI);
 			File schemaFile = new File(argSchemaLocation);
 			Schema schema = sf.newSchema(schemaFile);
 			unmarshaller.setSchema(schema);
@@ -208,8 +209,8 @@ public class GenericJaxbHelper<T> {
 			unmarshaller.setEventHandler(jaxbValidator);
 			// /////////////////////////////
 			@SuppressWarnings("unchecked")
-			JAXBElement<T> element =
-					(JAXBElement<T>) unmarshaller.unmarshal(argFileInputStream);
+			JAXBElement<T> element = (JAXBElement<T>) unmarshaller
+					.unmarshal(argFileInputStream);
 			return element;
 		} catch (SAXException e) {
 			throw new RuntimeException("Error while Validating the XSD :"
@@ -233,13 +234,12 @@ public class GenericJaxbHelper<T> {
 			File argSchemaFile) throws JAXBException {
 		Unmarshaller unmarshaller = this.jaxbContext.createUnmarshaller();
 		try {
-			SchemaFactory sf =
-					SchemaFactory
-							.newInstance(javax.xml.XMLConstants.W3C_XML_SCHEMA_NS_URI);
+			SchemaFactory sf = SchemaFactory
+					.newInstance(javax.xml.XMLConstants.W3C_XML_SCHEMA_NS_URI);
 			Schema schema = sf.newSchema(argSchemaFile);
 			unmarshaller.setSchema(schema);
-			JAXBElement<T> element =
-					(JAXBElement<T>) unmarshaller.unmarshal(fileInputStream);
+			JAXBElement<T> element = (JAXBElement<T>) unmarshaller
+					.unmarshal(fileInputStream);
 			return element;
 		} catch (SAXException e) {
 			throw new RuntimeException("Error while unmarshaling the XSD :"
@@ -258,12 +258,12 @@ public class GenericJaxbHelper<T> {
 	 */
 	public JAXBElement<T> unmarshalStringContent(String argXmlSource)
 			throws Exception {
-		ByteArrayInputStream inputStream =
-				new ByteArrayInputStream(argXmlSource.getBytes());
+		ByteArrayInputStream inputStream = new ByteArrayInputStream(
+				argXmlSource.getBytes());
 		Unmarshaller unmarshaller = this.jaxbContext.createUnmarshaller();
 		@SuppressWarnings("unchecked")
-		JAXBElement<T> element =
-				(JAXBElement<T>) unmarshaller.unmarshal(inputStream);
+		JAXBElement<T> element = (JAXBElement<T>) unmarshaller
+				.unmarshal(inputStream);
 		return element;
 	}
 
@@ -279,8 +279,8 @@ public class GenericJaxbHelper<T> {
 	public JAXBElement<T> unmarshal(Reader argReader) throws JAXBException {
 		Unmarshaller unmarshaller = this.jaxbContext.createUnmarshaller();
 		@SuppressWarnings("unchecked")
-		JAXBElement<T> element =
-				(JAXBElement<T>) unmarshaller.unmarshal(argReader);
+		JAXBElement<T> element = (JAXBElement<T>) unmarshaller
+				.unmarshal(argReader);
 		return element;
 	}
 
@@ -427,8 +427,8 @@ public class GenericJaxbHelper<T> {
 		if (!argProcessXinclude) {
 			return unmarshal(argFilePath);
 		}
-		UnmarshallerHandler uh =
-				this.jaxbContext.createUnmarshaller().getUnmarshallerHandler();
+		UnmarshallerHandler uh = this.jaxbContext.createUnmarshaller()
+				.getUnmarshallerHandler();
 
 		SAXParserFactory spf = SAXParserFactory.newInstance();
 		spf.setNamespaceAware(true);
@@ -438,8 +438,8 @@ public class GenericJaxbHelper<T> {
 		includer.setParent(xr);
 		includer.setContentHandler(uh);
 
-		InputSource xmlToParse =
-				new InputSource(new FileInputStream(argFilePath));
+		InputSource xmlToParse = new InputSource(new FileInputStream(
+				argFilePath));
 		includer.parse(xmlToParse);
 		return (JAXBElement<T>) uh.getResult();
 	}
@@ -461,11 +461,10 @@ public class GenericJaxbHelper<T> {
 				&& argPackageName != null && !argPackageName.isEmpty()) {
 			try {
 				T value;
-				GenericJaxbHelper<T> helper =
-						new GenericJaxbHelper<T>(argPackageName);
-				InputStream inputStream =
-						GenericJaxbHelper.class
-								.getResourceAsStream(argConfigurationFile);
+				GenericJaxbHelper<T> helper = new GenericJaxbHelper<T>(
+						argPackageName);
+				InputStream inputStream = GenericJaxbHelper.class
+						.getResourceAsStream(argConfigurationFile);
 				JAXBElement<T> jaxbElement = helper.unmarshal(inputStream);
 				value = jaxbElement.getValue();
 				return value;
@@ -497,14 +496,12 @@ public class GenericJaxbHelper<T> {
 				&& argPackageName != null && !argPackageName.isEmpty()) {
 			try {
 				T value;
-				GenericJaxbHelper<T> helper =
-						new GenericJaxbHelper<T>(argPackageName);
-				InputStream inputStream =
-						GenericJaxbHelper.class
-								.getResourceAsStream(argConfigurationFile);
-				JAXBElement<T> jaxbElement =
-						helper.unmarshal(inputStream, argSchemaFileLocation,
-								argConfigurationFile);
+				GenericJaxbHelper<T> helper = new GenericJaxbHelper<T>(
+						argPackageName);
+				InputStream inputStream = GenericJaxbHelper.class
+						.getResourceAsStream(argConfigurationFile);
+				JAXBElement<T> jaxbElement = helper.unmarshal(inputStream,
+						argSchemaFileLocation, argConfigurationFile);
 				value = jaxbElement.getValue();
 				return value;
 			} catch (Exception e) {
@@ -516,4 +513,19 @@ public class GenericJaxbHelper<T> {
 		return null;
 	}
 
+	public JAXBElement<T> customUnmarshller(InputStream fileInputStream)
+			throws JAXBException, SAXException, ParserConfigurationException {
+		Unmarshaller unmarshaller = this.jaxbContext.createUnmarshaller();
+		SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
+		XMLReader xmlReader = saxParserFactory.newSAXParser().getXMLReader();
+		XMLFilterImpl xmlFilterImpl = new XmlNameSpaceFilter(xmlReader);
+		xmlFilterImpl.setContentHandler(unmarshaller.getUnmarshallerHandler());
+		SAXSource saxSource = new SAXSource(xmlFilterImpl, new InputSource(
+				fileInputStream));
+
+		@SuppressWarnings("unchecked")
+		JAXBElement<T> element = (JAXBElement<T>) unmarshaller
+				.unmarshal(saxSource);
+		return element;
+	}
 }
