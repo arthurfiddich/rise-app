@@ -9,54 +9,54 @@
     	</xsd:sequence>
     </xsd:complexType>
     
-    <xsd:element name="PlaceDetailsResponse" type="tns:PlaceDetailsResponse">
+    <xsd:element name="placeDetailsResponse" type="tns:PlaceDetailsResponse">
     </xsd:element>
 
     <xsd:complexType name="Result">
     	<xsd:sequence>
+    		<xsd:element name="addressComponent" type="tns:AddressComponent" maxOccurs="unbounded" minOccurs="1">
+    		</xsd:element>
     		<xsd:element name="name" type="xsd:token" maxOccurs="1" minOccurs="1">
     		</xsd:element>
     		<xsd:element name="vicinity" type="xsd:token" maxOccurs="1" minOccurs="1">
     		</xsd:element>
     		<xsd:element name="type" type="xsd:token" maxOccurs="unbounded" minOccurs="1">
     		</xsd:element>
-            <xsd:element name="formatted_phone_number" type="xsd:token" maxOccurs="1" minOccurs="0">
+    		<xsd:element name="formattedPhoneNumber" type="xsd:token" maxOccurs="1" minOccurs="0">
     		</xsd:element>
-            <xsd:element name="formatted_address" type="xsd:token" maxOccurs="1" minOccurs="1">
+    		<xsd:element name="formattedAddress" type="xsd:token" maxOccurs="1" minOccurs="1">
     		</xsd:element>
-            <xsd:element name="address_component" type="tns:AddressComponent" maxOccurs="unbounded" minOccurs="1">
+    		<xsd:element name="event" type="tns:Event" maxOccurs="unbounded" minOccurs="0">
     		</xsd:element>
-            <xsd:element name="geometry" type="tns:Geometry" maxOccurs="1" minOccurs="1">
+    		<xsd:element name="geometry" type="tns:Geometry" maxOccurs="1" minOccurs="1">
     		</xsd:element>
-            <xsd:element name="rating" type="xsd:double" maxOccurs="1" minOccurs="0">
+    		<xsd:element name="url" type="xsd:token" maxOccurs="1" minOccurs="0">
     		</xsd:element>
-            <xsd:element name="url" type="xsd:token" maxOccurs="1" minOccurs="0">
+    		<xsd:element name="icon" type="xsd:token" maxOccurs="1" minOccurs="0">
     		</xsd:element>
-            <xsd:element name="icon" type="xsd:token" maxOccurs="1" minOccurs="0">
+    		<xsd:element name="reference" type="xsd:token" maxOccurs="1" minOccurs="0">
     		</xsd:element>
-            <xsd:element name="reference" type="xsd:token" maxOccurs="1" minOccurs="0">
+    		<xsd:element name="id" type="xsd:token" maxOccurs="1" minOccurs="1">
     		</xsd:element>
-            <xsd:element name="id" type="xsd:token" maxOccurs="1" minOccurs="1">
+    		<xsd:element name="internationalPhoneNumber" type="xsd:token" maxOccurs="1" minOccurs="0">
     		</xsd:element>
-            <xsd:element name="international_phone_number" type="xsd:token" maxOccurs="1" minOccurs="0">
+    		<xsd:element name="website" type="xsd:token" maxOccurs="1" minOccurs="0">
     		</xsd:element>
-            <xsd:element name="website" type="xsd:token" maxOccurs="1" minOccurs="0">
+    		<xsd:element name="review" type="tns:Review" maxOccurs="unbounded" minOccurs="0">
     		</xsd:element>
-            <xsd:element name="review" type="tns:Review" maxOccurs="unbounded" minOccurs="0">
+    		<xsd:element name="openingHours" type="tns:OpeningHours" maxOccurs="unbounded" minOccurs="0">
     		</xsd:element>
-            <xsd:element name="event" type="tns:Event" maxOccurs="unbounded" minOccurs="0">
-    		</xsd:element>
-    		<xsd:element name="opening_hours" type="tns:OpeningHours" maxOccurs="unbounded" minOccurs="0">
-    		</xsd:element>
-    		<xsd:element name="utc_offset" type="xsd:token" maxOccurs="1" minOccurs="0">
+    		<xsd:element name="utcOffset" type="xsd:token" maxOccurs="1" minOccurs="0">
     		</xsd:element>
     		<xsd:element name="photo" type="tns:Photo" maxOccurs="unbounded" minOccurs="0">
     		</xsd:element>
-    		<xsd:element name="price_level" type="xsd:int" maxOccurs="1" minOccurs="0">
+    		<xsd:element name="priceLevel" type="xsd:int" maxOccurs="1" minOccurs="0">
     		</xsd:element>
-    		<xsd:element name="adr_address" type="xsd:token" maxOccurs="1" minOccurs="0">
+    		<xsd:element name="rating" type="xsd:double" maxOccurs="1" minOccurs="0">
     		</xsd:element>
-    		<xsd:element name="user_ratings_total" type="xsd:int" maxOccurs="1" minOccurs="0"></xsd:element>
+    		<xsd:element name="adrAddress" type="xsd:token" maxOccurs="1" minOccurs="0">
+    		</xsd:element>
+    		<xsd:element name="userRatingsTotal" type="xsd:int" maxOccurs="1" minOccurs="0"></xsd:element>
     	</xsd:sequence>
     </xsd:complexType>
 
@@ -64,17 +64,17 @@
     	<xsd:sequence>
     		<xsd:element name="type" type="xsd:token" maxOccurs="unbounded" minOccurs="1">
     		</xsd:element>
-    		<xsd:element name="long_name" type="xsd:token" maxOccurs="1" minOccurs="1">
+    		<xsd:element name="longName" type="xsd:token" maxOccurs="1" minOccurs="1">
     		</xsd:element>
-    		<xsd:element name="short_name" type="xsd:token" maxOccurs="1" minOccurs="1"></xsd:element>
+    		<xsd:element name="shortName" type="xsd:token" maxOccurs="1" minOccurs="1"></xsd:element>
     	</xsd:sequence>
     </xsd:complexType>
 
     <xsd:complexType name="Event">
     	<xsd:sequence>
-    		<xsd:element name="event_id" type="xsd:token" maxOccurs="1" minOccurs="1">
+    		<xsd:element name="eventId" type="xsd:token" maxOccurs="1" minOccurs="1">
     		</xsd:element>
-    		<xsd:element name="start_time" type="xsd:token" maxOccurs="1" minOccurs="0">
+    		<xsd:element name="startTime" type="xsd:token" maxOccurs="1" minOccurs="0">
     		</xsd:element>
     		<xsd:element name="summary" type="xsd:token" maxOccurs="1" minOccurs="0">
     		</xsd:element>
@@ -100,9 +100,9 @@
     	<xsd:sequence>
     		<xsd:element name="aspect" type="tns:Aspect" maxOccurs="unbounded" minOccurs="0">
     		</xsd:element>
-    		<xsd:element name="author_name" type="xsd:token" maxOccurs="1" minOccurs="0">
+    		<xsd:element name="authorName" type="xsd:token" maxOccurs="1" minOccurs="0">
     		</xsd:element>
-    		<xsd:element name="author_url" type="xsd:token" maxOccurs="1" minOccurs="0">
+    		<xsd:element name="authorUrl" type="xsd:token" maxOccurs="1" minOccurs="0">
     		</xsd:element>
     		<xsd:element name="language" type="xsd:token" maxOccurs="1" minOccurs="0">
     		</xsd:element>
@@ -124,7 +124,7 @@
 
     <xsd:complexType name="OpeningHours">
     	<xsd:sequence>
-    		<xsd:element name="open_now" type="xsd:boolean" maxOccurs="1" minOccurs="1">
+    		<xsd:element name="openNow" type="xsd:boolean" maxOccurs="1" minOccurs="1">
     		</xsd:element>
     		<xsd:element name="period" type="tns:Period" maxOccurs="unbounded" minOccurs="0"></xsd:element>
     	</xsd:sequence>
@@ -156,13 +156,13 @@
 
     <xsd:complexType name="Photo">
     	<xsd:sequence>
-    		<xsd:element name="photo_reference" type="xsd:token" maxOccurs="1" minOccurs="0">
+    		<xsd:element name="photoReference" type="xsd:token" maxOccurs="1" minOccurs="0">
     		</xsd:element>
     		<xsd:element name="height" type="xsd:token" maxOccurs="1" minOccurs="0">
     		</xsd:element>
     		<xsd:element name="width" type="xsd:token" maxOccurs="1" minOccurs="0">
     		</xsd:element>
-    		<xsd:element name="html_attribution" type="xsd:token" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+    		<xsd:element name="htmlAttribution" type="xsd:token" maxOccurs="unbounded" minOccurs="0"></xsd:element>
     	</xsd:sequence>
     </xsd:complexType>
 </xsd:schema>

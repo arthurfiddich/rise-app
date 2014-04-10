@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<placeDetailsResponse __fvdSurfCanyonInserted="1">
+<PlaceDetailsResponse>
 	<status>OK</status>
 	<result>
 		<name>Anwar Restaurant</name>
@@ -11,46 +11,46 @@
 		<formatted_phone_number>0863 233 3339</formatted_phone_number>
 		<formatted_address>12th Ln, Arundelpet, Guntur, Andhra Pradesh, India
 		</formatted_address>
-		<addressComponent>
+		<address_component>
 			<long_name>12th Ln</long_name>
 			<short_name>12th Ln</short_name>
 			<type>route</type>
-		</addressComponent>
-		<addressComponent>
+		</address_component>
+		<address_component>
 			<long_name>Arundelpet</long_name>
 			<short_name>Arundelpet</short_name>
 			<type>sublocality</type>
 			<type>political</type>
-		</addressComponent>
-		<addressComponent>
+		</address_component>
+		<address_component>
 			<long_name>Guntur</long_name>
 			<short_name>Guntur</short_name>
 			<type>locality</type>
 			<type>political</type>
-		</addressComponent>
-		<addressComponent>
+		</address_component>
+		<address_component>
 			<long_name>Guntur</long_name>
 			<short_name>Guntur</short_name>
 			<type>administrative_area_level_2</type>
 			<type>political</type>
-		</addressComponent>
-		<addressComponent>
+		</address_component>
+		<address_component>
 			<long_name>Andhra Pradesh</long_name>
 			<short_name>Andhra Pradesh</short_name>
 			<type>administrative_area_level_1</type>
 			<type>political</type>
-		</addressComponent>
-		<addressComponent>
+		</address_component>
+		<address_component>
 			<long_name>India</long_name>
 			<short_name>IN</short_name>
 			<type>country</type>
 			<type>political</type>
-		</addressComponent>
-		<addressComponent>
+		</address_component>
+		<address_component>
 			<long_name>522002</long_name>
 			<short_name>522002</short_name>
 			<type>postal_code</type>
-		</addressComponent>
+		</address_component>
 		<geometry>
 			<location>
 				<lat>16.3053320</lat>
@@ -302,4 +302,4 @@
 			class=&quot;country-name&quot;&gt;India&lt;/span&gt;</adr_address>
 		<user_ratings_total>15</user_ratings_total>
 	</result>
-</placeDetailsResponse>
+</PlaceDetailsResponse>
