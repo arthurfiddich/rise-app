@@ -7,17 +7,20 @@ import javax.xml.bind.JAXBElement;
 
 import com.data.generator.util.GenericJaxbHelper;
 import com.generator.data.xmlns.gplace.api.v1.PlaceDetailsResponse;
+import com.rise.common.util.checker.Precondition;
 
 public class Test {
 	public void main(String argConfigurationXmlFile) {
 
 		GenericJaxbHelper<PlaceDetailsResponse> jaxbHelper = new GenericJaxbHelper<PlaceDetailsResponse>(
-				com.generator.data.xmlns.gplace.api.v1.ObjectFactory.class.getPackage().getName());
+				com.generator.data.xmlns.gplace.api.v1.ObjectFactory.class
+						.getPackage().getName());
+		FileInputStream fileInputStream = null;
 		try {
-			FileInputStream fileInputStream = new FileInputStream(new File(
+			fileInputStream = new FileInputStream(new File(
 					argConfigurationXmlFile));
 			JAXBElement<PlaceDetailsResponse> dataSourceConfigurationElement = jaxbHelper
-					.customUnmarshller(fileInputStream);
+					.customUnmarshller(fileInputStream, "");
 			PlaceDetailsResponse placeDetailsResponse = dataSourceConfigurationElement
 					.getValue();
 			String status = placeDetailsResponse.getStatus();
@@ -26,6 +29,14 @@ public class Test {
 			throw new RuntimeException(
 					"error while unmarshalling configuration xml file: "
 							+ argConfigurationXmlFile, e);
+		} finally {
+			if (Precondition.checkNotNull(fileInputStream)) {
+				try {
+					fileInputStream.close();
+				} catch (Exception ignore) {
+					// ignore
+				}
+			}
 		}
 	}
 

@@ -513,12 +513,14 @@ public class GenericJaxbHelper<T> {
 		return null;
 	}
 
-	public JAXBElement<T> customUnmarshller(InputStream fileInputStream)
-			throws JAXBException, SAXException, ParserConfigurationException {
+	public JAXBElement<T> customUnmarshller(InputStream fileInputStream,
+			String argStartElement) throws JAXBException, SAXException,
+			ParserConfigurationException {
 		Unmarshaller unmarshaller = this.jaxbContext.createUnmarshaller();
 		SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
 		XMLReader xmlReader = saxParserFactory.newSAXParser().getXMLReader();
-		XMLFilterImpl xmlFilterImpl = new XmlNameSpaceFilter(xmlReader);
+		XMLFilterImpl xmlFilterImpl = new XmlNameSpaceFilter(xmlReader,
+				argStartElement);
 		xmlFilterImpl.setContentHandler(unmarshaller.getUnmarshallerHandler());
 		SAXSource saxSource = new SAXSource(xmlFilterImpl, new InputSource(
 				fileInputStream));
