@@ -1,4 +1,4 @@
-package com.data.generator.google.place.api.impl;
+package com.data.generator.geo.names.api.impl;
 
 import java.util.List;
 
@@ -8,6 +8,7 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpUriRequest;
 
 import com.data.generator.geo.names.api.Fetcher;
+import com.data.generator.geo.names.api.Parse;
 import com.data.generator.google.place.api.exception.BaseUncheckedException;
 import com.data.generator.google.place.api.http.HttpClientImpl;
 import com.data.generator.google.place.api.http.HttpUtil;
