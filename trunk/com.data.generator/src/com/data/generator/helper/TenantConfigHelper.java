@@ -5,6 +5,7 @@ import java.net.URL;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.data.generator.util.PropertiesHelper;
 import com.data.generator.util.ResourceUtil;
 
 public class TenantConfigHelper {
@@ -12,8 +13,10 @@ public class TenantConfigHelper {
 	private static final Logger logger = LoggerFactory
 			.getLogger(TenantConfigHelper.class);
 	private static final String DATA_GENERATOR_CONFIGURATION_XML_FILE = "data-generator-configuration.xml";
+	private static final String GEO_NAMES_CONFIGURATION_PROPERTY_FILE = "geonames.properties";
 	private static TenantConfigHelper instance = createInstance();
 	private DataGenerationConfigHelper dataGenerationConfigHelper;
+	private PropertiesHelper propertiesHelper;
 
 	private static TenantConfigHelper createInstance() {
 		TenantConfigHelper tenantConfigHelper = new TenantConfigHelper();
@@ -25,10 +28,12 @@ public class TenantConfigHelper {
 		if (logger.isDebugEnabled()) {
 			logger.debug("Initializing TenantConfig:");
 		}
-		URL url = ResourceUtil
-				.getResource(DATA_GENERATOR_CONFIGURATION_XML_FILE);
-		this.setDataGenerationConfigHelper(DataGenerationConfigHelper
-				.createInstance(DATA_GENERATOR_CONFIGURATION_XML_FILE));
+//		URL url = ResourceUtil
+//				.getResource(DATA_GENERATOR_CONFIGURATION_XML_FILE);
+//		this.setDataGenerationConfigHelper(DataGenerationConfigHelper
+//				.createInstance(DATA_GENERATOR_CONFIGURATION_XML_FILE));
+		this.setPropertiesHelper(PropertiesHelper
+				.createInstance(GEO_NAMES_CONFIGURATION_PROPERTY_FILE));
 	}
 
 	public DataGenerationConfigHelper getDataGenerationConfigHelper() {
@@ -38,6 +43,14 @@ public class TenantConfigHelper {
 	public void setDataGenerationConfigHelper(
 			DataGenerationConfigHelper argDataGenerationConfigHelper) {
 		this.dataGenerationConfigHelper = argDataGenerationConfigHelper;
+	}
+
+	public PropertiesHelper getPropertiesHelper() {
+		return this.propertiesHelper;
+	}
+
+	public void setPropertiesHelper(PropertiesHelper argPropertiesHelper) {
+		this.propertiesHelper = argPropertiesHelper;
 	}
 
 	public static TenantConfigHelper getInstance() {
