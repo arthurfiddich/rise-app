@@ -1,4 +1,4 @@
-package com.data.generator.google.place.api.impl;
+package com.data.generator.geo.names.api.impl;
 
 import java.io.InputStream;
 
@@ -8,6 +8,7 @@ import javax.xml.parsers.ParserConfigurationException;
 
 import org.xml.sax.SAXException;
 
+import com.data.generator.geo.names.api.Parse;
 import com.data.generator.util.GenericJaxbHelper;
 
 public abstract class ParserImpl<T> implements Parse<T> {

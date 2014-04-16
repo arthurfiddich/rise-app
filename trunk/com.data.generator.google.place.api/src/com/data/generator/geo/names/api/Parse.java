@@ -1,4 +1,4 @@
-package com.data.generator.google.place.api.impl;
+package com.data.generator.geo.names.api;
 
 import java.io.InputStream;
 
