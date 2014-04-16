@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://xmlns.data.generator.com/geo/names/api/v1" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://xmlns.data.generator.com/geo/names/api/v1">
+
+    <element name="geonames" type="tns:GeoNames"></element>
+    
+    <complexType name="GeoNames">
+    	<sequence>
+    		<element name="totalResultsCount" type="int" maxOccurs="1"
+    			minOccurs="1">
+    		</element>
+    		<element name="geoname" type="tns:GeoName" maxOccurs="unbounded" minOccurs="0"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="GeoName">
+    	<sequence>
+    		<element name="toponymName" type="token" maxOccurs="1"
+    			minOccurs="0">
+    		</element>
+    		<element name="name" type="token" maxOccurs="1"
+    			minOccurs="0">
+    		</element>
+    		<element name="lat" type="double" maxOccurs="1"
+    			minOccurs="0">
+    		</element>
+    		<element name="lng" type="double" maxOccurs="1"
+    			minOccurs="0">
+    		</element>
+    		<element name="geonameId" type="token" maxOccurs="1"
+    			minOccurs="1">
+    		</element>
+    		<element name="countryCode" type="token" maxOccurs="1"
+    			minOccurs="0">
+    		</element>
+    		<element name="countryName" type="token" maxOccurs="1"
+    			minOccurs="0">
+    		</element>
+    		<element name="fcl" type="token" maxOccurs="1"
+    			minOccurs="0">
+    		</element>
+    		<element name="fcode" type="token" maxOccurs="1"
+    			minOccurs="0">
+    		</element>
+    		<element name="numberOfChildren" type="token" maxOccurs="1"
+    			minOccurs="0">
+    		</element>
+    		<element name="fclName" type="token" maxOccurs="1"
+    			minOccurs="0">
+    		</element>
+    		<element name="fcodeName" type="token" maxOccurs="1"
+    			minOccurs="0">
+    		</element>
+    		<element name="population" type="token" maxOccurs="1"
+    			minOccurs="0">
+    		</element>
+    		<element name="adminName1" type="token" maxOccurs="1"
+    			minOccurs="0">
+    		</element>
+    		<element name="countryId" type="token" maxOccurs="1"
+    			minOccurs="0">
+    		</element>
+    		<element name="adminCode1" type="token" maxOccurs="1" minOccurs="0"></element>
+    	</sequence>
+    </complexType>
+</schema>

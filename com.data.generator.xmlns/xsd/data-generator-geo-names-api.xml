@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<geonames xmlns="http://xmlns.data.generator.com/geo/names/api/v1"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.data.generator.com/geo/names/api/v1 data-generator-geo-names-api.xsd ">
+	<totalResultsCount>0</totalResultsCount>
+	<geoname>
+		<toponymName>token</toponymName>
+		<name>token</name>
+		<lat>0.0</lat>
+		<lng>0.0</lng>
+		<geonameId>token</geonameId>
+		<countryCode>token</countryCode>
+		<countryName>token</countryName>
+		<fcl>token</fcl>
+		<fcode>token</fcode>
+		<numberOfChildren>token</numberOfChildren>
+		<fclName>token</fclName>
+		<fcodeName>token</fcodeName>
+		<population>token</population>
+		<adminName1>token</adminName1>
+		<countryId>token</countryId>
+		<adminCode1>token</adminCode1>
+	</geoname>
+</geonames>

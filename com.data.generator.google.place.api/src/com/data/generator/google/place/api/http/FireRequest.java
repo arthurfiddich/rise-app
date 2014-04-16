@@ -1,4 +1,4 @@
-package com.data.generator.http.component;
+package com.data.generator.google.place.api.http;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -11,11 +11,10 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.HttpClientBuilder;
 
-public class HttpClientGetExample {
+public class FireRequest {
+
 	public static void main(String[] args) throws ClientProtocolException,
 			IOException {
-		// String url = "http://www.google.com/search?q=httpClient";
-//		String url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670522,151.1957362&radius=500&types=food&name=harbour&sensor=false&key=AIzaSyBA0Hu3is9qIJ5v6NEuofigk0y-aQwqiP0";
 		String url = "https://maps.googleapis.com/maps/api/place/details/xml?reference=CoQBcQAAAEZ7yCju-0lhU7sZIBBe_On9jYImWzZ9Zt5rIg1tX6zaH02dHrQMHF1LFHY1_yUuXzsUf6m6-rrQJ8Ec_mGxBYtV85Wyb4anakaUi3QuZj7ygJXB3Fd5x69k_4UnDKMmEBNa410vbCXgQOGIkHCbNpcbC8ENxmVlUrqiifmdfuLgEhCtPATMhFRdsjuyAL_j__OEGhTnqujRRMYy_5-kxzcqCdMY4_1dbA&sensor=true&key=AIzaSyBA0Hu3is9qIJ5v6NEuofigk0y-aQwqiP0";
 
 		HttpClient client = HttpClientBuilder.create().build();
@@ -43,29 +42,32 @@ public class HttpClientGetExample {
 		}
 		// System.out.println(result);
 		try {
-//			parse(response);
+			// parse(response);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-//		System.out.println(parseAsString(response));
+		// System.out.println(parseAsString(response));
 	}
 
-//	private static void parse(HttpResponse argResponse)
-//			throws IllegalStateException, IOException, JAXBException,
-//			SAXException, ParserConfigurationException {
-//		HttpEntity entity = argResponse.getEntity();
-//		InputStream content = getContent(entity);
-//		GenericJaxbHelper<PlaceDetailsResponse> jaxbHelper = new GenericJaxbHelper<PlaceDetailsResponse>(
-//				com.generator.data.xmlns.gplace.api.v1.ObjectFactory.class
-//						.getPackage().getName());
-//
-//		JAXBElement<PlaceDetailsResponse> dataSourceConfigurationElement = jaxbHelper
-//				.customUnmarshller(content);
-//		PlaceDetailsResponse placeDetailsResponse = dataSourceConfigurationElement
-//				.getValue();
-//		String status = placeDetailsResponse.getStatus();
-//		System.out.println(status);
-//	}
+	// private static void parse(HttpResponse argResponse)
+	// throws IllegalStateException, IOException, JAXBException,
+	// SAXException, ParserConfigurationException {
+	// HttpEntity entity = argResponse.getEntity();
+	// InputStream content = getContent(entity);
+	// GenericJaxbHelper<PlaceDetailsResponse> jaxbHelper = new
+	// GenericJaxbHelper<PlaceDetailsResponse>(
+	// com.generator.data.xmlns.gplace.api.v1.ObjectFactory.class
+	// .getPackage().getName());
+	//
+	// JAXBElement<PlaceDetailsResponse> dataSourceConfigurationElement =
+	// jaxbHelper
+	// .customUnmarshller(content);
+	// PlaceDetailsResponse placeDetailsResponse =
+	// dataSourceConfigurationElement
+	// .getValue();
+	// String status = placeDetailsResponse.getStatus();
+	// System.out.println(status);
+	// }
 
 	public static String parseAsString(HttpResponse argHttpResponse)
 			throws IOException {
@@ -101,4 +103,5 @@ public class HttpClientGetExample {
 			throws IllegalStateException, IOException {
 		return argEntity.getContent();
 	}
+
 }
