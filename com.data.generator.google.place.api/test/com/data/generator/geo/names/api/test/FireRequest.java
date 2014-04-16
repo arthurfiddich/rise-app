@@ -1,4 +1,4 @@
-package com.data.generator.google.place.api.http;
+package com.data.generator.geo.names.api.test;
 
 import java.io.IOException;
 import java.io.InputStream;
