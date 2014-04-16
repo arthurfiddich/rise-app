@@ -21,7 +21,7 @@ import com.generator.data.xmlns.geo.names.api.v1.GeoNames;
 import com.google.api.client.http.HttpMethod;
 
 /**
- * This will fetch all the continents in the world. Here I am using Geo Names
+ * This will fetch all the continents in the world. Here I am using GeoNames
  * API.
  * 
  * @author Amar
