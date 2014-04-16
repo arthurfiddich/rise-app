@@ -7,14 +7,18 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpUriRequest;
 
+import com.data.generator.constants.GeoNameConstants;
+import com.data.generator.exceptions.BaseUncheckedException;
 import com.data.generator.geo.names.api.Fetcher;
 import com.data.generator.geo.names.api.Parse;
-import com.data.generator.google.place.api.exception.BaseUncheckedException;
 import com.data.generator.google.place.api.http.HttpClientImpl;
 import com.data.generator.google.place.api.http.HttpUtil;
+import com.data.generator.helper.TenantConfigHelper;
 import com.data.generator.util.Precondition;
+import com.data.generator.util.PropertiesHelper;
 import com.generator.data.xmlns.geo.names.api.v1.GeoName;
 import com.generator.data.xmlns.geo.names.api.v1.GeoNames;
+import com.google.api.client.http.HttpMethod;
 
 /**
  * This will fetch all the continents in the world. Here I am using Geo Names
@@ -25,31 +29,32 @@ import com.generator.data.xmlns.geo.names.api.v1.GeoNames;
  */
 public class ContinentFetcher implements Fetcher {
 
-	String url = "http://api.geonames.org/children?geonameId=6295630&username=shivaprasad.amar";
+	private Parse<GeoNames> parse = new GeoNamesParser();
 
 	@Override
 	public void fetch() {
+		PropertiesHelper propertiesHelper = TenantConfigHelper.getInstance()
+				.getPropertiesHelper();
+		Precondition.ensureNotNull(propertiesHelper, "Properties Helper");
+		String url = propertiesHelper.constructGeoNameEarthUrl();
 		HttpClient httpClient = HttpClientImpl.getInstance().getHttpClient();
 		Precondition.ensureNotNull(httpClient, "Http Client");
 		HttpRequest httpRequest = HttpClientImpl.getInstance().createRequest(
-				"GET", url);
+				HttpMethod.GET.name(), url);
 
 		// add request header
 		httpRequest.addHeader("User-Agent", "User-Agent");
 		HttpResponse response = null;
 		try {
 			response = httpClient.execute((HttpUriRequest) httpRequest);
-			Parse<GeoNames> parse = new GeoNamesParser();
 			String packageName = com.generator.data.xmlns.geo.names.api.v1.GeoNames.class
 					.getPackage().getName();
-			GeoNames geoNames = parse.unmarshal(new GeoNames(),
+			GeoNames geoNames = this.parse.unmarshal(new GeoNames(),
 					HttpUtil.getContent(response),
-					"http://xmlns.data.generator.com/geo/names/api/v1",
-					packageName);
+					GeoNameConstants.GEO_NAME_NAMESPACE, packageName);
 			if (Precondition.checkNotNull(geoNames)) {
-				int count = geoNames.getTotalResultsCount();
-				if (count > 0) {
-					List<GeoName> geoNamesList = geoNames.getGeoname();
+				List<GeoName> geoNamesList = geoNames.getGeoname();
+				if (Precondition.checkNotEmpty(geoNamesList)) {
 					for (GeoName geoName : geoNamesList) {
 						System.out.println("Name: " + geoName.getName()
 								+ " GeoNameId: " + geoName.getGeonameId());
