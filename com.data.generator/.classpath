@@ -5,8 +5,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
 	<classpathentry kind="lib" path="lib/partnerwsdl-v28.0.jar"/>
 	<classpathentry kind="lib" path="lib/jena-latest/commons-codec-1.6.jar"/>
-	<classpathentry kind="lib" path="lib/jena-latest/httpclient-4.2.3.jar"/>
-	<classpathentry kind="lib" path="lib/jena-latest/httpcore-4.2.2.jar"/>
 	<classpathentry kind="lib" path="lib/jena-latest/jena-arq-2.11.0.jar" sourcepath="D:/Dell XPS/DBPEDIA/Apache Jena/jena-2.11.0-source-release/jena-2.11.0/jena-arq"/>
 	<classpathentry kind="lib" path="lib/jena-latest/jena-core-2.11.0.jar"/>
 	<classpathentry kind="lib" path="lib/jena-latest/jena-iri-1.0.0.jar"/>
@@ -17,8 +15,14 @@
 	<classpathentry kind="lib" path="lib/super-csv/super-csv-2.1.0.jar" sourcepath="lib/super-csv/super-csv-2.1.0-sources.jar"/>
 	<classpathentry kind="lib" path="lib/wsc-22.jar"/>
 	<classpathentry kind="lib" path="lib/xincluder.jar"/>
+	<classpathentry kind="lib" path="lib/commons-lang3-3.1.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/logs"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/com.data.generator.xmlns.pojo"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/spring"/>
+	<classpathentry kind="lib" path="/com.data.generator.google.place.api/lib/httpclient-4.3.3.jar"/>
+	<classpathentry kind="lib" path="/com.data.generator.google.place.api/lib/httpclient-cache-4.3.3.jar"/>
+	<classpathentry kind="lib" path="/com.data.generator.google.place.api/lib/httpcore-4.3.2.jar"/>
+	<classpathentry kind="lib" path="/com.data.generator.google.place.api/lib/httpmime-4.3.3.jar"/>
+	<classpathentry kind="lib" path="lib/servlet-api-3.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
