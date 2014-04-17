@@ -1,6 +1,6 @@
 package com.data.generator.geo.names.api;
 
-public interface Fetcher {
+public interface Fetcher<T> {
 
-	public void fetch();
+	public T fetch(String argUrl);
 }
