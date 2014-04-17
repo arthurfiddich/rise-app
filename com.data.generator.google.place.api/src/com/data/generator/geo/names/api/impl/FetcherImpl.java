@@ -27,16 +27,17 @@ import com.google.api.client.http.HttpMethod;
  * @author Amar
  * 
  */
-public class ContinentFetcher implements Fetcher {
+public class FetcherImpl implements Fetcher<List<GeoName>> {
 
 	private Parse<GeoNames> parse = new GeoNamesParser();
 
 	@Override
-	public void fetch() {
+	public List<GeoName> fetch(String argUrl) {
 		PropertiesHelper propertiesHelper = TenantConfigHelper.getInstance()
 				.getPropertiesHelper();
 		Precondition.ensureNotNull(propertiesHelper, "Properties Helper");
-		String url = propertiesHelper.constructGeoNameEarthUrl();
+//		String url = propertiesHelper.constructGeoNameEarthUrl();
+		String url = argUrl;
 		HttpClient httpClient = HttpClientImpl.getInstance().getHttpClient();
 		Precondition.ensureNotNull(httpClient, "Http Client");
 		HttpRequest httpRequest = HttpClientImpl.getInstance().createRequest(
@@ -53,19 +54,14 @@ public class ContinentFetcher implements Fetcher {
 					HttpUtil.getContent(response),
 					GeoNameConstants.GEO_NAME_NAMESPACE, packageName);
 			if (Precondition.checkNotNull(geoNames)) {
-				List<GeoName> geoNamesList = geoNames.getGeoname();
-				if (Precondition.checkNotEmpty(geoNamesList)) {
-					for (GeoName geoName : geoNamesList) {
-						System.out.println("Name: " + geoName.getName()
-								+ " GeoNameId: " + geoName.getGeonameId());
-					}
-				}
+				return geoNames.getGeoname();
 			}
 		} catch (Exception e) {
 			throw new BaseUncheckedException(
 					"Exception while making a HTTP Request to the origin server: ",
 					e);
 		}
+		return null;
 	}
 
 }
