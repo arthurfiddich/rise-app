@@ -12,4 +12,6 @@ public class KeyBoardConstants {
 	public static final String NEW_LINE = "\n";
 	public static final String OPEN_CURLY_BRACKETS = "{";
 	public static final String CLOSE_CURLY_BRACKETS = "}";
+	public static final String EQUALS = "=";
+	public static final String COMMA = ",";
 }
