@@ -23,6 +23,7 @@ public class PropertiesHelper {
 
 	public static PropertiesHelper createInstance(
 			String argGeoNamesConfigurationFile) {
+		logger.debug("Creating instance...");
 		PropertiesHelper propertyUtil = new PropertiesHelper();
 		propertyUtil.setConfigurationFile(argGeoNamesConfigurationFile);
 		propertyUtil.initialize();
@@ -74,11 +75,10 @@ public class PropertiesHelper {
 		return messageAfterReplacement;
 	}
 
-	public String constructGeoNameEarthUrl() {
+	public String constructGeoNameUrl(String argGeoNameId) {
 		return this.getProperty(
 				GeoNameProperty.GEO_NAME_CHILDREN_URL.getPropertyName(),
-				GeoNameConstants.EARTH_GEO_NAME_ID,
-				GeoNameConstants.GEO_NAME_USER_NAME);
+				argGeoNameId, GeoNameConstants.GEO_NAME_USER_NAME);
 	}
 
 }

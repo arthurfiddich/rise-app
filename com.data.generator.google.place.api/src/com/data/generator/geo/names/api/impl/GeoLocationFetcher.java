@@ -27,15 +27,15 @@ import com.google.api.client.http.HttpMethod;
  * @author Amar
  * 
  */
-public class FetcherImpl implements Fetcher<List<GeoName>> {
+public class GeoLocationFetcher implements Fetcher<List<GeoName>> {
 
 	private Parse<GeoNames> parse = new GeoNamesParser();
 
 	@Override
 	public List<GeoName> fetch(String argUrl) {
-		PropertiesHelper propertiesHelper = TenantConfigHelper.getInstance()
-				.getPropertiesHelper();
-		Precondition.ensureNotNull(propertiesHelper, "Properties Helper");
+//		PropertiesHelper propertiesHelper = TenantConfigHelper.getInstance()
+//				.getPropertiesHelper();
+//		Precondition.ensureNotNull(propertiesHelper, "Properties Helper");
 //		String url = propertiesHelper.constructGeoNameEarthUrl();
 		String url = argUrl;
 		HttpClient httpClient = HttpClientImpl.getInstance().getHttpClient();

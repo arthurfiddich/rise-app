@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://xmlns.data.generator.com/geo/info/v1" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://xmlns.data.generator.com/geo/info/v1">
+
+    <element name="earth" type="tns:Earth"></element>
+    
+    <complexType name="Earth">
+    	<sequence>
+    		<element name="continent" type="tns:Continent" maxOccurs="unbounded" minOccurs="1"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="Continent">
+    	<sequence>
+    		<element name="country" type="tns:Country" maxOccurs="unbounded" minOccurs="1"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="Country">
+    	<sequence>
+    		<element name="state" type="tns:State" maxOccurs="unbounded" minOccurs="1"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="State">
+    	<sequence>
+    		<element name="district" type="tns:District" maxOccurs="unbounded" minOccurs="1"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="District">
+    	<sequence>
+    		<element name="city" type="tns:City" maxOccurs="unbounded" minOccurs="1"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="City">
+    	<sequence>
+    		<element name="mandal" type="tns:Mandal" maxOccurs="unbounded" minOccurs="1"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="Mandal">
+    	<sequence>
+    		<element name="village" type="tns:Village" maxOccurs="unbounded" minOccurs="1"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="Village"></complexType>
+</schema>
