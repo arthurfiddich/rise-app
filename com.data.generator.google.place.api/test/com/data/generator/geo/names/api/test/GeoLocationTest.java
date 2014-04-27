@@ -18,14 +18,26 @@ public class GeoLocationTest {
 	public static void main(String[] args) {
 		TenantConfigHelper.getInstance();
 		HttpClientImpl.getInstance();
-//		Fetcher<List<GeoName>> fetcher = new GeoLocationFetcher();
-//		build(fetcher);
-//		buildCountriesGeoNameIdFile();
-		GeoLocation geoLocation = new GeoLocation();
-		geoLocation.buildGeoLocationInformationFiles();
+		Fetcher<List<GeoName>> fetcher = new GeoLocationFetcher();
+		// build(fetcher);
+		// buildCountriesGeoNameIdFile();
+//		GeoLocation geoLocation = new GeoLocation();
+//		geoLocation.buildGeoLocationInformationFiles();
+		test(fetcher);
 	}
-	
-	public static void buildCountriesGeoNameIdFile(){
+
+	private static void test(Fetcher<List<GeoName>> fetcher) {
+		String url = "http://api.geonames.org/children?geonameId=2507475&username=shivaprasad.amar";
+		try {
+			List<GeoName> geoNamesList = fetcher.fetch(url);
+			System.out.println(geoNamesList.size());
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("Exception: ");
+		}
+	}
+
+	public static void buildCountriesGeoNameIdFile() {
 		String outputFilePath = "./conf/countriesGeoIds.txt";
 		new GeoLocation().buildCountryGeoNamesIdFile(outputFilePath);
 	}
