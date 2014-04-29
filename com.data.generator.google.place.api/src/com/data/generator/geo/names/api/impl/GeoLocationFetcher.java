@@ -13,9 +13,7 @@ import com.data.generator.geo.names.api.Fetcher;
 import com.data.generator.geo.names.api.Parse;
 import com.data.generator.google.place.api.http.HttpClientImpl;
 import com.data.generator.google.place.api.http.HttpUtil;
-import com.data.generator.helper.TenantConfigHelper;
 import com.data.generator.util.Precondition;
-import com.data.generator.util.PropertiesHelper;
 import com.generator.data.xmlns.geo.names.api.v1.GeoName;
 import com.generator.data.xmlns.geo.names.api.v1.GeoNames;
 import com.google.api.client.http.HttpMethod;
@@ -33,10 +31,6 @@ public class GeoLocationFetcher implements Fetcher<List<GeoName>> {
 
 	@Override
 	public List<GeoName> fetch(String argUrl) {
-//		PropertiesHelper propertiesHelper = TenantConfigHelper.getInstance()
-//				.getPropertiesHelper();
-//		Precondition.ensureNotNull(propertiesHelper, "Properties Helper");
-//		String url = propertiesHelper.constructGeoNameEarthUrl();
 		String url = argUrl;
 		HttpClient httpClient = HttpClientImpl.getInstance().getHttpClient();
 		Precondition.ensureNotNull(httpClient, "Http Client");
