@@ -22,17 +22,17 @@ public class GooglePlacesSample {
 
 	// The different Places API endpoints.
 	//https://maps.googleapis.com/maps/api/place/nearbysearch/json
-	private static final String PLACES_SEARCH_URL = "https://maps.googleapis.com/maps/api/place/search/json?";
+	private static final String PLACES_SEARCH_URL = "https://maps.googleapis.com/maps/api/place/search/xml?";
 	private static final String PLACES_AUTOCOMPLETE_URL = "https://maps.googleapis.com/maps/api/place/autocomplete/json?";
-	private static final String PLACES_DETAILS_URL = "https://maps.googleapis.com/maps/api/place/details/json?";
+	private static final String PLACES_DETAILS_URL = "https://maps.googleapis.com/maps/api/place/details/xml?";
 
 	private static final boolean PRINT_AS_STRING = true;
 
 	// Moscone Center, Howard Street, San Francisco, CA, United States
 	// double latitude = 37.784147;
 	// double longitude = -122.402115;
-	double latitude = 17.401639;
-	double longitude = 78.468013;
+	double latitude = 16.41667;
+	double longitude = 80.25;
 	
 	// telenet
 	// double latitude = 51.034823;
@@ -44,8 +44,8 @@ public class GooglePlacesSample {
 
 	public static void main(String[] args) throws Exception {
 		GooglePlacesSample sample = new GooglePlacesSample();
-		sample.performSearch();
-//		 sample.performDetails("CnRwAAAAb_KaproYEPLJV-jJ8XUSWcVZkXSdqNnIKJBFUgygx1s9z6bKaE70NXiqsZMb3AxEVzJsB_cYBUGgh4xQsH91DqVV8yAtGtS0aE-lZBntVARyGdjRRujrSEE96_gd4y0_EM3WFP7GRr66zwvt5MEQ1BIQM3dMSCuRyqk9WWXIsWhCxBoUxItNoOvSrbexwoowKAuq-rNevCk");
+//		sample.performSearch();
+		 sample.performDetails("CoQBdQAAAI2cBcYJLW5_t5wy9ThEuJWk3anFRjsx_CYaVbbp5xtDUwKT_xSJ4f_rCUaGyzcsFeaNwJtDNZimlz1J3ceaUXssjbTR-KdP3Be6nWfdKKsQyTF7m10OX2an7PS0JhaHzPiUWIAlMNezeTX2LI36goezaL0tTwJJrFGr1P35xC1tEhCfRUN7YGnWsbAIG0v2LfvuGhSwVpkjZBEh-0mUilWVOZLfvEeAbw");
 		// sample.performAutoComplete();
 	}
 

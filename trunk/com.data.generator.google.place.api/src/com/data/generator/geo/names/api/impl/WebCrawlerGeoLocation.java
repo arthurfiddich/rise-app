@@ -25,7 +25,7 @@ public class WebCrawlerGeoLocation {
 	private Parser parser;
 	private PageFetcher pageFetcher;
 
-	private WebCrawlerGeoLocation() {
+	public WebCrawlerGeoLocation() {
 		CrawlConfig crawlConfig = new CrawlConfig();
 		this.parser = new Parser(crawlConfig);
 		this.pageFetcher = new PageFetcher(crawlConfig);
