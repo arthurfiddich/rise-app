@@ -81,4 +81,10 @@ public class PropertiesHelper {
 				argGeoNameId, GeoNameConstants.GEO_NAME_USER_NAME);
 	}
 
+	public String constructGeoNameUrl(String argGeoNameId, String argUserName) {
+		return this.getProperty(
+				GeoNameProperty.GEO_NAME_CHILDREN_URL.getPropertyName(),
+				argGeoNameId, argUserName);
+	}
+
 }

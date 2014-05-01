@@ -14,4 +14,6 @@ public class KeyBoardConstants {
 	public static final String CLOSE_CURLY_BRACKETS = "}";
 	public static final String EQUALS = "=";
 	public static final String COMMA = ",";
+	public static final String DOUBLE_COLON = "::";
+	public static final String DOUBLE_HYPHEN = "--";
 }
