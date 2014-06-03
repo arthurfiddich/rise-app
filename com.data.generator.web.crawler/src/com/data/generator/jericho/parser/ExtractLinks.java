@@ -15,8 +15,8 @@ import net.htmlparser.jericho.Source;
 
 public class ExtractLinks {
 	public static void main(String argHtmlToken) throws Exception {
-//		String sourceUrlString = "./output/authors.html";
-		 String sourceUrlString = argHtmlToken;
+		String sourceUrlString = "./output/input.html";
+		// String sourceUrlString = argHtmlToken;
 		if (sourceUrlString.indexOf(':') == -1)
 			sourceUrlString = "file:" + sourceUrlString;
 		MicrosoftConditionalCommentTagTypes.register();
@@ -25,16 +25,16 @@ public class ExtractLinks {
 											// example otherwise they override
 											// processing instructions
 		MasonTagTypes.register();
-//		Source source = new Source(new URL(sourceUrlString));
-		 Source source = new Source(sourceUrlString);
+		Source source = new Source(new URL(sourceUrlString));
+		// Source source = new Source(sourceUrlString);
 
 		// Call fullSequentialParse manually as most of the source will be
 		// parsed.
 		source.fullSequentialParse();
 
 		System.out.println("\nLinks to other documents:");
-		// getAllElementsByClassName("letter", source);
-		hrefList(source);
+		getAllElementsByClassName("issuelinks", source);
+		// hrefList(source);
 	}
 
 	protected static void hrefList(Source argSource) {
@@ -50,7 +50,7 @@ public class ExtractLinks {
 				// from it:
 				String label = linkElement.getContent().getTextExtractor()
 						.toString();
-//				System.out.println(label + " <" + href + '>');
+				// System.out.println(label + " <" + href + '>');
 				System.out.println(label);
 			}
 		}
@@ -83,5 +83,9 @@ public class ExtractLinks {
 		for (Element element : elementsList) {
 			hrefList(element);
 		}
+	}
+
+	public static void main(String[] args) throws Exception {
+		ExtractLinks.main("");
 	}
 }
