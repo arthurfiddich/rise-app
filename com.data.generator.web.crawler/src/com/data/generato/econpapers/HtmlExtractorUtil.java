@@ -1,5 +1,10 @@
 package com.data.generato.econpapers;
 
+import net.htmlparser.jericho.CharacterReference;
+import net.htmlparser.jericho.Element;
+import net.htmlparser.jericho.HTMLElementName;
+import net.htmlparser.jericho.Source;
+
 import com.data.generator.constants.KeyBoardConstants;
 import com.data.generator.util.Precondition;
 
@@ -55,4 +60,17 @@ public class HtmlExtractorUtil {
 		return token;
 	}
 
+	public static String getTitle(Source argSource) {
+		if (Precondition.checkNotNull(argSource)) {
+			Element titleElement = argSource
+					.getFirstElement(HTMLElementName.TITLE);
+			if (Precondition.checkNotNull(titleElement)) {
+				// TITLE element never contains other tags so just decode it
+				// collapsing whitespace:
+				return CharacterReference.decodeCollapseWhiteSpace(titleElement
+						.getContent());
+			}
+		}
+		return null;
+	}
 }
