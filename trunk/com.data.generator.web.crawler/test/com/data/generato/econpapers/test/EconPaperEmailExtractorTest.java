@@ -2,11 +2,11 @@ package com.data.generato.econpapers.test;
 
 import java.util.List;
 
-import com.data.generato.econpapers.EconPaperEmailExtractor;
 import com.data.generato.econpapers.Email;
-import com.data.generato.econpapers.HtmlExtractor;
+import com.data.generator.extractor.EconPaperEmailExtractor;
+import com.data.generator.extractor.HtmlExtractor;
 
-public class EconPaperHtmlExtractorTest {
+public class EconPaperEmailExtractorTest {
 	public static void main(String[] args) {
 		String sourceUrlString = "./output/input.html";
 		HtmlExtractor htmlExtractor = new HtmlExtractor();
