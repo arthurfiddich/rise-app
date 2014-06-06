@@ -26,5 +26,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/com.data.generator"/>
 	<classpathentry kind="lib" path="/com.data.generator/lib/reflections-0.9.9-RC1-uberjar.jar"/>
 	<classpathentry kind="lib" path="/com.data.generator/lib/javassist-3.7.ga.jar"/>
+	<classpathentry kind="lib" path="/com.data.generator/lib/commons-io-2.4.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
