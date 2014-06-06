@@ -1,0 +1,82 @@
+public static void main(String[] args) {
+		Reflections reflections = new Reflections(
+				"com.data.generator.extractor");
+		List<String> simpleClassNamesList = new ArrayList<String>();
+		Set<Class<?>> allClasses = reflections
+				.getTypesAnnotatedWith(EconPaper.class);
+		Iterator<Class<?>> s = allClasses.iterator();
+		logger.info("Loading Class Names: ");
+		while (s.hasNext()) {
+			Class<?> st = s.next();
+			Annotation annotation = st.getAnnotation(EconPaper.class);
+			if (Precondition.checkNotNull(annotation)) {
+				String simpleClassName = st.getName();
+				simpleClassNamesList.add(simpleClassName);
+				logger.info("Class Names: " + simpleClassName);
+			}
+		}
+	}
+	
+	
+public static void main1(String[] args) throws IOException {
+		// String outputFileName = "./output/result.txt";
+		// BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(
+		// new File(outputFileName)));
+		WebContentDownloader webContentDownloader = new WebContentDownloader();
+		String htmlContent = webContentDownloader
+				.getHtmlContent("http://econpapers.repec.org/RAS/");
+		HtmlExtractor htmlExtractor = new HtmlExtractor();
+		EconPaperListViewExtractor econPaperListViewExtractor = new EconPaperListViewExtractor(
+				htmlExtractor);
+		EconPaperDetailedExtractor econPaperDetailedExtractor = new EconPaperDetailedExtractor(
+				htmlExtractor);
+		EconPaperEmailExtractor econPaperEmailExtractor = new EconPaperEmailExtractor(
+				htmlExtractor);
+		Map<String, String> labelVsLinksMap = econPaperListViewExtractor
+				.getListViewLinksBasedOnHtml(htmlContent);
+		Iterator<Entry<String, String>> iterator = labelVsLinksMap.entrySet()
+				.iterator();
+		while (iterator.hasNext()) {
+			Entry<String, String> entry = iterator.next();
+			String outputFileName = "./output/" + entry.getKey() + ".txt";
+			BufferedWriter bufferedWriter = null;
+			try {
+				bufferedWriter = new BufferedWriter(new FileWriter(new File(
+						outputFileName)));
+
+				String html = webContentDownloader.getHtmlContent(entry
+						.getValue());
+				Map<String, String> labelVsDetailedLinksMap = econPaperDetailedExtractor
+						.extractNamesInPageBasedOnHtml(html);
+				Iterator<Entry<String, String>> detailedIterator = labelVsDetailedLinksMap
+						.entrySet().iterator();
+				while (detailedIterator.hasNext()) {
+					Entry<String, String> detailedEntry = detailedIterator
+							.next();
+					String emailHtml = webContentDownloader
+							.getHtmlContent(detailedEntry.getKey());
+					List<Email> emailsList = econPaperEmailExtractor
+							.getAllEmailsBasedOnHtml(emailHtml);
+					List<String> emailTokensList = econPaperEmailExtractor
+							.getEmailList(emailsList);
+					if (Precondition.checkNotEmpty(emailTokensList)) {
+						for (String email : emailTokensList) {
+							if (!excludedEmail.equals(email)) {
+								bufferedWriter.write(email);
+								bufferedWriter.write("\r\n");
+							}
+						}
+					}
+				}
+				bufferedWriter.flush();
+			} finally {
+				if (Precondition.checkNotNull(bufferedWriter)) {
+					try {
+						bufferedWriter.close();
+					} catch (Exception ignore) {
+						// ignore
+					}
+				}
+			}
+		}
+	}

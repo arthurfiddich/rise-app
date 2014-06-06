@@ -1,9 +1,14 @@
 package com.data.generator.extractor;
 
+import java.io.BufferedOutputStream;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.nio.charset.Charset;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -15,7 +20,12 @@ import java.util.concurrent.RejectedExecutionException;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
+import net.htmlparser.jericho.Source;
+
+import com.data.generato.econpapers.ContentType;
 import com.data.generato.econpapers.Email;
+import com.data.generato.econpapers.HtmlExtractorConstants;
+import com.data.generato.econpapers.HtmlExtractorUtil;
 import com.data.generato.econpapers.HtmlParserException;
 import com.data.generator.executor.DataGeneratorThreadPoolExecutor;
 import com.data.generator.util.Precondition;
@@ -24,13 +34,13 @@ import com.data.generator.web.crawler.WebContentDownloader;
 public class EconPaperDaemon {
 
 	/** The Constant DEFAULT_THREAD_POOL_SIZE. */
-	private static final int DEFAULT_THREAD_POOL_SIZE = 25;
+	private static final int DEFAULT_THREAD_POOL_SIZE = 40;
 
 	/** The Constant DEFAULT_QUEUE_SIZE. */
 	private static final int DEFAULT_QUEUE_SIZE = 200;
 
 	/** The Constant DEFAULT_KEEP_ALIVE. */
-	private static final long DEFAULT_KEEP_ALIVE = 10;
+	private static final long DEFAULT_KEEP_ALIVE = 40;
 
 	/** The Constant DEFAULT_WAIT_TIME_TO_QUEUE. */
 	private static final long DEFAULT_WAIT_TIME_TO_QUEUE = 1 * 1000L;
@@ -46,8 +56,14 @@ public class EconPaperDaemon {
 	private long timeout;
 	private int threads;
 	private int queueSize;
+	private final ContentType contentType;
 
 	public EconPaperDaemon() {
+		this(ContentType.EMAIL);
+	}
+
+	private EconPaperDaemon(ContentType argContentType) {
+		this.contentType = argContentType;
 		this.htmlExtractor = new HtmlExtractor();
 		this.econPaperEmailExtractor = new EconPaperEmailExtractor(
 				this.htmlExtractor);
@@ -74,6 +90,7 @@ public class EconPaperDaemon {
 		private String outputFileName;
 		private String fileExtension;
 		private String value;
+		private ContentType contentType;
 
 		public EconPaperExecutor(String argOutputDirectoryName,
 				String argOutputFileName, String argFileExtension,
@@ -93,14 +110,23 @@ public class EconPaperDaemon {
 			this.value = argValue;
 		}
 
+		public ContentType getContentType() {
+			return this.contentType;
+		}
+
+		public void setContentType(ContentType argContentType) {
+			this.contentType = argContentType;
+		}
+
 		@Override
 		public void run() {
 			String outputFileName = prepareOutputFileName();
 			BufferedWriter bufferedWriter = null;
 			try {
 				try {
-					bufferedWriter = new BufferedWriter(new FileWriter(
-							new File(outputFileName)));
+					bufferedWriter = new BufferedWriter(new OutputStreamWriter(
+							new FileOutputStream(outputFileName),
+							Charset.forName("UTF-8")));
 				} catch (IOException e) {
 					throw new HtmlParserException(
 							"Exception while creating a file writer object: ",
@@ -108,26 +134,12 @@ public class EconPaperDaemon {
 				}
 				String html = webContentDownloader.getHtmlContent(this
 						.getValue());
-				Map<String, String> labelVsDetailedLinksMap = econPaperDetailedExtractor
-						.extractNamesInPageBasedOnHtml(html);
-				Iterator<Entry<String, String>> detailedIterator = labelVsDetailedLinksMap
-						.entrySet().iterator();
-				while (detailedIterator.hasNext()) {
-					Entry<String, String> detailedEntry = detailedIterator
-							.next();
-					String emailHtml = webContentDownloader
-							.getHtmlContent(detailedEntry.getKey());
-					List<Email> emailsList = econPaperEmailExtractor
-							.getAllEmailsBasedOnHtml(emailHtml);
-					List<String> emailTokensList = econPaperEmailExtractor
-							.getEmailList(emailsList);
-					if (Precondition.checkNotEmpty(emailTokensList)) {
-						for (String email : emailTokensList) {
-							if (!excludedEmail.equals(email)) {
-								bufferedWriter.write(email);
-								bufferedWriter.write("\r\n");
-							}
-						}
+				List<String> tokensList = getTokensList(html,
+						this.getContentType());
+				if (Precondition.checkNotEmpty(tokensList)) {
+					for (String token : tokensList) {
+						bufferedWriter.write(token);
+						bufferedWriter.write("\r\n");
 					}
 					bufferedWriter.flush();
 				}
@@ -145,6 +157,91 @@ public class EconPaperDaemon {
 			}
 		}
 
+		public List<String> getTokensList(String argHtml,
+				ContentType argContentType) {
+			switch (argContentType) {
+			case EMAIL:
+				return extractEmail(argHtml);
+			case NAME:
+				return extractName(argHtml);
+			default:
+				break;
+			}
+			return null;
+		}
+
+		private List<String> extractName(String argHtml) {
+			if (Precondition.checkNotEmpty(argHtml)) {
+				Source source = htmlExtractor
+						.getSourceBasedOnHtmlString(argHtml);
+				if (Precondition.checkNotNull(source)) {
+					Map<String, String> labelVsDetailedLinksMap = econPaperDetailedExtractor
+							.extractNamesInPageBasedOnHtml(argHtml);
+					Iterator<Entry<String, String>> detailedIterator = labelVsDetailedLinksMap
+							.entrySet().iterator();
+					List<String> titlesList = new ArrayList<String>();
+					while (detailedIterator.hasNext()) {
+						Entry<String, String> detailedEntry = detailedIterator
+								.next();
+						String emailHtml = webContentDownloader
+								.getHtmlContent(detailedEntry.getKey());
+						Source s = htmlExtractor
+								.getSourceBasedOnHtmlString(emailHtml);
+						String title = HtmlExtractorUtil.getTitle(s);
+						title = getTitle(title);
+						titlesList.add(title);
+					}
+					return titlesList;
+				}
+			}
+			return null;
+		}
+
+		protected String getTitle(String title) {
+			if (Precondition.checkNotEmpty(title)) {
+				int index = title.indexOf(HtmlExtractorConstants.ECON_PAPERS);
+				if (Precondition.checkNonNegative(index)) {
+					return title.substring(index
+							+ HtmlExtractorConstants.ECON_PAPERS.length());
+				}
+			}
+			return title;
+		}
+
+		protected List<String> extractEmail(String argHtml) {
+			if (Precondition.checkNotEmpty(argHtml)) {
+				Map<String, String> labelVsDetailedLinksMap = econPaperDetailedExtractor
+						.extractNamesInPageBasedOnHtml(argHtml);
+				Iterator<Entry<String, String>> detailedIterator = labelVsDetailedLinksMap
+						.entrySet().iterator();
+				List<String> resultedEmailsList = new ArrayList<String>();
+				while (detailedIterator.hasNext()) {
+					Entry<String, String> detailedEntry = detailedIterator
+							.next();
+					String emailHtml = webContentDownloader
+							.getHtmlContent(detailedEntry.getKey());
+					Source source = htmlExtractor
+							.getSourceBasedOnHtmlString(emailHtml);
+					String title = HtmlExtractorUtil.getTitle(source);
+					title = getTitle(title);
+					List<Email> emailsList = econPaperEmailExtractor
+							.getAllEmails(source);
+					// .getAllEmailsBasedOnHtml(emailHtml);
+					List<String> emailTokensList = econPaperEmailExtractor
+							.getEmailList(emailsList);
+					if (Precondition.checkNotEmpty(emailTokensList)) {
+						for (String email : emailTokensList) {
+							if (!excludedEmail.equals(email)) {
+								resultedEmailsList.add(title + "=" + email);
+							}
+						}
+					}
+				}
+				return resultedEmailsList;
+			}
+			return null;
+		}
+
 		private String prepareOutputFileName() {
 			StringBuilder fileNameBuilder = new StringBuilder();
 			fileNameBuilder.append(this.outputDirectoryName);
@@ -155,8 +252,18 @@ public class EconPaperDaemon {
 
 	}
 
+	// public static void main(String[] args) {
+	// ContentType[] contentTypeArray = ContentType.values();
+	// Precondition.ensureNotEmpty(contentTypeArray, "Content Type");
+	// for (ContentType contentType : contentTypeArray) {
+	// EconPaperDaemon econPaperDaemon = new EconPaperDaemon(contentType);
+	// econPaperDaemon.initialize();
+	// econPaperDaemon.extract();
+	// }
+	// }
+
 	public static void main(String[] args) {
-		EconPaperDaemon econPaperDaemon = new EconPaperDaemon();
+		EconPaperDaemon econPaperDaemon = new EconPaperDaemon(ContentType.EMAIL);
 		econPaperDaemon.initialize();
 		econPaperDaemon.extract();
 	}
@@ -197,7 +304,9 @@ public class EconPaperDaemon {
 		while (iterator.hasNext()) {
 			Entry<String, String> entry = iterator.next();
 			EconPaperExecutor econPaperExecutor = new EconPaperExecutor(
-					"./output/", entry.getKey(), ".txt", entry.getValue());
+					"./output/", this.getContentType().getContentType() + "-"
+							+ entry.getKey(), ".txt", entry.getValue());
+			econPaperExecutor.setContentType(this.getContentType());
 			this.execute(econPaperExecutor);
 
 		}
@@ -234,4 +343,9 @@ public class EconPaperDaemon {
 	public void setExecutorService(ExecutorService argExecutorService) {
 		this.executorService = argExecutorService;
 	}
+
+	public ContentType getContentType() {
+		return this.contentType;
+	}
+
 }
