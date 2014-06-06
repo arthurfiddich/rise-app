@@ -2,7 +2,7 @@ package com.data.generato.econpapers;
 
 public enum ContentType {
 
-	EMAIL("Email"), NAME("Name");
+	NAME("Name"), EMAIL("Email");
 
 	private final String contentType;
 

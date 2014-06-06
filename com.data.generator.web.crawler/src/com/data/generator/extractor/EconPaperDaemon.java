@@ -1,14 +1,17 @@
 package com.data.generator.extractor;
 
-import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -20,6 +23,8 @@ import java.util.concurrent.RejectedExecutionException;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.io.FilenameUtils;
+
 import net.htmlparser.jericho.Source;
 
 import com.data.generato.econpapers.ContentType;
@@ -27,7 +32,10 @@ import com.data.generato.econpapers.Email;
 import com.data.generato.econpapers.HtmlExtractorConstants;
 import com.data.generato.econpapers.HtmlExtractorUtil;
 import com.data.generato.econpapers.HtmlParserException;
+import com.data.generator.constants.KeyBoardConstants;
 import com.data.generator.executor.DataGeneratorThreadPoolExecutor;
+import com.data.generator.file.AutoFileCloser;
+import com.data.generator.file.impl.CsvWriter;
 import com.data.generator.util.Precondition;
 import com.data.generator.web.crawler.WebContentDownloader;
 
@@ -263,9 +271,67 @@ public class EconPaperDaemon {
 	// }
 
 	public static void main(String[] args) {
-		EconPaperDaemon econPaperDaemon = new EconPaperDaemon(ContentType.EMAIL);
-		econPaperDaemon.initialize();
-		econPaperDaemon.extract();
+		// EconPaperDaemon econPaperDaemon = new
+		// EconPaperDaemon(ContentType.EMAIL);
+		// econPaperDaemon.initialize();
+		// econPaperDaemon.extract();
+		EconPaperDaemon econPaperDaemon = new EconPaperDaemon();
+		econPaperDaemon.write("./output/EconPaper/");
+	}
+
+	public void write(final String argOutputDirectoryName) {
+		String outputDirectoryName = Precondition.ensureNotEmpty(
+				argOutputDirectoryName, "Output Directory Name");
+		File filePath = new File(outputDirectoryName);
+		if (filePath.isDirectory()) {
+			File[] filesArray = filePath.listFiles();
+			Precondition.ensureNotEmpty(filesArray, "Files Array");
+			for (int i = 0; i < filesArray.length; i++) {
+				final File file = filesArray[i];
+				if (!file.isDirectory() && file.exists()) {
+					new AutoFileCloser() {
+
+						@Override
+						protected void doWork() throws Throwable {
+							String[] headersArray = getHeaders(ContentType
+									.values());
+							Map<String[], List<List<String>>> headerNamesVsTokensListMap = new HashMap<String[], List<List<String>>>();
+							List<List<String>> tokenList = new ArrayList<List<String>>();
+							BufferedReader bufferedReader = new BufferedReader(
+									new InputStreamReader(new FileInputStream(
+											file), Charset.forName("UTF-8")));
+							String line = null;
+							while (Precondition
+									.checkNotEmpty(line = bufferedReader
+											.readLine())) {
+								String[] tokens = line.trim().split(
+										KeyBoardConstants.EQUALS);
+								tokenList.add(Arrays.asList(tokens));
+							}
+							headerNamesVsTokensListMap.put(headersArray,
+									tokenList);
+							String fileName = FilenameUtils
+									.removeExtension(file.getName());
+							CsvWriter writer = new CsvWriter(
+									argOutputDirectoryName + "csv/" + fileName
+											+ ".csv");
+							writer.write(headerNamesVsTokensListMap);
+						}
+					};
+				}
+			}
+		}
+	}
+
+	private String[] getHeaders(ContentType[] argContentTypeArray) {
+		ContentType[] contentTypeArray = (ContentType[]) Precondition
+				.ensureNotEmpty(argContentTypeArray,
+						"Content Type Array Values");
+		String[] headersArray = new String[ContentType.values().length];
+		for (int i = 0; i < contentTypeArray.length; i++) {
+			headersArray[i] = contentTypeArray[i].getContentType();
+		}
+		return headersArray;
 	}
 
 	protected void execute(EconPaperExecutor argEconPaperExecutor) {
