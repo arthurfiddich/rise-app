@@ -49,6 +49,16 @@ public class Precondition {
 		return argValue;
 	}
 
+	public static Object[] ensureNotEmpty(Object[] argValue, String argParamName)
+			throws PreconditionException {
+		ensureNotNull(argValue, argParamName);
+		if (argValue.length == 0) {
+			throw new PreconditionException("Expected not to be empty: "
+					+ argParamName);
+		}
+		return argValue;
+	}
+
 	public static boolean checkNotEmpty(String argValue) {
 		return checkNotNull(argValue) && !argValue.isEmpty();
 	}
