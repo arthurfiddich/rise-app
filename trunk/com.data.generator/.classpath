@@ -16,6 +16,7 @@
 	<classpathentry kind="lib" path="lib/wsc-22.jar"/>
 	<classpathentry kind="lib" path="lib/xincluder.jar"/>
 	<classpathentry kind="lib" path="lib/commons-lang3-3.1.jar"/>
+	<classpathentry kind="lib" path="lib/poi/poi-3.10-FINAL-20140208.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/logs"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/com.data.generator.xmlns.pojo"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/spring"/>
