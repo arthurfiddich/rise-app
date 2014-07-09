@@ -27,5 +27,8 @@
 	<classpathentry kind="lib" path="/com.data.generator/lib/reflections-0.9.9-RC1-uberjar.jar"/>
 	<classpathentry kind="lib" path="/com.data.generator/lib/javassist-3.7.ga.jar"/>
 	<classpathentry kind="lib" path="/com.data.generator/lib/commons-io-2.4.jar"/>
+	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/apache/commons/lang/commons-lang3-3.1.jar" sourcepath="/com.rise.extlib/src-jars/apache/commons/lang/commons-lang3-3.1-sources.jar"/>
+	<classpathentry kind="lib" path="/com.rise.extlib/bin-jars/apache/commons/beanutils/commons-beanutils-1.8.3.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/apache-poi"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

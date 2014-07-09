@@ -1,5 +1,11 @@
 package com.data.generato.econpapers;
 
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Pattern;
+
 import net.htmlparser.jericho.CharacterReference;
 import net.htmlparser.jericho.Element;
 import net.htmlparser.jericho.HTMLElementName;
@@ -69,6 +75,74 @@ public class HtmlExtractorUtil {
 				// collapsing whitespace:
 				return CharacterReference.decodeCollapseWhiteSpace(titleElement
 						.getContent());
+			}
+		}
+		return null;
+	}
+
+	/*
+	 * This title we are extracting from the site called
+	 * "http://ideas.repec.org/e/paa13.html".
+	 */
+	public static String getIdeasTitle(Source argSource) {
+		if (Precondition.checkNotNull(argSource)) {
+			Element titleElement = argSource.getElementById("title");
+			if (Precondition.checkNotNull(titleElement)) {
+				return CharacterReference.decodeCollapseWhiteSpace(titleElement
+						.getContent());
+			}
+		}
+		return null;
+	}
+
+	public static Pattern getSplitDetectorPattern() {
+		return Pattern.compile("([\\r\\n])+");
+	}
+
+	// public static String removeStartEndSingleQuotes(String argPart) {
+	// String token = argPart;
+	// if (Precondition.checkNotEmpty(token)) {
+	// if (token.startsWith(KeyBoardConstants.SINGLE_QUOTE)) {
+	// token = token.substring(1);
+	// }
+	// if (token.endsWith(KeyBoardConstants.SINGLE_QUOTE)) {
+	// token = token.substring(0, token.length() - 1);
+	// }
+	// }
+	// return token;
+	// }
+
+	public static String removeSpecialSymbol(String argToken,
+			String argOpenSpecialSymbol, String argCloseSpecialSymbol) {
+		String token = argToken;
+		if (Precondition.checkNotEmpty(token)) {
+			if (token.startsWith(argOpenSpecialSymbol)) {
+				token = token.substring(1);
+			}
+			if (token.endsWith(argCloseSpecialSymbol)) {
+				token = token.substring(0, token.length() - 1);
+			}
+		}
+		return token;
+	}
+	
+	/*
+	 * It will give a list of annotated fields for a given class instance
+	 */
+	public static List<Field> getAnnotatedFields(Class<?> argClassInstance,
+			Class<? extends Annotation> argAnnotationType) {
+		if (Precondition.checkNotNull(argClassInstance)
+				&& Precondition.checkNotNull(argAnnotationType)) {
+			Field[] fieldArray = argClassInstance.getDeclaredFields();
+			if (Precondition.checkNotEmpty(fieldArray)) {
+				List<Field> annotatedFieldsList = new ArrayList<Field>();
+				for (Field field : fieldArray) {
+					if (Precondition.checkNotNull(field
+							.getAnnotation(argAnnotationType))) {
+						annotatedFieldsList.add(field);
+					}
+				}
+				return annotatedFieldsList;
 			}
 		}
 		return null;
