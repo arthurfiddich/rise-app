@@ -1,6 +1,7 @@
 package com.data.generator.util;
 
 import java.util.Collection;
+import java.util.Map;
 
 public class Precondition {
 
@@ -22,6 +23,10 @@ public class Precondition {
 	}
 
 	public static boolean checkNotEmpty(Collection<?> argValue) {
+		return checkNotNull(argValue) && !argValue.isEmpty();
+	}
+
+	public static boolean checkNotEmpty(Map<?, ?> argValue) {
 		return checkNotNull(argValue) && !argValue.isEmpty();
 	}
 
@@ -108,5 +113,14 @@ public class Precondition {
 
 	public static boolean checkZero(double argValue) {
 		return (argValue == 0.0);
+	}
+
+	public static Map<?, ?> ensureNotEmpty(Map<?, ?> argMap, String argParamName) {
+		ensureNotNull(argMap, argParamName);
+		if (argMap.isEmpty()) {
+			throw new PreconditionException("Expected not to be empty: "
+					+ argParamName);
+		}
+		return argMap;
 	}
 }

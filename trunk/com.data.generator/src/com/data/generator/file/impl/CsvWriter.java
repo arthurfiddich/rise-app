@@ -77,6 +77,9 @@ public class CsvWriter implements
 			} catch (IOException e) {
 				throw new RuntimeException(
 						"Exception while writing the file content", e);
+			} catch (Exception e) {
+				throw new RuntimeException(
+						"Exception while writing the file content", e);
 			} finally {
 				if (this.iCsvMapWriter != null) {
 					try {

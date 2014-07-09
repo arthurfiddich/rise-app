@@ -18,4 +18,6 @@ public class KeyBoardConstants {
 	public static final String DOUBLE_HYPHEN = "--";
 	public static final char AT = '@';
 	public static final String SINGLE_QUOTE = "'";
+	public static final String COLON = ":";
+	public static final String EMPTY = "";
 }
