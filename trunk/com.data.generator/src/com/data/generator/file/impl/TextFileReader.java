@@ -1,6 +1,7 @@
 package com.data.generator.file.impl;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -46,5 +47,10 @@ public class TextFileReader implements Reader<String, List<String>> {
 			return tokensist;
 		}
 		return null;
+	}
+
+	@Override
+	public List<String> read(File argFile) {
+		throw new RuntimeException("Not Implemented");
 	}
 }

@@ -25,5 +25,6 @@
 	<classpathentry kind="lib" path="/com.data.generator.google.place.api/lib/httpcore-4.3.2.jar"/>
 	<classpathentry kind="lib" path="/com.data.generator.google.place.api/lib/httpmime-4.3.3.jar"/>
 	<classpathentry kind="lib" path="lib/servlet-api-3.0.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Google-Translator"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

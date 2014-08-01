@@ -1,7 +1,20 @@
-#Tue Apr 22 14:22:48 IST 2014
+#Fri Jul 11 18:03:04 IST 2014
 eclipse.preferences.version=1
+encoding//db/db-1.csv=UTF-8
+encoding//db/db-10.csv=UTF-8
+encoding//db/db-2.csv=UTF-8
+encoding//db/db-3.csv=UTF-8
+encoding//db/db-4.csv=UTF-8
+encoding//db/db-5.csv=UTF-8
+encoding//db/db-6.csv=UTF-8
+encoding//db/db-7.csv=UTF-8
+encoding//db/db-8.csv=UTF-8
+encoding//db/db-9.csv=UTF-8
 encoding//db/test.csv=UTF-8
 encoding//lib/dbpedia_3.9.owl=UTF-8
 encoding//output/Copy\ of\ result.txt=UTF-8
 encoding//output/countries/People\u2019s-Democratic-Republic-of-Algeria.txt=UTF-8
 encoding//output/result.txt=UTF-8
+encoding//output/translate/db-1.csv=UTF-8
+encoding//output/translate/input.csv=UTF-8
+encoding//test/com/data/generator/google/translator/GoogleTranslatorTest.java=UTF-8
