@@ -26,6 +26,7 @@ public class HtmlExtractorConstants {
 	public static final char SPACE_CHAR = ' ';
 	public static final String EMAIL_KEYWORD = "liame2";
 	public static final String IDEAS_AT = "m7i7";
+	public static final String JAPANESE_HOME_PAGE_LINK = "http://www.econ.tohoku.ac.jp/econ/english/staff/";
 
 	private static List<String> prepareList() {
 		List<String> namePartsList = new ArrayList<String>();
