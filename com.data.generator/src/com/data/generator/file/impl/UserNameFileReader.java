@@ -1,5 +1,6 @@
 package com.data.generator.file.impl;
 
+import java.io.File;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,5 +24,10 @@ public class UserNameFileReader implements Reader<String, Map<String, Boolean>> 
 			return userNameVsUsedFlagMap;
 		}
 		return null;
+	}
+
+	@Override
+	public Map<String, Boolean> read(File argFile) {
+		throw new RuntimeException("Not Implemented");
 	}
 }

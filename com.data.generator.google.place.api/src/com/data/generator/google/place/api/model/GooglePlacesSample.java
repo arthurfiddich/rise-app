@@ -31,8 +31,9 @@ public class GooglePlacesSample {
 	// Moscone Center, Howard Street, San Francisco, CA, United States
 	// double latitude = 37.784147;
 	// double longitude = -122.402115;
-	double latitude = 16.41667;
-	double longitude = 80.25;
+	double latitude = 32.212851;
+	double longitude = 34.816867;
+	
 	
 	// telenet
 	// double latitude = 51.034823;
@@ -44,8 +45,8 @@ public class GooglePlacesSample {
 
 	public static void main(String[] args) throws Exception {
 		GooglePlacesSample sample = new GooglePlacesSample();
-//		sample.performSearch();
-		 sample.performDetails("CoQBdQAAAI2cBcYJLW5_t5wy9ThEuJWk3anFRjsx_CYaVbbp5xtDUwKT_xSJ4f_rCUaGyzcsFeaNwJtDNZimlz1J3ceaUXssjbTR-KdP3Be6nWfdKKsQyTF7m10OX2an7PS0JhaHzPiUWIAlMNezeTX2LI36goezaL0tTwJJrFGr1P35xC1tEhCfRUN7YGnWsbAIG0v2LfvuGhSwVpkjZBEh-0mUilWVOZLfvEeAbw");
+		sample.performSearch();
+//		 sample.performDetails("CoQBfwAAAPMtdQY196cvkxp7gONf1iIQljExRGNYRvalPbDFaOMj7E0NpuevRKWRFo1rlWrlPz7q09v4_FRphkmvtkR8Qs8_H8V-nW0CDax6OMbKWC__eiYJEDdnfvNubOisChOzIlAYudnB5MDGuQU_Da3m5hf4cnR2NTguBgj6GYIncskgEhAO1rJASc8zJs80izRjic5tGhTO2N7k0j_G6jjDDPJKeNNW9Y38pw");
 		// sample.performAutoComplete();
 	}
 
@@ -60,9 +61,9 @@ public class GooglePlacesSample {
 			request.url.put("location", latitude + "," + longitude);
 			request.url.put("radius", 2000);
 			request.url.put("sensor", "false");
-//			request.url
-//					.put("pagetoken",
-//							"CpQDjAEAAD6e3UQvCJRRvOK2mlh45NHUVWy44nx9VBdOtoYcSd6q9MHvo44-F6Dw-uXZXCbc-amuqACVrrfrf7KZ8Csorf18PKyarO8VqL0Mje7V-auoT39tC_h1OHioW_zkExNCd1wE7TA8GjY464jl2NU9suoNdQhnIPMnCwiqoiGyBwvTMl7u5dUOS4ikNUBc7G3yZoD-2OdKVdDUkCUrlFgdYpFJFhZfsnDn23aqsQbyI4rRpCvN0eP2uyeWbc-PAjc43wE_eoZQDHQscXJn3WhbH04R4mVAq1-gn4EKzPqDwz1MtPIEnMUSZI3PTeHcqbS2gVwRAyrClDOl48IJf4waePr3uucbE-RHd5n4HELetBXJyldN3T0rXHkAwsdXr8fGEbSxLyzUYnse__VaQdAaBtv9RoUyP9ESwQwgfxBpRJapfEW8vivY7NdHUKvqj8fR0tH-KBpzO9A9gPj2AwsMXx7CN1MIn-qVr1YKXM16XvbpqsCka4LSiXTWGyOk7ZU3f5cXqwdM33L4OsHcyNt6Is4SEJFzorO6BcM4QRwmPoUsEfkaFB-jbCG4lYrHCqrPqLhB_53Y-AZ5");
+			request.url
+					.put("pagetoken",
+							"CvQB7AAAAIPjtUPhssvv9iIXstH3wqKFDCcIufx3rtqtt6Rqfw_HizCqVHtSok08TPP0-B_-UDywWN_eX5t6-iMC6Rzv19P538sC5vHAUw-qUOc05zF-nZL-T7tbUld8IAUMWcLdiCCiBnBPic1fdsRNAz5iJvZ6vNzx24qNnKKbVAMUmCo3K3KF05ENsv5_e1iQwsSBYwZYKIBEmctPLPKwbGJnsBdPSHD9IV2b9B5UVBaiNS1RDbccev9hbSxVOaSWyUPXNKb1huh_SjD4u70xeXFNmiMK5sLyi3waKIhMdlPlQzNaQrQ1DyLF63D7uOC9s-15uBIQjSe8VrdCxzytnZAIWVCe5hoUNf5cAlnnJnC8_cuXDXwioY7UA3c");
 
 			if (PRINT_AS_STRING) {
 				System.out.println(request.execute().parseAsString());

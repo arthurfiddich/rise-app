@@ -1,5 +1,6 @@
 package com.data.generator.file.impl;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
@@ -39,6 +40,11 @@ public class PropertyFileReader implements Reader<String, Properties> {
 			return properties;
 		}
 		return null;
+	}
+
+	@Override
+	public Properties read(File argFile) {
+		throw new RuntimeException("Not Implemented");
 	}
 
 }
