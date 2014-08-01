@@ -1,0 +1,2092 @@
+
+<li class="last"><a
+	onclick="var helpWin; helpWin=window.open('http://www.sciencedirect.com/science?_ob=HelpURL&amp;_file=browse_open_doc.htm&amp;_btn=Y&amp;_zone=TopNavBar&amp;_origin=article&amp;md5=12a78865de1c73d3f3d171e007e01531','sdhelp','scrollbars=yes,resizable=yes,directories=no,toolbar=no,menubar=no,status=no,width=760,height=570'); helpWin.focus(); return false"
+	title="Help (Opens new window)" target="sdhelp"
+	href="http://www.sciencedirect.com/science?_ob=HelpURL&amp;_file=browse_open_doc.htm&amp;_btn=Y&amp;_zone=TopNavBar&amp;_origin=article&amp;md5=12a78865de1c73d3f3d171e007e01531"
+	class="S_C_helpLink">Help</a></li>
+
+</ul>
+</div>
+
+
+<!-- logged in -->
+
+
+</div>
+
+
+
+
+<div aria-label="Institutional Access" role="banner" id="bannerTop"
+	class="clearfix">
+
+	<a
+		onclick="openNS('http://www.elsevier.com/online-tools/sciencedirect/using#guest-users'); return false;"
+		href="http://www.elsevier.com/online-tools/sciencedirect/using#guest-users">
+		<img border="0"
+		src="http://www.sciencedirect.com/science/page/static/science/dynamic_scidir_home_guest_user.gif" />
+	</a>
+
+</div>
+
+
+
+
+
+</div>
+<!--header-->
+
+
+
+
+
+
+</div>
+<!--header-area-->
+<div id="page-area">
+	<div class="clearfix quicksearch prd_sci_dir low" id="articleToolbar">
+		<div id="articleNav" style="margin-left: 6px;">
+			<ul class="clearfix" role="navigation" aria-label="Article options">
+				<!-- return to gateway -->
+
+
+
+
+
+
+
+				<li>
+					<div class="icon_pdf toolbar  ppv">
+						<div class="largeIcon"></div>
+						<a title="Purchase PDF" style="cursor: pointer"
+							class="S_C_pdfLink big pdf ext_sdlink cLink" target=""
+							href="/science?_ob=ShoppingCartURL&amp;_method=add&amp;_eid=1-s2.0-S1568494612005741&amp;originContentFamily=serial&amp;_origin=article&amp;_ts=1403766914&amp;md5=ad851e2a954c4eaa9a9881e190f81687"
+							rel="nofollow" id="pdfLink">Purchase </a>
+					</div>
+				</li>
+
+
+
+
+
+
+
+
+
+				<li>
+					<div class="pulldown">
+						<div class="exportDivision">
+							<div title="Export citation." tabindex="0"
+								class="icon_exportarticlesci_dir initialImage export_icon">
+								 </div>
+							<input type="button" title="Export Citation" tabindex="-1"
+								class="listAction export export_general" name="export"
+								value="Export" id="icon_exportarticle" /> <a
+								aria-controls="export_popup" aria-expanded="false"
+								class="dropdownArrow" alt="other export options"
+								title="other export options" href="javascript:;" role="button"><span
+								class="downSM_sci_dir exportArrow">Other export options</span></a> <input
+								type="hidden" value="exportDropDown" name="zone" class="zone" />
+						</div>
+						<div id="export_popup" class="menu export_popup hidden">
+							<img
+								src="http://cdn.els-cdn.com/sd/img/sprite_parts/warning_a.gif"
+								alt="Warning Icon" title="Warning Icon" class="warningIcon"
+								style="display: none;" />
+
+							<form target=""
+								action="/science?_ob=DownloadURL&amp;_method=finish&amp;_eidkey=1-s2.0-S1568494612005741&amp;count=1&amp;_docType=FLA&amp;md5=2c05cfb5346d5c7c3a0e922f3f594492"
+								method="post" name="exportCite">
+								<input type="hidden" value="exportDropDown" name="zone"
+									class="zone" />
+
+								<script type="text/javascript" language="javascript">
+&lt;!--
+
+function checkExportFormat(limit) {
+
+    var msg = "";
+
+    for (i=0;i&lt;document.exportCite.elements.length;i++) {
+        if (document.exportCite.elements[i].value == "REFWX") {
+            if (document.exportCite.elements[i].checked) {
+                document.exportCite.setAttribute('target',"RefWorksMain");
+                if (checkLimit()) {
+                    if (limit) {
+                        msg = "It is possible that some users may experience problems when downloading large numbers of citations. If this happens please contact RefWorks support at your regionally hosted site or e-mail support@refworks.com to assist you further.\n\n";
+                    }
+                    msg += "Exporting to RefWorks may take some time, please wait....";
+                    alert(msg);
+                }
+            }
+            else {
+                document.exportCite.setAttribute('target',"");
+            }
+            break;
+        }
+    }
+    return true;
+}
+
+function determineCount(numStr) {
+    var count=1;
+
+    if(numStr.indexOf("-")) {
+        var rangeStr = numStr.split("-");
+
+        if(rangeStr.length == 2) {
+            var highNum = parseInt(rangeStr[1]);
+            var lowNum = parseInt(rangeStr[0]);
+
+            if(highNum &gt;= lowNum) { count = (highNum - lowNum) + 1; }
+        }
+    }
+    return count;
+}
+
+function checkLimit(){
+
+    var selectNum = "";
+    var useSelected = false;
+    var allNum = 0;
+    var count = 0;
+    var rdoc = 0;
+
+    for (i=0;i&lt;document.exportCite.elements.length;i++) {
+        if (document.exportCite.elements[i].name == "count") {
+            allNum = document.exportCite.elements[i].value;
+        }
+        if (document.exportCite.elements[i].name == "NUMBER_LIST") {
+            selectNum = document.exportCite.elements[i].value;
+        }
+        if (document.exportCite.elements[i].name == "_rdoc") {
+            rdoc = document.exportCite.elements[i].value;
+        }
+        if (document.exportCite.elements[i].value == "selected") {
+            if (document.exportCite.elements[i].checked) {
+                useSelected = true;
+            }
+        }
+    }
+
+    if (useSelected) {
+        selectNum = selectNum.replace(/ /g,"");
+        if(selectNum.indexOf(",")) {
+            var commaList = selectNum.split(",");
+            for(i=0; i &lt; commaList.length; i++) {
+                count += determineCount(commaList[i]);
+            }
+        }
+        else {
+            count += determineCount(selectNum);
+        }
+    }
+    else { 
+        if (rdoc &gt; 0) {
+            count = 1;
+        }
+        else {
+            count = allNum;
+        }
+    }
+
+    if(count &gt; 50) { return true; }
+  
+    return false;
+}
+
+//--&gt;
+</script>
+
+								<table width="66%" cellspacing="0" cellpadding="0"
+									class="pageSubHead export_pageSubHead">
+
+									<tbody>
+										<tr>
+											<td style="padding: 15px 0 0 30px;" colspan="2"><h2>You
+													have selected 1 citation for export.</h2></td>
+										</tr>
+
+
+									</tbody>
+								</table>
+								<div class="expContainer">
+									<ul style="padding: 0 10px 0 20px;" width="100%"
+										class="Export_Popup">
+										<div class="downBtn export_downBtn">
+											<div class="exportTxt">
+												<h3>Direct export</h3>
+											</div>
+
+											<div>
+												<input type="button" class="mendeleyBT button directExport"
+													alt="Save to Mendeley" name="Save to Mendeley"
+													value="Save to Mendeley " id="directExport" /> <a
+													href="http://www.mendeley.com/?referer=sciencedirect"
+													title="Help (Opens new window)" target="_blank"
+													class="aboutmendeley">About Mendeley</a> <span
+													class="iconI">       </span>
+											</div>
+
+
+											<div>
+												<input type="button" class="button refworks"
+													alt="Save to RefWorks" name="Save to RefWorks"
+													value="Save to RefWorks" id="REFWX" /> <a class="aboutref"
+													onclick="var helpWin; helpWin=window.open('/science?_ob=HelpURL&amp;_file=about_refworks.htm&amp;_btn=Y&amp;md5=4352888cdf34d33fe79d42277a958dff','sdhelp','scrollbars=yes,resizable=yes,directories=no,toolbar=no,menubar=no,status=no,width=760 ,height=570'); helpWin.focus()"
+													target="sdhelp"
+													href="/science?_ob=HelpURL&amp;_file=about_refworks.htm&amp;_btn=Y&amp;md5=4352888cdf34d33fe79d42277a958dff">About
+													RefWorks</a> <span class="iconI">       </span>
+											</div>
+
+										</div>
+										<li class="tableFmCell Export">
+											<h3>Export file</h3>
+										</li>
+										<li class="abstract format">Format</li>
+										<li class="export_radio"><input type="radio"
+											class="artRadio expRadio RIS" value="RIS"
+											name="citation-type" checked="checked" id="RIS" /> <label
+											for="RIS">RIS (for EndNote, Reference Manager,
+												ProCite)</label></li>
+										<li class="export_radio"><input type="radio"
+											class="artRadio expRadio BIBTEX" value="BIBTEX"
+											name="citation-type" id="BIBTEX" /> <label for="BIBTEX">BibTeX</label>
+										</li>
+										<li class="export_radio"><input type="radio"
+											class="artRadio expRadio ASCII" value="ASCII"
+											name="citation-type" id="ASCII" /> <label for="ASCII">Text</label>
+										</li>
+										<li class="export_radio hidden"><input type="radio"
+											class="artRadio expRadio REFWX" value="REFWX"
+											name="citation-type" id="REFWX" /> <label for="REFWX">RefWorks
+												Direct Export</label></li>
+										<li class="abstract">Content</li>
+										<li class="expCitab export_radio"><input type="radio"
+											class="artRadio expRadio" value="cite" name="format"
+											id="cite" /> <label for="cite" class="cit"> Citation
+												Only </label></li>
+										<li class="expCitab export_radio citab"><input
+											type="radio" class="artRadio expRadio" checked="checked"
+											value="cite-abs" name="format" id="cite-abs" /> <label
+											for="cite-abs" class="cab"> Citation and Abstract </label></li>
+									</ul>
+									<div class="downBtn export_downBtn">
+										<div style="float: left;">
+											<input type="submit" id="export_button"
+												class="button export_button" alt="Export" name="export"
+												value="Export" />
+										</div>
+									</div>
+								</div>
+
+							</form>
+
+
+						</div>
+					</div>
+				</li>
+
+
+
+
+
+
+			</ul>
+		</div>
+
+		<div role="search" aria-label="Quick search" class="sdSearch">
+			<fieldset>
+				<div class="left">
+					<form action="/science" target="_top" method="get" name="qkSrch"
+						id="quickSearch">
+						<input type="hidden" value="QuickSearchURL" name="_ob" /> <input
+							type="hidden" value="submitForm" name="_method" /> <input
+							type="hidden" value="C000228598" name="_acct" /> <input
+							type="hidden" value="a" name="searchtype" /> <input
+							type="hidden" value="article" name="_origin" /> <input
+							type="hidden" value="qSearch" name="_zone" /> <input
+							type="hidden" value="89d09e911d3872e16ae140ceae8c0b3b" name="md5" />
+
+						<input type="text" title="Perform a quick search on ScienceDirect"
+							maxlength="450" size="30" value=""
+							placeholder="Search ScienceDirect" name="qs_all" id="quickSearch" /><input
+							type="submit" title="Submit quick search" value="" class="submit" />
+
+						<a href="http://www.sciencedirect.com/science/search"
+							class="advanced S_C_advanced">Advanced search</a>
+					</form>
+				</div>
+			</fieldset>
+		</div>
+		<div class="clear"></div>
+		<div id="erToolbar"></div>
+
+
+		<div style="color: #FF0000; font-weight: bold; border: 0px solid red;">
+
+
+
+
+		</div>
+
+
+
+
+
+	</div>
+	<div id="articleToolbarDummy"></div>
+	<div style="clear: both;"></div>
+	<div role="navigation" aria-label="table of contents"
+		class="column small" id="leftPane" style="height: 345px;">
+		<div id="leftPaneInner" style="height: 345px;">
+			<div>
+				<div id="leftButton" class="small">
+					<ul>
+						<li class="tocbutton"><a aria-expanded="false" href="#"
+							alt="Open to view article outline"
+							title="Open to view article outline" class="outline-toggle">
+								<span class="icon outline_big"></span>
+						</a></li>
+					</ul>
+				</div>
+				<div id="outlineContainer" class="small">
+					<a title="Close" class="closeBt"> </a>
+					<div class="outline" id="outline" data-st="0" style="">
+						<div id="olGraphCbBox" style="width: 231px;">
+							<div class="olHead">
+								<h2 id="toc_title">Article outline</h2>
+								<label style="display: inline;"><input type="checkBox"
+									id="outlineGraphicsCheckBox" />Show full outline</label>
+							</div>
+							<ul id="itemOutline">
+								<li class="li_h2"><div class="io item h2sec"
+										id="ol_author1">
+										<a
+											href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+											querystr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533&amp;_hashID=author1"
+											class="cLink S_C_tocLinkOutline">Abstract<br /></a>
+									</div></li>
+								<li class="li_h3"><div class="io item h3sec"
+										id="ol_secGabs_1">
+										<a
+											href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+											querystr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533&amp;_hashID=secGabs_1"
+											class="cLink S_C_tocLinkOutline">Graphical abstract<br /></a>
+									</div></li>
+								<li class="li_h3"><div class="io item h3sec"
+										id="ol_secGabs_2">
+										<a
+											href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+											querystr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533&amp;_hashID=secGabs_2"
+											class="cLink S_C_tocLinkOutline">Highlights<br /></a>
+									</div></li>
+								<li class="li_h2"><div class="io item h2sec" id="ol_kwd_1">
+										<a
+											href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+											querystr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533&amp;_hashID=kwd_1"
+											class="cLink S_C_tocLinkOutline">Keywords<br /></a>
+									</div></li>
+								<li class="li_h2"><div class="io item h2sec"
+										id="ol_sec0005">
+										<a
+											href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+											querystr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533&amp;_hashID=sec0005"
+											class="cLink S_C_tocLinkOutline">1. Introduction<br /></a>
+									</div></li>
+								<li class="li_h2"><div class="io item h2sec"
+										id="ol_sec0010">
+										<a
+											href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+											querystr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533&amp;_hashID=sec0010"
+											class="cLink S_C_tocLinkOutline">2. Related work<br /></a>
+									</div></li>
+								<li class="li_h2"><div class="io item h2sec"
+										id="ol_sec0015">
+										<a
+											href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+											querystr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533&amp;_hashID=sec0015"
+											class="cLink S_C_tocLinkOutline">3. Problem statement<br /></a>
+									</div></li>
+								<li class="li_h2"><div class="io item h2sec"
+										id="ol_sec0020">
+										<a
+											href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+											querystr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533&amp;_hashID=sec0020"
+											class="cLink S_C_tocLinkOutline">4. Multi-Objective
+											Gravitational Search Algorithm (MOGSA)<br />
+										</a>
+									</div></li>
+								<li class="li_h3"><div class="io item h3sec"
+										id="ol_sec0025">
+										<a
+											href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+											querystr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533&amp;_hashID=sec0025"
+											class="cLink S_C_tocLinkOutline">4.1. Initialization and
+											evaluation<br />
+										</a>
+									</div></li>
+								<li class="li_h3"><div class="io item h3sec"
+										id="ol_sec0030">
+										<a
+											href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+											querystr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533&amp;_hashID=sec0030"
+											class="cLink S_C_tocLinkOutline">4.2. Update
+											gravitational constant<br />
+										</a>
+									</div></li>
+								<li class="li_h3"><div class="io item h3sec"
+										id="ol_sec0035">
+										<a
+											href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+											querystr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533&amp;_hashID=sec0035"
+											class="cLink S_C_tocLinkOutline">4.3. Calculate size of
+											masses<br />
+										</a>
+									</div></li>
+								<li class="li_h3"><div class="io item h3sec"
+										id="ol_sec0040">
+										<a
+											href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+											querystr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533&amp;_hashID=sec0040"
+											class="cLink S_C_tocLinkOutline">4.4. Calculate force and
+											acceleration between masses<br />
+										</a>
+									</div></li>
+								<li class="li_h3"><div class="io item h3sec"
+										id="ol_sec0045">
+										<a
+											href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+											querystr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533&amp;_hashID=sec0045"
+											class="cLink S_C_tocLinkOutline">4.5. Update velocity and
+											position per each mass<br />
+										</a>
+									</div></li>
+								<li class="li_h3"><div class="io item h3sec"
+										id="ol_sec0050">
+										<a
+											href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+											querystr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533&amp;_hashID=sec0050"
+											class="cLink S_C_tocLinkOutline">4.6. Select set of best
+											solutions (Pareto front)<br />
+										</a>
+									</div></li>
+								<li class="li_h2"><div class="io item h2sec"
+										id="ol_sec0055">
+										<a
+											href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+											querystr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533&amp;_hashID=sec0055"
+											class="cLink S_C_tocLinkOutline">5. Multi-Objective
+											Artificial Bee Colony (MOABC)<br />
+										</a>
+									</div></li>
+								<li class="li_h3"><div class="io item h3sec"
+										id="ol_sec0060">
+										<a
+											href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+											querystr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533&amp;_hashID=sec0060"
+											class="cLink S_C_tocLinkOutline">5.1. Initialization and
+											evaluation of the population<br />
+										</a>
+									</div></li>
+								<li class="li_h3"><div class="io item h3sec"
+										id="ol_sec0065">
+										<a
+											href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+											querystr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533&amp;_hashID=sec0065"
+											class="cLink S_C_tocLinkOutline">5.2. Multi-objective
+											exploitation process<br />
+										</a>
+									</div></li>
+								<li class="li_h3"><div class="io item h3sec"
+										id="ol_sec0070">
+										<a
+											href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+											querystr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533&amp;_hashID=sec0070"
+											class="cLink S_C_tocLinkOutline">5.3. Multi-objective
+											exploration process<br />
+										</a>
+									</div></li>
+								<li class="li_h3"><div class="io item h3sec"
+										id="ol_sec0075">
+										<a
+											href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+											querystr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533&amp;_hashID=sec0075"
+											class="cLink S_C_tocLinkOutline">5.4. Select set of best
+											solutions<br />
+										</a>
+									</div></li>
+								<li class="li_h2"><div class="io item h2sec"
+										id="ol_sec0080">
+										<a
+											href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+											querystr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533&amp;_hashID=sec0080"
+											class="cLink S_C_tocLinkOutline">6. Non-dominated Sorting
+											Genetic Algorithm (NSGA II)<br />
+										</a>
+									</div></li>
+								<li class="li_h3"><div class="io item h3sec"
+										id="ol_sec0085">
+										<a
+											href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+											querystr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533&amp;_hashID=sec0085"
+											class="cLink S_C_tocLinkOutline">6.1. Initialization and
+											evaluation of the population<br />
+										</a>
+									</div></li>
+								<li class="li_h3"><div class="io item h3sec"
+										id="ol_sec0090">
+										<a
+											href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+											querystr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533&amp;_hashID=sec0090"
+											class="cLink S_C_tocLinkOutline">6.2. Global optimum
+											search<br />
+										</a>
+									</div></li>
+								<li class="li_h3"><div class="io item h3sec"
+										id="ol_sec0095">
+										<a
+											href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+											querystr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533&amp;_hashID=sec0095"
+											class="cLink S_C_tocLinkOutline">6.3. Binary tournament
+											selection<br />
+										</a>
+									</div></li>
+								<li class="li_h3"><div class="io item h3sec"
+										id="ol_sec0100">
+										<a
+											href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+											querystr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533&amp;_hashID=sec0100"
+											class="cLink S_C_tocLinkOutline">6.4. Crossover<br /></a>
+									</div></li>
+								<li class="li_h3"><div class="io item h3sec"
+										id="ol_sec0105">
+										<a
+											href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+											querystr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533&amp;_hashID=sec0105"
+											class="cLink S_C_tocLinkOutline">6.5. Mutation<br /></a>
+									</div></li>
+								<li class="li_h3"><div class="io item h3sec"
+										id="ol_sec0110">
+										<a
+											href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+											querystr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533&amp;_hashID=sec0110"
+											class="cLink S_C_tocLinkOutline">6.6. Select set of best
+											solutions<br />
+										</a>
+									</div></li>
+								<li class="li_h2"><div class="io item h2sec"
+										id="ol_sec0115">
+										<a
+											href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+											querystr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533&amp;_hashID=sec0115"
+											class="cLink S_C_tocLinkOutline">7. Experiments and
+											results<br />
+										</a>
+									</div></li>
+								<li class="li_h3"><div class="io item h3sec"
+										id="ol_sec0120">
+										<a
+											href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+											querystr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533&amp;_hashID=sec0120"
+											class="cLink S_C_tocLinkOutline">7.1. Grid topologies and
+											workflows<br />
+										</a>
+									</div></li>
+								<li class="li_h3"><div class="io item h3sec"
+										id="ol_sec0125">
+										<a
+											href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+											querystr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533&amp;_hashID=sec0125"
+											class="cLink S_C_tocLinkOutline">7.2. Parameterization<br /></a>
+									</div></li>
+								<li class="li_h3"><div class="io item h3sec"
+										id="ol_sec0130">
+										<a
+											href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+											querystr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533&amp;_hashID=sec0130"
+											class="cLink S_C_tocLinkOutline">7.3. Analysis<br /></a>
+									</div></li>
+								<li class="li_h4"><div class="io item h4sec"
+										id="ol_sec0135">
+										<a
+											href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+											querystr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533&amp;_hashID=sec0135"
+											class="cLink S_C_tocLinkOutline">7.3.1. Multi-objective
+											comparison<br />
+										</a>
+									</div></li>
+								<li class="li_h4"><div class="io item h4sec"
+										id="ol_sec0140">
+										<a
+											href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+											querystr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533&amp;_hashID=sec0140"
+											class="cLink S_C_tocLinkOutline">7.3.2. Real schedulers
+											comparison<br />
+										</a>
+									</div></li>
+								<li class="li_h2"><div class="io item h2sec"
+										id="ol_sec0145">
+										<a
+											href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+											querystr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533&amp;_hashID=sec0145"
+											class="cLink S_C_tocLinkOutline">8. Conclusions and
+											future work<br />
+										</a>
+									</div></li>
+								<li class="li_h2"><div class="io item h2sec"
+										id="ol_bibl0005">
+										<a
+											href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+											querystr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533&amp;_hashID=bibl0005"
+											class="cLink S_C_tocLinkOutline">References<br /></a>
+									</div></li>
+								<li class="li_h2"><div class="io item h2sec" id="ol_m4vt1">
+										<a
+											href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+											querystr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533&amp;_hashID=m4vt1"
+											class="cLink S_C_tocLinkOutline">Vitae<br /></a>
+									</div></li>
+							</ul>
+						</div>
+						<script type="text/javascript" style="width: 243px;">
+              document.write("&lt;div class='outlineMsg'&gt;Article outline is loading...&lt;/div&gt;");
+              </script>
+						<noscript style="width: 243px;">&lt;div
+							class="infoMsg"&gt; &lt;div style="float: left; width: 20px;
+							"&gt;&lt;img border="0"
+							src="http://cdn.els-cdn.com/sd/alertIcon.gif" valign="top"
+							alt="Alert message"&gt;&lt;/div&gt; &lt;div
+							style="padding-left:25px;"&gt;JavaScript is disabled on your
+							browser. &lt;br&gt;&lt;div style="padding-top:10px;"&gt; Please
+							enable JavaScript to use all the features on this
+							page.&lt;/div&gt;&lt;/div&gt; &lt;/div&gt;</noscript>
+						<div aria-labelledby="fig_title" role="navigation" id="fig"
+							style="width: 231px;">
+							<hr />
+							<h2 id="fig_title">Figures and tables</h2>
+							<ol role="tree" class="figures ">
+								<li><div data-parent="author1" class="io item fig"
+										id="ol_fig0005">
+										<a
+											href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+											querystr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533"
+											class="olIcon olIconFig  cLink S_C_tocLinkFig"><img
+											data-thumbheight="154"
+											data-smlsrc="http://ars.els-cdn.com/content/image/1-s2.0-S1568494612005741-fx1.sml"
+											class="displayImg"
+											src="http://ars.els-cdn.com/content/image/1-s2.0-S1568494612005741-fx1.sml"
+											style="" data-loaded="true" /></a>
+									</div></li>
+								<li><div data-parent="sec0015" class="io item fig"
+										id="ol_fig0010">
+										<a
+											href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+											querystr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533"
+											class="olIcon olIconFig  cLink S_C_tocLinkFig"><img
+											data-thumbheight="120"
+											data-smlsrc="http://ars.els-cdn.com/content/image/1-s2.0-S1568494612005741-gr1.sml"
+											class="displayImg"
+											src="http://ars.els-cdn.com/content/image/1-s2.0-S1568494612005741-gr1.sml"
+											style="" data-loaded="true" /></a>
+									</div></li>
+								<li><div data-parent="sec0015" class="io item fig"
+										id="ol_fig0015">
+										<a
+											href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+											querystr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533"
+											class="olIcon olIconFig  cLink S_C_tocLinkFig"><img
+											data-thumbheight="164"
+											data-smlsrc="http://ars.els-cdn.com/content/image/1-s2.0-S1568494612005741-gr2.sml"
+											class="displayImg"
+											src="http://ars.els-cdn.com/content/image/1-s2.0-S1568494612005741-gr2.sml"
+											style="" data-loaded="true" /></a>
+									</div></li>
+								<li><div data-parent="sec0020" class="io item tbl"
+										id="ol_tbl0005">
+										<a
+											href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+											querystr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533"
+											class="olIcon olIconTbl cLink S_C_tocLinkTbl"><div
+												class="olIcon olIconTbl"></div></a>
+									</div></li>
+								<li><div data-parent="sec0055" class="io item tbl"
+										id="ol_tbl0010">
+										<a
+											href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+											querystr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533"
+											class="olIcon olIconTbl cLink S_C_tocLinkTbl"><div
+												class="olIcon olIconTbl"></div></a>
+									</div></li>
+								<li><div data-parent="sec0080" class="io item tbl"
+										id="ol_tbl0015">
+										<a
+											href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+											querystr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533"
+											class="olIcon olIconTbl cLink S_C_tocLinkTbl"><div
+												class="olIcon olIconTbl"></div></a>
+									</div></li>
+								<li><div data-parent="sec0120" class="io item fig"
+										id="ol_fig0020">
+										<a
+											href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+											querystr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533"
+											class="olIcon olIconFig  cLink S_C_tocLinkFig"><img
+											data-thumbheight="163"
+											data-smlsrc="http://ars.els-cdn.com/content/image/1-s2.0-S1568494612005741-gr3.sml"
+											class="displayImg"
+											src="http://ars.els-cdn.com/content/image/1-s2.0-S1568494612005741-gr3.sml"
+											style="" data-loaded="true" /></a>
+									</div></li>
+								<li><div data-parent="sec0120" class="io item fig"
+										id="ol_fig0025">
+										<a
+											href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+											querystr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533"
+											class="olIcon olIconFig  cLink S_C_tocLinkFig"><img
+											data-thumbheight="155"
+											data-smlsrc="http://ars.els-cdn.com/content/image/1-s2.0-S1568494612005741-gr4.sml"
+											class="displayImg"
+											src="http://ars.els-cdn.com/content/image/1-s2.0-S1568494612005741-gr4.sml"
+											style="" data-loaded="true" /></a>
+									</div></li>
+								<li><div data-parent="sec0120" class="io item tbl"
+										id="ol_tbl0020">
+										<a
+											href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+											querystr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533"
+											class="olIcon olIconTbl cLink S_C_tocLinkTbl"><div
+												class="olIcon olIconTbl"></div>Table 1</a>
+									</div></li>
+								<li><div data-parent="sec0120" class="io item fig"
+										id="ol_fig0030">
+										<a
+											href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+											querystr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533"
+											class="olIcon olIconFig  cLink S_C_tocLinkFig"><img
+											data-thumbheight="154"
+											data-smlsrc="http://ars.els-cdn.com/content/image/1-s2.0-S1568494612005741-gr5.sml"
+											class="smlImgLazyJSB greyImg" src="/sd/grey_pxl.gif" style="" /></a>
+									</div></li>
+								<li><div data-parent="sec0120" class="io item tbl"
+										id="ol_tbl0025">
+										<a
+											href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+											querystr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533"
+											class="olIcon olIconTbl cLink S_C_tocLinkTbl"><div
+												class="olIcon olIconTbl"></div>Table 2</a>
+									</div></li>
+								<li><div data-parent="sec0120" class="io item fig"
+										id="ol_fig0035">
+										<a
+											href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+											querystr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533"
+											class="olIcon olIconFig  cLink S_C_tocLinkFig"><img
+											data-thumbheight="164"
+											data-smlsrc="http://ars.els-cdn.com/content/image/1-s2.0-S1568494612005741-gr6.sml"
+											class="smlImgLazyJSB greyImg" src="/sd/grey_pxl.gif" style="" /></a>
+									</div></li>
+								<li><div data-parent="undefined" class="io item tbl"
+										id="ol_tbl0030">
+										<a
+											href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+											querystr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533"
+											class="olIcon olIconTbl cLink S_C_tocLinkTbl"><div
+												class="olIcon olIconTbl"></div>Table 3</a>
+									</div></li>
+								<li><div data-parent="undefined" class="io item tbl"
+										id="ol_tbl0035">
+										<a
+											href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+											querystr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533"
+											class="olIcon olIconTbl cLink S_C_tocLinkTbl"><div
+												class="olIcon olIconTbl"></div>Table 4</a>
+									</div></li>
+								<li><div data-parent="undefined" class="io item tbl"
+										id="ol_tbl0040">
+										<a
+											href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+											querystr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533"
+											class="olIcon olIconTbl cLink S_C_tocLinkTbl"><div
+												class="olIcon olIconTbl"></div>Table 5</a>
+									</div></li>
+								<li><div data-parent="sec0135" class="io item fig"
+										id="ol_fig0040">
+										<a
+											href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+											querystr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533"
+											class="olIcon olIconFig  cLink S_C_tocLinkFig"><img
+											data-thumbheight="163"
+											data-smlsrc="http://ars.els-cdn.com/content/image/1-s2.0-S1568494612005741-gr7.sml"
+											class="smlImgLazyJSB greyImg" src="/sd/grey_pxl.gif" style="" /></a>
+									</div></li>
+								<li><div data-parent="undefined" class="io item tbl"
+										id="ol_tbl0045">
+										<a
+											href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+											querystr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533"
+											class="olIcon olIconTbl cLink S_C_tocLinkTbl"><div
+												class="olIcon olIconTbl"></div>Table 6</a>
+									</div></li>
+								<li><div data-parent="undefined" class="io item tbl"
+										id="ol_tbl0050">
+										<a
+											href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+											querystr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533"
+											class="olIcon olIconTbl cLink S_C_tocLinkTbl"><div
+												class="olIcon olIconTbl"></div>Table 7</a>
+									</div></li>
+								<li><div data-parent="undefined" class="io item tbl"
+										id="ol_tbl0055">
+										<a
+											href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+											querystr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533"
+											class="olIcon olIconTbl cLink S_C_tocLinkTbl"><div
+												class="olIcon olIconTbl"></div>Table 8</a>
+									</div></li>
+								<li><div data-parent="undefined" class="io item tbl"
+										id="ol_tbl0060">
+										<a
+											href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+											querystr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533"
+											class="olIcon olIconTbl cLink S_C_tocLinkTbl"><div
+												class="olIcon olIconTbl"></div>Table 9</a>
+									</div></li>
+								<li><div data-parent="sec0135" class="io item fig"
+										id="ol_fig0045">
+										<a
+											href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+											querystr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533"
+											class="olIcon olIconFig  cLink S_C_tocLinkFig"><img
+											data-thumbheight="164"
+											data-smlsrc="http://ars.els-cdn.com/content/image/1-s2.0-S1568494612005741-gr8.sml"
+											class="smlImgLazyJSB greyImg" src="/sd/grey_pxl.gif" style="" /></a>
+									</div></li>
+								<li><div data-parent="undefined" class="io item tbl"
+										id="ol_tbl0065">
+										<a
+											href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+											querystr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533"
+											class="olIcon olIconTbl cLink S_C_tocLinkTbl"><div
+												class="olIcon olIconTbl"></div>Table 10</a>
+									</div></li>
+								<li><div data-parent="undefined" class="io item tbl"
+										id="ol_tbl0070">
+										<a
+											href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+											querystr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533"
+											class="olIcon olIconTbl cLink S_C_tocLinkTbl"><div
+												class="olIcon olIconTbl"></div>Table 11</a>
+									</div></li>
+								<li><div data-parent="undefined" class="io item tbl"
+										id="ol_tbl0075">
+										<a
+											href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+											querystr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533"
+											class="olIcon olIconTbl cLink S_C_tocLinkTbl"><div
+												class="olIcon olIconTbl"></div>Table 12</a>
+									</div></li>
+								<li><div data-parent="undefined" class="io item tbl"
+										id="ol_tbl0080">
+										<a
+											href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+											querystr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533"
+											class="olIcon olIconTbl cLink S_C_tocLinkTbl"><div
+												class="olIcon olIconTbl"></div>Table 13</a>
+									</div></li>
+								<li><div data-parent="undefined" class="io item tbl"
+										id="ol_tbl0085">
+										<a
+											href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+											querystr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533"
+											class="olIcon olIconTbl cLink S_C_tocLinkTbl"><div
+												class="olIcon olIconTbl"></div>Table 14</a>
+									</div></li>
+							</ol>
+						</div>
+						<div class="adBlock" id="articleLeftAd" style="width: 243px;">
+							<iframe frameborder="0"
+								src="/science/advertisement/left/num/960746/mainCat/general/cat/general/acct/ddd49027ac058c4db14dac8cc0563abc/isn/15684946/doi/10.1016_j.asoc.2012.12.030/page/article/artOAstatus/N"
+								cellspacing="0" border="0" scrolling="no"></iframe>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="column" id="centerPane" tabindex="-1">
+		<div class="topBorder"></div>
+		<div class="centerContent" id="centerContent">
+			<div role="main" aria-label="Article" class="centerInner svBigBox"
+				id="centerInner">
+
+				<div id="sdSystemMsg" style="display: block;">
+					<span class="">
+						<p style="text-align: left;">We apologise that you are not
+							receiving any journal/book-series alerts currently. We are
+							working to fix this situation as soon as possible and will post a
+							notice when this has been resolved.</p>
+					</span> <a title="Close" class="closeBt"> </a>
+				</div>
+
+
+				<noscript>&lt;div class="msgBox"
+					style="margin-top:10px;"&gt; &lt;span class="errMsg"&gt;
+					&lt;div&gt;JavaScript is disabled on your browser. Please enable
+					JavaScript to use all the features on this page.&lt;/div&gt;
+					&lt;/span&gt; &lt;/div&gt;&lt;br/&gt;</noscript>
+				<div class="head headTemplate page_fragment_ind">
+
+
+					<div class="publisherLogo">
+						<span class="spElsevierPubIcon"></span>
+					</div>
+
+
+
+					<!--?xml version="1.0" encoding="UTF-8"?-->
+					<div class="publicationHead"
+						xmlns:bk="http://www.elsevier.com/xml/bk/dtd">
+						<div class="title">
+							<a class="cLink" querystr="?zone=centerPane"
+								href="/science/journal/15684946"
+								title="Go to Applied Soft Computing on ScienceDirect"><span>Applied
+									Soft Computing</span></a>
+						</div>
+						<p class="volIssue">
+							<a href="/science/journal/15684946/13/4"
+								title="Go to table of contents for this volume/issue"
+								class="S_C_volIss">Volume 13, Issue 4</a>, April 2013, Pages
+							1567–1582
+						</p>
+					</div>
+
+					<div class="publicationCover cover2">
+
+
+						<a href="/science/journal/15684946/13/4" class="cLink"
+							querystr="?zone=publicationLogo"> <img class="toprightlogo"
+							src="http://ars.els-cdn.com/content/image/1-s2.0-S1568494613X00031-cov150h.gif"
+							alt="Cover image" />
+							<noscript>&lt;img alt="Cover image"
+								src="http://ars.els-cdn.com/content/image/1-s2.0-S1568494613X00031-cov150h.gif"
+								class="toprightlogo"/&gt;</noscript>
+						</a>
+
+					</div>
+
+
+				</div>
+				<div data-fid="1" data-first="true" class="page_fragment auth_frag"
+					id="frag_1">
+					<div class="module_topic_paths"></div>
+					<h1 id="" class="svTitle">Meta-schedulers for grid computing
+						based on multi-objective swarm algorithms</h1>
+					<ul class="authorGroup noCollab" style="display: block;">
+						<li class="smh5"><a data-tb="" data-pos="1"
+							data-ln="Arsuaga-Ríos" data-fn="María" data-t="a"
+							id="authname_N1e869f0N3e707e50" class="authorName" href="#">María
+								Arsuaga-Ríos</a><a id="baff0005" class="intra_ref auth_aff"
+							href="#aff0005" title="Affiliation: a"><sup>a</sup></a><sup>,
+						</sup><a class="intra_ref auth_corr" id="bcor0005" href="#cor0005"
+							title="Corresponding author contact information"><img
+								data-inlimg="/entities/REcor.gif"
+								src="http://cdn.els-cdn.com/sd/entities/REcor.gif"
+								alt="Corresponding author contact information"
+								class="imgLazyJSB" style="display: inline;" data-loaded="true" />
+							<noscript>&lt;img alt="Corresponding author contact
+									information"
+									src="http://origin-cdn.els-cdn.com/sd/entities/REcor.gif"&gt;</noscript></a><sup>,
+						</sup><a class="auth_mail" href="mailto:maria.arsuaga.rios@cern.ch"><img
+								data-inlimg="/entities/REemail.gif"
+								alt="E-mail the corresponding author"
+								src="http://cdn.els-cdn.com/sd/entities/REemail.gif"
+								class="imgLazyJSB" style="display: inline;" data-loaded="true" />
+							<noscript>&lt;img
+									src="http://origin-cdn.els-cdn.com/sd/entities/REemail.gif"
+									alt="E-mail the corresponding author"&gt;</noscript></a><span><a
+								href="#vt0005" class="authorVitaeLink">Author Vitae</a></span>,</li>
+						<li class="smh5"><a data-tb="" data-pos="2"
+							data-ln="Vega-Rodríguez" data-fn="Miguel A." data-t="a"
+							id="authname_N1e869f0N3e707fb8" class="authorName" href="#">Miguel
+								A. Vega-Rodríguez</a><a id="baff0010" class="intra_ref auth_aff"
+							href="#aff0010" title="Affiliation: b"><sup>b</sup></a><sup>,
+						</sup><a id="bfn0055" class="intra_ref auth_footnote" href="#fn0055"
+							title="Footnote: 1"><sup>1</sup></a><sup>, </sup><a
+							class="auth_mail" href="mailto:mavega@unex.es"><img
+								data-inlimg="/entities/REemail.gif"
+								alt="E-mail the corresponding author"
+								src="http://cdn.els-cdn.com/sd/entities/REemail.gif"
+								class="imgLazyJSB" style="display: inline;" data-loaded="true" />
+							<noscript>&lt;img
+									src="http://origin-cdn.els-cdn.com/sd/entities/REemail.gif"
+									alt="E-mail the corresponding author"&gt;</noscript></a><span><a
+								href="#vt0010" class="authorVitaeLink">Author Vitae</a></span>,</li>
+						<li class="smh5"><a data-tb="" data-pos="3"
+							data-ln="Prieto-Castrillo" data-fn="Francisco" data-t="a"
+							id="authname_N1e869f0N3e708120" class="authorName" href="#">Francisco
+								Prieto-Castrillo</a><a id="baff0015" class="intra_ref auth_aff"
+							href="#aff0015" title="Affiliation: c"><sup>c</sup></a><sup>,
+						</sup><a id="bfn0060" class="intra_ref auth_footnote" href="#fn0060"
+							title="Footnote: 2"><sup>2</sup></a><sup>, </sup><a
+							class="auth_mail" href="mailto:francisco.prieto@ciemat.es"><img
+								data-inlimg="/entities/REemail.gif"
+								alt="E-mail the corresponding author"
+								src="http://cdn.els-cdn.com/sd/entities/REemail.gif"
+								class="imgLazyJSB" style="display: inline;" data-loaded="true" />
+							<noscript>&lt;img
+									src="http://origin-cdn.els-cdn.com/sd/entities/REemail.gif"
+									alt="E-mail the corresponding author"&gt;</noscript></a><span><a
+								href="#vt0015" class="authorVitaeLink">Author Vitae</a></span></li>
+					</ul>
+					<!--VALIDHTML-->
+					<ul class="affiliation smh" style="display: none;">
+						<li id="aff0005" class="smh5plus" style="display: none;"><sup>a</sup>
+							<span id="">Beams Department, European Organization for
+								Nuclear Research, CERN CH-1211, Genève 23, Switzerland</span></li>
+						<li id="aff0010" class="smh5plus" style="display: none;"><sup>b</sup>
+							<span id="">ARCO Research Group, University of
+								Extremadura, Department of Technologies of Computers and
+								Communications, Escuela Politecnica, Campus Universitario s/n,
+								10003 Cáceres, Spain</span></li>
+						<li id="aff0015" class="smh5plus" style="display: none;"><sup>c</sup>
+							<span id="">Extremadura Research Center for Advanced
+								Technologies, Ceta-Ciemat s/n, 10200 Trujillo, Spain</span></li>
+					</ul>
+					<!--VALIDHTML-->
+					<!--VALIDHTML-->
+					<dl class="articleDates smh" style="display: none;">
+						<dd>Received 2 June 2012, Revised 2 November 2012, Accepted
+							30 December 2012, Available online 7 January 2013</dd>
+					</dl>
+					<!--VALIDHTML-->
+					<!--VALIDHTML-->
+					<div id="showMoreButtons">
+						<div class="" id="ppvPlaceHolder">
+							<div class="accessTitle">Choose an option to locate/access
+								this article:</div>
+							<div class="accessContent clearfix">
+								<div class="acol1">
+									<div style="margin-bottom: 5px;">Check if you have access
+										through your login credentials or your institution</div>
+									<a
+										href="http://www.sciencedirect.com/science/article/pii/S1568494612005741"
+										querystr="?_fmt=full" class="corpReq cLink blueButton"
+										title="Click to see if you have full text access">Check
+										access</a>
+								</div>
+								<div class="vdivider"></div>
+								<div class="acol2">
+									<a
+										href="/science?_ob=ShoppingCartURL&amp;_method=add&amp;_eid=1-s2.0-S1568494612005741&amp;_ts=1403766915&amp;md5=d8f0ef9e68e73f12ce868c9a25cc4b6c"
+										class="purchaseSprite"><div class="artPurchase">
+											<div></div>
+											<span>Purchase $35.95</span>
+										</div></a>
+									<div class="ppvmsg">
+										<span style="display: none" id="deepdyve"> <a href=""
+											target="DeepDyve" id="dd_href"></a>
+										</span>
+									</div>
+								</div>
+								<div class="vdivider"></div>
+								<div class="acol3">
+									<ul>
+										<li class="outLinks"><a title="Get Full Text Elsewhere"
+											target="_blank"
+											data-url="/science/RedirectURL?_method=outwardLink&amp;_partnerName=19979&amp;_eid=1-s2.0-S1568494612005741&amp;_pii=S1568494612005741&amp;_origin=article&amp;_zone=centerPane&amp;_targetURL=http://linkinghub.elsevier.com/retrieve/pii/S1568494612005741?showall%3Dtrue"
+											href="http://linkinghub.elsevier.com/retrieve/pii/S1568494612005741?showall=true"
+											class=" cExLink S_C_outLinks"><img border="0"
+												src="http://www.sciencedirect.com/scidirimg/gw_rtn_ihub.gif"
+												class="outImg" onload="DynamicArtContent.checkOLImage(this)" /></a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<span class="CollapseText"> </span><span class="ExpandText"
+							style="display: none;"> </span><a class="showLess moreLink"><span
+							title="Show more author and article information"
+							class="showInfo expand">Show more</span></a><a
+							class="showLess lessLink"><span
+							title="Hide more author and article information"
+							class="showInfo collapse">Show less</span></a>
+						<div id="currtAsOf"></div>
+					</div>
+					<dl class="extLinks nonEmpty">
+						<dd class="doiLink">
+						<dd class="doi">
+							<span class="S_C_ddDoi"> DOI: 10.1016/j.asoc.2012.12.030</span>
+						</dd>
+						</dd>
+						<dd class="rightsLink">
+							<a title="Get rights and content" target="_blank"
+								data-url="/science/RedirectURL?_method=outwardLink&amp;_partnerName=936&amp;_eid=1-s2.0-S1568494612005741&amp;_pii=S1568494612005741&amp;_origin=article&amp;_zone=art_page&amp;_targetURL=https://s100.copyright.com/AppDispatchServlet?publisherName%3DELS%26contentID%3DS1568494612005741%26orderBeanReset%3Dtrue"
+								href="https://s100.copyright.com/AppDispatchServlet?publisherName=ELS&amp;contentID=S1568494612005741&amp;orderBeanReset=true"
+								class=" cExLink S_C_outLinks"><span class="outText">Get
+									rights and content</span></a>
+						</dd>
+					</dl>
+					<div class="moreInformation">
+						<dl class="citation"></dl>
+					</div>
+					<div class="articleOAlabelForced"></div>
+					<div id="refersToAndreferredToBy">
+						<dl class="documentThread" id="referredToBy">
+							<!--Referred To By-->
+						</dl>
+					</div>
+					<!--FRAGMENTEND-->
+					<div data-id="frag_2" class="page_fragment_ind auth_frag"></div>
+				</div>
+				<div data-fid="2" class="page_fragment" id="frag_2">
+					<!--VALIDHTML-->
+					<hr class="artHeader" id="abs_author1" />
+					<div data-etype="ab" class="abstract svAbstract ">
+						<h2 id="author1" class="secHeading">Abstract</h2>
+						<p id="spar0015">Job scheduling is a challenging task on grid
+							environments because they must fulfill user requirements.
+							Scientists often have deadlines and budgets for their experiments
+							(set of jobs). But these requirements are in conflict with each
+							other – cheaper resources are slower than the expensive ones. In
+							this paper, we have implemented two multi-objective swarm
+							algorithms. One of them is based on a biological behavior –
+							Multi-Objective Artificial Bee Colony (MOABC) – and the other on
+							physics – Multi-Objective Gravitational Search Algorithm (MOGSA).
+							Multi-objective properties enhance the optimization of execution
+							time and cost per experiment. These algorithms are evaluated
+							regard to the standard and well-known multi-objective algorithm –
+							Non-dominated Sorting Genetic Algorithm II (NSGA II) – in order
+							to prove the goodness of our multi-objective proposals. Moreover,
+							they are compared with real meta-schedulers as the Workload
+							Management System (WMS) from the most used European grid
+							middleware, gLite, and the Deadline Budget Constraint (DBC) from
+							Nimrod-G, that takes into account the same requirements. Results
+							show us that MOABC offers better results in all the cases using
+							diverse workflows with dependent jobs over different grid
+							environments.</p>
+					</div>
+					<!--VALIDHTML-->
+					<hr class="artHeader" id="absgraphical1" />
+					<div data-etype="ab" class="abstract svAbstract">
+						<h4 id="secGabs_1">Graphical abstract</h4>
+						<div id="spar0005">
+							<p></p>
+							<div id="figure_fig0005" class="figTblUpiOuter svArticle">
+								<div
+									class="
+                    textboxdefaultfig
+                ">
+									<dl data-t="f" id="fig0005" class="figure">
+										<dt class="autoScroll">
+											<a title="Full-size image (17 K)" href="#fx1"
+												class="figureLink"><img width="284" height="200"
+												border="0" data-fullwidth="284" data-fullheight="200"
+												data-thumbwidth="219" data-thumbheight="154"
+												data-thumbeid="1-s2.0-S1568494612005741-fx1.sml"
+												src="http://ars.els-cdn.com/content/image/1-s2.0-S1568494612005741-fx1.jpg"
+												data-gabseid="1-s2.0-S1568494612005741-fx1.jpg"
+												alt="Full-size image (17 K)" id="gabsImg"
+												class="imgLazyJSB figure large" style="display: inline;"
+												data-loaded="true" />
+											<noscript>&lt;img class="figure large"
+													id="gabsImg" border="0" alt="Full-size image (17 K)"
+													src="http://origin-ars.els-cdn.com/content/image/1-s2.0-S1568494612005741-fx1.jpg"
+													data-thumbEID="1-s2.0-S1568494612005741-fx1.sml"&gt;</noscript></a>
+										</dt>
+									</dl>
+								</div>
+							</div>
+							<p></p>
+						</div>
+						<h4 id="secGabs_2">Highlights</h4>
+						<div id="spar0010">
+							<p>► We have implemented two multi-objective swarm
+								algorithms, MOABC and MOGSA, for grid scheduling. ► These
+								algorithms are evaluated regard to the standard and well-known
+								multi-objective algorithm NSGA II. ► They are compared with real
+								meta-schedulers as WMS and DBC. ► The experiments are carried
+								out over different grid environments using diverse workflows
+								with dependent jobs. ► MOABC offers better results in all the
+								cases for both objectives, execution time and cost.</p>
+						</div>
+					</div>
+					<!--VALIDHTML-->
+					<div class="sgfNoTitleBar sgfNoGadgetBorder svDoNotLink"
+						id="SD_BA1P"></div>
+					<!--VALIDHTML-->
+					<h2 id="kwd_1">Keywords</h2>
+					<ul id="" class="keyword">
+						<li id=""><span id="">Scheduling</span>;</li>
+						<li id=""><span id="">Grid computing</span>;</li>
+						<li id=""><span id="">Swarm</span>;</li>
+						<li id=""><span id="">Multi-objective optimization</span></li>
+					</ul>
+					<!--VALIDHTML-->
+					<div class="artFooterContent">
+						<dl id="cor0005" class="correspondence">
+							<dt class="label topPadd">
+								<a class="intra_ref" href="#bcor0005"><sup><img
+										border="0" data-inlimg="/entities/REcor.gif"
+										title="Corresponding author contact information"
+										alt="Corresponding author contact information"
+										src="/sd/grey_pxl.gif" class="imgLazyJSB"
+										style="display: inline;" />
+									<noscript>&lt;img border="0" alt="Corresponding
+											author contact information" title="Corresponding author
+											conact information"
+											src="http://origin-cdn.els-cdn.com/sd/entities/REcor.gif"&gt;</noscript></sup></a>
+							</dt>
+							<dd>Corresponding author. Tel.: +41 22 79044; fax: +41 22
+								69654.</dd>
+						</dl>
+						<dl data-t="n" id="fn0055" class="footnote">
+							<dt class="label">
+								<a class="intra_ref" href="#bfn0055">1</a>
+							</dt>
+							<dd>
+								<p>Tel.: +34 927 25 72 63; fax: +34 927 25 71 87.</p>
+							</dd>
+						</dl>
+						<dl data-t="n" id="fn0060" class="footnote">
+							<dt class="label">
+								<a class="intra_ref" href="#bfn0060">2</a>
+							</dt>
+							<dd>
+								<p>Tel.: +34 927 65 93 17; fax: +34 927 32 32 37.</p>
+							</dd>
+						</dl>
+						<!--footerNotes-->
+					</div>
+					<!--VALIDHTML-->
+					<p class="copyright">Copyright © 2013 Elsevier B.V. All rights
+						reserved.</p>
+					<!--VALIDHTML-->
+					<div class="vitae" id="vt0005hidden">
+						<span><img width="86" height="114" border="0"
+							align="middle"
+							src="http://origin-ars.els-cdn.com/content/image/1-s2.0-S1568494612005741-fx2.jpg"
+							title="Image" alt="Image" style="vertical-align: bottom;" /></span>
+						<p id="vt0005">
+							<strong class="boldFont">María Arsuaga-Ríos</strong> is Computer
+							Engineer from the University of Murcia (Spain). She got another
+							two MSc. The first one was related to Grid Computing and
+							e-Engineering at Cranfield University, (UK), in 2008. And the
+							second MSc was about Information Technologies and Advanced
+							Telematics at University of Murcia (Spain) in 2009. After her
+							studies, she has been working on projects related to Data Mining,
+							Ontology Systems, Bioinspired Algorithms and Optimization. She is
+							doing her PhD with the University of Extremadura (Spain). Her PhD
+							consists in researching different multi-objective strategies
+							based on bioinspired algorithms to optimize the job scheduling
+							problem in Grid environments. At the same time, she have taught
+							artificial intelligence applied to Grid Computing in a MSc at the
+							University of Extremadura. Currently, she is also enrolled in the
+							project FESA that is being developed at CERN (Switzerland).
+						</p>
+						<!--biography-->
+					</div>
+					<!--VALIDHTML-->
+					<div class="vitae" id="vt0010hidden">
+						<span><img width="86" height="114" border="0"
+							align="middle"
+							src="http://origin-ars.els-cdn.com/content/image/1-s2.0-S1568494612005741-fx3.jpg"
+							title="Image" alt="Image" style="vertical-align: bottom;" /></span>
+						<p id="vt0010">
+							<strong class="boldFont">Miguel A. Vega-Rodríguez</strong> is a
+							professor of Computer Architecture in the Department of Computer
+							and Communications Technologies, University of Extremadura,
+							Spain. He received a PhD degree in Computer Science from the
+							University of Extremadura. Dr. Vega-Rodríguez has authored or
+							co-authored more than 420 publications including journal papers,
+							book chapters and peer-reviewed conference proceedings. In
+							addition, he is editor and reviewer of several international JCR
+							journals. Dr. Vega-Rodríguez's main research interests are
+							parallel and distributed computing, reconfigurable computing, and
+							evolutionary computing.
+						</p>
+						<!--biography-->
+					</div>
+					<!--VALIDHTML-->
+					<div class="vitae" id="vt0015hidden">
+						<span><img width="86" height="114" border="0"
+							align="middle"
+							src="http://origin-ars.els-cdn.com/content/image/1-s2.0-S1568494612005741-fx4.jpg"
+							title="Image" alt="Image" style="vertical-align: bottom;" /></span>
+						<p id="vt0015">
+							<strong class="boldFont">Francisco Prieto-Castrillo</strong>
+							studied theoretical physics at Universidad Autónoma de Madrid. He
+							obtained his Ph.D. in physics of complex systems and nonlinear
+							dynamics. He has been involved for 6 years in the study of
+							complex systems and their applications through different
+							disciplines ranging from earthquake engineering to grid
+							computing. At the present time his research is focussed on the
+							optimization of distributed computing networks through complex
+							systems based techniques.
+						</p>
+						<!--biography-->
+					</div>
+					<!--VALIDHTML-->
+					<div data-id="frag_3" class="page_fragment_ind"></div>
+				</div>
+				<div data-fid="3" id="frag_3" class="page_fragment" data-last="true"
+					style="display: block;"></div>
+
+
+
+
+
+
+
+
+			</div>
+			<div id="footer-area-dummy"></div>
+			<div role="contentinfo" aria-label="product support" id="footer-area"
+				style="display: block;">
+				<div id="sdFoot">
+					<div role="navigation" aria-label="Footer" id="footer">
+						<div class="bottomArticle"></div>
+						<div class="padding">
+							<div id="linkArea">
+								<div class="padding links">
+									<div style="float: left; width: 0; height: 1px;"></div>
+									<div id="banner-bottom">
+										<a target="_blank" href="http://www.elsevier.com"><img
+											title="Elsevier homepage (opens in a new window)"
+											alt="Elsevier homepage (opens in a new window)"
+											src="http://cdn.els-cdn.com/sd/wordmark_elsevier.png" /></a>
+									</div>
+									<ul class="col5">
+										<li><a
+											href="http://www.info.sciverse.com/sciencedirect?utm_source=sciencedirect&amp;utm_medium=link&amp;utm_campaign=aboutsd"
+											target="_blank">About ScienceDirect</a></li>
+									</ul>
+									<ul class="col5">
+										<li><a
+											href="http://www.sciencedirect.com/science/contactus"
+											target="_blank">Contact and support</a></li>
+									</ul>
+									<ul class="col5">
+										<li><a
+											href="http://www.elsevierscitech.com/forms/sd/form.html?utm_source=sciencedirect&amp;utm_medium=link&amp;utm_campaign=advert"
+											target="_blank">Information for advertisers</a></li>
+									</ul>
+									<ul class="col5">
+										<li><a
+											href="http://www.elsevier.com/locate/termsandconditions?utm_source=sciencedirect&amp;utm_medium=link&amp;utm_campaign=terms"
+											target="_blank">Terms and conditions</a></li>
+									</ul>
+									<ul class="col5">
+										<li><a
+											href="http://www.elsevier.com/privacypolicy?utm_source=sciencedirect&amp;utm_medium=link&amp;utm_campaign=privacy"
+											target="_blank">Privacy policy</a></li>
+									</ul>
+									<script>function loadSCode(){if(typeof SDM!="undefined"){var e=document.getElementsByTagName("body")[0],t=document.createElement("script");var prefix = "";if(document.location.protocol == "https:"){prefix = "origin-";}t.src = "//" + prefix + "cdn.els-cdn.com/sd/js/adobe/s_code_131.js";e.appendChild(t);sendSCStats()}else{setTimeout(loadSCode,100)}}function sendSCStats(){if(typeof s_tc_sciencedirect!="undefined"){s.t()}else{setTimeout(sendSCStats,100)}}if(window.addEventListener){window.addEventListener("load",loadSCode,false)}else if(window.attachEvent){window.attachEvent("onload",loadSCode)}else{window.onload=loadSCode}</script>
+									<div class="clear"></div>
+									<!-- CSAS will be providing the links-->
+								</div>
+								<div class="padding copyright">
+									<hr />
+									Copyright © 2014 Elsevier B.V. except certain content provided
+									by third parties. ScienceDirect® is a registered trademark of
+									Elsevier B.V.
+								</div>
+								<div style="padding-bottom: 4px; font-size: 11px;"
+									class="padding">
+									Cookies are used by this site. To decline or learn more, visit
+									our <a target="_blank"
+										href="http://www.info.sciverse.com/sciencedirect/cookies">Cookies</a>
+									page
+								</div>
+
+
+								<div class="padding links">
+									<div id="goToggleSite">
+										<a href="#" lnkzn="footer" lnkorg="article" cknm="Site"
+											site="Mobile" class="mLink">Switch to Mobile Site</a>
+									</div>
+								</div>
+								<form action="" method="get" id="pgReload"></form>
+
+
+							</div>
+						</div>
+					</div>
+					<!--footer-->
+
+				</div>
+				<!--sdFooter-->
+			</div>
+			<!--footer-area-->
+		</div>
+	</div>
+	<div role="complementary" aria-label="Related content" class="column"
+		id="rightPane" style="width: 297px;">
+		<div class="rightOuter" id="rightOuter" style="height: 2251px;">
+			<div class="rightInner" id="rightInner">
+				<div class="innerPadding">
+
+					<div
+						class="hidden entry separator appBox sgfNoTitleBar sgfNoGadgetBorder"
+						id="SD_BIB"></div>
+
+
+
+
+
+					<div class="entry separator related rendered firstBlk"
+						id="recommend_related_articles">
+
+						<h2>
+							<a aria-expanded="true" aria-controls="relArtList" class="toggle"
+								href="#articles"><span class="iconArrow"> </span>Recommended
+								articles</a>
+						</h2>
+
+						<ol id="relArtList" style="">
+							<li><ol class="articles">
+									<li class="artTitle"><a
+										querystr="?_origin=article&amp;_zone=rightPane&amp;panel=citeRelatedArt&amp;_piiSuggestedFrom=S1568494612005741&amp;_srcFr=EPFL"
+										class="cLink S_C_artTitle"
+										href="/science/article/pii/S0167739X12000581"
+										title="Economic-based resource allocation for reliable Grid-computing service based on Grid Bank"
+										style="text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">Economic-based
+											resource allocation for reliable Grid-computing service based
+											on Grid Bank</a></li>
+									<li class="srcTitle"
+										style="text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">2012,
+										Future Generation Computer Systems
+										<div class="moreInfo">
+											<a class="toggleMoreInfo"
+												data-url="http://www.sciencedirect.com/science/more/S0167739X12000581/2/issn/0167739X">more</a>
+										</div>
+									</li>
+									<li class="showMore hidden"><div class="moreInfoContent">
+											<ol class="details">
+												<li>Wei-Chang Yeh, Shang-Chia Wei</li>
+												<li class="title">Economic-based resource allocation
+													for reliable Grid-computing service based on Grid Bank</li>
+												<li class="fullSrcTitle">Future Generation Computer
+													Systems, Volume 28, Issue 7, July 2012, Pages 989–1002</li>
+												<li class="docSubType">Original Research Article</li>
+												<div class="abs"></div>
+												<ul class="links">
+													<li class="clearfix pdf"><div class="icon_pdf">
+															<a
+																querystr="?_origin=article&amp;_zone=rightPane&amp;panel=citeRelatedArt&amp;_piiSuggestedFrom=S1568494612005741&amp;_srcFr=EPFL"
+																href="/science/article/pii/S0167739X12000581/pdfft?md5=326117176a90f9421b786d79d3191980&amp;pid=1-s2.0-S0167739X12000581-main.pdf"
+																class="cLink pdfRightPaneLink" target="_blank"
+																title="Download PDF" rel="nofollow"> PDF (1455 K)</a>
+														</div></li>
+												</ul>
+											</ol>
+										</div></li>
+								</ol></li>
+							<li><ol class="articles">
+									<li class="artTitle"><a
+										querystr="?_origin=article&amp;_zone=rightPane&amp;panel=citeRelatedArt&amp;_piiSuggestedFrom=S1568494612005741&amp;_srcFr=EPFL"
+										class="cLink S_C_artTitle"
+										href="/science/article/pii/S1568494612005583"
+										title="A hybrid differential evolution algorithm based on particle swarm optimization for nonconvex economic dispatch problems"
+										style="text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">A
+											hybrid differential evolution algorithm based on particle
+											swarm optimization for nonconvex economic dispatch problems</a></li>
+									<li class="srcTitle"
+										style="text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">2013,
+										Applied Soft Computing
+										<div class="moreInfo">
+											<a class="toggleMoreInfo"
+												data-url="http://www.sciencedirect.com/science/more/S1568494612005583/2/issn/15684946">more</a>
+										</div>
+									</li>
+									<li class="showMore hidden"><div class="moreInfoContent">
+											<ol class="details">
+												<li>Samir Sayah, Abdellatif Hamouda</li>
+												<li class="title">A hybrid differential evolution
+													algorithm based on particle swarm optimization for
+													nonconvex economic dispatch problems</li>
+												<li class="fullSrcTitle">Applied Soft Computing, Volume
+													13, Issue 4, April 2013, Pages 1608–1619</li>
+												<li class="docSubType">Original Research Article</li>
+												<div class="abs"></div>
+												<ul class="links">
+													<li class="clearfix pdf"><div class="icon_pdf">
+															<a
+																querystr="?_origin=article&amp;_zone=rightPane&amp;panel=citeRelatedArt&amp;_piiSuggestedFrom=S1568494612005741&amp;_srcFr=EPFL"
+																href="/science/article/pii/S1568494612005583/pdfft?md5=03ca56d845d1ea9211c4c222801d4d2a&amp;pid=1-s2.0-S1568494612005583-main.pdf"
+																class="cLink pdfRightPaneLink" target="_blank"
+																title="Download PDF" rel="nofollow"> PDF (706 K)</a>
+														</div></li>
+												</ul>
+											</ol>
+										</div></li>
+								</ol></li>
+							<li><ol class="articles">
+									<li class="artTitle"><a
+										querystr="?_origin=article&amp;_zone=rightPane&amp;panel=citeRelatedArt&amp;_piiSuggestedFrom=S1568494612005741&amp;_srcFr=EPFL"
+										class="cLink S_C_artTitle"
+										href="/science/article/pii/S1574119210001173"
+										title="A multi-agent-based model for service-oriented interaction in a mobile grid computing environment"
+										style="text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">A
+											multi-agent-based model for service-oriented interaction in a
+											mobile grid computing environment</a></li>
+									<li class="srcTitle"
+										style="text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">2011,
+										Pervasive and Mobile Computing
+										<div class="moreInfo">
+											<a class="toggleMoreInfo"
+												data-url="http://www.sciencedirect.com/science/more/S1574119210001173/2/issn/15741192">more</a>
+										</div>
+									</li>
+									<li class="showMore hidden"><div class="moreInfoContent">
+											<ol class="details">
+												<li>Chunlin Li, LaYuan Li</li>
+												<li class="title">A multi-agent-based model for
+													service-oriented interaction in a mobile grid computing
+													environment</li>
+												<li class="fullSrcTitle">Pervasive and Mobile
+													Computing, Volume 7, Issue 2, April 2011, Pages 270–284</li>
+												<li class="docSubType">Original Research Article</li>
+												<div class="abs"></div>
+												<ul class="links">
+													<li class="clearfix pdf"><div class="icon_pdf">
+															<a
+																querystr="?_origin=article&amp;_zone=rightPane&amp;panel=citeRelatedArt&amp;_piiSuggestedFrom=S1568494612005741&amp;_srcFr=EPFL"
+																href="/science/article/pii/S1574119210001173/pdfft?md5=d936d61af08e556b6d6bfbd4cf0c4a09&amp;pid=1-s2.0-S1574119210001173-main.pdf"
+																class="cLink pdfRightPaneLink" target="_blank"
+																title="Download PDF" rel="nofollow"> PDF (380 K)</a>
+														</div></li>
+												</ul>
+											</ol>
+										</div></li>
+								</ol></li>
+							<li><a class="viewMoreArticles cLink"
+								href="http://www.sciencedirect.com/science/recommended-articles/S1568494612005741">View
+									more articles »</a></li>
+						</ol>
+					</div>
+
+
+
+					<div class="entry separator related closed" id="cited_by_articles">
+						<h2>
+							<a aria-expanded="false" aria-controls="relArtList"
+								class="toggle" href="#articles"><span class="iconArrow"> </span>Citing
+								articles (<span id="hitcount">1</span>)</a>
+						</h2>
+						<ol id="citedByList">
+							<li class="note"><p>This article has not been cited.</p></li>
+						</ol>
+					</div>
+
+
+
+					<div
+						class="hidden entry separator appBox sgfNoTitleBar sgfNoGadgetBorder"
+						id="SD_CRA"></div>
+
+
+
+					<div class="entry separator related closed"
+						id="related_book_content">
+						<h2>
+							<a aria-expanded="false" aria-controls="relArtList"
+								class="toggle" href="#articles"><span class="iconArrow"> </span>Related
+								book content</a>
+						</h2>
+						<ol id="relBkList">
+							<li style="margin-left: 15px;" class="note"><p>No
+									articles found.</p></li>
+						</ol>
+					</div>
+
+
+
+
+
+
+					<div class="appContainerDummy"></div>
+					<div class="appContainer js_application_content" data-scroll="0">
+						<ul id="dataRepHolder" class="hidden"></ul>
+
+						<div class="boxLink sgfNoTitleBar sgfNoGadgetBorder" id="SD_AT1P">
+							<div id="SD_AT1P_299100" class="containerApplOver invisible">
+								<div class=""
+									style="display: none; z-index: 10; left: 0px; top: 0px; border: 1px solid #CDF0A4; border-top: 0px; font: smaller; background-color: #EEF7E3; width: 99%; font-weight: bold;"
+									id="remote_iframe_0_userPrefsDialog"></div>
+								<div class="containerAppDetails "
+									style="display:; border-style: none; border-top:"
+									id="maincontremote_iframe_0">
+									<iframe width="100%" height="" frameborder="no"
+										scrolling="auto" "="" style="align: left; text-align: left;"
+										src="http://sciverse-shindig.elsevier.com/gadgets/ifr?container=default&amp;mid=0&amp;nocache=1&amp;country=ALL&amp;lang=ALL&amp;view=profile&amp;parent=http%3A%2F%2Fwww.sciencedirect.com%2F%2Fscience%2Farticle%2Fpii%2FS1568494612005741%3A%2F%2Fwww.sciencedirect.com&amp;up_startMeInvisible=y&amp;st=john.doe:john.doe:appid:cont:url:0:default&amp;url=http%3A%2F%2Fae-content.elsevier.com%2Fsvapp%2F299100%2Fprod%2Fprivate%2Fspec.xml#rpctoken=1566574308"
+										name="remote_iframe_0"
+										onload="sgf.killTimer('299100', 'SD_AT1P');"
+										id="remote_iframe_0"></iframe>
+								</div>
+							</div>
+							<div id="SD_AT1P_322054" class="containerApplOver invisible">
+								<div class=""
+									style="display: none; z-index: 10; left: 0px; top: 0px; border: 1px solid #CDF0A4; border-top: 0px; font: smaller; background-color: #EEF7E3; width: 99%; font-weight: bold;"
+									id="remote_iframe_1_userPrefsDialog"></div>
+								<div class="containerAppDetails "
+									style="display:; border-style: none; border-top:"
+									id="maincontremote_iframe_1">
+									<iframe width="100%" height="" frameborder="no"
+										scrolling="auto" "="" style="align: left; text-align: left;"
+										src="http://sciverse-shindig.elsevier.com/gadgets/ifr?container=default&amp;mid=1&amp;nocache=1&amp;country=ALL&amp;lang=ALL&amp;view=profile&amp;parent=http%3A%2F%2Fwww.sciencedirect.com%2F%2Fscience%2Farticle%2Fpii%2FS1568494612005741%3A%2F%2Fwww.sciencedirect.com&amp;up_startMeInvisible=y&amp;up_doi=10.1016%252Fj.asoc.2012.12.030&amp;st=john.doe:john.doe:appid:cont:url:0:default&amp;url=http%3A%2F%2Fae-content.elsevier.com%2Fsvapp%2F322054%2Fprod%2Fprivate%2Fspec.xml#rpctoken=1566574308"
+										name="remote_iframe_1"
+										onload="sgf.killTimer('322054', 'SD_AT1P');"
+										id="remote_iframe_1"></iframe>
+								</div>
+							</div>
+						</div>
+
+
+
+						<div
+							class="boxLink sgfHorToolbar sgfShowMyApps sgfShowMoreLessApps"
+							id="SD_FTA1">
+							<div class="sgfSciverseHoriToolBar" id="sciverse_toolbar">
+								<div class="toolbarfoot">
+									<div id="toolbarBody" class="toolbarBodyHorizontal">
+										<div
+											style="width: 97%; min-height: 155px; text-align: center; margin: 5px auto;"
+											class="sgfInnerToolbar" id="toolbar_SD_FTA1"></div>
+										<div id="showMoreApps">
+											<a class="plusSign" onclick="showMore()">+</a> <a
+												class="showMoreLessApps" onclick="showMore()" id="showMore"
+												title="Show more applications">Show more applications</a>
+										</div>
+										<div id="showLessApps">
+											<a class="plusSign" onclick="showLess()">-</a> <a
+												class="showMoreLessApps" onclick="showLess()" id="showFew"
+												title="Show fewer applications">Show fewer applications</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="sgfToolBarToggleImage" style="display: none;">
+								<div title="undefined" onmouseover="sgfToggleToolBarOver();"
+									onmouseout="sgfToggleToolBarOut();" class="sgfSideCollapse"
+									id="sgfSlideBar"></div>
+								<div class="clear"></div>
+							</div>
+						</div>
+
+					</div>
+
+
+
+				</div>
+
+				<div aria-describedby="skuip-3" aria-label="Overlay" role="region"
+					aria-live="polite" class="js_workspace_content popup"
+					style="top: 97px; display: block; right: -16px;">
+					<a class="closeBt" role="button" id="buttonClose" href="#"
+						alt="close overlay" title="close overlay"
+						aria-label="close overlay"> </a>
+					<div class="scrollArea">
+						<div class="buttonNavBox" role="navigation"
+							aria-label="Go to previous and next in sidebar">
+							<a class="next S_C_next" href="#authname_N1e869f0N3e707fb8">next
+								author »</a>
+						</div>
+						<h3 class="workAuthor">María Arsuaga-Ríos </h3>
+						<dl class="author">
+							<dd>
+								<span class="icon affiliation_sci_dir"></span>
+								<p>
+									<span id="">Beams Department, European Organization for
+										Nuclear Research, CERN CH-1211, Genève 23, Switzerland</span>
+								</p>
+							</dd>
+							<dd>
+								<span class="icon correspondence_sci_dir"></span>
+								<p>Corresponding author. Tel.: +41 22 79044; fax: +41 22
+									69654.</p>
+							</dd>
+							<dd>
+								<span class="icon email_sci_dir"></span>
+								<p>maria.arsuaga.rios@cern.ch</p>
+							</dd>
+						</dl>
+						<h3>Vitae</h3>
+						<strong class="boldFont">María Arsuaga-Ríos</strong> is Computer
+						Engineer from the University of Murcia (Spain). She got another
+						two MSc. The first one was related to Grid Computing and
+						e-Engineering at Cranfield University, (UK), in 2008. And the
+						second MSc was about Information Technologies and Advanced
+						Telematics at University of Murcia (Spain) in 2009. After her
+						studies, she has been working on projects related to Data Mining,
+						Ontology Systems, Bioinspired Algorithms and Optimization. She is
+						doing her PhD with the University of Extremadura (Spain). Her PhD
+						consists in researching different multi-objective strategies based
+						on bioinspired algorithms to optimize the job scheduling problem
+						in Grid environments. At the same time, she have taught artificial
+						intelligence applied to Grid Computing in a MSc at the University
+						of Extremadura. Currently, she is also enrolled in the project
+						FESA that is being developed at CERN (Switzerland).
+						<div class="articleList">
+							<ol id="scopusArticleList"></ol>
+						</div>
+						<div id="workSpaceView"></div>
+					</div>
+				</div>
+
+			</div>
+			<!--rightInner-->
+		</div>
+		<!--rightOuter-->
+	</div>
+	<!--rightPane-->
+</div>
+<!--page-area-->
+
+
+
+<div style="clear: both;"></div>
+
+
+<form action="" method="POST" id="citationInfo" name="citationInfo">
+	<input type="hidden" value="" name="art_citation" />
+</form>
+<div onclick="pdfCite.closePopup();" style="display: none;"
+	class="pdfModalWindow" id="pdfModalWindow"></div>
+
+
+<!-- PDFKING/PDFCITE -->
+<div style="display: none;" id="suggestedPdfList"></div>
+
+
+<script src="http://cdn.els-cdn.com/sd/js/sdX_141cR9.js"></script>
+
+
+
+<script src="http://cdn.els-cdn.com/sd/js/sd_141cR9.js"></script>
+
+
+
+<script src="http://cdn.els-cdn.com/sd/js/pa_141cR9.js"></script>
+
+
+<script>
+var sciverse="empty";
+var SDM=new Object;
+SDM.tm=new Object;
+SDM.tm.ahm='h'
+
+
+
+SDM.ep=new Object;
+SDM.ep.downloadCsvURL = "http://services.elsevier.com/SDWebExport/export/table/csv";
+SDM.ep.downloadActionURL = "http://www.sciencedirect.com/science/downloadActions/keyEvent/S1568494612005741/15684946";
+SDM.ep.gigyaLib="//cdn.gigya.com/JS/socialize.js?apiKey=3__Bt7bHrGM8mjKPwBuOVjWyMi678aF6-PewcnoHJJ6UR1fS5t9NG9RBbKHjE0oA6J";
+SDM.ep.imgUrlPrefix = "http://ars.els-cdn.com/content/image/";
+SDM.ep.mendeleyJS = "https://www.mendeley.com/minified/bookmarklet.js";
+SDM.ep.prDevice = "http://pa.elsevier.com";
+SDM.ep.pru = "http://pa.elsevier.com";
+SDM.ep.ref2ref2by = "http://www.sciencedirect.com/science/relLink/ajaxReq?_eid=1-s2.0-S1568494612005741";
+SDM.ep.staticImgUrlPrefix = "http://cdn.els-cdn.com/sd";
+SDM.ep.urlPrefix = "http://www.sciencedirect.com/science";
+SDM.ep.urlQualifier = "science";
+SDM.ep.urlScheme = "http://www.sciencedirect.com";
+SDM.ep.userActionURL = "http://www.sciencedirect.com/science/UserActions";
+ SDM.helpUrlDomain = "#";
+
+
+
+
+SDM.pm=new Object;
+SDM.pm.cid = '272229';
+SDM.pm.contentFamily = "serial";
+SDM.pm.contentType = "JL";
+SDM.pm.coverDate = '30-Apr-2013';
+
+SDM.pm.doi = '10.1016/j.asoc.2012.12.030';
+
+SDM.doi = '10.1016/j.asoc.2012.12.030';
+SDM.pm.eid = '1-s2.0-S1568494612005741';
+SDM.pm.entitled = false;
+ SDM.pm.hubEid = '1-s2.0-S1568494613X00031'; 
+SDM.pm.indexType = '';
+SDM.pm.issnisbn = "15684946";
+
+SDM.pm.itemWeight = 'FULL-TEXT';
+SDM.pm.mod_cid="";
+SDM.pm.mod_srcTitle="";
+SDM.pm.mod_ISBN = "";
+SDM.pm.pdfEid = '1-s2.0-S1568494612005741-main.pdf';
+SDM.pm.pdfSize = '2073373';
+SDM.pm.pii = 'S1568494612005741';
+SDM.pm.prodColor="sci_dir";if(SDM.pm.prodColor=="sci_dir")SDM.pm.prodColor="";
+ SDM.pm.rev = '20130705T164510031469'; 
+
+
+
+
+
+
+SDM.pf = new Object;
+SDM.pf.pdfAvail = true;
+SDM.pf.reqAllFrags = true;
+ SDM.pf.maxElemsAllFrags = 12000
+SDM.pf.relatedBkAvail=true;
+SDM.pf.mlktAvail = true;
+SDM.pf.hpccAvail = true;
+SDM.pf.blkSocialLogins=true;
+
+
+SDM.browserUserMsg=true;
+SDM.prodSysMsg=true;
+
+SDM.pf.citedByScAvail = true;
+
+
+SDM.pf.ads = new Object;
+SDM.pf.ads.leftUrl="/science/advertisement/left/num/960746/mainCat/general/cat/general/acct/ddd49027ac058c4db14dac8cc0563abc/isn/15684946/doi/10.1016_j.asoc.2012.12.030/page/article/artOAstatus/N";
+
+
+
+
+SDM.pf.dc = new Object;
+SDM.pf.dc.retry = 10;
+SDM.pf.dc.retryDelay = 300;
+SDM.pf.dc.retryFactor = 1.0;
+SDM.pf.dc.respObj = '';
+
+
+SDM.pf.er = new Object();
+
+
+SDM.pf.er.epub = new Object();
+SDM.pf.er.epub.name = 'ePub';
+SDM.pf.er.epub.retry = 5;
+SDM.pf.er.epub.retryDelay = 2000;
+SDM.pf.er.epub.retryFactor = 1.0;
+SDM.pf.er.epub.msgDelay = 1500;
+SDM.pf.er.epub.msgType = 'rect';
+SDM.pf.er.epub.msgImg = 'epubAnim.gif';
+SDM.pf.er.epub.url='http://www.sciencedirect.com/science/ereader/epub/S1568494612005741/1403766914/15684946/1-s2.0-S1568494612005741/serial/?md5=8d37f4235984129ff854eb3a7ff5b5ab';
+
+
+
+SDM.pf.er.mobi = new Object();
+SDM.pf.er.mobi.name = 'Mobipocket';
+SDM.pf.er.mobi.retry = 5;
+SDM.pf.er.mobi.retryDelay = 2000;
+SDM.pf.er.mobi.retryFactor = 1.0;
+SDM.pf.er.mobi.msgDelay = 1500;
+SDM.pf.er.mobi.msgType = 'rect';
+SDM.pf.er.mobi.msgImg = 'mobiAnim.gif';
+SDM.pf.er.mobi.url='http://www.sciencedirect.com/science/ereader/mobi/S1568494612005741/1403766914/15684946/1-s2.0-S1568494612005741/serial/?md5=8d37f4235984129ff854eb3a7ff5b5ab';
+
+
+
+SDM.pf.frag = new Object();
+SDM.pf.frag.fat = '15c6e8814bdf03f2677bb11e74e5b3a2862758382a858479d9513c353a2bdab39ec842de5c22254ddb0e8a43dc8951ea42e568aaab9186f6ed15cf3a11b198c5c36bd416efc0ad064ecfa425681524762d9b3fa90ab8503de36ac8cf368272f7e9753d92faa4bf8a3c389e2dc8e50eed565935d82c37e7b7bbc78a23aa1d786e43ea0ce319530c327183b029477a5016c8ff437067c8d86d';
+SDM.pf.frag.mapRetry = 20;
+SDM.pf.frag.mapRetryDelay = 2000;
+SDM.pf.frag.mapRetryFactor = 1.1;
+SDM.pf.frag.retry = 5;
+SDM.pf.frag.retryDelay = 2000;
+SDM.pf.frag.foldFactor = 1.5;
+SDM.pf.frag.hashWait = 5000;
+
+
+
+
+
+
+SDM.pf.gadget = new Object();
+SDM.pf.gadget.displayGadgets=true;
+SDM.pf.gadget.sciverseUrlPfx="http://www.sciencedirect.com";
+SDM.pf.gadget.sciverseJsonObject='';
+SDM.pf.gadget.sciverseGadgetDetailsID = "";
+SDM.pf.gadget.svShindigLib="http://sciverse-shindig.elsevier.com/gadgets/js/shindig-container:pubsub-2.js?c=1";
+SDM.pf.gadget.svSciverseLib="http://www.sciencedirect.com/gadgetservices/gadgets/v8/js/SciverseShindigService,GadgetToolBar,jquery-outside,jquery.ba-bbq.min,SciverseShindigContainer,ScienceDirectShindigServices.js";
+
+
+
+SDM.pf.mrwmod = new Object();
+SDM.pf.mrwmod.breadCrumbPathURL = "http://www.sciencedirect.com/science/module/breadCrumbPaths/isbn//pii/S1568494612005741";
+
+SDM.pf.mrwmod.ldrAvail = true;
+
+
+ 
+
+
+SDM.pf.oa = new Object();
+
+
+
+
+
+
+
+
+SDM.pf.ref = new Object();
+SDM.pf.ref.bs = 20;
+SDM.pf.ref.citedByURL = "http://www.sciencedirect.com/science/referenceResolution/ajaxRefResol?_updateCitedBy=";
+SDM.pf.ref.fd = 300;
+
+SDM.pf.ref.resolveURL = "http://www.sciencedirect.com/science/referenceResolution/ajaxRefResol?_pii=S1568494612005741&amp;_refCnt=26&amp;_docType=article";
+
+
+
+
+
+SDM.pf.toc=new Object;
+SDM.pf.toc.retry = 20;
+SDM.pf.toc.retryDelay = 1000;
+SDM.pf.toc.retryFactor = 1.09;
+SDM.pf.toc.outlineGraphics = false;
+SDM.pf.toc.outlineTab = "";
+
+SDM.pf.toc.urlTOCLink="http://www.sciencedirect.com/science/article/pii/S1568494612005741";
+SDM.pf.toc.urlTOCLinkQueryStr="?_rdoc=1&amp;_fmt=full&amp;_origin=&amp;md5=22543fb95e34d36391c44b9d9cd72533";
+
+
+
+
+
+
+SDM.si = new Object();
+SDM.si.webUserId = "12975512";
+SDM.si.sds = "d8a1d5ab8b4cf614496328fc51064a9ed557f269eb567c9ef34251cf7a9cadbeaa8509d88546ca692307033208c50157";
+SDM.si.euidCookieObject='b3647403c71e5000';
+
+SDM.pageTransKey = "06/26/2014 03:15:13 EDT#1850_002#50711#182.73.254.222";
+SDM.pageType = "article_abs";
+SDM.tid = "9e00236e-fd01-11e3-af58-00000aab0f6c";
+SDM.ud = "12975512||C000228598|291352|GUEST";
+
+SDM.dac = new Object;
+SDM.svapi = SVApi;
+
+</script>
+
+
+<script src="http://cdn.els-cdn.com/sd/js/importer-api_141cR9.js.min"></script>
+
+
+<script>
+
+initializeArticlePage();
+</script>
+
+<script>loadPDF();</script>
+
+
+
+
+<script>
+function getII() {
+var s = $(".publicationHead .title a").attr("href");
+if(s) {
+  var p = s.split("/");
+  return p[p.length-1];
+}
+return null;
+}
+function getDOI() {
+if(SDM &amp;&amp; SDM.pm &amp;&amp; SDM.pm.doi){return SDM.doi;} else{return null;}}
+var ddWait=0; var ddNumWait=20; function buildDD() {
+if(Fragment.isAvail() &amp;&amp; !$('.unentitledMSG').length &amp;&amp; !$('#deepdyve').length &amp;&amp; ddWait&lt;ddNumWait){
+ddWait++;
+setTimeout(buildDD, 500);
+DBG.out(0, 'buildDD::waiting');
+return;
+}
+else {
+ddWait=ddNumWait;
+if($('#dd_img').length) {return;}
+}
+var i = getII();
+var d = unescape(getDOI());
+if(i==null || d== null) {return;}
+var dd = "http://www.deepdyve.com/rental-link";
+dd += "?docId=" + d;
+dd += "&amp;journal=" + i;
+dd += "&amp;fieldName=journal_doi";
+dd += "&amp;affiliateId=elsevier&amp;format=jsonp&amp;callback=?";
+
+$.getJSON(dd, function(data) {
+if (data.status === "ok") {
+   
+    $("#dd_href").attr("href",data.url);
+   $("#dd_href").append('&lt;img id="dd_img" src="/scidirimg/DeepDyve_SD.png"/&gt;');
+   $("#deepdyve").show();
+}
+});
+}
+if(typeof SDM != 'undefined' &amp;&amp; typeof SDM.pageType != 'undefined') {
+if(SDM.pageType=='article_abs') {buildDD();}} 
+</script>
+
+
+<div id="sdpa">
+	<img
+		src="http://pa.elsevier.com/pageReport?cpc=SD&amp;key=06%2F26%2F2014%2003%3A15%3A13%20EDT%231850_002%2350711%23182.73.254.222&amp;pagetype=article_abs&amp;sdsh=-1880267809&amp;tidh=1187330200&amp;ahm=h&amp;href=http%3A%2F%2Fwww.sciencedirect.com%2F%2Fscience%2Farticle%2Fpii%2FS1568494612005741&amp;winHeight=442&amp;winWidth=993&amp;domCount=302&amp;oexp=&amp;ud=12975512%7C%7CC000228598%7C291352%7CGUEST&amp;oa=-1&amp;toJSON=function%20toJSON%28%29%20%7B%0A%20%20%20%20[native%20code]%0A%7D&amp;navigationStart=1403766912109&amp;unloadEventStart=0&amp;unloadEventEnd=0&amp;redirectStart=0&amp;redirectEnd=0&amp;fetchStart=1403766912121&amp;domainLookupStart=1403766912121&amp;domainLookupEnd=1403766912121&amp;connectStart=1403766912121&amp;connectEnd=1403766912121&amp;requestStart=1403766912840&amp;responseStart=1403766913478&amp;responseEnd=1403766913772&amp;domLoading=1403766913481&amp;domInteractive=1403766914282&amp;domContentLoadedEventStart=1403766914292&amp;domContentLoadedEventEnd=1403766914529&amp;domComplete=1403766914883&amp;loadEventStart=1403766914883&amp;loadEventEnd=1403766914884"
+		style="display: none" /><img
+		src="http://pa.elsevier.com/idx?cpc=SD&amp;pagetype=article_abs&amp;sds=d8a1d5ab8b4cf614496328fc51064a9ed557f269eb567c9ef34251cf7a9cadbeaa8509d88546ca692307033208c50157&amp;tid=9e00236e-fd01-11e3-af58-00000aab0f6c&amp;sdsh=-1880267809&amp;tidh=1187330200&amp;ns=1403766912109&amp;absf=2&amp;maxf=2"
+		style="display: none" /><img
+		src="http://pa.elsevier.com/fragAll?cpc=SD&amp;sdsh=-1880267809&amp;tidh=1187330200&amp;domCount=786&amp;fragAllLoad=1403766916756&amp;navigationStart=1403766912109"
+		style="display: none" /><img
+		src="http://pa.elsevier.com/fragAll?cpc=SD&amp;sdsh=-1880267809&amp;tidh=1187330200&amp;domCount=790&amp;fragAllLoad=1403766916998&amp;navigationStart=1403766912109"
+		style="display: none" />
+</div>
+<script>SDPA.init();</script>
+
+
+
+
+
+<script src="//cdn.els-cdn.com/sd/js/adobe/s_code_131.js"></script>
+<div style="display: none;" id="sgfGhost">
+	<div id="sgfGhost_299152" class="containerApplOver invisible">
+		<div class="curveBoxleftNormal ActiveGadget  sgfOpen"
+			id="footergadgets-gadget-title-bar-2">
+			<img border="none" title="Entitle Gadget" class="headingGadgetIcon "
+				src="http://ae-content.elsevier.com/svapp/icon.jpg" />
+			<h3 class="elsevierTimeLOver truncateTitle" id="GadgetName2" title=""
+				style="cursor: default;">Entitle Gadget</h3>
+			<div align="right" class="Controls menuControlParent" id="Controls_2">
+				<ul class="menu">
+					<li class="menuControls"><a
+						onclick="shindig.container.getGadget(2).handleToggle(this);"
+						href="javascript:void(0);"><div
+								style="background-image: url('http://www.sciencedirect.com/gadgetservices/gadgets/v8/images/gsframeworksprite.png');"
+								title="Close This Application" class="sprite-close openCloseBtn"
+								id="toggleBtn_2"></div></a></li>
+					<li class="menuControls"><a
+						onclick="shindig.container.getGadget(2).openMenuOptions();return false;"
+						id="button-remote_iframe_2_userPrefsDialog"
+						href="javascript:void(0);"><div
+								style="background-image: url('http://www.sciencedirect.com/gadgetservices/gadgets/v8/images/gsframeworksprite.png');"
+								title="Open Options" class="sprite-options"></div></a></li>
+					<ul id="sb-remote_iframe_2_userPrefsDialog" class="submenu"></ul>
+				</ul>
+			</div>
+			<div style="display: none;" class="Controls_close" id="Close_2">
+				<a href="javascript:shindig.container.getGadget(2).closeGadget();"><div
+						style="background-image: url('http://www.sciencedirect.com/gadgetservices/gadgets/v8/images/gsframeworksprite.png');"
+						title="Close" class="sprite-close_hoover"></div></a>
+			</div>
+		</div>
+		<div class=""
+			style="display: none; z-index: 10; left: 0px; top: 0px; border: 1px solid #CDF0A4; border-top: 0px; font: smaller; background-color: #EEF7E3; width: 99%; font-weight: bold;"
+			id="remote_iframe_2_userPrefsDialog"></div>
+		<div class="containerAppDetails "
+			style="display:; border-style: solid; border-top:"
+			id="maincontremote_iframe_2">
+			<iframe width="100%" height="" frameborder="no" scrolling="auto"
+				"="" style="align: left; text-align: left;"
+				src="http://sciverse-shindig.elsevier.com/gadgets/ifr?container=default&amp;mid=2&amp;nocache=1&amp;country=ALL&amp;lang=ALL&amp;view=profile&amp;parent=http%3A%2F%2Fwww.sciencedirect.com%2F%2Fscience%2Farticle%2Fpii%2FS1568494612005741%3A%2F%2Fwww.sciencedirect.com&amp;up_startMeInvisible=y&amp;st=john.doe:john.doe:appid:cont:url:0:default&amp;url=http%3A%2F%2Fae-content.elsevier.com%2Fsvapp%2F299152%2Fprod%2Fprivate%2Fspec.xml#rpctoken=1566574308"
+				name="remote_iframe_2" onload="sgf.killTimer('299152', 'sgfGhost');"
+				id="remote_iframe_2"></iframe>
+		</div>
+	</div>
+</div>
+</body>
+</html>
