@@ -69,4 +69,11 @@ public class WebContentDownloader {
 	public String getHtmlContent(String argUrl) {
 		return this.processUrl(argUrl);
 	}
+
+	public static void main(String[] args) {
+		WebContentDownloader webContentDownloader = new WebContentDownloader();
+		String content = webContentDownloader
+				.processUrl("http://fkee.ump.edu.my/index.php/en/component/comprofiler/userslist/People?Itemid=105");
+		System.out.println(content);
+	}
 }
