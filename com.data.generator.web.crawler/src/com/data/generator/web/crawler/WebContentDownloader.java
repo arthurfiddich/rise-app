@@ -73,7 +73,7 @@ public class WebContentDownloader {
 	public static void main(String[] args) {
 		WebContentDownloader webContentDownloader = new WebContentDownloader();
 		String content = webContentDownloader
-				.processUrl("http://fkee.ump.edu.my/index.php/en/component/comprofiler/userslist/People?Itemid=105");
+				.processUrl("http://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=9");
 		System.out.println(content);
 	}
 }
