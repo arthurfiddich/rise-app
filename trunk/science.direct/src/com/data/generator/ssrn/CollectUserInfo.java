@@ -1,5 +1,6 @@
 package com.data.generator.ssrn;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -62,9 +63,6 @@ public class CollectUserInfo {
 								.getAllElements(HTMLElementName.A);
 						if (Precondition.checkNotEmpty(anchorTagElementsList)) {
 							for (Element anchorTagElement : anchorTagElementsList) {
-								Attribute a = anchorTagElement.getAttributes()
-										.get(1);
-								List<Element> e = a.getAllElements();
 								String attributeValue = anchorTagElement
 										.getAttributeValue("onClick");
 								String emailUrl = getUrl(attributeValue);
@@ -91,14 +89,20 @@ public class CollectUserInfo {
 				List<Element> anchorTagElementsList = emailSource
 						.getAllElements(HTMLElementName.A);
 				if (Precondition.checkNotEmpty(anchorTagElementsList)) {
+					List<String> emailsList = new ArrayList<String>();
 					for (Element anchorTagElement : anchorTagElementsList) {
 						String attributeValue = anchorTagElement
 								.getAttributeValue("href");
 						if (Precondition.checkNotEmpty(attributeValue)
-								&& attributeValue.startsWith("")) {
-
+								&& attributeValue.startsWith("mailto:")) {
+							String email = anchorTagElement.getContent()
+									.getTextExtractor().toString();
+							if (Precondition.checkNotEmpty(email)) {
+								emailsList.add(email);
+							}
 						}
 					}
+					return emailsList;
 				}
 			}
 		}
@@ -106,21 +110,26 @@ public class CollectUserInfo {
 	}
 
 	private String getUrl(String argAttributeValue) {
-		String attributeValue = Precondition.ensureNotEmpty(argAttributeValue,
-				"Attribute Value");
-		if (attributeValue.startsWith("window.open(")) {
-			attributeValue = StringUtils.replace(attributeValue,
-					"window.open(", "");
-			if (attributeValue.endsWith(")")) {
-				attributeValue = attributeValue.substring(0,
-						attributeValue.length() - 1);
-				String[] parts = attributeValue.split(",");
-				String firstPart = parts[0];
-				firstPart = firstPart.substring(1);
-				firstPart = firstPart.substring(0, firstPart.length() - 1);
-				firstPart = firstPart.substring(3);
-				return "http://papers.ssrn.com/sol3/" + firstPart;
+		if (Precondition.checkNotEmpty(argAttributeValue)) {
+			String attributeValue = argAttributeValue;
+			if (attributeValue.startsWith("window.open(")) {
+				attributeValue = StringUtils.replace(attributeValue,
+						"window.open(", "");
+				if (attributeValue.endsWith(")")) {
+					attributeValue = attributeValue.substring(0,
+							attributeValue.length() - 1);
+					String[] parts = attributeValue.split(",");
+					String firstPart = parts[0];
+					firstPart = firstPart.substring(1);
+					firstPart = firstPart.substring(0, firstPart.length() - 1);
+					firstPart = firstPart.substring(3);
+					int index = firstPart.indexOf("&pag=auth");
+					if (Precondition.checkNonNegative(index)) {
+						firstPart = firstPart.substring(0, index);
+					}
+					return "http://papers.ssrn.com/sol3/" + firstPart;
 
+				}
 			}
 		}
 		return null;
@@ -134,5 +143,8 @@ public class CollectUserInfo {
 		CollectUserInfo c = new CollectUserInfo(new HtmlExtractor());
 		List<String> emailsList = c
 				.getEmailsList("http://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=9#");
+		for (String email : emailsList) {
+			System.out.println(email);
+		}
 	}
 }
