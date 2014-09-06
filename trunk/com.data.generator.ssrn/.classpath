@@ -6,5 +6,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/com.data.generator.web.crawler"/>
 	<classpathentry kind="lib" path="/com.data.generator.web.crawler/lib/jericho-html-3.3.jar" sourcepath="/com.data.generator.web.crawler/lib/jericho-html-3.3-sources.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/selenium"/>
+	<classpathentry kind="lib" path="/com.data.generator/lib/commons-io-2.4.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
