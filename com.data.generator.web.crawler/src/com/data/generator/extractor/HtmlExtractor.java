@@ -49,10 +49,16 @@ public class HtmlExtractor implements Parser<Source> {
 	}
 
 	public Source getSourceBasedOnHtmlString(String argHtmlSring) {
-		String htmlToken = Precondition.ensureNotEmpty(argHtmlSring, "Html Token");
-		Source source = new Source(htmlToken);
-		source.fullSequentialParse();
-		return source;
+		if (Precondition.checkNotEmpty(argHtmlSring)) {
+			String htmlToken = Precondition.ensureNotEmpty(argHtmlSring,
+					"Html Token");
+			Source source = new Source(htmlToken);
+			source.fullSequentialParse();
+			return source;
+		} else {
+			System.out.println("Empty.............");
+			return null;
+		}
 	}
 
 }
