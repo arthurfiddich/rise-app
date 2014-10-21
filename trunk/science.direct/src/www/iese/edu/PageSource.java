@@ -28,7 +28,7 @@ public class PageSource {
 		PageSource pageSource = new PageSource();
 		System.out
 				.println(pageSource
-						.getHtmlContent("http://www.iese.edu/en/faculty-research/professors/?paginaActual=1&initialLetter=&language=en&name=&lastname=&department="));
+						.getHtmlContent("http://facultybio.haas.berkeley.edu/faculty-list/aaker-david"));
 		System.exit(0);
 	}
 }
