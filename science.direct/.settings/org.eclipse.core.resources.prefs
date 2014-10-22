@@ -1,6 +1,11 @@
-#Mon Oct 20 22:15:06 PDT 2014
+#Tue Oct 21 15:11:37 PDT 2014
 eclipse.preferences.version=1
+encoding//output/albany/albany.csv=UTF-8
 encoding//output/berkeley/berkeley.csv=UTF-8
+encoding//output/columbia/accounting.csv=UTF-8
+encoding//output/columbia/finance-economics.csv=UTF-8
+encoding//output/columbia/management.csv=UTF-8
+encoding//output/columbia/marketing.csv=UTF-8
 encoding//output/essec/Accounting\ and\ Management\ Control.csv=UTF-8
 encoding//output/essec/Communications.csv=UTF-8
 encoding//output/essec/ESSEC\ Institute\ of\ Health\ Economics\ and\ Management.csv=UTF-8
