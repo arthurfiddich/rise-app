@@ -1,4 +1,4 @@
-#Tue Oct 21 15:11:37 PDT 2014
+#Tue Oct 21 17:46:08 PDT 2014
 eclipse.preferences.version=1
 encoding//output/albany/albany.csv=UTF-8
 encoding//output/berkeley/berkeley.csv=UTF-8
@@ -19,3 +19,5 @@ encoding//output/essec/Operation\ Management.csv=UTF-8
 encoding//output/essec/Public\ and\ Private\ Policy.csv=UTF-8
 encoding//output/iese/1-10.csv=UTF-8
 encoding//output/iese/11-20.csv=UTF-8
+encoding//output/keio/keio.csv=UTF-8
+encoding//output/wasedamba/wasedamba.csv=UTF-8
