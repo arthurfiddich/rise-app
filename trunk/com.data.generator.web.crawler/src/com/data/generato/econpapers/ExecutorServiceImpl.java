@@ -1,7 +1,9 @@
 package com.data.generato.econpapers;
 
 import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Future;
 import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.RejectedExecutionException;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -62,9 +64,27 @@ public class ExecutorServiceImpl {
 					Thread.sleep(DEFAULT_WAIT_TIME_TO_QUEUE);
 				} catch (InterruptedException ignore) {
 					// ignore
+				} 
+			}
+		} while (!queued);
+	}
+
+	public <V> Future<V> execute(Callable<V> argParameter) {
+		boolean queued = false;
+		Future<V> result = null;
+		do {
+			try {
+				result = this.getExecutorService().submit(argParameter);
+				queued = true;
+			} catch (RejectedExecutionException e) {
+				try {
+					Thread.sleep(DEFAULT_WAIT_TIME_TO_QUEUE);
+				} catch (InterruptedException ignore) {
+					// ignore
 				}
 			}
 		} while (!queued);
+		return result;
 	}
 
 	public ExecutorService getExecutorService() {
