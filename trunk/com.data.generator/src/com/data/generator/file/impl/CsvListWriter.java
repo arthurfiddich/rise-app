@@ -26,6 +26,7 @@ public class CsvListWriter implements
 	public CsvListWriter(String outputFileName) {
 		super();
 		this.outputFileName = outputFileName;
+		writerInitialization();
 	}
 
 	public void writerInitialization() {
