@@ -1,0 +1,4088 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+<title>Psychology</title>
+
+<link href="css/css.css" rel="stylesheet" type="text/css" />
+
+<link href="css/psychology.css" rel="stylesheet" type="text/css" />
+<link href="../css/horImgSlider.css" rel="stylesheet" type="text/css" />
+<script src="../jquery.min.js"></script>
+<script src="../jquery-ui.min.js"></script>
+<script type="text/javascript"
+	src="http://www.christuniversity.in/yoxview/yoxview-init.js"></script>
+<script type="text/javascript">
+                    $(document).ready(function(){
+                        $(".yoxview").yoxview({autoPlay : true});
+                    });
+</script>
+<script type="text/javascript"
+	src="../highslide/highslide-with-gallery.js"></script>
+<link rel="stylesheet" type="text/css" href="../highslide/highslide.css" />
+<script type="text/javascript">
+        hs.graphicsDir = '../highslide/graphics/';
+        hs.align = 'center';
+        hs.transitions = ['expand', 'crossfade'];
+        hs.outlineType = 'rounded-white';
+        hs.wrapperClassName = 'controls-in-heading';
+        hs.fadeInOut = true;
+        //hs.dimmingOpacity = 0.75;
+
+        // Add the controlbar
+        if (hs.addSlideshow) hs.addSlideshow({
+                //slideshowGroup: 'group1',
+                interval: 5000,
+                repeat: false,
+                useControls: true,
+                fixedControls: false,
+                overlayOptions: {
+                        opacity: 1,
+                        position: 'top right',
+                        hideOnMouseOut: false
+                }
+        });
+</script>
+
+
+<style type="text/css">
+table.sample {
+	border-width: 1px;
+	border-spacing: 2px;
+	border-style: outset;
+	border-color: gray;
+	border-collapse: separate;
+	background-color: white;
+}
+
+table.sample td {
+	border-width: 1px;
+	padding: 1px;
+	border-style: dotted;
+	border-color: gray;
+	background-color: white;
+	-moz-border-radius: ;
+}
+</style>
+
+</head>
+<body>
+
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="refresh" content="1800" />
+<title>Christ University, Bangalore, Karnataka</title>
+
+<link href="../css_ini/style.css" rel="stylesheet" type="text/css" />
+
+<link rel="stylesheet" href="../menu.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../style.css" type="text/css"></link>
+
+
+<!--events script-->
+
+<script language="javascript" type="text/javascript">/****************************************************
+     Author: Eric King
+     Url: http://redrival.com/eak/index.shtml
+     This script is free to use as long as this info is left in
+     Featured on Dynamic Drive script library (http://www.dynamicdrive.com)
+****************************************************/
+var win=null;
+function NewWindow(mypage,myname,w,h,scroll,pos){
+if(pos=="random"){LeftPosition=(screen.width)?Math.floor(Math.random()*(screen.width-w)):100;TopPosition=(screen.height)?Math.floor(Math.random()*((screen.height-h)-75)):100;}
+if(pos=="center"){LeftPosition=(screen.width)?(screen.width-w)/2:100;TopPosition=(screen.height)?(screen.height-h)/2:100;}
+else if((pos!="center" && pos!="random") || pos==null){LeftPosition=0;TopPosition=20}
+settings='width='+w+',height='+h+',top='+TopPosition+',left='+LeftPosition+',scrollbars='+scroll+',location=no,directories=no,status=no,menubar=no,toolbar=no,resizable=no';
+win=window.open(mypage,myname,settings);}
+</script>
+
+
+
+<script type="text/javascript" src="../template/js/jquery00.js"></script>
+<script type="text/javascript" src="../template/js/ticker00.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#fade').list_ticker({
+			speed:2000,
+			effect:'fade'
+		});
+		$('#slide').list_ticker({
+			speed:1000,
+			effect:'slide'
+		});		
+	})
+	</script>
+
+<script type="text/javascript" src="../template/js/jquery.js"></script>
+
+<script type="text/javascript">
+var slideshow = {};
+
+$(document).ready(function(){
+  slideshowStart('#slideshow1');
+  slideshowStart('#slideshow2',4000,true);
+});
+
+function slideshowStart(e,delay,random) {
+  delay = (delay==null) ? 2000 : delay;
+  random = (random==null) ? false : random;
+  $(e).find('a').hide();
+
+  var id = $(e).attr('id');
+  slideshow[id] = {}
+  slideshow[id].items = $(e).find('a');
+  slideshow[id].delay = delay;
+  slideshow[id].random = random;
+  var s = slideshow[id];
+
+  $(e).find('a').hover(function(){
+    s.pause = true;
+  },function(){
+    s.pause = false;
+    slideshowHide(id,$(s.items[s.i]));
+  });
+
+  slideshowShow(id);
+}
+function slideshowShow(id) {
+  var s = slideshow[id];
+  if (s.pause) return;
+
+  if (s.random)
+    s.i = Math.floor(Math.random()*s.items.length);
+  else
+    (s.i==null || s.i+1 >= s.items.length) ? s.i=0 : s.i++;
+
+  $(s.items[s.i]).fadeIn('slow').animate({opacity: 1.0}, s.delay, function(){
+    if (!s.pause) {
+      slideshowHide(id,$(s.items[s.i]));
+    }
+  });
+}
+
+function slideshowHide(id,e) {
+  var s = slideshow[id];
+  if (s.fade) return;
+  s.fade = true;
+  $(e).fadeOut('slow',function(){
+    s.fade = false;
+    (s.pause) ? $(e).fadeIn('fast') : slideshowShow(id);
+  });
+}
+</script>
+
+
+<!--banner slide script start-->
+<script type="text/javascript" src="../template/js/jquery-1.2.6.min.js"></script>
+
+<script type="text/javascript">
+
+/*function slideSwitch() {
+    var $active = $('#slideshow IMG.active');
+
+    if ( $active.length == 0 ) $active = $('#slideshow IMG:last');
+
+    // use this to pull the images in the order they appear in the markup
+    var $next =  $active.next().length ? $active.next()
+        : $('#slideshow IMG:first');
+
+    // uncomment the 3 lines below to pull the images in random order
+    
+    // var $sibs  = $active.siblings();
+    // var rndNum = Math.floor(Math.random() * $sibs.length );
+    // var $next  = $( $sibs[ rndNum ] );
+
+
+    $active.addClass('last-active');
+
+    $next.css({opacity: 0.0})
+        .addClass('active')
+        .animate({opacity: 1.0}, 1000, function() {
+            $active.removeClass('active last-active');
+        });
+}
+
+$(function() {
+    setInterval( "slideSwitch()", 5000 );
+});*/
+
+</script>
+
+
+<!-- menu script-->
+
+
+<link href="../template/css/navigation.css" rel="stylesheet"
+	type="text/css" />
+<link href="../template/css/module.css" rel="stylesheet" type="text/css" />
+<link href="../template/css/base.css" rel="stylesheet" type="text/css" />
+<link href="../template/css/tools.css" rel="stylesheet" type="text/css" />
+<!--  
+    <link href="template/css/layout.css" rel="stylesheet" type="text/css" />
+     <link href="template/css/style.css" rel="stylesheet" type="text/css" />-->
+
+<!--   <link href="template/css/chosen.css" rel="stylesheet" type="text/css" />-->
+
+<!--botom pop up script start-->
+<script type="text/javascript" src="../template/js/login.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#div_bottom_popup").slideToggle('slow');
+	$("#popUpClose").click(function(){
+		$("#div_bottom_popup").slideToggle('slow');
+	});	
+});
+
+<!--botom pop up script closed-->
+</script>
+<script src="../template/js/jquery1.7.1.min.js" type="text/javascript"></script>
+
+<script src="../template/js/lib/jquery-1.5.2.min.js"
+	type="text/javascript"></script>
+<script src="../template/js/lib/jquery-1.4.2.min.js"
+	type="text/javascript"></script>
+<script src="../template/js/lib/jquery-ui-1.8.6.custom.min.js"
+	type="text/javascript"></script>
+
+<script src="../template/js/lib/jquery.AjaxCFC.js"
+	type="text/javascript"></script>
+<script src="../template/js/jquery.lightbox.min.js"
+	type="text/javascript"></script>
+<script src="../template/js/main.js" type="text/javascript"></script>
+<script src="../template/js/lib/chosen.jquery.min.js"
+	type="text/javascript"></script>
+<script src="../template/js//jquery.hoverIntent.minified.js"
+	type="text/javascript"></script>
+
+<!--  <script src="js_v1/jquery1.7.1.min.js" type="text/javascript"></script>
+ <script src="template/js/jquery1.7.1.min.js" type="text/javascript"></script>-->
+
+<!--login script-->
+<script type="text/javascript" src="../template/js/login.js"></script>
+<script src="../js/jquery1.7.1.min.js" type="text/javascript"></script>
+<script src="../js/swfobject_modified.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(function() {
+	var $j = jQuery.noConflict();
+    var $mainNav = $j('#main-nav'),
+    navWidth = $mainNav.width();
+    
+    $mainNav.children('.main-nav-item').hover(function(ev) {
+        var $this = $(this),
+        $dd = $this.find('.main-nav-dd');
+        
+        // get the left position of this tab
+        var leftPos = $this.find('.main-nav-tab').position().left;
+        
+        // get the width of the dropdown
+        var ddWidth = $dd.width(),
+        leftMax = navWidth - ddWidth;
+        
+        // position the dropdown
+        $dd.css('left', Math.min(leftPos, leftMax) );
+        
+        // show the dropdown
+        $this.addClass('main-nav-item-active');
+    }, function(ev) {
+
+        // hide the dropdown
+        $(this).removeClass('main-nav-item-active');
+    });
+});
+
+</script>
+
+<!--<link href="socialmedia/css/style.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="style.css" type="text/css"></link>
+<link rel="stylesheet" href="login.css" type="text/css"></link>
+-->
+
+<script type="text/javascript" src="js_v1/login.js"></script>
+
+<style type=text/css>
+input.red {
+	text-decoration: none;
+	text-shadow: 1px 1px 0 #000;
+	-moz-text-shadow: 1px 1px 0 #000;
+	-webkit-text-shadow: 1px 1px 0 #000;
+	color: #fff;
+	font-weight: bold;
+	font-size: 13px;
+	margin-top: 11px;
+	background: #3d3d3d;
+}
+
+input.red:hover {
+	background: #656565;
+}
+
+input.red span {
+	color: #fff;
+	float: left;
+	padding: 0 10px 0 10px;
+	text-align: center;
+	margin-top: 8px;
+}
+</style>
+
+
+<script src="js/swfobject_modified.js" type="text/javascript"></script>
+<!--login script-->
+<script type="text/javascript" src="template/js/login.js"></script>
+<script src="js/jquery1.7.1.min.js" type="text/javascript"></script>
+<script src="js/swfobject_modified.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(function() {
+	var $j = jQuery.noConflict();
+    var $mainNav = $j('#main-nav'),
+    navWidth = $mainNav.width();
+    
+    $mainNav.children('.main-nav-item').hover(function(ev) {
+        var $this = $(this),
+        $dd = $this.find('.main-nav-dd');
+        
+        // get the left position of this tab
+        var leftPos = $this.find('.main-nav-tab').position().left;
+        
+        // get the width of the dropdown
+        var ddWidth = $dd.width(),
+        leftMax = navWidth - ddWidth;
+        
+        // position the dropdown
+        $dd.css('left', Math.min(leftPos, leftMax) );
+        
+        // show the dropdown
+        $this.addClass('main-nav-item-active');
+    }, function(ev) {
+
+        // hide the dropdown
+        $(this).removeClass('main-nav-item-active');
+    });
+});
+
+</script>
+
+<!--End Mega Menu -->
+
+<script>
+function quick()
+{
+	var quicklink=document.qqq.selquick.value;
+	document.qqq.action=quicklink;
+	document.qqq.submit();
+}
+</script>
+<!--
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" type="text/javascript" ></script>
+<script src="js/jquery.livetwitter.js" type="text/javascript"></script>
+-->
+
+
+<!--Twitter account-->
+
+<style type="text/css" media="screen">
+h2 {
+	margin-top: 20px;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 24px;
+	font-weight: bold;
+}
+
+a,a:visited {
+	color: #000000;
+}
+
+a:hover {
+	color: #111;
+}
+
+.tweet {
+	background: #fff;
+	margin: 4px 0;
+	width: 165px;
+	padding: 8px;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+}
+
+.tweet img {
+	float: left;
+	margin: 0 8px 4px 0;
+}
+
+.tweet .text {
+	margin: 0;
+}
+
+.tweet .time a {
+	font-size: 80%;
+	color: #888;
+	white-space: nowrap;
+	text-decoration: none;
+}
+
+.tweet .time a:hover {
+	text-decoration: underline;
+}
+
+#twitterSearch .tweet {
+	min-height: 24px;
+}
+
+#twitterSearch .tweet .text {
+	margin-left: 32px;
+}
+</style>
+
+
+
+
+<!--flicker account-->
+<script>
+$(document).ready(function() {
+	//Flickr Integration
+	$.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?id=69465320@N06&lang=en-us&format=json&jsoncallback=?", function(data){
+		$.each(data.items, function(i,item){
+			if(i<=0){ 
+				$("<img/>").attr("src", item.media.m).appendTo("#FlickrImages")
+				.wrap("<a href='" + item.link + "' target='_blank' title='Flickr'></a>");
+			}
+		});
+	});
+						
+});
+</script>
+<style type="text/css">
+#FlickrImages {
+	margin-bottom: 1em;
+	text-align: center
+}
+
+#FlickrImages  li {
+	padding: 8px;
+	background-color: #eee;
+	margin: 0 5px 5px 0;
+}
+
+#FlickrImages img {
+	width: 120px;
+	height: 80px;
+}
+</style>
+<!--flicker end-->
+
+
+
+</head>
+
+<body>
+	<div id="top">
+		<div class="header">
+			<div class="logo"></div>
+
+			<div class="social-colom">
+				<div class="total-colom">
+					<div class="connect">
+						<div class="connect-text">Get connected with Christ
+							University</div>
+						<div class="view">
+							<a href="http://www.christuniversity.in/socialmedia/"
+								target="_blank"><span style="color: #FFF">View All</span> </a>
+						</div>
+					</div>
+					<div class="f-colom">
+						<a href="http://www.facebook.com/Christ.University"
+							target="_blank"><img src="../images/face.png" /> </a>
+					</div>
+					<div class="f-colom">
+						<a href="https://twitter.com/christbangalore" target="_blank"><img
+							src="../images/twi.png" /> </a>
+					</div>
+				</div>
+				<div class="az-colom">
+
+					<div class="quick">
+						<a href="../a-zindex.php" target="_blank"><span
+							style="color: #FFF">A-Z Index</span> </a>
+					</div>
+					<div class="line"></div>
+					<div class="cmradio2">
+						<ul id="menun">
+							<li>Quick Links<!-- Begin 3 columns Item -->
+								<div class="dropdown_3columns align_right">
+									<!-- Begin 3 columns container -->
+									<div class="col_3">
+										<h2>Quick Links</h2>
+									</div>
+
+									<div class="col_1">
+
+										<ul class="col_4">
+											<li><a
+												href="http://christuniversity.in/secmenudisp.php?mid=2&subid=14">Admission
+													2014</a></li>
+
+											<li><a
+												href="http://www.christuniversity.in/christalumni">Alumni</a>
+											</li>
+
+											<li><a
+												href="http://www.christuniversity.in/a-zprogrammes.php">Apply
+													Online</a></li>
+
+											<li><a
+												href="http://www.christuniversity.in/StudentLogin.html">Attendance</a>
+											</li>
+
+											<li><a
+												href="http://www.google.com/calendar/hosted/christuniversity.in/embed?src=christuniversity.in_jqdd17erbanr1cdmipat9efkhc%40group.calendar.google.com&amp;ctz=Asia/Calcutta">Auditorium
+													Booking</a></li>
+
+											<li><a
+												href="http://www.google.com/calendar/hosted/christuniversity.in/embed?src=christuniversity.in_ji7p6ls5u8gmoilsph8cplo1lc%40group.calendar.google.com&amp;ctz=Asia/Calcutta">Bus
+													Booking</a></li>
+
+											<li><a
+												href="http://www.christuniversity.in/msgdisplay.php?id=86143&f=2">CU
+													- Academic Staff College </a></li>
+
+											<li><a href="">Calendar</a></li>
+
+											<li><a href="http://decibel.christuniversity.in">Campus
+													Radio</a></li>
+
+											<li><a href="http://www.christuniversity.in/virtualtour">Campus
+													Virtual Tour</a></li>
+
+											<li><a href="http://www.christuniversity.in/career.php">Careers</a>
+											</li>
+										</ul>
+									</div>
+									<div class="col_1">
+
+										<ul class="col_4">
+
+											<li><a href="http://csa.christuniversity.in">Centre
+													for Social Aciton</a></li>
+
+											<li><a href="http://www.christuniversity.in/enquiry.php">Contact
+													Us</a></li>
+
+											<li><a
+												href="http://journals.christuniversity.in/index.php">E-Journal</a>
+											</li>
+
+											<li><a
+												href="http://christuniversity.in/feature_list.php?gid=104&f=5">Exam
+													Alerts</a></li>
+
+											<li><a
+												href="https://mail.google.com/a/christuniversity.in">Faculty
+													Email</a></li>
+
+											<li><a
+												href="https://www.indiaeduservices.com/controlcenter/login.php">LMS
+													- Powered by Intel</a></li>
+
+											<li><a
+												href="http://maps.google.com/?ie=UTF8&ll=12.934885,77.607422&spn=0.004925,0.007296&z=17">Locate
+													Us</a></li>
+
+											<li><a href="http://courses.christuniversity.in">MyCourse</a>
+											</li>
+
+											<li><a href="http://library.christuniversity.in">Online
+													Catalogue</a></li>
+
+											<li><a
+												href="http://www.flickr.com/photos/christuniversity">Photogallery</a>
+											</li>
+										</ul>
+									</div>
+									<div class="col_1">
+
+										<ul class="col_4">
+
+											<li><a
+												href="http://www.christuniversity.in/secmenudisp.php?mid=6&subid=21">Publications</a>
+											</li>
+
+											<li><a
+												href="http://christuniversity.in/secmenudisp.php?mid=6&subid=50">Publications
+													by Faculty</a></li>
+
+											<li><a href="http://christuniversity.in/kp/">Question
+													Bank</a></li>
+
+											<li><a href="http://repository.christuniversity.in/">Repository</a>
+											</li>
+
+											<li><a href="http://www.christuniversity.in/sitemap.php">Sitemap</a>
+											</li>
+
+											<li><a
+												href="http://www.christuniversity.in/studentemail.php?MID=75">Student
+													Email</a></li>
+
+											<li><a
+												href="http://www.christuniversity.in/feature_list.php?gid=13&f=2">Support
+													Service</a></li>
+
+											<li><a
+												href="http://www.christuniversity.in/virtualtour/">Virtual
+													Tour</a></li>
+
+										</ul>
+
+									</div>
+
+
+
+
+
+
+
+
+
+
+								</div> <!-- End 3 columns container -->
+							</li>
+						</ul>
+					</div>
+					<div class="line"></div>
+					<div class="vertour">
+						<a href="http://www.christuniversity.in/virtualtour/"
+							target="_blank"><span style="color: #FFF">Virtual Tour</span>
+						</a>
+					</div>
+					<div class="line"></div>
+					<div class="cmradio">
+						<a href="http://decibel.christuniversity.in" target="_blank"><span
+							style="color: #FFF">Campus Radio</span> </a>
+					</div>
+					<div class="line"></div>
+
+					<div class="cmradio">
+						<a href="http://www.christuniversity.in/video_manager/"
+							target="_blank"><span style="color: #FFF">Live TV</span> </a>
+					</div>
+					<div class="line"></div>
+
+					<a href="http://192.168.100.100:8090" class="login_btn"
+						onclick="NewWindow(this.href,'mywin','580','520','no','center');return false"
+						onfocus="this.blur()"><span>Login</span> </a>
+
+
+
+
+
+
+
+
+				</div>
+			</div>
+			<div class="triangle"></div>
+			<div id="menubar">
+				<div id="menu">
+
+					<ul class="menu menuDropdown">
+						<li><a href="../index.php" id="membership"><span
+								class="bg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Home&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+						</a>
+						</li>
+						<li><a href="#" id="membership"><span class="bg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;About
+									Us&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> </a>
+							<div class="dropdown" style="display: none;">
+								<ul>
+
+									<li><a
+										href="http://www.christuniversity.in/secmenudisp.php?mid=1&subid=2"
+										target=""><span class="bg">Vision and Mission</span> </a>
+
+										<li><a
+											href="http://www.christuniversity.in/secmenudisp.php?mid=1&subid=4"
+											target=""><span class="bg">Mandatory Disclosure</span> </a>
+
+											<li><a
+												href="http://www.christuniversity.in/secmenudisp.php?mid=1&subid=5"
+												target=""><span class="bg">Message from VC</span> </a>
+
+												<li><a
+													href="http://www.christuniversity.in/secmenudisp.php?mid=1&subid=1"
+													target=""><span class="bg">Founder</span> </a>
+
+													<li><a href="../secmenudisp.php?mid=1&subid=51"
+														target=""><span class="bg">Administration</span> </a>
+
+														<li><a href="../secmenudisp.php?mid=1&subid=55"
+															target=""><span class="bg">IFCU</span> </a>
+
+															<li><a
+																href="http://www.christuniversity.in/virtualtour/"
+																target=""><span class="bg">Virtual Tour</span> </a>
+
+																<li><a
+																	href="http://www.christuniversity.in/campuslink.php"
+																	target=""><span class="bg">Campus</span> </a>
+
+																	<li><a href="../secmenudisp.php?mid=1&subid=108"
+																		target=""><span class="bg">Eco-friendly
+																				Campus</span> </a>
+
+																		<li><a href="../secmenudisp.php?mid=1&subid=109"
+																			target=""><span class="bg">Tie-up</span> </a>
+
+																			<li><a href="../secmenudisp.php?mid=1&subid=110"
+																				target=""><span class="bg">List of Awards</span>
+																			</a>
+								</ul>
+							</div>
+						</li>
+
+						<li><a href="#" id="membership"><span class="bg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Admission&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+						</a>
+							<div class="dropdown" style="display: none;">
+								<ul>
+
+									<li><a href="../secmenudisp.php?mid=2&subid=15" target=""><span
+											class="bg">Application Status</span> </a>
+
+										<li><a href="../secmenudisp.php?mid=2&subid=72" target=""><span
+												class="bg">NRI / Foreign Nationals </span> </a>
+
+											<li><a href="http://www.christuniversity.in/apply.php"
+												target=""><span class="bg">Apply Online</span> </a>
+
+												<li><a
+													href="http://christuniversity.in/msgdisplay.php?id=87611&f=2"
+													target=""><span class="bg">MBA Admissions
+															2015-16<img src='images/new_red.gif'>
+													</span> </a>
+
+													<li><a
+														href="http://www.christuniversity.in/msgdisplay.php?id=87250&f=2"
+														target=""><span class="bg">Admissions 2015</span> </a>
+
+														<li><a
+															href="http://www.christuniversity.in/azadmission.php"
+															target=""><span class="bg">All Programmes</span> </a>
+								</ul>
+							</div>
+						</li>
+
+						<li><a href="#" id="membership"><span class="bg">&nbsp;&nbsp;&nbsp;&nbsp;Academics&nbsp;&nbsp;&nbsp;&nbsp;</span>
+						</a>
+							<div class="dropdown" style="display: none;">
+								<ul>
+
+									<li><a
+										href="http://www.christuniversity.in/departments.php?division=4"
+										target=""><span class="bg">Faculty of Engineering</span> </a>
+
+										<li><a
+											href="http://www.christuniversity.in/School%20of%20Law/index.php?division=School%20of%20Law&dept=71"
+											target=""><span class="bg">School of Law</span> </a>
+
+											<li><a
+												href="http://www.christuniversity.in/Institute%20of%20Management%20%28MBA%29/index.php?division=Institute%20of%20Management%20%28MBA%29&dept=21"
+												target=""><span class="bg">Institute of
+														Management (MBA)</span> </a>
+
+												<li><a
+													href="http://www.christuniversity.in/departments.php?division=7"
+													target=""><span class="bg">Commerce and
+															Management</span> </a>
+
+													<li><a
+														href="http://www.christuniversity.in/departments.php?division=2"
+														target=""><span class="bg">Sciences</span> </a>
+
+														<li><a
+															href="http://www.christuniversity.in/departments.php?division=9"
+															target=""><span class="bg">Humanities and
+																	Social Sciences </span> </a>
+
+															<li><a
+																href="http://www.christuniversity.in/School%20of%20Education/index.php?division=School%20of%20Education&dept=72"
+																target=""><span class="bg">School of
+																		Education</span> </a>
+
+																<li><a
+																	href="http://www.christuniversity.in/Physical%20Education/index.php?division=General%20Departments&dept=47"
+																	target=""><span class="bg">General
+																			Departments</span> </a>
+								</ul>
+							</div>
+						</li>
+
+
+						<li><a href="#" id="membership"><span class="bg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbspResearch&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							</span> </a>
+							<div class="dropdown" style="display: none;">
+								<ul>
+
+									<li><a href="../secmenudisp.php?mid=5&subid=43" target=""><span
+											class="bg">MPhil Programmes</span> </a>
+
+										<li><a href="../secmenudisp.php?mid=5&subid=44" target=""><span
+												class="bg">PhD Programmes</span> </a>
+
+											<li><a href="../secmenudisp.php?mid=5&subid=52"
+												target=""><span class="bg">Minor Projects (RDC)</span> </a>
+
+												<li><a href="../secmenudisp.php?mid=5&subid=53"
+													target=""><span class="bg">Major Projects</span> </a>
+
+													<li><a
+														href="http://christuniversitylibrary.wordpress.com/online-databases/"
+														target=""><span class="bg">Online Databases</span> </a>
+
+														<li><a href="http://library.christuniversity.in"
+															target=""><span class="bg">Online Catalogue</span> </a>
+
+															<li><a
+																href="http://christuniversitylibrary.blogspot.com/p/useful-links.html"
+																target=""><span class="bg">Open Access
+																		Repositories </span> </a>
+								</ul>
+							</div>
+						</li>
+
+						<li><a href="#" id="membership"><span class="bg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Publications&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							</span> </a>
+							<div class="dropdown" style="display: none;">
+								<ul>
+
+									<li><a
+										href="http://www.christuniversity.in/secmenudisp.php?mid=6&subid=17"
+										target=""><span class="bg">Books </span> </a>
+
+										<li><a href="../secmenudisp.php?mid=6&subid=18" target=""><span
+												class="bg">Journals </span> </a>
+
+											<li><a href="../secmenudisp.php?mid=6&subid=19"
+												target=""><span class="bg">Newsletters </span> </a>
+
+												<li><a href="../secmenudisp.php?mid=6&subid=50"
+													target=""><span class="bg">Publications by
+															Faculty</span> </a>
+
+													<li><a href="../secmenudisp.php?mid=6&subid=21"
+														target=""><span class="bg">Centre for
+																Publications</span> </a>
+
+														<li><a href="http://christbangalore.blogspot.com/"
+															target=""><span class="bg">Campus Blog</span> </a>
+
+															<li><a
+																href="http://journals.christuniversity.in/index.php"
+																target=""><span class="bg">Open Journal
+																		Systems</span> </a>
+
+																<li><a href="../secmenudisp.php?mid=6&subid=20"
+																	target=""><span class="bg">Magazines </span> </a>
+
+																	<li><a href="../secmenudisp.php?mid=6&subid=107"
+																		target=""><span class="bg">Newspaper
+																				Publications</span> </a>
+								</ul>
+							</div>
+						</li>
+
+					</ul>
+				</div>
+				<form action="http://www.christuniversity.in/result.php"
+					id="cse-search-box">
+					<div class="search-bar">
+						<input type="hidden" name="cx"
+							value="018121290684888674381:hnkluzagngi" /> <input
+							type="hidden" name="cof" value="FORID:10" /> <input
+							type="hidden" name="ie" value="UTF-8" />
+						<div class="search-colom">
+							<input name="q" type="text" class="txt_bx" id="web"
+								value="Search" onblur="if(this.value=='')this.value='Search'"
+								onfocus="if(this.value=='Search')this.value=''" />
+						</div>
+						<div class="searchicon-colom">
+							<div class="search-icon">
+								<a href="#"><img src="../images/search_icon.png"
+									onclick="javascript:document.forms[0].submit();" /> </a>
+							</div>
+						</div>
+					</div>
+				</form>
+
+			</div>
+
+			<!--banner start-->
+
+
+
+		</div>
+
+
+	</div>
+	<div class="clear"></div>
+
+</body>
+	</html>
+	<table width="100%" border="0" cellpadding="0" cellspacing="0"
+		class="dept_phychology_bg" style="float: left;">
+
+		<tr>
+			<td align="center" valign="top" class="dept_mid_pad">
+
+				<table width="1020" border="0" cellpadding="0" cellspacing="0"
+					bgcolor="#FFFFFF" class="dept_outer">
+					<tr>
+						<td>
+							<table width="1020" border="0" cellspacing="0" cellpadding="0">
+								<tr>
+									<td style="padding-bottom: 5px;" class="dept_bredcrub"><a
+										href="../index.php">Home</a> > <a
+										href="../departments.php?division=9">Humanities and Social
+											Sciences</a> > <a
+										href="index.php?division=Humanities and Social Sciences&&dept=33">Psychology</a>
+										> <span class="dept_bredcrub_phychology">Faculty
+											Profile</span></td>
+								</tr>
+								<tr>
+									<td align="left" valign="top"
+										style="background: url(../dept/33_Psychology.jpg ) no-repeat center; width: 1020px; height: 200px;"><table
+											width="100%" border="0" cellspacing="0" cellpadding="0"
+											style="padding-top: 23px;">
+
+											<table width="100%" border="0" cellspacing="0"
+												cellpadding="0" style="padding-top: 23px;">
+
+
+
+											</table>
+
+
+
+											</td>
+
+											</tr>
+
+										</table> <br>
+
+
+
+											<table width="100%" border="0" cellspacing="0"
+												cellpadding="0">
+
+												<tr>
+
+													<td width="600" valign="top">
+														<table width="600" border="0" align="left" cellpadding="0"
+															cellspacing="0">
+															<tr>
+																<td align="left">
+																	<p>
+																		<span class="phychology_chead">Introduction</span>
+																		<p>
+																			<span class="quote-words">The greatest
+																				discovery of my generation is that human beings can
+																				alter their lives by altering their attitudes of
+																				mind.</span><br /> <span class="quote-author">-
+																				William James</span>
+																		</p>
+																	</p>
+																</td>
+															</tr>
+
+															<tr>
+
+																<td align="left">
+
+																	<p>
+																		<span class="phychology_chead"><a name="fa">Faculty
+																				Profile</a> </span>
+																	</p>
+
+																	<table width="100%" border="0" cellspacing="1"
+																		cellpadding="0" class="dsample">
+
+																		<tr>
+
+																			<td align="left" valign="top"><script
+																					type="text/javascript">
+function popUpCal(url)
+{
+    var width = 1120;
+    var height = 733;
+    var left = parseInt((screen.availWidth/2) - (width/2));
+    var top = parseInt((screen.availHeight/2) - (height/2));
+    var windowFeatures = "width=" + width + ",height=" + height +   
+        ",status,resizable,left=" + left + ",top=" + top + 
+        "screenX=" + left + ",screenY=" + top + ",scrollbars=yes";
+
+  popupWindow=  window.open(url, "subWind", windowFeatures, "POS");
+}
+</script>
+
+
+																				<table width="100%" border="0" align="center"
+																					cellpadding="0" cellspacing="0" class="sample">
+																					<tr>
+																						<td align="left" valign="top"
+																							style="padding-left: 0px; padding-top: 0px;">
+																							<table width="100%" border="0" cellpadding="3"
+																								cellspacing="3"
+																								background="images/news-m-bg.jpg"
+																								class="student_new">
+																								<tr>
+																									<td width="2%" style="background-color: 828184"
+																										class="student_new" height="25">
+																										<div align="center">
+																											<strong>No</strong>
+																										</div></td>
+																									<td width="35%"
+																										style="background-color: 828184"
+																										class="student_new" height="25"><div
+																											align="center">
+																											<strong>Name</strong>
+																										</div></td>
+																									<td style="background-color: 828184"
+																										class="student_new" width="33%">
+																										<div align="center">
+																											<strong>Qualification</strong>
+																										</div></td>
+																									<td style="background-color: 828184"
+																										class="student_new" width="28%">
+																										<div align="center">
+																											<strong>Designation</strong>
+																										</div></td>
+																									<td style="background-color: 828184"
+																										class="student_new" width="2%">
+																										<div align="center">
+																											<strong>Profile</strong>
+																										</div></td>
+																								</tr>
+
+
+
+
+
+																								<tr>
+																									<td width="2%"
+																										style="background-color: #CBD0FF"
+																										class="student_new" align="center"><font
+																										size=1>1</font></td>
+																									<td width="35%"
+																										style="background-color: #CBD0FF"
+																										class="student_new"><font size=1>ANEESH
+																											KUMAR P </font></td>
+																									<td width="33%"
+																										style="background-color: #CBD0FF"
+																										class="student_new"><font size=1>MSc,PG
+																											Dip</font></td>
+																									<td width="28%"
+																										style="background-color: #CBD0FF"
+																										class="student_new"><font size=1>ASSISTANT
+																											PROFESSOR</font></td>
+																									<td width="2%"
+																										style="background-color: #CBD0FF"
+																										class="student_new"><a
+																										href="JavaScript:popUpCal('http://www.christuniversity.in/FacultyProfile/faculty_det.php?webid=33&emp_id=1688');"><img
+																											src="../images/profile.gif">
+																									</a></td>
+																								</tr>
+																								<tr>
+																									<td width="2%"
+																										style="background-color: #CBC9CE"
+																										class="student_new" align="center"><font
+																										size=1>2</font></td>
+																									<td width="35%"
+																										style="background-color: #CBC9CE"
+																										class="student_new"><font size=1>ANURADHA
+																											S </font></td>
+																									<td width="33%"
+																										style="background-color: #CBC9CE"
+																										class="student_new"><font size=1>MA,
+																											Ph.D</font></td>
+																									<td width="28%"
+																										style="background-color: #CBC9CE"
+																										class="student_new"><font size=1>ASSOCIATE
+																											PROFESSOR</font></td>
+																									<td width="2%"
+																										style="background-color: #CBC9CE"
+																										class="student_new"><a
+																										href="JavaScript:popUpCal('http://www.christuniversity.in/FacultyProfile/faculty_det.php?webid=33&emp_id=603');"><img
+																											src="../images/profile.gif">
+																									</a></td>
+																								</tr>
+																								<tr>
+																									<td width="2%"
+																										style="background-color: #CBD0FF"
+																										class="student_new" align="center"><font
+																										size=1>3</font></td>
+																									<td width="35%"
+																										style="background-color: #CBD0FF"
+																										class="student_new"><font size=1>BAIJU
+																											GOPAL </font></td>
+																									<td width="33%"
+																										style="background-color: #CBD0FF"
+																										class="student_new"><font size=1>MA,
+																											Ph.D</font></td>
+																									<td width="28%"
+																										style="background-color: #CBD0FF"
+																										class="student_new"><font size=1>ASSOCIATE
+																											PROFESSOR</font></td>
+																									<td width="2%"
+																										style="background-color: #CBD0FF"
+																										class="student_new"><a
+																										href="JavaScript:popUpCal('http://www.christuniversity.in/FacultyProfile/faculty_det.php?webid=33&emp_id=188');"><img
+																											src="../images/profile.gif">
+																									</a></td>
+																								</tr>
+																								<tr>
+																									<td width="2%"
+																										style="background-color: #CBC9CE"
+																										class="student_new" align="center"><font
+																										size=1>4</font></td>
+																									<td width="35%"
+																										style="background-color: #CBC9CE"
+																										class="student_new"><font size=1>CHETAN
+																											SINHA </font></td>
+																									<td width="33%"
+																										style="background-color: #CBC9CE"
+																										class="student_new"><font size=1>MSc,
+																											MPhil, PhD</font></td>
+																									<td width="28%"
+																										style="background-color: #CBC9CE"
+																										class="student_new"><font size=1>ASSISTANT
+																											PROFESSOR</font></td>
+																									<td width="2%"
+																										style="background-color: #CBC9CE"
+																										class="student_new"><a
+																										href="JavaScript:popUpCal('http://www.christuniversity.in/FacultyProfile/faculty_det.php?webid=33&emp_id=1372');"><img
+																											src="../images/profile.gif">
+																									</a></td>
+																								</tr>
+																								<tr>
+																									<td width="2%"
+																										style="background-color: #CBD0FF"
+																										class="student_new" align="center"><font
+																										size=1>5</font></td>
+																									<td width="35%"
+																										style="background-color: #CBD0FF"
+																										class="student_new"><font size=1>ELIZABETH
+																											THOMAS </font></td>
+																									<td width="33%"
+																										style="background-color: #CBD0FF"
+																										class="student_new"><font size=1>M.Sc
+																											(Coun), M.Sc (Health), M.Phil</font></td>
+																									<td width="28%"
+																										style="background-color: #CBD0FF"
+																										class="student_new"><font size=1>ASSISTANT
+																											PROFESSOR</font></td>
+																									<td width="2%"
+																										style="background-color: #CBD0FF"
+																										class="student_new"><a
+																										href="JavaScript:popUpCal('http://www.christuniversity.in/FacultyProfile/faculty_det.php?webid=33&emp_id=249');"><img
+																											src="../images/profile.gif">
+																									</a></td>
+																								</tr>
+																								<tr>
+																									<td width="2%"
+																										style="background-color: #CBC9CE"
+																										class="student_new" align="center"><font
+																										size=1>6</font></td>
+																									<td width="35%"
+																										style="background-color: #CBC9CE"
+																										class="student_new"><font size=1>JAYASANKARA
+																											REDDY K </font></td>
+																									<td width="33%"
+																										style="background-color: #CBC9CE"
+																										class="student_new"><font size=1>PGDCNP,
+																											MSc, PhD</font></td>
+																									<td width="28%"
+																										style="background-color: #CBC9CE"
+																										class="student_new"><font size=1>ASSOCIATE
+																											PROFESSOR</font></td>
+																									<td width="2%"
+																										style="background-color: #CBC9CE"
+																										class="student_new"><a
+																										href="JavaScript:popUpCal('http://www.christuniversity.in/FacultyProfile/faculty_det.php?webid=33&emp_id=1478');"><img
+																											src="../images/profile.gif">
+																									</a></td>
+																								</tr>
+																								<tr>
+																									<td width="2%"
+																										style="background-color: #CBD0FF"
+																										class="student_new" align="center"><font
+																										size=1>7</font></td>
+																									<td width="35%"
+																										style="background-color: #CBD0FF"
+																										class="student_new"><font size=1>JUSTINE
+																											K JAMES </font></td>
+																									<td width="33%"
+																										style="background-color: #CBD0FF"
+																										class="student_new"><font size=1>MSc,
+																											PhD</font></td>
+																									<td width="28%"
+																										style="background-color: #CBD0FF"
+																										class="student_new"><font size=1>ASSISTANT
+																											PROFESSOR</font></td>
+																									<td width="2%"
+																										style="background-color: #CBD0FF"
+																										class="student_new"><a
+																										href="JavaScript:popUpCal('http://www.christuniversity.in/FacultyProfile/faculty_det.php?webid=33&emp_id=1390');"><img
+																											src="../images/profile.gif">
+																									</a></td>
+																								</tr>
+																								<tr>
+																									<td width="2%"
+																										style="background-color: #CBC9CE"
+																										class="student_new" align="center"><font
+																										size=1>8</font></td>
+																									<td width="35%"
+																										style="background-color: #CBC9CE"
+																										class="student_new"><font size=1>KISHOR
+																											ADHIKARI </font></td>
+																									<td width="33%"
+																										style="background-color: #CBC9CE"
+																										class="student_new"><font size=1>MA,
+																											MS, M.Phil</font></td>
+																									<td width="28%"
+																										style="background-color: #CBC9CE"
+																										class="student_new"><font size=1>ASSISTANT
+																											PROFESSOR</font></td>
+																									<td width="2%"
+																										style="background-color: #CBC9CE"
+																										class="student_new"><a
+																										href="JavaScript:popUpCal('http://www.christuniversity.in/FacultyProfile/faculty_det.php?webid=33&emp_id=694');"><img
+																											src="../images/profile.gif">
+																									</a></td>
+																								</tr>
+																								<tr>
+																									<td width="2%"
+																										style="background-color: #CBD0FF"
+																										class="student_new" align="center"><font
+																										size=1>9</font></td>
+																									<td width="35%"
+																										style="background-color: #CBD0FF"
+																										class="student_new"><font size=1>LIJO
+																											K J </font></td>
+																									<td width="33%"
+																										style="background-color: #CBD0FF"
+																										class="student_new"><font size=1>MSc,
+																											MBA</font></td>
+																									<td width="28%"
+																										style="background-color: #CBD0FF"
+																										class="student_new"><font size=1>ASSISTANT
+																											PROFESSOR</font></td>
+																									<td width="2%"
+																										style="background-color: #CBD0FF"
+																										class="student_new"><a
+																										href="JavaScript:popUpCal('http://www.christuniversity.in/FacultyProfile/faculty_det.php?webid=33&emp_id=1357');"><img
+																											src="../images/profile.gif">
+																									</a></td>
+																								</tr>
+																								<tr>
+																									<td width="2%"
+																										style="background-color: #CBC9CE"
+																										class="student_new" align="center"><font
+																										size=1>10</font></td>
+																									<td width="35%"
+																										style="background-color: #CBC9CE"
+																										class="student_new"><font size=1>MADHAVI
+																											RANGASWAMY </font></td>
+																									<td width="33%"
+																										style="background-color: #CBC9CE"
+																										class="student_new"><font size=1>MSc,
+																											MPhil, PhD</font></td>
+																									<td width="28%"
+																										style="background-color: #CBC9CE"
+																										class="student_new"><font size=1>ASSOCIATE
+																											PROFESSOR</font></td>
+																									<td width="2%"
+																										style="background-color: #CBC9CE"
+																										class="student_new"><a
+																										href="JavaScript:popUpCal('http://www.christuniversity.in/FacultyProfile/faculty_det.php?webid=33&emp_id=1762');"><img
+																											src="../images/profile.gif">
+																									</a></td>
+																								</tr>
+																								<tr>
+																									<td width="2%"
+																										style="background-color: #CBD0FF"
+																										class="student_new" align="center"><font
+																										size=1>11</font></td>
+																									<td width="35%"
+																										style="background-color: #CBD0FF"
+																										class="student_new"><font size=1>MIRIAM
+																											PRITI MOHAN </font></td>
+																									<td width="33%"
+																										style="background-color: #CBD0FF"
+																										class="student_new"><font size=1>M.Sc,
+																											M.Phil</font></td>
+																									<td width="28%"
+																										style="background-color: #CBD0FF"
+																										class="student_new"><font size=1>ASSISTANT
+																											PROFESSOR</font></td>
+																									<td width="2%"
+																										style="background-color: #CBD0FF"
+																										class="student_new"><a
+																										href="JavaScript:popUpCal('http://www.christuniversity.in/FacultyProfile/faculty_det.php?webid=33&emp_id=232');"><img
+																											src="../images/profile.gif">
+																									</a></td>
+																								</tr>
+																								<tr>
+																									<td width="2%"
+																										style="background-color: #CBC9CE"
+																										class="student_new" align="center"><font
+																										size=1>12</font></td>
+																									<td width="35%"
+																										style="background-color: #CBC9CE"
+																										class="student_new"><font size=1>NISHAL
+																											PINTO </font></td>
+																									<td width="33%"
+																										style="background-color: #CBC9CE"
+																										class="student_new"><font size=1>MSc</font>
+																									</td>
+																									<td width="28%"
+																										style="background-color: #CBC9CE"
+																										class="student_new"><font size=1>ASSISTANT
+																											PROFESSOR</font></td>
+																									<td width="2%"
+																										style="background-color: #CBC9CE"
+																										class="student_new"><a
+																										href="JavaScript:popUpCal('http://www.christuniversity.in/FacultyProfile/faculty_det.php?webid=33&emp_id=1463');"><img
+																											src="../images/profile.gif">
+																									</a></td>
+																								</tr>
+																								<tr>
+																									<td width="2%"
+																										style="background-color: #CBD0FF"
+																										class="student_new" align="center"><font
+																										size=1>13</font></td>
+																									<td width="35%"
+																										style="background-color: #CBD0FF"
+																										class="student_new"><font size=1>PADMAKUMARI
+																											P </font></td>
+																									<td width="33%"
+																										style="background-color: #CBD0FF"
+																										class="student_new"><font size=1>MA,
+																											M.Phil, Ph.D</font></td>
+																									<td width="28%"
+																										style="background-color: #CBD0FF"
+																										class="student_new"><font size=1>ASSOCIATE
+																											PROFESSOR</font></td>
+																									<td width="2%"
+																										style="background-color: #CBD0FF"
+																										class="student_new"><a
+																										href="JavaScript:popUpCal('http://www.christuniversity.in/FacultyProfile/faculty_det.php?webid=33&emp_id=110');"><img
+																											src="../images/profile.gif">
+																									</a></td>
+																								</tr>
+																								<tr>
+																									<td width="2%"
+																										style="background-color: #CBC9CE"
+																										class="student_new" align="center"><font
+																										size=1>14</font></td>
+																									<td width="35%"
+																										style="background-color: #CBC9CE"
+																										class="student_new"><font size=1>PRITI
+																											SIRKECK </font></td>
+																									<td width="33%"
+																										style="background-color: #CBC9CE"
+																										class="student_new"><font size=1>MA,
+																											M.Phil</font></td>
+																									<td width="28%"
+																										style="background-color: #CBC9CE"
+																										class="student_new"><font size=1>ASSISTANT
+																											PROFESSOR</font></td>
+																									<td width="2%"
+																										style="background-color: #CBC9CE"
+																										class="student_new"><a
+																										href="JavaScript:popUpCal('http://www.christuniversity.in/FacultyProfile/faculty_det.php?webid=33&emp_id=1237');"><img
+																											src="../images/profile.gif">
+																									</a></td>
+																								</tr>
+																								<tr>
+																									<td width="2%"
+																										style="background-color: #CBD0FF"
+																										class="student_new" align="center"><font
+																										size=1>15</font></td>
+																									<td width="35%"
+																										style="background-color: #CBD0FF"
+																										class="student_new"><font size=1>REKHA
+																											R AHUJA </font></td>
+																									<td width="33%"
+																										style="background-color: #CBD0FF"
+																										class="student_new"><font size=1>MSc,
+																											MPhil</font></td>
+																									<td width="28%"
+																										style="background-color: #CBD0FF"
+																										class="student_new"><font size=1>ASSISTANT
+																											PROFESSOR</font></td>
+																									<td width="2%"
+																										style="background-color: #CBD0FF"
+																										class="student_new"><a
+																										href="JavaScript:popUpCal('http://www.christuniversity.in/FacultyProfile/faculty_det.php?webid=33&emp_id=1405');"><img
+																											src="../images/profile.gif">
+																									</a></td>
+																								</tr>
+																								<tr>
+																									<td width="2%"
+																										style="background-color: #CBC9CE"
+																										class="student_new" align="center"><font
+																										size=1>16</font></td>
+																									<td width="35%"
+																										style="background-color: #CBC9CE"
+																										class="student_new"><font size=1>SHEELA
+																											HEMALATHA JULIUS </font></td>
+																									<td width="33%"
+																										style="background-color: #CBC9CE"
+																										class="student_new"><font size=1>MA,
+																											MPhil, PhD</font></td>
+																									<td width="28%"
+																										style="background-color: #CBC9CE"
+																										class="student_new"><font size=1>PROFESSOR</font>
+																									</td>
+																									<td width="2%"
+																										style="background-color: #CBC9CE"
+																										class="student_new"><a
+																										href="JavaScript:popUpCal('http://www.christuniversity.in/FacultyProfile/faculty_det.php?webid=33&emp_id=1466');"><img
+																											src="../images/profile.gif">
+																									</a></td>
+																								</tr>
+																								<tr>
+																									<td width="2%"
+																										style="background-color: #CBD0FF"
+																										class="student_new" align="center"><font
+																										size=1>17</font></td>
+																									<td width="35%"
+																										style="background-color: #CBD0FF"
+																										class="student_new"><font size=1>SREENATH
+																											K </font></td>
+																									<td width="33%"
+																										style="background-color: #CBD0FF"
+																										class="student_new"><font size=1>MSc</font>
+																									</td>
+																									<td width="28%"
+																										style="background-color: #CBD0FF"
+																										class="student_new"><font size=1>ASSISTANT
+																											PROFESSOR</font></td>
+																									<td width="2%"
+																										style="background-color: #CBD0FF"
+																										class="student_new"><a
+																										href="JavaScript:popUpCal('http://www.christuniversity.in/FacultyProfile/faculty_det.php?webid=33&emp_id=1713');"><img
+																											src="../images/profile.gif">
+																									</a></td>
+																								</tr>
+																								<tr>
+																									<td width="2%"
+																										style="background-color: #CBC9CE"
+																										class="student_new" align="center"><font
+																										size=1>18</font></td>
+																									<td width="35%"
+																										style="background-color: #CBC9CE"
+																										class="student_new"><font size=1>STEPHEN
+																											S. </font></td>
+																									<td width="33%"
+																										style="background-color: #CBC9CE"
+																										class="student_new"><font size=1>M.Sc,
+																											M.Phil</font></td>
+																									<td width="28%"
+																										style="background-color: #CBC9CE"
+																										class="student_new"><font size=1>ASSISTANT
+																											PROFESSOR</font></td>
+																									<td width="2%"
+																										style="background-color: #CBC9CE"
+																										class="student_new"><a
+																										href="JavaScript:popUpCal('http://www.christuniversity.in/FacultyProfile/faculty_det.php?webid=33&emp_id=170');"><img
+																											src="../images/profile.gif">
+																									</a></td>
+																								</tr>
+																								<tr>
+																									<td width="2%"
+																										style="background-color: #CBD0FF"
+																										class="student_new" align="center"><font
+																										size=1>19</font></td>
+																									<td width="35%"
+																										style="background-color: #CBD0FF"
+																										class="student_new"><font size=1>SUREKHA
+																											C </font></td>
+																									<td width="33%"
+																										style="background-color: #CBD0FF"
+																										class="student_new"><font size=1>MA,
+																											Ph.D</font></td>
+																									<td width="28%"
+																										style="background-color: #CBD0FF"
+																										class="student_new"><font size=1>ASSOCIATE
+																											PROFESSOR</font></td>
+																									<td width="2%"
+																										style="background-color: #CBD0FF"
+																										class="student_new"><a
+																										href="JavaScript:popUpCal('http://www.christuniversity.in/FacultyProfile/faculty_det.php?webid=33&emp_id=275');"><img
+																											src="../images/profile.gif">
+																									</a></td>
+																								</tr>
+																								<tr>
+																									<td width="2%"
+																										style="background-color: #CBC9CE"
+																										class="student_new" align="center"><font
+																										size=1>20</font></td>
+																									<td width="35%"
+																										style="background-color: #CBC9CE"
+																										class="student_new"><font size=1>SURESH
+																											BABU ARE </font></td>
+																									<td width="33%"
+																										style="background-color: #CBC9CE"
+																										class="student_new"><font size=1>MSc,PhD</font>
+																									</td>
+																									<td width="28%"
+																										style="background-color: #CBC9CE"
+																										class="student_new"><font size=1>ASSISTANT
+																											PROFESSOR</font></td>
+																									<td width="2%"
+																										style="background-color: #CBC9CE"
+																										class="student_new"><a
+																										href="JavaScript:popUpCal('http://www.christuniversity.in/FacultyProfile/faculty_det.php?webid=33&emp_id=1702');"><img
+																											src="../images/profile.gif">
+																									</a></td>
+																								</tr>
+																								<tr>
+																									<td width="2%"
+																										style="background-color: #CBD0FF"
+																										class="student_new" align="center"><font
+																										size=1>21</font></td>
+																									<td width="35%"
+																										style="background-color: #CBD0FF"
+																										class="student_new"><font size=1>TISSY
+																											MARIAM THOMAS </font></td>
+																									<td width="33%"
+																										style="background-color: #CBD0FF"
+																										class="student_new"><font size=1>MA,
+																											Ph.D</font></td>
+																									<td width="28%"
+																										style="background-color: #CBD0FF"
+																										class="student_new"><font size=1>ASSOCIATE
+																											PROFESSOR</font></td>
+																									<td width="2%"
+																										style="background-color: #CBD0FF"
+																										class="student_new"><a
+																										href="JavaScript:popUpCal('http://www.christuniversity.in/FacultyProfile/faculty_det.php?webid=33&emp_id=189');"><img
+																											src="../images/profile.gif">
+																									</a></td>
+																								</tr>
+																								<tr>
+																									<td width="2%"
+																										style="background-color: #CBC9CE"
+																										class="student_new" align="center"><font
+																										size=1>22</font></td>
+																									<td width="35%"
+																										style="background-color: #CBC9CE"
+																										class="student_new"><font size=1>TONY
+																											SAM GEORGE </font></td>
+																									<td width="33%"
+																										style="background-color: #CBC9CE"
+																										class="student_new"><font size=1>MSW(Med&Psy),
+																											M.Phil, Ph.D</font></td>
+																									<td width="28%"
+																										style="background-color: #CBC9CE"
+																										class="student_new"><font size=1>ASSOCIATE
+																											PROFESSOR</font></td>
+																									<td width="2%"
+																										style="background-color: #CBC9CE"
+																										class="student_new"><a
+																										href="JavaScript:popUpCal('http://www.christuniversity.in/FacultyProfile/faculty_det.php?webid=33&emp_id=226');"><img
+																											src="../images/profile.gif">
+																									</a></td>
+																								</tr>
+																								<tr>
+																									<td width="2%"
+																										style="background-color: #CBD0FF"
+																										class="student_new" align="center"><font
+																										size=1>23</font></td>
+																									<td width="35%"
+																										style="background-color: #CBD0FF"
+																										class="student_new"><font size=1>UPAGYA
+																											RAI </font></td>
+																									<td width="33%"
+																										style="background-color: #CBD0FF"
+																										class="student_new"><font size=1>MA,
+																											PhD</font></td>
+																									<td width="28%"
+																										style="background-color: #CBD0FF"
+																										class="student_new"><font size=1>ASSISTANT
+																											PROFESSOR</font></td>
+																									<td width="2%"
+																										style="background-color: #CBD0FF"
+																										class="student_new"><a
+																										href="JavaScript:popUpCal('http://www.christuniversity.in/FacultyProfile/faculty_det.php?webid=33&emp_id=697');"><img
+																											src="../images/profile.gif">
+																									</a></td>
+																								</tr>
+																								<tr>
+																									<td width="2%"
+																										style="background-color: #CBC9CE"
+																										class="student_new" align="center"><font
+																										size=1>24</font></td>
+																									<td width="35%"
+																										style="background-color: #CBC9CE"
+																										class="student_new"><font size=1>VARGHESE
+																											K J (FR.) </font></td>
+																									<td width="33%"
+																										style="background-color: #CBC9CE"
+																										class="student_new"><font size=1>MA,
+																											PhD</font></td>
+																									<td width="28%"
+																										style="background-color: #CBC9CE"
+																										class="student_new"><font size=1>PROFESSOR</font>
+																									</td>
+																									<td width="2%"
+																										style="background-color: #CBC9CE"
+																										class="student_new"><a
+																										href="JavaScript:popUpCal('http://www.christuniversity.in/FacultyProfile/faculty_det.php?webid=33&emp_id=116');"><img
+																											src="../images/profile.gif">
+																									</a></td>
+																								</tr>
+																								<tr>
+																									<td width="2%"
+																										style="background-color: #CBD0FF"
+																										class="student_new" align="center"><font
+																										size=1>25</font></td>
+																									<td width="35%"
+																										style="background-color: #CBD0FF"
+																										class="student_new"><font size=1>VIJU
+																											P D (FR.) </font></td>
+																									<td width="33%"
+																										style="background-color: #CBD0FF"
+																										class="student_new"><font size=1>MA,
+																											M.Phil</font></td>
+																									<td width="28%"
+																										style="background-color: #CBD0FF"
+																										class="student_new"><font size=1>ASSISTANT
+																											PROFESSOR</font></td>
+																									<td width="2%"
+																										style="background-color: #CBD0FF"
+																										class="student_new"><a
+																										href="JavaScript:popUpCal('http://www.christuniversity.in/FacultyProfile/faculty_det.php?webid=33&emp_id=173');"><img
+																											src="../images/profile.gif">
+																									</a></td>
+																								</tr>
+
+																								</tr>
+																							</table>
+																						</td>
+																					</tr>
+																				</table> <br><br>
+																						<table width="100%" border="0" align="center"
+																							cellpadding="0" cellspacing="0" class="sample">
+																							<p>
+																								<span class="overview2"><a name="fd"
+																									id="fd">Adjunct Faculty </a> </span><br />
+																								<tr>
+																									<td align="left" valign="top"
+																										style="padding-left: 0px; padding-top: 0px;">
+																										<table width="100%" border="0" cellpadding="3"
+																											cellspacing="3"
+																											background="images/news-m-bg.jpg"
+																											class="student_new">
+																											<tr>
+																												<td style="background-color: 828184"
+																													class="student_new" height="2%">
+																													<div align="center">
+																														<strong> No</strong>
+																													</div></td>
+																												<td style="background-color: 828184"
+																													class="student_new" height="35%"><strong>Name</strong>
+																												</td>
+																												<td style="background-color: 828184"
+																													class="student_new" width="33%">
+																													<div align="center">
+																														<strong>Qualification</strong>
+																													</div></td>
+																												<td style="background-color: 828184"
+																													class="student_new" width="28%">
+																													<div align="center">
+																														<strong>Designation</strong>
+																													</div></td>
+
+																												<td style="background-color: 828184"
+																													class="student_new" width="2%">
+																													<div align="left">
+																														<strong>Profile</strong>
+																													</div></td>
+																											</tr>
+
+																											<tr>
+																												<td width="2%" align="center"
+																													style="background-color: #CBD0FF"
+																													class="student_new"><font size=1>1</font>
+																												</td>
+																												<td width="35%"
+																													style="background-color: #CBD0FF"
+																													class="student_new"><font size=1>ANTONY
+																														GEORGE WILLIAM </font></td>
+																												<td width="33%"
+																													style="background-color: #CBD0FF"
+																													class="student_new"><font size=1>MSc,Ph.D.</font>
+																												</td>
+																												<td width="28%"
+																													style="background-color: #CBD0FF"
+																													class="student_new"><font size=1>PROFESSOR</font>
+																												</td>
+																												<td width="2%"
+																													style="background-color: #CBD0FF"
+																													class="student_new"><a
+																													href="JavaScript:popUpCal('http://www.christuniversity.in/FacultyProfile/guestfaculty_det.php?webid=33&guest_id=68');"><img
+																														src="../images/profile.gif">
+																												</a></td>
+																											</tr>
+																											<tr>
+																												<td width="2%" align="center"
+																													style="background-color: #CBC9CE"
+																													class="student_new"><font size=1>2</font>
+																												</td>
+																												<td width="35%"
+																													style="background-color: #CBC9CE"
+																													class="student_new"><font size=1>NISHA
+																														VIDYASAGAR </font></td>
+																												<td width="33%"
+																													style="background-color: #CBC9CE"
+																													class="student_new"><font size=1>MPhil,MSc.,
+																												</font></td>
+																												<td width="28%"
+																													style="background-color: #CBC9CE"
+																													class="student_new"><font size=1>ASSISTANT
+																														PROFESSOR</font></td>
+																												<td width="2%"
+																													style="background-color: #CBC9CE"
+																													class="student_new"><a
+																													href="JavaScript:popUpCal('http://www.christuniversity.in/FacultyProfile/guestfaculty_det.php?webid=33&guest_id=7');"><img
+																														src="../images/profile.gif">
+																												</a></td>
+																											</tr>
+																											<tr>
+																												<td width="2%" align="center"
+																													style="background-color: #CBD0FF"
+																													class="student_new"><font size=1>3</font>
+																												</td>
+																												<td width="35%"
+																													style="background-color: #CBD0FF"
+																													class="student_new"><font size=1>PRAISY
+																														ABRAHAM </font></td>
+																												<td width="33%"
+																													style="background-color: #CBD0FF"
+																													class="student_new"><font size=1>M.Sc.</font>
+																												</td>
+																												<td width="28%"
+																													style="background-color: #CBD0FF"
+																													class="student_new"><font size=1>ASSISTANT
+																														PROFESSOR</font></td>
+																												<td width="2%"
+																													style="background-color: #CBD0FF"
+																													class="student_new"><a
+																													href="JavaScript:popUpCal('http://www.christuniversity.in/FacultyProfile/guestfaculty_det.php?webid=33&guest_id=86');"><img
+																														src="../images/profile.gif">
+																												</a></td>
+																											</tr>
+																											<tr>
+																												<td width="2%" align="center"
+																													style="background-color: #CBC9CE"
+																													class="student_new"><font size=1>4</font>
+																												</td>
+																												<td width="35%"
+																													style="background-color: #CBC9CE"
+																													class="student_new"><font size=1>RACHEL
+																														ANUSHA JAYASEELAN </font></td>
+																												<td width="33%"
+																													style="background-color: #CBC9CE"
+																													class="student_new"><font size=1>M.Sc</font>
+																												</td>
+																												<td width="28%"
+																													style="background-color: #CBC9CE"
+																													class="student_new"><font size=1>ASSISTANT
+																														PROFESSOR</font></td>
+																												<td width="2%"
+																													style="background-color: #CBC9CE"
+																													class="student_new"><a
+																													href="JavaScript:popUpCal('http://www.christuniversity.in/FacultyProfile/guestfaculty_det.php?webid=33&guest_id=8');"><img
+																														src="../images/profile.gif">
+																												</a></td>
+																											</tr>
+																											<tr>
+																												<td width="2%" align="center"
+																													style="background-color: #CBD0FF"
+																													class="student_new"><font size=1>5</font>
+																												</td>
+																												<td width="35%"
+																													style="background-color: #CBD0FF"
+																													class="student_new"><font size=1>RAKSHA
+																														KARTIK </font></td>
+																												<td width="33%"
+																													style="background-color: #CBD0FF"
+																													class="student_new"><font size=1>Msc,MA,PhD</font>
+																												</td>
+																												<td width="28%"
+																													style="background-color: #CBD0FF"
+																													class="student_new"><font size=1>ASSISTANT
+																														PROFESSOR</font></td>
+																												<td width="2%"
+																													style="background-color: #CBD0FF"
+																													class="student_new"><a
+																													href="JavaScript:popUpCal('http://www.christuniversity.in/FacultyProfile/guestfaculty_det.php?webid=33&guest_id=198');"><img
+																														src="../images/profile.gif">
+																												</a></td>
+																											</tr>
+																											<tr>
+																												<td width="2%" align="center"
+																													style="background-color: #CBC9CE"
+																													class="student_new"><font size=1>6</font>
+																												</td>
+																												<td width="35%"
+																													style="background-color: #CBC9CE"
+																													class="student_new"><font size=1>RITHI
+																														BARUAH </font></td>
+																												<td width="33%"
+																													style="background-color: #CBC9CE"
+																													class="student_new"><font size=1>MSc
+																												</font></td>
+																												<td width="28%"
+																													style="background-color: #CBC9CE"
+																													class="student_new"><font size=1>ASSISTANT
+																														PROFESSOR</font></td>
+																												<td width="2%"
+																													style="background-color: #CBC9CE"
+																													class="student_new"><a
+																													href="JavaScript:popUpCal('http://www.christuniversity.in/FacultyProfile/guestfaculty_det.php?webid=33&guest_id=187');"><img
+																														src="../images/profile.gif">
+																												</a></td>
+																											</tr>
+																											<tr>
+																												<td width="2%" align="center"
+																													style="background-color: #CBD0FF"
+																													class="student_new"><font size=1>7</font>
+																												</td>
+																												<td width="35%"
+																													style="background-color: #CBD0FF"
+																													class="student_new"><font size=1>SUNITA
+																														MENEZES </font></td>
+																												<td width="33%"
+																													style="background-color: #CBD0FF"
+																													class="student_new"><font size=1>M.Phil,MSC</font>
+																												</td>
+																												<td width="28%"
+																													style="background-color: #CBD0FF"
+																													class="student_new"><font size=1>ASSISTANT
+																														PROFESSOR</font></td>
+																												<td width="2%"
+																													style="background-color: #CBD0FF"
+																													class="student_new"><a
+																													href="JavaScript:popUpCal('http://www.christuniversity.in/FacultyProfile/guestfaculty_det.php?webid=33&guest_id=195');"><img
+																														src="../images/profile.gif">
+																												</a></td>
+																											</tr>
+																											<tr>
+																												<td width="2%" align="center"
+																													style="background-color: #CBC9CE"
+																													class="student_new"><font size=1>8</font>
+																												</td>
+																												<td width="35%"
+																													style="background-color: #CBC9CE"
+																													class="student_new"><font size=1>WATINARO
+																														LONGKUMERIS </font></td>
+																												<td width="33%"
+																													style="background-color: #CBC9CE"
+																													class="student_new"><font size=1>MSc.,MPhil</font>
+																												</td>
+																												<td width="28%"
+																													style="background-color: #CBC9CE"
+																													class="student_new"><font size=1>ASSISTANT
+																														PROFESSOR</font></td>
+																												<td width="2%"
+																													style="background-color: #CBC9CE"
+																													class="student_new"><a
+																													href="JavaScript:popUpCal('http://www.christuniversity.in/FacultyProfile/guestfaculty_det.php?webid=33&guest_id=168');"><img
+																														src="../images/profile.gif">
+																												</a></td>
+																											</tr>
+
+																											</tr>
+																										</table>
+																									</td>
+																								</tr>
+																						</table>
+																			</td>
+																		</tr>
+
+																	</table> <br />
+
+																	</p>
+																</td>
+
+
+															</tr>
+															<td align="left" valign="top"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Adjunct/Guest
+																	Faculty Members </strong> &nbsp;&nbsp;<a
+																href="http://www.christuniversity.in/uploadimages/2012-13 part-timers Psychology.pdf"
+																target="_blank"><img
+																	src="http://www.christuniversity.in/uploadimages/cl.jpg"
+																	width="75px" height="23px">
+															</a> <br></br> <br></br> <br></br>
+																<tr>
+																	<td align="left">
+																		<!--<table width="525" border="0"  cellpadding="0" cellspacing="0">
+
+
+      <tr>
+
+        <td height="27" colspan="4" align="left"><span class="phychology_chead2">Courses Offered</span></td>
+  </tr>
+
+
+	<tr><td height="22" align="left" valign="top" class="student_new">&nbsp;</td>
+  <td colspan="3" align="left" valign="top" class="student_new"><span class="courstxt">Doctoral Programmes (PhD)</span></td>
+  </tr>
+			<tr><td width="2%" height="24" align="left" valign="top" class="student_new">&nbsp;</td>
+			  <td width="2%" align="left" valign="middle" class="student_new"></td>
+			  <td width="3%" align="left" valign="middle" class="student_new" style="padding-top:5px;"><img src="images/icon.jpg" width="5" height="5" /></td>
+	    <td width="93%" align="left" valign="middle" class="student_new"><a href="progdetails.php?division=Humanities and Social Sciences&dept=33&prid=207#cr" class="container_c">
+			    Doctor of Philosophy (PhD) in Psychology			  </a></td>
+  </tr>
+				<tr><td height="22" align="left" valign="top" class="student_new">&nbsp;</td>
+  <td colspan="3" align="left" valign="top" class="student_new"><span class="courstxt">M Phil Programmes</span></td>
+  </tr>
+			<tr><td width="2%" height="24" align="left" valign="top" class="student_new">&nbsp;</td>
+			  <td width="2%" align="left" valign="middle" class="student_new"></td>
+			  <td width="3%" align="left" valign="middle" class="student_new" style="padding-top:5px;"><img src="images/icon.jpg" width="5" height="5" /></td>
+	    <td width="93%" align="left" valign="middle" class="student_new"><a href="progdetails.php?division=Humanities and Social Sciences&dept=33&prid=175#cr" class="container_c">
+			    Master of Philosophy (MPhil) in Psychology			  </a></td>
+  </tr>
+				<tr><td height="22" align="left" valign="top" class="student_new">&nbsp;</td>
+  <td colspan="3" align="left" valign="top" class="student_new"><span class="courstxt">Postgraduate Programmes</span></td>
+  </tr>
+			<tr><td width="2%" height="24" align="left" valign="top" class="student_new">&nbsp;</td>
+			  <td width="2%" align="left" valign="middle" class="student_new"></td>
+			  <td width="3%" align="left" valign="middle" class="student_new" style="padding-top:5px;"><img src="images/icon.jpg" width="5" height="5" /></td>
+	    <td width="93%" align="left" valign="middle" class="student_new"><a href="progdetails.php?division=Humanities and Social Sciences&dept=33&prid=234#cr" class="container_c">
+			    Master of Science (MSc) in Psychology (HRDM)			  </a></td>
+  </tr>
+				<tr><td height="21" align="left" valign="top" class="student_new">&nbsp;</td>
+  <td align="left" valign="middle" class="student_new"></td>
+  <td align="left" valign="middle" class="student_new"><img src="images/icon.jpg" width="5" height="5" /></td>
+  <td align="left" valign="middle" class="student_new"><a href="progdetails.php?division=Humanities and Social Sciences&dept=33&prid=40#cr" class="container_c">Master of Science (MSc) in Counselling Psychology</a></td>
+</tr>
+              <tr><td height="21" align="left" valign="top" class="student_new">&nbsp;</td>
+  <td align="left" valign="middle" class="student_new"></td>
+  <td align="left" valign="middle" class="student_new"><img src="images/icon.jpg" width="5" height="5" /></td>
+  <td align="left" valign="middle" class="student_new"><a href="progdetails.php?division=Humanities and Social Sciences&dept=33&prid=36#cr" class="container_c">Master of Science (MSc) in  Psychology (Clinical)</a></td>
+</tr>
+              <tr><td height="22" align="left" valign="top" class="student_new">&nbsp;</td>
+  <td colspan="3" align="left" valign="top" class="student_new"><span class="courstxt">Undergraduate Programmes</span></td>
+  </tr>
+			<tr><td width="2%" height="24" align="left" valign="top" class="student_new">&nbsp;</td>
+			  <td width="2%" align="left" valign="middle" class="student_new"></td>
+			  <td width="3%" align="left" valign="middle" class="student_new" style="padding-top:5px;"><img src="images/icon.jpg" width="5" height="5" /></td>
+	    <td width="93%" align="left" valign="middle" class="student_new"><a href="progdetails.php?division=Humanities and Social Sciences&dept=33&prid=241#cr" class="container_c">
+			    Bachelor of Arts (BA) in Performing Arts,English,Psychology			  </a></td>
+  </tr>
+				<tr><td height="21" align="left" valign="top" class="student_new">&nbsp;</td>
+  <td align="left" valign="middle" class="student_new"></td>
+  <td align="left" valign="middle" class="student_new"><img src="images/icon.jpg" width="5" height="5" /></td>
+  <td align="left" valign="middle" class="student_new"><a href="progdetails.php?division=Humanities and Social Sciences&dept=33&prid=63#cr" class="container_c">Bachelor of Arts (BA) in Journalism, Psychology, English</a></td>
+</tr>
+              <tr><td height="21" align="left" valign="top" class="student_new">&nbsp;</td>
+  <td align="left" valign="middle" class="student_new"></td>
+  <td align="left" valign="middle" class="student_new"><img src="images/icon.jpg" width="5" height="5" /></td>
+  <td align="left" valign="middle" class="student_new"><a href="progdetails.php?division=Humanities and Social Sciences&dept=33&prid=405#cr" class="container_c">Bachelor of Science (BSc) Honors in Psychology</a></td>
+</tr>
+              <tr><td height="21" align="left" valign="top" class="student_new">&nbsp;</td>
+  <td align="left" valign="middle" class="student_new"></td>
+  <td align="left" valign="middle" class="student_new"><img src="images/icon.jpg" width="5" height="5" /></td>
+  <td align="left" valign="middle" class="student_new"><a href="progdetails.php?division=Humanities and Social Sciences&dept=33&prid=62#cr" class="container_c">Bachelor of Arts (BA) in Psychology, Sociology, English</a></td>
+</tr>
+              <tr><td height="21" align="left" valign="top" class="student_new">&nbsp;</td>
+  <td align="left" valign="middle" class="student_new"></td>
+  <td align="left" valign="middle" class="student_new"><img src="images/icon.jpg" width="5" height="5" /></td>
+  <td align="left" valign="middle" class="student_new"><a href="progdetails.php?division=Humanities and Social Sciences&dept=33&prid=363#cr" class="container_c">Bachelor of Arts (BA) in Communicative English, English, Psychology</a></td>
+</tr>
+              <tr><td height="21" align="left" valign="top" class="student_new">&nbsp;</td>
+  <td align="left" valign="middle" class="student_new"></td>
+  <td align="left" valign="middle" class="student_new"><img src="images/icon.jpg" width="5" height="5" /></td>
+  <td align="left" valign="middle" class="student_new"><a href="progdetails.php?division=Humanities and Social Sciences&dept=33&prid=61#cr" class="container_c">Bachelor of Arts (BA) in Psychology, Sociology, Economics</a></td>
+</tr>
+              <tr><td height="22" align="left" valign="top" class="student_new">&nbsp;</td>
+  <td colspan="3" align="left" valign="top" class="student_new"><span class="courstxt">Diploma Programmes</span></td>
+  </tr>
+			<tr><td width="2%" height="24" align="left" valign="top" class="student_new">&nbsp;</td>
+			  <td width="2%" align="left" valign="middle" class="student_new"></td>
+			  <td width="3%" align="left" valign="middle" class="student_new" style="padding-top:5px;"><img src="images/icon.jpg" width="5" height="5" /></td>
+	    <td width="93%" align="left" valign="middle" class="student_new"><a href="progdetails.php?division=Humanities and Social Sciences&dept=33&prid=292#cr" class="container_c">
+			    Diploma in Life Skills and Reproductive Health			  </a></td>
+  </tr>
+				<tr><td height="22" align="left" valign="top" class="student_new">&nbsp;</td>
+  <td colspan="3" align="left" valign="top" class="student_new"><span class="courstxt">Certificate Courses in Even Semester</span></td>
+  </tr>
+			<tr><td width="2%" height="24" align="left" valign="top" class="student_new">&nbsp;</td>
+			  <td width="2%" align="left" valign="middle" class="student_new"></td>
+			  <td width="3%" align="left" valign="middle" class="student_new" style="padding-top:5px;"><img src="images/icon.jpg" width="5" height="5" /></td>
+	    <td width="93%" align="left" valign="middle" class="student_new"><a href="progdetails.php?division=Humanities and Social Sciences&dept=33&prid=359#cr" class="container_c">
+			    Introduction to Hypnosis			  </a></td>
+  </tr>
+				<tr><td height="21" align="left" valign="top" class="student_new">&nbsp;</td>
+  <td align="left" valign="middle" class="student_new"></td>
+  <td align="left" valign="middle" class="student_new"><img src="images/icon.jpg" width="5" height="5" /></td>
+  <td align="left" valign="middle" class="student_new"><a href="progdetails.php?division=Humanities and Social Sciences&dept=33&prid=88#cr" class="container_c">Team Building</a></td>
+</tr>
+              <tr><td height="21" align="left" valign="top" class="student_new">&nbsp;</td>
+  <td align="left" valign="middle" class="student_new"></td>
+  <td align="left" valign="middle" class="student_new"><img src="images/icon.jpg" width="5" height="5" /></td>
+  <td align="left" valign="middle" class="student_new"><a href="progdetails.php?division=Humanities and Social Sciences&dept=33&prid=362#cr" class="container_c">Advanced Forensic Psychology</a></td>
+</tr>
+              <tr><td height="21" align="left" valign="top" class="student_new">&nbsp;</td>
+  <td align="left" valign="middle" class="student_new"></td>
+  <td align="left" valign="middle" class="student_new"><img src="images/icon.jpg" width="5" height="5" /></td>
+  <td align="left" valign="middle" class="student_new"><a href="progdetails.php?division=Humanities and Social Sciences&dept=33&prid=361#cr" class="container_c">Peace and Conflict Resolution Studies</a></td>
+</tr>
+              <tr><td height="21" align="left" valign="top" class="student_new">&nbsp;</td>
+  <td align="left" valign="middle" class="student_new"></td>
+  <td align="left" valign="middle" class="student_new"><img src="images/icon.jpg" width="5" height="5" /></td>
+  <td align="left" valign="middle" class="student_new"><a href="progdetails.php?division=Humanities and Social Sciences&dept=33&prid=360#cr" class="container_c">Gender, Diversity and Social Transformation</a></td>
+</tr>
+              <tr><td height="22" align="left" valign="top" class="student_new">&nbsp;</td>
+  <td colspan="3" align="left" valign="top" class="student_new"><span class="courstxt">Certificate Courses (Even &amp; Odd Semester)</span></td>
+  </tr>
+			<tr><td width="2%" height="24" align="left" valign="top" class="student_new">&nbsp;</td>
+			  <td width="2%" align="left" valign="middle" class="student_new"></td>
+			  <td width="3%" align="left" valign="middle" class="student_new" style="padding-top:5px;"><img src="images/icon.jpg" width="5" height="5" /></td>
+	    <td width="93%" align="left" valign="middle" class="student_new"><a href="progdetails.php?division=Humanities and Social Sciences&dept=33&prid=358#cr" class="container_c">
+			    Psychosocial Rehabilitation			  </a></td>
+  </tr>
+				<tr><td height="21" align="left" valign="top" class="student_new">&nbsp;</td>
+  <td align="left" valign="middle" class="student_new"></td>
+  <td align="left" valign="middle" class="student_new"><img src="images/icon.jpg" width="5" height="5" /></td>
+  <td align="left" valign="middle" class="student_new"><a href="progdetails.php?division=Humanities and Social Sciences&dept=33&prid=357#cr" class="container_c">Guidance and Counselling</a></td>
+</tr>
+              <tr><td height="21" align="left" valign="top" class="student_new">&nbsp;</td>
+  <td align="left" valign="middle" class="student_new"></td>
+  <td align="left" valign="middle" class="student_new"><img src="images/icon.jpg" width="5" height="5" /></td>
+  <td align="left" valign="middle" class="student_new"><a href="progdetails.php?division=Humanities and Social Sciences&dept=33&prid=356#cr" class="container_c">Basic Forensic</a></td>
+</tr>
+              <tr><td height="21" align="left" valign="top" class="student_new">&nbsp;</td>
+  <td align="left" valign="middle" class="student_new"></td>
+  <td align="left" valign="middle" class="student_new"><img src="images/icon.jpg" width="5" height="5" /></td>
+  <td align="left" valign="middle" class="student_new"><a href="progdetails.php?division=Humanities and Social Sciences&dept=33&prid=355#cr" class="container_c">Life skills</a></td>
+</tr>
+              <tr><td height="21" align="left" valign="top" class="student_new">&nbsp;</td>
+  <td align="left" valign="middle" class="student_new"></td>
+  <td align="left" valign="middle" class="student_new"><img src="images/icon.jpg" width="5" height="5" /></td>
+  <td align="left" valign="middle" class="student_new"><a href="progdetails.php?division=Humanities and Social Sciences&dept=33&prid=354#cr" class="container_c">Stress  Management</a></td>
+</tr>
+              <tr><td height="21" align="left" valign="top" class="student_new">&nbsp;</td>
+  <td align="left" valign="middle" class="student_new"></td>
+  <td align="left" valign="middle" class="student_new"><img src="images/icon.jpg" width="5" height="5" /></td>
+  <td align="left" valign="middle" class="student_new"><a href="progdetails.php?division=Humanities and Social Sciences&dept=33&prid=353#cr" class="container_c">Training  and Development</a></td>
+</tr>
+              <tr><td height="21" align="left" valign="top" class="student_new">&nbsp;</td>
+  <td align="left" valign="middle" class="student_new"></td>
+  <td align="left" valign="middle" class="student_new"><img src="images/icon.jpg" width="5" height="5" /></td>
+  <td align="left" valign="middle" class="student_new"><a href="progdetails.php?division=Humanities and Social Sciences&dept=33&prid=352#cr" class="container_c">Health Psychology</a></td>
+</tr>
+              <tr><td height="21" align="left" valign="top" class="student_new">&nbsp;</td>
+  <td align="left" valign="middle" class="student_new"></td>
+  <td align="left" valign="middle" class="student_new"><img src="images/icon.jpg" width="5" height="5" /></td>
+  <td align="left" valign="middle" class="student_new"><a href="progdetails.php?division=Humanities and Social Sciences&dept=33&prid=351#cr" class="container_c">Academic Enrichment</a></td>
+</tr>
+              <tr><td height="21" align="left" valign="top" class="student_new">&nbsp;</td>
+  <td align="left" valign="middle" class="student_new"></td>
+  <td align="left" valign="middle" class="student_new"><img src="images/icon.jpg" width="5" height="5" /></td>
+  <td align="left" valign="middle" class="student_new"><a href="progdetails.php?division=Humanities and Social Sciences&dept=33&prid=350#cr" class="container_c">Introduction to Yoga</a></td>
+</tr>
+                        </table></br></br></br></br></br>
+
+--></td>
+																</tr>
+														</table>
+													</td>
+
+													<td width="385" align="center" valign="top"><table
+															width="385" border="0" cellspacing="0" cellpadding="0">
+															<tr>
+																<td align="left"><script src="../jquery.min.js"></script>
+																	<script src="../jquery-ui.min.js"></script> <script
+																		type="text/javascript"
+																		src="../yoxview/yoxview-init.js"></script> <script
+																		type="text/javascript">
+ var $j = jQuery.noConflict();
+                    $j(document).ready(function(){
+                        $j(".yoxview").yoxview({autoPlay : true});
+                    });
+                </script> <script type="text/javascript"
+																		src="../yoxview/lang/en.js"></script>
+																	<table width="210" border="0" cellspacing="0"
+																		cellpadding="0">
+																		<tr>
+
+																			<td align="left" valign="top"><span
+																				class="courstxt">Slide Show</span></td>
+
+																		</tr>
+
+																		<tr>
+																			<td align="center"><table width="100" border="0"
+																					align="center" cellpadding="0" cellspacing="0">
+																					<tr>
+																						<td width="180" align="left" valign="top"
+																							class="dept_slide_inner"
+																							style="background: url(images/slide_bg.jpg); height: 112px; background-repeat: no-repeat">
+																							<table width="165" border="0" cellspacing="0"
+																								cellpadding="0">
+																								<tr>
+																									<td align="center" valign="top">
+
+
+																										<div class="thumbnails yoxview">
+
+
+
+																											<div style="width: 80px; float: left;">
+																												<a href="../webadmin/depgallery/_1972.jpeg"><img
+																													src="../webadmin/depgallery/_1972.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div style="width: 80px; float: left;">
+																												<a href="../webadmin/depgallery/_2373.jpeg"><img
+																													src="../webadmin/depgallery/_2373.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div style="width: 80px; float: left;">
+																												<a href="../webadmin/depgallery/_1771.jpeg"><img
+																													src="../webadmin/depgallery/_1771.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div style="width: 80px; float: left;">
+																												<a href="../webadmin/depgallery/_1762.jpeg"><img
+																													src="../webadmin/depgallery/_1762.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div
+																												style="width: 80px; float: left; display: none">
+																												<a href="../webadmin/depgallery/_1764.jpeg"><img
+																													src="../webadmin/depgallery/_1764.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div
+																												style="width: 80px; float: left; display: none">
+																												<a href="../webadmin/depgallery/_3422.jpeg"><img
+																													src="../webadmin/depgallery/_3422.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div
+																												style="width: 80px; float: left; display: none">
+																												<a href="../webadmin/depgallery/_1760.jpeg"><img
+																													src="../webadmin/depgallery/_1760.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div
+																												style="width: 80px; float: left; display: none">
+																												<a href="../webadmin/depgallery/_1968.jpeg"><img
+																													src="../webadmin/depgallery/_1968.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div
+																												style="width: 80px; float: left; display: none">
+																												<a href="../webadmin/depgallery/_1770.jpeg"><img
+																													src="../webadmin/depgallery/_1770.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div
+																												style="width: 80px; float: left; display: none">
+																												<a href="../webadmin/depgallery/_1752.jpeg"><img
+																													src="../webadmin/depgallery/_1752.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div
+																												style="width: 80px; float: left; display: none">
+																												<a href="../webadmin/depgallery/_1746.jpeg"><img
+																													src="../webadmin/depgallery/_1746.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div
+																												style="width: 80px; float: left; display: none">
+																												<a href="../webadmin/depgallery/_1969.jpeg"><img
+																													src="../webadmin/depgallery/_1969.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div
+																												style="width: 80px; float: left; display: none">
+																												<a href="../webadmin/depgallery/_1744.jpeg"><img
+																													src="../webadmin/depgallery/_1744.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div
+																												style="width: 80px; float: left; display: none">
+																												<a href="../webadmin/depgallery/_3420.jpeg"><img
+																													src="../webadmin/depgallery/_3420.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div
+																												style="width: 80px; float: left; display: none">
+																												<a href="../webadmin/depgallery/_3284.jpeg"><img
+																													src="../webadmin/depgallery/_3284.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div
+																												style="width: 80px; float: left; display: none">
+																												<a href="../webadmin/depgallery/_3419.jpeg"><img
+																													src="../webadmin/depgallery/_3419.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div
+																												style="width: 80px; float: left; display: none">
+																												<a href="../webadmin/depgallery/_1753.jpeg"><img
+																													src="../webadmin/depgallery/_1753.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div
+																												style="width: 80px; float: left; display: none">
+																												<a href="../webadmin/depgallery/_1747.jpeg"><img
+																													src="../webadmin/depgallery/_1747.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div
+																												style="width: 80px; float: left; display: none">
+																												<a href="../webadmin/depgallery/_1769.jpeg"><img
+																													src="../webadmin/depgallery/_1769.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div
+																												style="width: 80px; float: left; display: none">
+																												<a href="../webadmin/depgallery/_2322.jpeg"><img
+																													src="../webadmin/depgallery/_2322.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div
+																												style="width: 80px; float: left; display: none">
+																												<a href="../webadmin/depgallery/_1740.jpeg"><img
+																													src="../webadmin/depgallery/_1740.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div
+																												style="width: 80px; float: left; display: none">
+																												<a href="../webadmin/depgallery/_1766.jpeg"><img
+																													src="../webadmin/depgallery/_1766.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div
+																												style="width: 80px; float: left; display: none">
+																												<a href="../webadmin/depgallery/_1759.jpeg"><img
+																													src="../webadmin/depgallery/_1759.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div
+																												style="width: 80px; float: left; display: none">
+																												<a href="../webadmin/depgallery/_2371.jpeg"><img
+																													src="../webadmin/depgallery/_2371.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div
+																												style="width: 80px; float: left; display: none">
+																												<a href="../webadmin/depgallery/_3421.jpeg"><img
+																													src="../webadmin/depgallery/_3421.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div
+																												style="width: 80px; float: left; display: none">
+																												<a href="../webadmin/depgallery/_1768.jpeg"><img
+																													src="../webadmin/depgallery/_1768.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div
+																												style="width: 80px; float: left; display: none">
+																												<a href="../webadmin/depgallery/_3286.jpeg"><img
+																													src="../webadmin/depgallery/_3286.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div
+																												style="width: 80px; float: left; display: none">
+																												<a href="../webadmin/depgallery/_1970.jpeg"><img
+																													src="../webadmin/depgallery/_1970.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div
+																												style="width: 80px; float: left; display: none">
+																												<a href="../webadmin/depgallery/_3285.jpeg"><img
+																													src="../webadmin/depgallery/_3285.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div
+																												style="width: 80px; float: left; display: none">
+																												<a href="../webadmin/depgallery/_2323.jpeg"><img
+																													src="../webadmin/depgallery/_2323.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div
+																												style="width: 80px; float: left; display: none">
+																												<a href="../webadmin/depgallery/_1971.jpeg"><img
+																													src="../webadmin/depgallery/_1971.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div
+																												style="width: 80px; float: left; display: none">
+																												<a href="../webadmin/depgallery/_2324.jpeg"><img
+																													src="../webadmin/depgallery/_2324.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div
+																												style="width: 80px; float: left; display: none">
+																												<a href="../webadmin/depgallery/_1755.jpeg"><img
+																													src="../webadmin/depgallery/_1755.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div
+																												style="width: 80px; float: left; display: none">
+																												<a href="../webadmin/depgallery/_1757.jpeg"><img
+																													src="../webadmin/depgallery/_1757.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div
+																												style="width: 80px; float: left; display: none">
+																												<a href="../webadmin/depgallery/_1765.jpeg"><img
+																													src="../webadmin/depgallery/_1765.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div
+																												style="width: 80px; float: left; display: none">
+																												<a href="../webadmin/depgallery/_3289.jpeg"><img
+																													src="../webadmin/depgallery/_3289.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div
+																												style="width: 80px; float: left; display: none">
+																												<a href="../webadmin/depgallery/_1751.jpeg"><img
+																													src="../webadmin/depgallery/_1751.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div
+																												style="width: 80px; float: left; display: none">
+																												<a href="../webadmin/depgallery/_1745.jpeg"><img
+																													src="../webadmin/depgallery/_1745.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div
+																												style="width: 80px; float: left; display: none">
+																												<a href="../webadmin/depgallery/_3288.jpeg"><img
+																													src="../webadmin/depgallery/_3288.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div
+																												style="width: 80px; float: left; display: none">
+																												<a href="../webadmin/depgallery/_1749.jpeg"><img
+																													src="../webadmin/depgallery/_1749.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div
+																												style="width: 80px; float: left; display: none">
+																												<a href="../webadmin/depgallery/_2326.jpeg"><img
+																													src="../webadmin/depgallery/_2326.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div
+																												style="width: 80px; float: left; display: none">
+																												<a href="../webadmin/depgallery/_1756.jpeg"><img
+																													src="../webadmin/depgallery/_1756.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div
+																												style="width: 80px; float: left; display: none">
+																												<a href="../webadmin/depgallery/_1754.jpeg"><img
+																													src="../webadmin/depgallery/_1754.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div
+																												style="width: 80px; float: left; display: none">
+																												<a href="../webadmin/depgallery/_1748.jpeg"><img
+																													src="../webadmin/depgallery/_1748.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div
+																												style="width: 80px; float: left; display: none">
+																												<a href="../webadmin/depgallery/_1763.jpeg"><img
+																													src="../webadmin/depgallery/_1763.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div
+																												style="width: 80px; float: left; display: none">
+																												<a href="../webadmin/depgallery/_2368.jpeg"><img
+																													src="../webadmin/depgallery/_2368.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div
+																												style="width: 80px; float: left; display: none">
+																												<a href="../webadmin/depgallery/_3423.jpeg"><img
+																													src="../webadmin/depgallery/_3423.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div
+																												style="width: 80px; float: left; display: none">
+																												<a href="../webadmin/depgallery/_3287.jpeg"><img
+																													src="../webadmin/depgallery/_3287.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div
+																												style="width: 80px; float: left; display: none">
+																												<a href="../webadmin/depgallery/_1758.jpeg"><img
+																													src="../webadmin/depgallery/_1758.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div
+																												style="width: 80px; float: left; display: none">
+																												<a href="../webadmin/depgallery/_1743.jpeg"><img
+																													src="../webadmin/depgallery/_1743.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div
+																												style="width: 80px; float: left; display: none">
+																												<a href="../webadmin/depgallery/_1973.jpeg"><img
+																													src="../webadmin/depgallery/_1973.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div
+																												style="width: 80px; float: left; display: none">
+																												<a href="../webadmin/depgallery/_2369.jpeg"><img
+																													src="../webadmin/depgallery/_2369.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div
+																												style="width: 80px; float: left; display: none">
+																												<a href="../webadmin/depgallery/_2372.jpeg"><img
+																													src="../webadmin/depgallery/_2372.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div
+																												style="width: 80px; float: left; display: none">
+																												<a href="../webadmin/depgallery/_1767.jpeg"><img
+																													src="../webadmin/depgallery/_1767.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div
+																												style="width: 80px; float: left; display: none">
+																												<a href="../webadmin/depgallery/_1750.jpeg"><img
+																													src="../webadmin/depgallery/_1750.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div
+																												style="width: 80px; float: left; display: none">
+																												<a href="../webadmin/depgallery/_1772.jpeg"><img
+																													src="../webadmin/depgallery/_1772.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div
+																												style="width: 80px; float: left; display: none">
+																												<a href="../webadmin/depgallery/_3283.jpeg"><img
+																													src="../webadmin/depgallery/_3283.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div
+																												style="width: 80px; float: left; display: none">
+																												<a href="../webadmin/depgallery/_2327.jpeg"><img
+																													src="../webadmin/depgallery/_2327.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div
+																												style="width: 80px; float: left; display: none">
+																												<a href="../webadmin/depgallery/_1761.jpeg"><img
+																													src="../webadmin/depgallery/_1761.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div
+																												style="width: 80px; float: left; display: none">
+																												<a href="../webadmin/depgallery/_1742.jpeg"><img
+																													src="../webadmin/depgallery/_1742.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div
+																												style="width: 80px; float: left; display: none">
+																												<a href="../webadmin/depgallery/_2321.jpeg"><img
+																													src="../webadmin/depgallery/_2321.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div
+																												style="width: 80px; float: left; display: none">
+																												<a href="../webadmin/depgallery/_1741.jpeg"><img
+																													src="../webadmin/depgallery/_1741.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div
+																												style="width: 80px; float: left; display: none">
+																												<a href="../webadmin/depgallery/_2370.jpeg"><img
+																													src="../webadmin/depgallery/_2370.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div
+																												style="width: 80px; float: left; display: none">
+																												<a href="../webadmin/depgallery/_3290.jpeg"><img
+																													src="../webadmin/depgallery/_3290.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+
+
+
+																											<div
+																												style="width: 80px; float: left; display: none">
+																												<a href="../webadmin/depgallery/_2325.jpeg"><img
+																													src="../webadmin/depgallery/_2325.jpeg"
+																													alt="First" width="80" height="70"
+																													border="0" title="" /> </a>
+																											</div>
+																									</td>
+																								</tr>
+																							</table>
+
+																							</div></td>
+																					</tr>
+																				</table>
+																			</td>
+																		</tr>
+																		<tr>
+																			<td>&nbsp;</td>
+																		</tr>
+																		<tr>
+																			<td><style type="text/css">
+A:link {
+	text-decoration: none
+}
+
+A:visited {
+	text-decoration: none
+}
+
+A:active {
+	text-decoration: none
+}
+</style>
+
+																				<table width="210" border="0" align="center"
+																					cellpadding="0" cellspacing="0"
+																					style="padding-bottom: 20px;">
+
+																					<tr>
+																						<!--<td align="left"><script src="../jquery.min.js"></script>
+<script src="../jquery-ui.min.js"></script>
+
+<script type="text/javascript" src="../yoxview/yoxview-init.js"></script>
+ <script type="text/javascript">
+ var $j = jQuery.noConflict();
+                    $j(document).ready(function(){
+                        $j(".yoxview").yoxview({autoPlay : true});
+                    });
+                </script>
+<script type="text/javascript" src="../yoxview/lang/en.js"></script>
+<table width="210" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+
+    <td align="left" valign="top" ><span class="courstxt">Slide Show</span></td>
+
+  </tr>
+
+		<tr>
+            <td align="center"><table width="100" border="0" align="center" cellpadding="0" cellspacing="0" >
+                <tr>
+                  <td width="180" align="left" valign="top" class="dept_slide_inner" style=" background:url(images/slide_bg.jpg); height:112px; background-repeat:no-repeat">
+        <table width="165" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td align="center" valign="top">
+
+
+<div  class="thumbnails yoxview">
+              
+
+
+<div    style="width:80px; float:left;">
+<a href="../webadmin/depgallery/_1756.jpeg"><img src="../webadmin/depgallery/_1756.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left;">
+<a href="../webadmin/depgallery/_1749.jpeg"><img src="../webadmin/depgallery/_1749.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left;">
+<a href="../webadmin/depgallery/_3423.jpeg"><img src="../webadmin/depgallery/_3423.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left;">
+<a href="../webadmin/depgallery/_1748.jpeg"><img src="../webadmin/depgallery/_1748.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left; display:none">
+<a href="../webadmin/depgallery/_1747.jpeg"><img src="../webadmin/depgallery/_1747.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left; display:none">
+<a href="../webadmin/depgallery/_2370.jpeg"><img src="../webadmin/depgallery/_2370.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left; display:none">
+<a href="../webadmin/depgallery/_1752.jpeg"><img src="../webadmin/depgallery/_1752.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left; display:none">
+<a href="../webadmin/depgallery/_3286.jpeg"><img src="../webadmin/depgallery/_3286.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left; display:none">
+<a href="../webadmin/depgallery/_3419.jpeg"><img src="../webadmin/depgallery/_3419.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left; display:none">
+<a href="../webadmin/depgallery/_1757.jpeg"><img src="../webadmin/depgallery/_1757.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left; display:none">
+<a href="../webadmin/depgallery/_1762.jpeg"><img src="../webadmin/depgallery/_1762.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left; display:none">
+<a href="../webadmin/depgallery/_3422.jpeg"><img src="../webadmin/depgallery/_3422.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left; display:none">
+<a href="../webadmin/depgallery/_1764.jpeg"><img src="../webadmin/depgallery/_1764.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left; display:none">
+<a href="../webadmin/depgallery/_2321.jpeg"><img src="../webadmin/depgallery/_2321.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left; display:none">
+<a href="../webadmin/depgallery/_1767.jpeg"><img src="../webadmin/depgallery/_1767.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left; display:none">
+<a href="../webadmin/depgallery/_2371.jpeg"><img src="../webadmin/depgallery/_2371.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left; display:none">
+<a href="../webadmin/depgallery/_3421.jpeg"><img src="../webadmin/depgallery/_3421.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left; display:none">
+<a href="../webadmin/depgallery/_1740.jpeg"><img src="../webadmin/depgallery/_1740.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left; display:none">
+<a href="../webadmin/depgallery/_1744.jpeg"><img src="../webadmin/depgallery/_1744.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left; display:none">
+<a href="../webadmin/depgallery/_1754.jpeg"><img src="../webadmin/depgallery/_1754.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left; display:none">
+<a href="../webadmin/depgallery/_1771.jpeg"><img src="../webadmin/depgallery/_1771.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left; display:none">
+<a href="../webadmin/depgallery/_1766.jpeg"><img src="../webadmin/depgallery/_1766.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left; display:none">
+<a href="../webadmin/depgallery/_1973.jpeg"><img src="../webadmin/depgallery/_1973.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left; display:none">
+<a href="../webadmin/depgallery/_2373.jpeg"><img src="../webadmin/depgallery/_2373.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left; display:none">
+<a href="../webadmin/depgallery/_1743.jpeg"><img src="../webadmin/depgallery/_1743.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left; display:none">
+<a href="../webadmin/depgallery/_1763.jpeg"><img src="../webadmin/depgallery/_1763.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left; display:none">
+<a href="../webadmin/depgallery/_1755.jpeg"><img src="../webadmin/depgallery/_1755.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left; display:none">
+<a href="../webadmin/depgallery/_2326.jpeg"><img src="../webadmin/depgallery/_2326.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left; display:none">
+<a href="../webadmin/depgallery/_1969.jpeg"><img src="../webadmin/depgallery/_1969.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left; display:none">
+<a href="../webadmin/depgallery/_1746.jpeg"><img src="../webadmin/depgallery/_1746.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left; display:none">
+<a href="../webadmin/depgallery/_1742.jpeg"><img src="../webadmin/depgallery/_1742.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left; display:none">
+<a href="../webadmin/depgallery/_1758.jpeg"><img src="../webadmin/depgallery/_1758.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left; display:none">
+<a href="../webadmin/depgallery/_3285.jpeg"><img src="../webadmin/depgallery/_3285.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left; display:none">
+<a href="../webadmin/depgallery/_1971.jpeg"><img src="../webadmin/depgallery/_1971.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left; display:none">
+<a href="../webadmin/depgallery/_1772.jpeg"><img src="../webadmin/depgallery/_1772.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left; display:none">
+<a href="../webadmin/depgallery/_2368.jpeg"><img src="../webadmin/depgallery/_2368.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left; display:none">
+<a href="../webadmin/depgallery/_1970.jpeg"><img src="../webadmin/depgallery/_1970.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left; display:none">
+<a href="../webadmin/depgallery/_3290.jpeg"><img src="../webadmin/depgallery/_3290.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left; display:none">
+<a href="../webadmin/depgallery/_3288.jpeg"><img src="../webadmin/depgallery/_3288.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left; display:none">
+<a href="../webadmin/depgallery/_2372.jpeg"><img src="../webadmin/depgallery/_2372.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left; display:none">
+<a href="../webadmin/depgallery/_1741.jpeg"><img src="../webadmin/depgallery/_1741.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left; display:none">
+<a href="../webadmin/depgallery/_2323.jpeg"><img src="../webadmin/depgallery/_2323.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left; display:none">
+<a href="../webadmin/depgallery/_1769.jpeg"><img src="../webadmin/depgallery/_1769.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left; display:none">
+<a href="../webadmin/depgallery/_2369.jpeg"><img src="../webadmin/depgallery/_2369.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left; display:none">
+<a href="../webadmin/depgallery/_3283.jpeg"><img src="../webadmin/depgallery/_3283.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left; display:none">
+<a href="../webadmin/depgallery/_3284.jpeg"><img src="../webadmin/depgallery/_3284.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left; display:none">
+<a href="../webadmin/depgallery/_1765.jpeg"><img src="../webadmin/depgallery/_1765.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left; display:none">
+<a href="../webadmin/depgallery/_1972.jpeg"><img src="../webadmin/depgallery/_1972.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left; display:none">
+<a href="../webadmin/depgallery/_1761.jpeg"><img src="../webadmin/depgallery/_1761.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left; display:none">
+<a href="../webadmin/depgallery/_1968.jpeg"><img src="../webadmin/depgallery/_1968.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left; display:none">
+<a href="../webadmin/depgallery/_2324.jpeg"><img src="../webadmin/depgallery/_2324.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left; display:none">
+<a href="../webadmin/depgallery/_1751.jpeg"><img src="../webadmin/depgallery/_1751.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left; display:none">
+<a href="../webadmin/depgallery/_2322.jpeg"><img src="../webadmin/depgallery/_2322.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left; display:none">
+<a href="../webadmin/depgallery/_1768.jpeg"><img src="../webadmin/depgallery/_1768.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left; display:none">
+<a href="../webadmin/depgallery/_3289.jpeg"><img src="../webadmin/depgallery/_3289.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left; display:none">
+<a href="../webadmin/depgallery/_1759.jpeg"><img src="../webadmin/depgallery/_1759.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left; display:none">
+<a href="../webadmin/depgallery/_1770.jpeg"><img src="../webadmin/depgallery/_1770.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left; display:none">
+<a href="../webadmin/depgallery/_1760.jpeg"><img src="../webadmin/depgallery/_1760.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left; display:none">
+<a href="../webadmin/depgallery/_1753.jpeg"><img src="../webadmin/depgallery/_1753.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left; display:none">
+<a href="../webadmin/depgallery/_3420.jpeg"><img src="../webadmin/depgallery/_3420.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left; display:none">
+<a href="../webadmin/depgallery/_2327.jpeg"><img src="../webadmin/depgallery/_2327.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left; display:none">
+<a href="../webadmin/depgallery/_2325.jpeg"><img src="../webadmin/depgallery/_2325.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left; display:none">
+<a href="../webadmin/depgallery/_3287.jpeg"><img src="../webadmin/depgallery/_3287.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left; display:none">
+<a href="../webadmin/depgallery/_1750.jpeg"><img src="../webadmin/depgallery/_1750.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                              
+
+
+<div    style="width:80px; float:left; display:none">
+<a href="../webadmin/depgallery/_1745.jpeg"><img src="../webadmin/depgallery/_1745.jpeg" alt="First" width="80" height="70" border="0" title=""  /></a>
+</div>
+                                                                         
+
+
+
+
+
+
+
+
+
+
+
+
+</td>
+            </tr>
+          </table>
+
+        </div></td>
+                </tr>
+            </table>
+
+</td>-->
+																					</tr>
+																					<tr>
+
+																						<td align="left" valign="top"
+																							class="phychology_border">Department
+																							Activities</td>
+
+																					</tr>
+
+																					</td>
+
+																					<tr>
+
+																						<td align="left" valign="middle"><a
+																							href="http://www.christuniversity.in/Psychology/deptarchive.php?dept=33"><center>
+																									<p align=left>
+																										<img width="15" height="15" align="abstop"
+																											alt=""
+																											src="/uploadimages/blue_arrow_down(1).png" />&nbsp;&nbsp;<strong><font
+																											size="5.5" face="Georgia, Arial"
+																											color="#1E90FF">A</font><font size="2.8"
+																											color="#1E90FF">rchives</font> </strong>
+																									</p>
+																						</a></td>
+
+																					</tr>
+
+																					<tr>
+
+
+																						<td align="left" valign="top"
+																							style="padding-top: 10px;"><table
+																								width="210" border="0" cellpadding="0"
+																								cellspacing="0" class="student_new">
+
+
+
+
+																								<tr>
+
+																									<td width="9%" align="left" valign="top"
+																										style="padding-top: 5px;"><img
+																										src="images/icon.jpg" width="5" height="5" />
+																									</td>
+
+																									<td width="180" align="left" valign="top"
+																										height="18"><a
+																										href="deptresources.php?division=Humanities and Social Sciences&dept=33&sid=413#ac"
+																										class="container_c">Alumni Meet</a>
+																									</td>
+																								</tr>
+
+
+																								<tr>
+
+																									<td width="9%" align="left" valign="top"
+																										style="padding-top: 5px;"><img
+																										src="images/icon.jpg" width="5" height="5" />
+																									</td>
+
+																									<td width="180" align="left" valign="top"
+																										height="18"><a
+																										href="deptresources.php?division=Humanities and Social Sciences&dept=33&sid=252#ac"
+																										class="container_c">Center for Research
+																											and Documentation in Psychology (CRDP)</a>
+																									</td>
+																								</tr>
+
+
+																								<tr>
+
+																									<td width="9%" align="left" valign="top"
+																										style="padding-top: 5px;"><img
+																										src="images/icon.jpg" width="5" height="5" />
+																									</td>
+
+																									<td width="180" align="left" valign="top"
+																										height="18"><a
+																										href="deptresources.php?division=Humanities and Social Sciences&dept=33&sid=412#ac"
+																										class="container_c">Conferences</a>
+																									</td>
+																								</tr>
+
+
+																								<tr>
+
+																									<td width="9%" align="left" valign="top"
+																										style="padding-top: 5px;"><img
+																										src="images/icon.jpg" width="5" height="5" />
+																									</td>
+
+																									<td width="180" align="left" valign="top"
+																										height="18"><a
+																										href="deptresources.php?division=Humanities and Social Sciences&dept=33&sid=253#ac"
+																										class="container_c">CSA Community Clinic</a>
+																									</td>
+																								</tr>
+
+
+																								<tr>
+
+																									<td width="9%" align="left" valign="top"
+																										style="padding-top: 5px;"><img
+																										src="images/icon.jpg" width="5" height="5" />
+																									</td>
+
+																									<td width="180" align="left" valign="top"
+																										height="18"><a
+																										href="deptresources.php?division=Humanities and Social Sciences&dept=33&sid=89#ac"
+																										class="container_c">International
+																											Collaborations</a>
+																									</td>
+																								</tr>
+
+
+																								<tr>
+
+																									<td width="9%" align="left" valign="top"
+																										style="padding-top: 5px;"><img
+																										src="images/icon.jpg" width="5" height="5" />
+																									</td>
+
+																									<td width="180" align="left" valign="top"
+																										height="18"><a
+																										href="deptresources.php?division=Humanities and Social Sciences&dept=33&sid=578#ac"
+																										class="container_c">National Theatre
+																											Festival - Baptizer 2014</a>
+																									</td>
+																								</tr>
+
+
+																								<tr>
+
+																									<td width="9%" align="left" valign="top"
+																										style="padding-top: 5px;"><img
+																										src="images/icon.jpg" width="5" height="5" />
+																									</td>
+
+																									<td width="180" align="left" valign="top"
+																										height="18"><a
+																										href="deptresources.php?division=Humanities and Social Sciences&dept=33&sid=118#ac"
+																										class="container_c">National Workshop for
+																											Teachers</a>
+																									</td>
+																								</tr>
+
+
+																								<tr>
+
+																									<td width="9%" align="left" valign="top"
+																										style="padding-top: 5px;"><img
+																										src="images/icon.jpg" width="5" height="5" />
+																									</td>
+
+																									<td width="180" align="left" valign="top"
+																										height="18"><a
+																										href="deptresources.php?division=Humanities and Social Sciences&dept=33&sid=116#ac"
+																										class="container_c">National Workshops</a>
+																									</td>
+																								</tr>
+
+
+																								<tr>
+
+																									<td width="9%" align="left" valign="top"
+																										style="padding-top: 5px;"><img
+																										src="images/icon.jpg" width="5" height="5" />
+																									</td>
+
+																									<td width="180" align="left" valign="top"
+																										height="18"><a
+																										href="deptresources.php?division=Humanities and Social Sciences&dept=33&sid=255#ac"
+																										class="container_c">Perspective</a>
+																									</td>
+																								</tr>
+
+
+																								<tr>
+
+																									<td width="9%" align="left" valign="top"
+																										style="padding-top: 5px;"><img
+																										src="images/icon.jpg" width="5" height="5" />
+																									</td>
+
+																									<td width="180" align="left" valign="top"
+																										height="18"><a
+																										href="deptresources.php?division=Humanities and Social Sciences&dept=33&sid=618#ac"
+																										class="container_c">Report of the
+																											Expressive Arts Workshop</a>
+																									</td>
+																								</tr>
+
+
+																								<tr>
+
+																									<td width="9%" align="left" valign="top"
+																										style="padding-top: 5px;"><img
+																										src="images/icon.jpg" width="5" height="5" />
+																									</td>
+
+																									<td width="180" align="left" valign="top"
+																										height="18"><a
+																										href="deptresources.php?division=Humanities and Social Sciences&dept=33&sid=662#ac"
+																										class="container_c">Report on -
+																											INTERACTIVE WORKSHOP ON SOUL MEDICINE</a>
+																									</td>
+																								</tr>
+
+
+																								<tr>
+
+																									<td width="9%" align="left" valign="top"
+																										style="padding-top: 5px;"><img
+																										src="images/icon.jpg" width="5" height="5" />
+																									</td>
+
+																									<td width="180" align="left" valign="top"
+																										height="18"><a
+																										href="deptresources.php?division=Humanities and Social Sciences&dept=33&sid=462#ac"
+																										class="container_c">Report on Awareness
+																											Rally against Drug Abuse and Illicit
+																											Trafficking</a>
+																									</td>
+																								</tr>
+
+
+																								<tr>
+
+																									<td width="9%" align="left" valign="top"
+																										style="padding-top: 5px;"><img
+																										src="images/icon.jpg" width="5" height="5" />
+																									</td>
+
+																									<td width="180" align="left" valign="top"
+																										height="18"><a
+																										href="deptresources.php?division=Humanities and Social Sciences&dept=33&sid=607#ac"
+																										class="container_c">Report on National
+																											Seminar on Positive Psychology</a>
+																									</td>
+																								</tr>
+
+
+																								<tr>
+
+																									<td width="9%" align="left" valign="top"
+																										style="padding-top: 5px;"><img
+																										src="images/icon.jpg" width="5" height="5" />
+																									</td>
+
+																									<td width="180" align="left" valign="top"
+																										height="18"><a
+																										href="deptresources.php?division=Humanities and Social Sciences&dept=33&sid=663#ac"
+																										class="container_c">Report on Workshop on
+																											Clinical Psychological Assessment (WISC-IV)</a>
+																									</td>
+																								</tr>
+
+
+																								<tr>
+
+																									<td width="9%" align="left" valign="top"
+																										style="padding-top: 5px;"><img
+																										src="images/icon.jpg" width="5" height="5" />
+																									</td>
+
+																									<td width="180" align="left" valign="top"
+																										height="18"><a
+																										href="deptresources.php?division=Humanities and Social Sciences&dept=33&sid=251#ac"
+																										class="container_c">The Film Club</a>
+																									</td>
+																								</tr>
+
+
+																								<tr>
+
+																									<td width="9%" align="left" valign="top"
+																										style="padding-top: 5px;"><img
+																										src="images/icon.jpg" width="5" height="5" />
+																									</td>
+
+																									<td width="180" align="left" valign="top"
+																										height="18"><a
+																										href="deptresources.php?division=Humanities and Social Sciences&dept=33&sid=219#ac"
+																										class="container_c">Vaariya : HR Fest</a>
+																									</td>
+																								</tr>
+
+
+																								<tr>
+
+																									<td width="9%" align="left" valign="top"
+																										style="padding-top: 5px;"><img
+																										src="images/icon.jpg" width="5" height="5" />
+																									</td>
+
+																									<td width="180" align="left" valign="top"
+																										height="18"><a
+																										href="deptresources.php?division=Humanities and Social Sciences&dept=33&sid=250#ac"
+																										class="container_c">Young Psychologist
+																											National Paper Presentation Competition</a>
+																									</td>
+																								</tr>
+
+
+
+																							</table></td>
+
+																					</tr>
+
+																				</table> <br><br>
+																			</td>
+																		</tr>
+
+																		<tr>
+																			<td><table width="210" border="0" align="center"
+																					cellpadding="0" cellspacing="0">
+
+																					<tr>
+
+																						<td align="left" valign="top"
+																							class="phychology_border">Other Departments</td>
+
+																					</tr>
+
+																					<tr>
+
+																						<td align="left" valign="top"
+																							style="padding-bottom: 10px; padding-top: 10px;">
+
+																							<table width="175" border="0" align="left"
+																								cellpadding="0" cellspacing="0"
+																								class="student_new">
+
+
+																								<tr>
+
+																									<td width="9%" height="18" align="center"
+																										valign="middle" style="padding-top: 5px;"><img
+																										src="images/icon.jpg" width="5" height="5" />
+																									</td>
+
+																									<td width="91%" align="left" valign="middle"
+																										height="18"><a
+																										href="../Department of English/index.php?division=Humanities and Social Sciences&dept=90">Department
+																											of English</a></td>
+
+																								</tr>
+
+
+																								<tr>
+
+																									<td width="9%" height="18" align="center"
+																										valign="middle" style="padding-top: 5px;"><img
+																										src="images/icon.jpg" width="5" height="5" />
+																									</td>
+
+																									<td width="91%" align="left" valign="middle"
+																										height="18"><a
+																										href="../Economics/index.php?division=Humanities and Social Sciences&dept=67">Economics</a>
+																									</td>
+
+																								</tr>
+
+
+																								<tr>
+
+																									<td width="9%" height="18" align="center"
+																										valign="middle" style="padding-top: 5px;"><img
+																										src="images/icon.jpg" width="5" height="5" />
+																									</td>
+
+																									<td width="91%" align="left" valign="middle"
+																										height="18"><a
+																										href="../History/index.php?division=Humanities and Social Sciences&dept=30">History</a>
+																									</td>
+
+																								</tr>
+
+
+																								<tr>
+
+																									<td width="9%" height="18" align="center"
+																										valign="middle" style="padding-top: 5px;"><img
+																										src="images/icon.jpg" width="5" height="5" />
+																									</td>
+
+																									<td width="91%" align="left" valign="middle"
+																										height="18"><a
+																										href="../Languages/index.php?division=Humanities and Social Sciences&dept=91">Languages</a>
+																									</td>
+
+																								</tr>
+
+
+																								<tr>
+
+																									<td width="9%" height="18" align="center"
+																										valign="middle" style="padding-top: 5px;"><img
+																										src="images/icon.jpg" width="5" height="5" />
+																									</td>
+
+																									<td width="91%" align="left" valign="middle"
+																										height="18"><a
+																										href="../Media Studies/index.php?division=Humanities and Social Sciences&dept=59">Media
+																											Studies</a></td>
+
+																								</tr>
+
+
+																								<tr>
+
+																									<td width="9%" height="18" align="center"
+																										valign="middle" style="padding-top: 5px;"><img
+																										src="images/icon.jpg" width="5" height="5" />
+																									</td>
+
+																									<td width="91%" align="left" valign="middle"
+																										height="18"><a
+																										href="../Performing Arts/index.php?division=Humanities and Social Sciences&dept=94">Performing
+																											Arts</a></td>
+
+																								</tr>
+
+
+																								<tr>
+
+																									<td width="9%" height="18" align="center"
+																										valign="middle" style="padding-top: 5px;"><img
+																										src="images/icon.jpg" width="5" height="5" />
+																									</td>
+
+																									<td width="91%" align="left" valign="middle"
+																										height="18"><a
+																										href="../Philosophy and Theology/index.php?division=Humanities and Social Sciences&dept=68">Philosophy
+																											and Theology</a></td>
+
+																								</tr>
+
+
+																								<tr>
+
+																									<td width="9%" height="18" align="center"
+																										valign="middle" style="padding-top: 5px;"><img
+																										src="images/icon.jpg" width="5" height="5" />
+																									</td>
+
+																									<td width="91%" align="left" valign="middle"
+																										height="18"><a
+																										href="../Political Science/index.php?division=Humanities and Social Sciences&dept=93">Political
+																											Science</a></td>
+
+																								</tr>
+
+
+																								<tr>
+
+																									<td width="9%" height="18" align="center"
+																										valign="middle" style="padding-top: 5px;"><img
+																										src="images/icon.jpg" width="5" height="5" />
+																									</td>
+
+																									<td width="91%" align="left" valign="middle"
+																										height="18"><a
+																										href="../Psychology/index.php?division=Humanities and Social Sciences&dept=33">Psychology</a>
+																									</td>
+
+																								</tr>
+
+
+																								<tr>
+
+																									<td width="9%" height="18" align="center"
+																										valign="middle" style="padding-top: 5px;"><img
+																										src="images/icon.jpg" width="5" height="5" />
+																									</td>
+
+																									<td width="91%" align="left" valign="middle"
+																										height="18"><a
+																										href="../Social Work/index.php?division=Humanities and Social Sciences&dept=31">Social
+																											Work</a></td>
+
+																								</tr>
+
+
+																								<tr>
+
+																									<td width="9%" height="18" align="center"
+																										valign="middle" style="padding-top: 5px;"><img
+																										src="images/icon.jpg" width="5" height="5" />
+																									</td>
+
+																									<td width="91%" align="left" valign="middle"
+																										height="18"><a
+																										href="../Sociology/index.php?division=Humanities and Social Sciences&dept=37">Sociology</a>
+																									</td>
+
+																								</tr>
+
+
+																								<tr>
+
+																									<td width="9%" height="18" align="center"
+																										valign="middle" style="padding-top: 5px;"><img
+																										src="images/icon.jpg" width="5" height="5" />
+																									</td>
+
+																									<td width="91%" align="left" valign="middle"
+																										height="18"><a
+																										href="../Theatre Studies/index.php?division=Humanities and Social Sciences&dept=70">Theatre
+																											Studies</a></td>
+
+																								</tr>
+
+
+
+
+																							</table>
+																						</td>
+
+																					</tr>
+
+																				</table> </br> </br> </br>
+																			</td>
+																		</tr>
+																	</table></td>
+
+																<td width="50">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+
+																<td width="180" align="center" valign="top">
+
+																	<table width="100%" border="0" cellspacing="0"
+																		cellpadding="0" valign="top">
+
+																		<tr>
+																			<td valign="top"><table width="175" border="0"
+																					align="left" cellpadding="0" cellspacing="0"
+																					class="quicklinks_phychology_sub" valign="top">
+
+																					<tr>
+																						<td align="left" class="phychology_border"
+																							valign="top">Quick Links</td>
+																					</tr>
+
+																					<table width="89%" border="0" align="left"
+																						cellpadding="0" cellspacing="0"
+																						class="quicklinks_phychology_sub" valign="top">
+
+																						<tr>
+
+																							<td width="12%" height="20" align="left"
+																								valign="middle" style="padding-top: 5px;"><img
+																								src="images/icon.jpg" width="5" height="5" /></td>
+
+																							<td width="88%" align="left" valign="middle"><a
+																								href="index.php?division=Humanities and Social Sciences&&dept=33">Overview</a>
+																							</td>
+
+																						</tr>
+
+																						<tr>
+
+																							<td height="18" align="left" valign="middle"
+																								style="padding-top: 5px;"><img
+																								src="images/icon.jpg" width="5" height="5" /></td>
+
+																							<td align="left" valign="middle"><a
+																								href="deptcourses.php?division=Humanities and Social Sciences&&dept=33#co">Courses
+																									Offered</a></td>
+
+																						</tr>
+
+																						<tr>
+
+																							<td height="18" align="left" valign="middle"
+																								style="padding-top: 5px;"><img
+																								src="images/icon.jpg" width="5" height="5" /></td>
+
+																							<td align="left" valign="middle"><a
+																								href="deptfaculty.php?division=Humanities and Social Sciences&&dept=33#fa">Faculty
+																									Profile</a></td>
+
+																						</tr>
+
+																						<tr>
+
+																							<td height="18" align="left" valign="middle"
+																								style="padding-top: 5px;"><img
+																								src="images/icon.jpg" width="5" height="5" /></td>
+
+																							<td align="left" valign="middle"><a
+																								href="deptfestival.php?division=Humanities and Social Sciences&&dept=33#fe">Festivals</a>
+																							</td>
+
+																						</tr>
+
+																						<tr>
+
+																							<td height="18" align="left" valign="middle"
+																								style="padding-top: 5px;"><img
+																								src="images/icon.jpg" width="5" height="5" /></td>
+
+																							<td align="left" valign="middle"><a
+																								href="deptassociation.php?division=Humanities and Social Sciences&&dept=33#as">Association</a>
+																							</td>
+
+																						</tr>
+
+																						<tr>
+
+																							<td height="18" align="left" valign="middle"
+																								style="padding-top: 5px;"><img
+																								src="images/icon.jpg" width="5" height="5" /></td>
+
+																							<td align="left" valign="middle"><a
+																								href="http://app.christuniversity.in">Apply
+																									Online</a></td>
+
+																						</tr>
+
+																					</table>
+																					</td>
+																					</tr>
+
+																					<tr>
+																						<td height="20px">&nbsp;</td>
+																					</tr>
+																					<tr>
+																						<td><table width="175" border="0"
+																								cellpadding="0" cellspacing="0">
+																								<tr>
+																									<td align="left" valign="top"
+																										class="phychology_border">Contact Us</td>
+																								</tr>
+																								<tr>
+
+																									<td align="left" style="padding-top: 10px;">
+																										<strong> <u>Head- Administration</u>
+																									</strong> <br />Dept. of Psychology,<br /> Christ
+																										University,<br /> Hosur Road,<br />
+																										Bangalore, <br />Karnataka, India - 560029 <br />
+																										Ph: +91 80.4012.9100, <br />
+																										Fax:+91.80.40129000 <br />Email:hod.psy@christuniversity.in,<br />
+																										<br /> <strong> <u> Admissions </u>
+																									</strong> <br /> Email: mail@christuniversity.in <br />
+																										Website: www.christuniversity.in <br />
+																									</td>
+																								</tr>
+																							</table>
+																						</td>
+																					</tr>
+																					<tr>
+																						<td height="20px">&nbsp;</td>
+																					</tr>
+																					<tr>
+																						<td><table width="175" border="0"
+																								cellspacing="0" cellpadding="0">
+
+																								<tr>
+
+																									<td align="left" valign="top"
+																										class="phychology_border">Festivals</td>
+
+																								</tr>
+
+																								<tr>
+
+																									<td align="left" style="padding-top: 10px;">
+
+																										<table width="100%" border="0" cellspacing="0"
+																											cellpadding="0" class="student_new">
+
+
+																											<tr>
+
+																												<td width="9%" align="left" valign="top"
+																													style="padding-top: 5px;"><img
+																													src="images/icon.jpg" width="5" height="5" />
+																												</td>
+
+																												<td width="91%" align="left" valign="top"
+																													class="student_new"><a
+																													href="festivaldetail.php?fest=9&&division=Humanities and Social Sciences&&dept=33#fe">
+
+																														SILHOUETTE </a>
+																												</td>
+
+																											</tr>
+
+
+																										</table>
+																									</td>
+
+																								</tr>
+
+																							</table>
+																				</table></td>
+
+																		</tr>
+
+																	</table>
+																</td>
+														</table></td>
+
+													<td width="50">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+
+													<td width="180" align="center" valign="top">
+
+														<table width="100%" border="0" cellspacing="0"
+															cellpadding="0" valign="top">
+
+															<tr>
+															</tr>
+
+															<tr>
+																<td height="20px">&nbsp;</td>
+															</tr>
+															<tr>
+																<td height="20px">&nbsp;</td>
+															</tr>
+														</table></td>
+
+												</tr>
+
+											</table>
+									</td>
+
+
+
+								</tr>
+
+							</table>
+						</td>
+
+					</tr>
+
+				</table>
+			</td>
+
+		</tr>
+
+	</table>
+
+	<br />
+
+
+	<!--   <link href="css_new/footer.css" rel="stylesheet" type="text/css" />
+                    <link href="css/style.css" rel="stylesheet" type="text/css" />-->
+
+	<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-17664082-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+	<div class="clear"></div>
+	<div class="footer-colom">
+		<div class="foot">
+			<ul>
+				<li><a href="http://www.christuniversity.in/seminar.php"
+					target="_blank"> Upcoming Events</a></li>
+				<span class="foot-line"><img src="../images/devide01.jpg" />
+				</span>
+				<li><a href="http://library.christuniversity.in"
+					target="_blank"> &nbsp;Library&nbsp;</a></li>
+				<span class="foot-line"><img src="../images/devide01.jpg" />
+				</span>
+				<li><a href="http://repository.christuniversity.in"
+					target="_blank"> Repository</a></li>
+				<span class="foot-line"><img src="../images/devide01.jpg" />
+				</span>
+				<li><a href="http://www.christuniversity.in/StudentLogin.html"
+					target="_blank"> Attendance</a></li>
+				<span class="foot-line"><img src="../images/devide01.jpg" />
+				</span>
+				<li><a
+					href="http://christuniversity.in/msgdisplay.php?id=87631&f=2"
+					target="_blank"> Careers</a></li>
+				<span class="foot-line"><img src="../images/devide01.jpg" />
+				</span>
+				<li><a href="http://www.christuniversity.in/campuslink.php"
+					target="_blank"> Campus </a></li>
+				<span class="foot-line"><img src="../images/devide01.jpg" />
+				</span>
+				<li><a
+					href="http://www.christuniversity.in/secmenudisp.php?mid=7&subid=27"
+					target="_blank"> Calendar </a></li>
+				<span class="foot-line"><img src="../images/devide01.jpg" />
+				</span>
+				<li><a href="http://courses.christuniversity.in"
+					target="_blank"> My Course</a></li>
+				<span class="foot-line"><img src="../images/devide01.jpg" />
+				</span>
+				<li><a href="http://www.christuniversity.in/sitemap.php"
+					target="_blank"> Sitemap </a></li>
+				<span class="foot-line"><img src="../images/devide01.jpg" />
+				</span>
+				<li><a
+					href="http://maps.google.com/?ie=UTF8&ll=12.934885,77.607422&spn=0.004925,0.007296&z=17"
+					target="_blank"> Locate Us</a></li>
+				<span class="foot-line"><img src="../images/devide01.jpg" />
+				</span>
+				<li><a href="http://www.christuniversity.in/enquiry.php"
+					target="_blank"> Contact Us</a></li>
+				<span class="foot-line"><img src="../images/devide01.jpg" />
+				</span>
+				<li><a href="http://csa.christuniversity.in" target="_blank">
+						&nbsp;&nbsp;CSA</a></li>
+			</ul>
+		</div>
+	</div>
+
+</body>
+
+</html>
+
