@@ -513,6 +513,20 @@ public class GenericJaxbHelper<T> {
 		return null;
 	}
 
+	/**
+	 * Links: http://stackoverflow.com/questions/17214930/jaxb-unmarshal-with-
+	 * declared
+	 * -type-does-not-populate-the-resulting-object-with-da/17216995#17216995
+	 * 
+	 * http://blog.bdoughan.com/2010/08/jaxb-namespaces.html
+	 * 
+	 * @param fileInputStream
+	 * @param argStartElement
+	 * @return
+	 * @throws JAXBException
+	 * @throws SAXException
+	 * @throws ParserConfigurationException
+	 */
 	public JAXBElement<T> customUnmarshller(InputStream fileInputStream,
 			String argStartElement) throws JAXBException, SAXException,
 			ParserConfigurationException {
